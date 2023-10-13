@@ -44,14 +44,14 @@ func_name='sub-'$sub'_ses-'$ses'_run-1_bold.nii.gz'
 Bru2 -a -z -o tmp anat/pdata/1/                                                                 #convert create tmp folder into anat/acqp directory -> convert
 3dresample -inset tmp.nii.gz -prefix  $output_sub_dir'/anat/'$anat_name -orient LPI             #change scan orientation, save tp output directory 
 rm tmp.nii.gz
-# cp -u ses-3awakefMRI2/anat/*nii.gz $output_sub_dir'/anat/tmp.nii.gz'                          #if no transformation needed
+# cp -u /anat/*nii.gz $output_sub_dir'/anat/tmp.nii.gz'                          #if no transformation needed
 
 
 #func
 Bru2 -z -a -o tmp func/pdata/1/                                                                 #convert data in folder 6 into BIDS format
 3dresample -inset tmp.nii.gz -prefix  $output_sub_dir'/func/'$func_name -orient LPI             #change scan orientation, save into output directory 
 rm tmp.nii.gz
-# cp -u ses-3awakefMRI2/func/*nii.gz $output_sub_dir'/func/tmp.nii.gz'                          #if no transformation needed
+# cp -u /func/*nii.gz $output_sub_dir'/func/tmp.nii.gz'                          #if no transformation needed
 
 
 id=$((id + 1))                  #scan number increases by 1
