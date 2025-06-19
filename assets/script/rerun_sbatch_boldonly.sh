@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-tmp_scripts_dir='/project/4180000.36/awake/tmp_rabies_scripts_mouse'
+tmp_scripts_dir='/project/4180000.36/awake/mouse_scripts'
 complete_scripts_dir='/project/4180000.36/awake/complete_rabies_scripts_mouse'
 output_dir='/project/4180000.36/awake/output_mouse'
 

@@ -1,8 +1,8 @@
 #!/bin/env bash
 
-tmp_scripts_dir='/project/4180000.36/awake/tmp_rabies_scripts_mouse'
-complete_scripts_dir='/project/4180000.36/awake/complete_rabies_scripts_mouse'
-output_dir='/project/4180000.36/awake/output_mouse'
+tmp_scripts_dir='/project/4180000.36/awake/rat_scripts'
+complete_scripts_dir='/project/4180000.36/awake/complete_rabies_scripts_rat'
+output_dir='/project/4180000.36/awake/output_rat'
 
 cd $tmp_scripts_dir
 
@@ -29,6 +29,7 @@ acompcor_seed_output="${output_dir}/aCompCor3/analysis_datasink/seed_correlation
 if [ -f $anat_reg_output ] && [ -f $func_reg_output ] && [ -f $acompcor_seed_output ]; then
     echo "${subject}_${session}_${run} complete"
     mv $line $complete_scripts_dir
+
 else
     echo "${subject}_${session}_${run} incomplete"
     #sed -i 's/MultiProc/Linear/' $line
@@ -40,13 +41,37 @@ fi
 
 done
 
+ 
+mkdir -p $output_dir/wmcsf1
+mkdir -p $output_dir/wmcsf2
+mkdir -p $output_dir/wmcsf3
+mkdir -p $output_dir/gsr1
+mkdir -p $output_dir/gsr2
+mkdir -p $output_dir/gsr3
+mkdir -p $output_dir/aCompCor1
+mkdir -p $output_dir/aCompCor2
+mkdir -p $output_dir/aCompCor3
 
 
-#find . -type f -exec sed -i 's/fast_commonspace=true /fast_commonspace=true --bold_only --bold_inho_cor method=Rigid,otsu_thresh=2,multiotsu=false --bold_robust_inho_cor apply=true,masking=true,brain_extraction=true,template_registration=Affine/g' {} +
+
+
+#find . -type f -exec sed -i 's/3dWarp /3dWarp --bold_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false --anat_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false /g' {} +
 
 #find . -type f -exec sed -i 's/mem=24GB/mem=64GB/g' {} +
 
-#find . -type f -exec sed -i 's/3dWarp /3dWarp --bold_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false --anat_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false /g' {} +
+#find . -type f -exec sed -i 's/--detect_dummy //g' {} +
+
+#find . -type f -exec sed -i 's/fast_commonspace=true /fast_commonspace=true --bold_only --bold_inho_cor method=Rigid,otsu_thresh=2,multiotsu=false --bold_robust_inho_cor apply=true,masking=true,brain_extraction=true,template_registration=Affine/g' {} +
+
+#find . -type f -exec sed -i 's/--bold_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false --anat_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false //g' {} +
+
+#find . -type f -exec sed -i 's/3dWarp /3dWarp --bold_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false /g' {} +
+
+
+#find . -type f -exec sed -i 's/mem=64GB/mem=128GB/g' {} +
+
+
+#find . -type f -exec sed -i 's/--detect_dummy/--detect_dummy --bold_autobox --anat_autobox/g' {} +
 
 
 
