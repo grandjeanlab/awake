@@ -73,5 +73,10 @@ mkdir -p $output_dir/aCompCor3
 
 #find . -type f -exec sed -i 's/--detect_dummy/--detect_dummy --bold_autobox --anat_autobox/g' {} +
 
+#find . -type f -exec sed -i 's/--bold_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false --anat_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false //g' {} +
+
+
+#find . -type f -exec sed -i 's/--detect_dummy //g' {} +
+
 
 

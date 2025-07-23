@@ -1,0 +1,5 @@
+rodent.ds	total_run	total_included	included_percentage	total_rat	strain	male	female	unknownsex	headplate	restrained	anesthesia	field_strength	sequence	TR	TE
+2001	16	16	100.0	16	['Wistar']	8	8	0	['n']	['y']	['Isoflurane']	[7]	['GE-EPI']	[1000]	[17]
+2002	17	17	100.0	17	['Sprague-Dawley' 'Wistar']	17	0	0	['n']	['y']	['Sevoflurane' 'Isoflurane']	[7]	['GE-EPI' 'SE-EPI']	[1000 2000]	[18 45]
+2003	97	97	100.0	8	['Sprague-Dawley']	97	0	0	['y']	['y']	['Isoflurane']	[7]	['GE-EPI']	[2000]	[15]
+4001	291	284	97.59450171821305	89	[nan]	291	0	0	['n']	['y']	['isoflurane']	[7]	['GE-EPI']	[1000]	[15]

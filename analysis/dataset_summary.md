@@ -1,0 +1,101 @@
+---
+title: "summary of the datasets"
+author: "Joanes Grandjean"
+date: "19/6/2025"
+---
+
+We accumulated datasets from several laboratories. Here, we carry out a descriptive summary of the dataset and its processing.
+
+
+```{python}
+import pandas as pd
+
+df = pd.read_csv("../assets/tables/mouse_metadata.tsv", sep="\t")
+
+#get a summary of the total number of runs, excluded runs and number of animals
+mouse_summary = df.groupby("rodent.ds").size().reset_index(name='total_run')
+
+mouse_summary["total_included"] = df.groupby("rodent.ds")["exclude"].apply(lambda x: x.isna().sum()).values
+
+mouse_summary["included_percentage"] = (mouse_summary["total_included"] / mouse_summary["total_run"]) * 100
+
+mouse_summary["total_mouse"] = df.groupby("rodent.ds")["rodent.sub"].nunique().values
+
+#get a summary of the mice used 
+mouse_summary["strain"] = df.groupby("rodent.ds")["rodent.strain"].unique().values
+
+mouse_summary["male"] =  df.groupby("rodent.ds")["rodent.sex"].apply(lambda x: (x == 'm').sum()).values
+mouse_summary["female"] = df.groupby("rodent.ds")["rodent.sex"].apply(lambda x: (x == 'f').sum()).values
+mouse_summary["unknownsex"] = df.groupby("rodent.ds")["rodent.sex"].apply(lambda x: x.isna().sum()).values
+
+#get a summary of the animal preparation
+mouse_summary["headplate"] = df.groupby("rodent.ds")["head-plate (y/n)"].unique().values
+
+mouse_summary["restrained"] = df.groupby("rodent.ds")["body.restrained (y/n)"].unique().values
+
+mouse_summary["anesthesia"] = df.groupby("rodent.ds")["anesthesia.before.acquisition"].unique().values
+
+#get a summary of the MRI parameters
+mouse_summary["field_strength"] = df.groupby("rodent.ds")["MRI.field.strength"].unique().values
+
+mouse_summary["sequence"] = df.groupby("rodent.ds")["fMRI.sequence"].unique().values
+
+mouse_summary["TR"] = df.groupby("rodent.ds")["MRI.TR"].unique().values
+
+mouse_summary["TE"] = df.groupby("rodent.ds")["MRI.TE"].unique().values
+
+#output the table
+print(mouse_summary)
+
+#saving the table for later use
+mouse_summary.to_csv("../assets/tables/mouse_summary.tsv", sep="\t", index=False)
+
+```
+
+now doing the same for the rat datasets. 
+
+```{python}
+import pandas as pd
+
+df = pd.read_csv("../assets/tables/rat_metadata.tsv", sep="\t")
+
+#get a summary of the total number of runs, excluded runs and number of animals
+rat_summary = df.groupby("rodent.ds").size().reset_index(name='total_run')
+
+rat_summary["total_included"] = df.groupby("rodent.ds")["exclude"].apply(lambda x: x.isna().sum()).values
+
+rat_summary["included_percentage"] = (rat_summary["total_included"] / rat_summary["total_run"]) * 100
+
+rat_summary["total_rat"] = df.groupby("rodent.ds")["rodent.sub"].nunique().values
+
+#get a summary of the mice used 
+rat_summary["strain"] = df.groupby("rodent.ds")["rodent.strain"].unique().values
+
+rat_summary["male"] =  df.groupby("rodent.ds")["rodent.sex"].apply(lambda x: (x == 'm').sum()).values
+rat_summary["female"] = df.groupby("rodent.ds")["rodent.sex"].apply(lambda x: (x == 'f').sum()).values
+rat_summary["unknownsex"] = df.groupby("rodent.ds")["rodent.sex"].apply(lambda x: x.isna().sum()).values
+
+#get a summary of the animal preparation
+rat_summary["headplate"] = df.groupby("rodent.ds")["head-plate (y/n)"].unique().values
+
+rat_summary["restrained"] = df.groupby("rodent.ds")["body.restrained (y/n)"].unique().values
+
+rat_summary["anesthesia"] = df.groupby("rodent.ds")["anesthesia.before.acquisition"].unique().values
+
+#get a summary of the MRI parameters
+rat_summary["field_strength"] = df.groupby("rodent.ds")["MRI.field.strength"].unique().values
+
+rat_summary["sequence"] = df.groupby("rodent.ds")["fMRI.sequence"].unique().values
+
+rat_summary["TR"] = df.groupby("rodent.ds")["MRI.TR"].unique().values
+
+rat_summary["TE"] = df.groupby("rodent.ds")["MRI.TE"].unique().values
+
+#output the table
+print(rat_summary)
+
+#saving the table for later use
+rat_summary.to_csv("../assets/tables/rat_summary.tsv", sep="\t", index=False)
+
+```
+
