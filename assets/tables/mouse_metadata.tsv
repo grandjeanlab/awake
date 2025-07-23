@@ -1,4 +1,4 @@
-exclude	exclude.reason	comments	rodent.ds	rodent.sub	animal.id.orig	rodent.session	rodent.session.orig	rodent.run	rodent.species	rodent.strain	rodent.strain.orig	rodent.sex	rodent.age (week)	rodent.weight (g)	main.experimenter.gender (m/f/NA)	head-plate (y/n)	body.restrained (y/n)	free.behaving (y/n)	anesthesia.before.acquisition	anesthesia.before.acquisition.orig (if so, which)	average.breathing.rate (bpm, if recorded)	average.heart.rate (bpm, if recorded)	average.temperature (C, if recorded)	MRI.vendor	MRI.field.strength	MRI.cryocoil	fMRI.sequence	MRI.TR	MRI.TE	MRI.in.plane.resolution (mm)	MRI.slice.thickness (mm)	Link to paper	Link to Download data
+exclude	exclude.reason	comments	rodent.ds	rodent.sub	animal.id.orig	rodent.session	rodent.session.orig	rodent.run	rodent.species	rodent.strain	rodent.strain.orig	rodent.sex	rodent.age	rodent.weight	main.experimenter.gender	head-plate	body.restrained	free.behaving	anesthesia.before.acquisition	anesthesia.before.acquisition.orig	average.breathing.rate	average.heart.rate	average.temperature	MRI.vendor	MRI.field.strength	MRI.cryocoil	fMRI.sequence	MRI.TR	MRI.TE	MRI.in.plane.resolution	MRI.slice.thickness	Link.to.paper	Link.to.Download.data
 		data is the same BIDS_raw and BIDS_input-RABIES	1001	100100	20190305_m08_awake	1	1	1	mouse	C57BL/6	C57BL/6	m	7-9	25	m	y	n	n	n	n	262~293		37+_0.5	Bruker	9.4	y	GE-EPI	1000	15	0.225	0.5		
 		data is the same BIDS_raw and BIDS_input-RABIES	1001	100101	20190305_m09_awake	1	1	1	mouse	C57BL/6	C57BL/6	m	7-9	25	m	y	n	n	n	n	262~293		37+_0.5	Bruker	9.4	y	GE-EPI	1000	15	0.225	0.5		
 		data is the same BIDS_raw and BIDS_input-RABIES	1001	100102	20190305_m10_awake	1	1	1	mouse	C57BL/6	C57BL/6	m	7-9	25	m	y	n	n	n	n	262~293		37+_0.5	Bruker	9.4	y	GE-EPI	1000	15	0.225	0.5		
@@ -44,29 +44,29 @@ exclude	exclude.reason	comments	rodent.ds	rodent.sub	animal.id.orig	rodent.sessi
 		3dresample	1004	100404	sub-WT25	2	1	1	mouse	C57BL/6	c57bl10	m	9m	32	f	y	y	y	n	n	NA	NA	NA	Bruker	11.7	n	GE-EPI	1800	11	anat = 0.2, func = 0.31	anat = 0.2, func = 0.31		
 		3dresample	1004	100404	sub-WT25	2	1	2	mouse	C57BL/6	c57bl10	m	9m	32	f	y	y	y	n	n	NA	NA	NA	Bruker	11.7	n	GE-EPI	1800	11	anat = 0.2, func = 0.31	anat = 0.2, func = 0.31		
 		3dresample	1004	100404	sub-WT25	2	1	3	mouse	C57BL/6	c57bl10	m	9m	32	f	y	y	y	n	n	NA	NA	NA	Bruker	11.7	n	GE-EPI	1800	11	anat = 0.2, func = 0.31	anat = 0.2, func = 0.31		
-		fslorient. 1 anat img per subj, in ses-1. 	1005	100500	1	1	E17	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
-		fslorient	1005	100500	1	2	E18	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
-		fslorient	1005	100500	1	3	E23	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	25	0.125*0.125	0.4		
-		fslorient	1005	100500	1	4	E20	1	mouse	C57BL/6	C57BL/6	m	NA	27.4	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	25	0.125*0.125	0.4		
-		fslorient	1005	100500	1	5	E29	1	mouse	C57BL/6	C57BL/6	m	NA	27.4	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	2500	25	0.125*0.125	0.4		
-y	too many tp	fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img	1005	100502	7	1	E7	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
-		fslorient. only keep T2 anat img	1005	100502	7	2	E18	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
-		fslorient. only keep T2 anat img	1005	100502	7	3	E19	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
-y	too many tp	fslorient. only keep T2 anat img	1005	100502	7	4	E10	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-		fslorient. 1 anat img per subj, in ses-1	1005	100503	15	1	E19	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
-		fslorient	1005	100503	15	2	E20	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
-		fslorient. 1 anat img per subj, in ses-1	1005	100504	16	1	E26	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	25	0.14*0.14	0.4		
-		fslorient	1005	100504	16	2	E35	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
-		fslorient	1005	100504	16	3	E57	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
-y	too many tp	fslorient	1005	100505	109	1	E4	1	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-y	too many tp	fslorient	1005	100506	113	1	E4	1	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-y	too many tp	fslorient	1005	100507	115	1	E7	1	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-y	too many tp	fslorient	1005	100508	117	1	E10	1	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-y	too many tp	fslorient	1005	100509	119	1	E15	1	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-y	too many tp	fslorient	1005	100510	138	1	E28 (E77)	1	mouse	C57BL/6	C57BL/6	m	11	20.5	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	14.4	0.125*0.125	0.4		
-y	too many tp	fslorient	1005	100511	141	1	E40	1	mouse	C57BL/6	C57BL/6	m	11	22.4	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	14.4	0.125*0.125	0.4		
-y	too many tp	fslorient	1005	100512	150	1	E16 (E14)	1	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1. 	1005a	100500	1	1	E17	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
+		fslorient	1005a	100500	1	2	E18	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
+		fslorient	1005a	100500	1	3	E23	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	25	0.125*0.125	0.4		
+		fslorient	1005a	100500	1	4	E20	1	mouse	C57BL/6	C57BL/6	m	NA	27.4	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	25	0.125*0.125	0.4		
+		fslorient	1005a	100500	1	5	E29	1	mouse	C57BL/6	C57BL/6	m	NA	27.4	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	2500	25	0.125*0.125	0.4		
+y	too many tp	fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005b	100501	2	1	E18	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img	1005a	100502	7	1	E7	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
+		fslorient. only keep T2 anat img	1005a	100502	7	2	E18	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
+		fslorient. only keep T2 anat img	1005a	100502	7	3	E19	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
+y	too many tp	fslorient. only keep T2 anat img	1005b	100502	7	4	E10	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1	1005a	100503	15	1	E19	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
+		fslorient	1005a	100503	15	2	E20	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
+		fslorient. 1 anat img per subj, in ses-1	1005a	100504	16	1	E26	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	25	0.14*0.14	0.4		
+		fslorient	1005a	100504	16	2	E35	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
+		fslorient	1005a	100504	16	3	E57	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
+y	too many tp	fslorient	1005b	100505	109	1	E4	1	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y	too many tp	fslorient	1005b	100506	113	1	E4	1	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y	too many tp	fslorient	1005b	100507	115	1	E7	1	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y	too many tp	fslorient	1005b	100508	117	1	E10	1	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y	too many tp	fslorient	1005b	100509	119	1	E15	1	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y	too many tp	fslorient	1005b	100510	138	1	E28 (E77)	1	mouse	C57BL/6	C57BL/6	m	11	20.5	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	14.4	0.125*0.125	0.4		
+y	too many tp	fslorient	1005b	100511	141	1	E40	1	mouse	C57BL/6	C57BL/6	m	11	22.4	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	14.4	0.125*0.125	0.4		
+y	too many tp	fslorient	1005b	100512	150	1	E16 (E14)	1	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	Isoflurane	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
 		3dresample	1006	100600	jgrCAM408726	2	2	3	mouse	C57BL/6	C57BL/6J // Charles River // Ger	f	9 months	32.2	m	y	n	y	Isoflurane	Isoflurane				Bruker	11.7	n	GE-EPI	1000	0.014	0.283 x 0.298	0.45		
 		3dresample	1006	100600	jgrCAM408726	6	6	1	mouse	C57BL/6	C57BL/6J // Charles River // Ger	f	11 months	35.2	m	y	n	y	Isoflurane	Isoflurane				Bruker	11.7	n	GE-EPI	1000	0.014	0.283 x 0.298	0.45		
 		3dresample	1006	100601	jgrCAM408731	1	1	1	mouse	C57BL/6	C57BL/6J // Charles River // Ger	f	11 months	26.2	m	y	n	y	Isoflurane	Isoflurane				Bruker	11.7	n	GE-EPI	1000	0.014	0.283 x 0.298	0.45		
@@ -101,210 +101,210 @@ y	too many tp	fslorient	1005	100512	150	1	E16 (E14)	1	mouse	C57BL/6	C57BL/6	m	11
 		data is the same BIDS_raw and BIDS_input-RABIES	1007	100705	sub-043393072F	1	ses-s1	1	mouse	C57BL/6	C57BL/6	f	3mo	21	m	y	y	y	n	n	N/A	N/A	N/A	Varian	9.4	n	GE-EPI	1500	12	0.3 x 0.3	0,5		
 		data is the same BIDS_raw and BIDS_input-RABIES	1007	100706	sub-044393072F	1	ses-s1	1	mouse	C57BL/6	C57BL/6	f	3mo	19	m	y	y	y	n	n	N/A	N/A	N/A	Varian	9.4	n	GE-EPI	1500	12	0.3 x 0.3	0,5		
 		data is the same BIDS_raw and BIDS_input-RABIES	1007	100706	sub-044393072F	1	ses-s1	1	mouse	C57BL/6	C57BL/6	f	3mo	19	m	y	y	y	n	n	N/A	N/A	N/A	Varian	9.4	n	GE-EPI	1500	12	0.3 x 0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100800	5F399513	1	20231201	1	mouse	C57BL/6	C57BL/6	f	39 weeks	24	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100800	5F399513	1	20231201	2	mouse	C57BL/6	C57BL/6	f	39 weeks	24	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100800	5F399513	1	20231201	3	mouse	C57BL/6	C57BL/6	f	39 weeks	24	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100800	5F399513	1	20231201	4	mouse	C57BL/6	C57BL/6	f	39 weeks	24	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100801	8F400413	1	20231110	1	mouse	C57BL/6	C57BL/6	f	36 weeks	24	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100801	8F400413	1	20231110	2	mouse	C57BL/6	C57BL/6	f	36 weeks	24	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100801	8F400413	1	20231110	3	mouse	C57BL/6	C57BL/6	f	36 weeks	24	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100801	8F400413	1	20231110	4	mouse	C57BL/6	C57BL/6	f	36 weeks	24	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100802	11F399988	1	20230614	1	mouse	C57BL/6	C57BL/6	f	14 weeks	21	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100802	11F399988	1	20230614	2	mouse	C57BL/6	C57BL/6	f	14 weeks	21	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100802	11F399988	1	20230614	3	mouse	C57BL/6	C57BL/6	f	14 weeks	21	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100802	11F399988	1	20230614	4	mouse	C57BL/6	C57BL/6	f	14 weeks	21	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100803	14M399989	1	20230901	1	mouse	C57BL/6	C57BL/6	m	25 weeks	24	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100803	14M399989	1	20230901	2	mouse	C57BL/6	C57BL/6	m	25 weeks	24	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100803	14M399989	1	20230901	3	mouse	C57BL/6	C57BL/6	m	25 weeks	24	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100803	14M399989	1	20230901	4	mouse	C57BL/6	C57BL/6	m	25 weeks	24	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100804	15M400313	1	20230608	1	mouse	C57BL/6	C57BL/6	m	12 weeks	23	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100804	15M400313	1	20230608	2	mouse	C57BL/6	C57BL/6	m	12 weeks	23	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100804	15M400313	1	20230608	3	mouse	C57BL/6	C57BL/6	m	12 weeks	23	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100804	15M400313	1	20230608	4	mouse	C57BL/6	C57BL/6	m	12 weeks	23	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100805	16M400314	1	20231124	1	mouse	C57BL/6	C57BL/6	m	34 weeks	26	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100805	16M400314	1	20231124	2	mouse	C57BL/6	C57BL/6	m	34 weeks	26	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100805	16M400314	1	20231124	3	mouse	C57BL/6	C57BL/6	m	34 weeks	26	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100805	16M400314	1	20231124	4	mouse	C57BL/6	C57BL/6	m	34 weeks	26	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100806	24M400978	1	20230603	1	mouse	C57BL/6	C57BL/6	m	11 weeks	20	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-y	failed func reg	data is the same BIDS_raw and BIDS_input-RABIES	1008	100806	24M400978	1	20230603	2	mouse	C57BL/6	C57BL/6	m	11 weeks	20	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100806	24M400978	1	20230603	3	mouse	C57BL/6	C57BL/6	m	11 weeks	20	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-y	failed func reg	data is the same BIDS_raw and BIDS_input-RABIES	1008	100806	24M400978	1	20230603	4	mouse	C57BL/6	C57BL/6	m	11 weeks	20	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100807	25F400977	1	20231201	1	mouse	C57BL/6	C57BL/6	f	34 weeks	20	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100807	25F400977	1	20231201	2	mouse	C57BL/6	C57BL/6	f	34 weeks	20	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100807	25F400977	1	20231201	3	mouse	C57BL/6	C57BL/6	f	34 weeks	20	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100807	25F400977	1	20231201	4	mouse	C57BL/6	C57BL/6	f	34 weeks	20	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100808	27M400979	1	20230818	1	mouse	C57BL/6	C57BL/6	m	21 weeks	25	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100808	27M400979	1	20230818	2	mouse	C57BL/6	C57BL/6	m	21 weeks	25	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100808	27M400979	1	20230818	3	mouse	C57BL/6	C57BL/6	m	21 weeks	25	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1008	100808	27M400979	1	20230818	4	mouse	C57BL/6	C57BL/6	m	21 weeks	25	m	n	y	y		none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
-		3dresample	1009	100900	DIMG8	1	1	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	1	1	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	1	1	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100900	DIMG8	1	1	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100900	DIMG8	1	1	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	1	1	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	1	1	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	1	1	8	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	1	1	9	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	1	1	10	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	2	2	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	2	2	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	2	2	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	2	2	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	2	2	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100900	DIMG8	2	2	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	2	2	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100900	DIMG8	2	2	8	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100901	DIMG11	1	1	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100901	DIMG11	1	1	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100901	DIMG11	1	1	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100901	DIMG11	1	1	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100901	DIMG11	1	1	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100901	DIMG11	1	1	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100901	DIMG11	1	1	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100901	DIMG11	2	2	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100901	DIMG11	2	2	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100901	DIMG11	2	2	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100901	DIMG11	2	2	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100901	DIMG11	2	2	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100901	DIMG11	2	2	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100901	DIMG11	2	2	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100901	DIMG11	3	3	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100901	DIMG11	3	3	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100901	DIMG11	3	3	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100901	DIMG11	3	3	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100901	DIMG11	3	3	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100901	DIMG11	3	3	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	10.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	1	1	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	1	1	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	1	1	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	1	1	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	1	1	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	1	1	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	2	2	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	2	2	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	2	2	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	2	2	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	2	2	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	2	2	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	2	2	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	3	3	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	3	3	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	3	3	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	3	3	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	3	3	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100902	DIMG12	3	3	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	isoflurane	isoflurane				Bruker	11.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	1	1	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	1	1	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	1	1	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100903	DIMG13	1	1	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	1	1	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	1	1	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	1	1	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	2	2	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	2	2	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	2	2	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	2	2	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100903	DIMG13	2	2	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	2	2	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	3	3	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	10 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	3	3	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	10 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	3	3	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	10 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	3	3	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	10 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	3	3	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	10 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	3	3	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	10 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100903	DIMG13	4	4	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	4	4	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	4	4	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	4	4	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100903	DIMG13	4	4	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100903	DIMG13	4	4	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	isoflurane	isoflurane				Bruker	12.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100904	DIMG14	1	1	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	1	1	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	1	1	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	1	1	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	1	1	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	1	1	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100904	DIMG14	1	1	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	2	2	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	9 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	2	2	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	9 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	2	2	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	9 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	2	2	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	9 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100904	DIMG14	2	2	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	9 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	3	3	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-		3dresample	1009	100904	DIMG14	3	3	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	3	3	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	3	3	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	3	3	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	3	3	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	4	4	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	4	4	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	4	4	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	4	4	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	4	4	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	4	4	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1009	100904	DIMG14	4	4	8	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	isoflurane	isoflurane				Bruker	13.4		GE-EPI	1000	15	16	0.333		
-y		3dresample	1010	101000	Subj01	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y		n	n/a	n/a	n/a	Bruker	9.4T	n	SORDINO	0.62	0	0.4	0.4		
-y		3dresample	1010	101001	Subj02	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y		n	n/a	n/a	n/a	Bruker	9.4T	n	SORDINO	0.62	0	0.4	0.4		
-y		3dresample	1010	101002	Subj03	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y		n	n/a	n/a	n/a	Bruker	9.4T	n	SORDINO	0.62	0	0.4	0.4		
-y		3dresample	1010	101003	Subj04	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y		n	n/a	n/a	n/a	Bruker	9.4T	n	SORDINO	0.62	0	0.4	0.4		
-y		3dresample	1010	101004	Subj05	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y		n	n/a	n/a	n/a	Bruker	9.4T	n	SORDINO	0.62	0	0.4	0.4		
-y		3dresample	1010	101005	Subj06	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y		n	n/a	n/a	n/a	Bruker	9.4T	n	SORDINO	0.62	0	0.4	0.4		
-y		3dresample	1010	101006	Subj07	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y		n	n/a	n/a	n/a	Bruker	9.4T	n	SORDINO	0.62	0	0.4	0.4		
-y		3dresample	1010	101007	Subj08	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y		n	n/a	n/a	n/a	Bruker	9.4T	n	SORDINO	0.62	0	0.4	0.4		
-y		3dresample	1010	101008	Subj09	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y		n	n/a	n/a	n/a	Bruker	9.4T	n	SORDINO	0.62	0	0.4	0.4		
-y		3dresample	1010	101009	Subj10	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y		n	n/a	n/a	n/a	Bruker	9.4T	n	SORDINO	0.62	0	0.4	0.4		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101100	Awake01	1	1	1	mouse	C57BL/6	C57BL/6	m	25	32.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition				Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101100	Awake01	1	1	2	mouse	C57BL/6	C57BL/6	m	25	32.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition				Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101100	Awake01	1	1	3	mouse	C57BL/6	C57BL/6	m	25	32.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition				Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101101	Awake02	1	1	1	mouse	C57BL/6	C57BL/6	m	25	31.0	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition				Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101101	Awake02	1	1	2	mouse	C57BL/6	C57BL/6	m	25	31.0	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition				Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101101	Awake02	1	1	3	mouse	C57BL/6	C57BL/6	m	25	31.0	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition				Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101102	Awake03	1	1	1	mouse	C57BL/6	C57BL/6	m	25	31.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101102	Awake03	1	1	2	mouse	C57BL/6	C57BL/6	m	25	31.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101102	Awake03	1	1	3	mouse	C57BL/6	C57BL/6	m	25	31.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101103	Awake04	1	1	1	mouse	C57BL/6	C57BL/6	m	19	29.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37.2	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101103	Awake04	1	1	2	mouse	C57BL/6	C57BL/6	m	19	29.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37.2	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101103	Awake04	1	1	3	mouse	C57BL/6	C57BL/6	m	19	29.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37.2	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101104	Awake05	1	1	1	mouse	C57BL/6	C57BL/6	m	19	29.0	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101104	Awake05	1	1	2	mouse	C57BL/6	C57BL/6	m	19	29.0	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101104	Awake05	1	1	3	mouse	C57BL/6	C57BL/6	m	19	29.0	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101105	Awake06	1	1	1	mouse	C57BL/6	C57BL/6	m	19	32.1	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101105	Awake06	1	1	2	mouse	C57BL/6	C57BL/6	m	19	32.1	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101105	Awake06	1	1	3	mouse	C57BL/6	C57BL/6	m	19	32.1	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101106	Awake07	1	1	1	mouse	C57BL/6	C57BL/6	m	11	24.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.9	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101106	Awake07	1	1	2	mouse	C57BL/6	C57BL/6	m	11	24.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.9	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101106	Awake07	1	1	3	mouse	C57BL/6	C57BL/6	m	11	24.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.9	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-y	func reg	data is the same BIDS_raw and BIDS_input-RABIES	1011	101107	Awake08	1	1	1	mouse	C57BL/6	C57BL/6	m	11	24.8	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.8	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101107	Awake08	1	1	2	mouse	C57BL/6	C57BL/6	m	11	24.8	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.8	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101107	Awake08	1	1	3	mouse	C57BL/6	C57BL/6	m	11	24.8	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.8	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101108	Awake09	1	1	1	mouse	C57BL/6	C57BL/6	m	11	25.7	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.7	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-y	func reg	data is the same BIDS_raw and BIDS_input-RABIES	1011	101108	Awake09	1	1	2	mouse	C57BL/6	C57BL/6	m	11	25.7	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.7	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101108	Awake09	1	1	3	mouse	C57BL/6	C57BL/6	m	11	25.7	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.7	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101109	Awake10	1	1	1	mouse	C57BL/6	C57BL/6	m	12	26.1	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37.3	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101109	Awake10	1	1	2	mouse	C57BL/6	C57BL/6	m	12	26.1	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37.3	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-y	func reg	data is the same BIDS_raw and BIDS_input-RABIES	1011	101109	Awake10	1	1	3	mouse	C57BL/6	C57BL/6	m	12	26.1	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37.3	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101110	Awake11	1	1	1	mouse	C57BL/6	C57BL/6	m	12	25.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			35.5	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101110	Awake11	1	1	2	mouse	C57BL/6	C57BL/6	m	12	25.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			35.5	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101110	Awake11	1	1	3	mouse	C57BL/6	C57BL/6	m	12	25.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			35.5	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101111	Awake12	1	1	1	mouse	C57BL/6	C57BL/6	m	17	26.5	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101111	Awake12	1	1	2	mouse	C57BL/6	C57BL/6	m	17	26.5	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101111	Awake12	1	1	3	mouse	C57BL/6	C57BL/6	m	17	26.5	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101112	Awake13	1	1	1	mouse	C57BL/6	C57BL/6	m	18	29.8	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.3	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101112	Awake13	1	1	2	mouse	C57BL/6	C57BL/6	m	18	29.8	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.3	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101112	Awake13	1	1	3	mouse	C57BL/6	C57BL/6	m	18	29.8	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.3	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101113	Awake14	1	1	1	mouse	C57BL/6	C57BL/6	m	18	32.1	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.5	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101113	Awake14	1	1	2	mouse	C57BL/6	C57BL/6	m	18	32.1	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.5	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101113	Awake14	1	1	3	mouse	C57BL/6	C57BL/6	m	18	32.1	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.5	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101114	Awake15	1	1	1	mouse	C57BL/6	C57BL/6	m	18	27.6	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101114	Awake15	1	1	2	mouse	C57BL/6	C57BL/6	m	18	27.6	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101114	Awake15	1	1	3	mouse	C57BL/6	C57BL/6	m	18	27.6	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101115	Awake16	1	1	1	mouse	C57BL/6	C57BL/6	m	18	29.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.2	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101115	Awake16	1	1	2	mouse	C57BL/6	C57BL/6	m	18	29.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.2	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101115	Awake16	1	1	3	mouse	C57BL/6	C57BL/6	m	18	29.2	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.2	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101116	Awake18	1	1	1	mouse	C57BL/6	C57BL/6	m	21	31.4	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.6	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101116	Awake18	1	1	2	mouse	C57BL/6	C57BL/6	m	21	31.4	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.6	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1011	101116	Awake18	1	1	3	mouse	C57BL/6	C57BL/6	m	21	31.4	m	y	y	n		Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.6	Bruker	15.2T	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100800	5F399513	1	20231201	1	mouse	C57BL/6	C57BL/6	f	39 weeks	24	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100800	5F399513	1	20231201	2	mouse	C57BL/6	C57BL/6	f	39 weeks	24	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100800	5F399513	1	20231201	3	mouse	C57BL/6	C57BL/6	f	39 weeks	24	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100800	5F399513	1	20231201	4	mouse	C57BL/6	C57BL/6	f	39 weeks	24	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100801	8F400413	1	20231110	1	mouse	C57BL/6	C57BL/6	f	36 weeks	24	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100801	8F400413	1	20231110	2	mouse	C57BL/6	C57BL/6	f	36 weeks	24	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100801	8F400413	1	20231110	3	mouse	C57BL/6	C57BL/6	f	36 weeks	24	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100801	8F400413	1	20231110	4	mouse	C57BL/6	C57BL/6	f	36 weeks	24	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100802	11F399988	1	20230614	1	mouse	C57BL/6	C57BL/6	f	14 weeks	21	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100802	11F399988	1	20230614	2	mouse	C57BL/6	C57BL/6	f	14 weeks	21	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100802	11F399988	1	20230614	3	mouse	C57BL/6	C57BL/6	f	14 weeks	21	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100802	11F399988	1	20230614	4	mouse	C57BL/6	C57BL/6	f	14 weeks	21	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100803	14M399989	1	20230901	1	mouse	C57BL/6	C57BL/6	m	25 weeks	24	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100803	14M399989	1	20230901	2	mouse	C57BL/6	C57BL/6	m	25 weeks	24	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100803	14M399989	1	20230901	3	mouse	C57BL/6	C57BL/6	m	25 weeks	24	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100803	14M399989	1	20230901	4	mouse	C57BL/6	C57BL/6	m	25 weeks	24	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100804	15M400313	1	20230608	1	mouse	C57BL/6	C57BL/6	m	12 weeks	23	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100804	15M400313	1	20230608	2	mouse	C57BL/6	C57BL/6	m	12 weeks	23	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100804	15M400313	1	20230608	3	mouse	C57BL/6	C57BL/6	m	12 weeks	23	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100804	15M400313	1	20230608	4	mouse	C57BL/6	C57BL/6	m	12 weeks	23	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100805	16M400314	1	20231124	1	mouse	C57BL/6	C57BL/6	m	34 weeks	26	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100805	16M400314	1	20231124	2	mouse	C57BL/6	C57BL/6	m	34 weeks	26	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100805	16M400314	1	20231124	3	mouse	C57BL/6	C57BL/6	m	34 weeks	26	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100805	16M400314	1	20231124	4	mouse	C57BL/6	C57BL/6	m	34 weeks	26	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100806	24M400978	1	20230603	1	mouse	C57BL/6	C57BL/6	m	11 weeks	20	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+y	failed func reg	data is the same BIDS_raw and BIDS_input-RABIES	1008	100806	24M400978	1	20230603	2	mouse	C57BL/6	C57BL/6	m	11 weeks	20	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100806	24M400978	1	20230603	3	mouse	C57BL/6	C57BL/6	m	11 weeks	20	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+y	failed func reg	data is the same BIDS_raw and BIDS_input-RABIES	1008	100806	24M400978	1	20230603	4	mouse	C57BL/6	C57BL/6	m	11 weeks	20	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100807	25F400977	1	20231201	1	mouse	C57BL/6	C57BL/6	f	34 weeks	20	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100807	25F400977	1	20231201	2	mouse	C57BL/6	C57BL/6	f	34 weeks	20	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100807	25F400977	1	20231201	3	mouse	C57BL/6	C57BL/6	f	34 weeks	20	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100807	25F400977	1	20231201	4	mouse	C57BL/6	C57BL/6	f	34 weeks	20	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100808	27M400979	1	20230818	1	mouse	C57BL/6	C57BL/6	m	21 weeks	25	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100808	27M400979	1	20230818	2	mouse	C57BL/6	C57BL/6	m	21 weeks	25	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100808	27M400979	1	20230818	3	mouse	C57BL/6	C57BL/6	m	21 weeks	25	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1008	100808	27M400979	1	20230818	4	mouse	C57BL/6	C57BL/6	m	21 weeks	25	m	n	y	y	n	none	not recorded	not recorded	not recorded	Varian	9.4	n	GE-EPI	1500	12	0.3x0.3	0,5		
+		3dresample	1009	100900	DIMG8	1	1	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	1	1	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	1	1	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100900	DIMG8	1	1	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100900	DIMG8	1	1	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	1	1	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	1	1	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	1	1	8	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	1	1	9	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	1	1	10	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	2	2	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	2	2	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	2	2	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	2	2	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	2	2	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100900	DIMG8	2	2	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	2	2	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100900	DIMG8	2	2	8	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	13 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100901	DIMG11	1	1	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100901	DIMG11	1	1	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100901	DIMG11	1	1	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100901	DIMG11	1	1	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100901	DIMG11	1	1	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100901	DIMG11	1	1	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100901	DIMG11	1	1	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100901	DIMG11	2	2	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100901	DIMG11	2	2	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100901	DIMG11	2	2	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100901	DIMG11	2	2	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100901	DIMG11	2	2	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100901	DIMG11	2	2	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100901	DIMG11	2	2	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100901	DIMG11	3	3	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100901	DIMG11	3	3	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100901	DIMG11	3	3	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100901	DIMG11	3	3	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100901	DIMG11	3	3	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100901	DIMG11	3	3	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y	not epi	3dresample	1009	100902	DIMG12	1	1	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	1	1	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	1	1	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	1	1	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	1	1	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	1	1	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	2	2	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	2	2	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	2	2	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	2	2	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	2	2	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	2	2	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	2	2	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	15 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	3	3	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	3	3	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	3	3	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	3	3	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	3	3	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100902	DIMG12	3	3	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	f	23 months	25.3	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	1	1	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	1	1	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	1	1	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100903	DIMG13	1	1	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	1	1	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	1	1	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	1	1	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	6 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	2	2	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	2	2	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	2	2	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	2	2	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100903	DIMG13	2	2	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	2	2	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	3	3	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	10 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	3	3	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	10 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	3	3	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	10 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	3	3	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	10 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	3	3	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	10 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	3	3	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	10 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100903	DIMG13	4	4	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	4	4	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	4	4	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	4	4	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100903	DIMG13	4	4	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100903	DIMG13	4	4	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	27.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100904	DIMG14	1	1	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	1	1	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	1	1	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	1	1	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	1	1	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	1	1	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100904	DIMG14	1	1	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	8 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	2	2	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	9 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	2	2	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	9 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	2	2	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	9 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	2	2	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	9 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100904	DIMG14	2	2	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	9 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	3	3	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+		3dresample	1009	100904	DIMG14	3	3	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	3	3	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	3	3	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	3	3	5	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	3	3	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	11 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	4	4	1	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	4	4	2	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	4	4	3	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	4	4	4	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	4	4	6	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	4	4	7	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1009	100904	DIMG14	4	4	8	mouse	129S2/SvPas	VSFP-Butterfly & EMX1-Cre	m	12 months	28.1	m	y	y	n	Isoflurane	isoflurane				Bruker	9.4		GE-EPI	1000	15	16	0.333		
+y		3dresample	1010	101000	Subj01	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y	n	n	n/a	n/a	n/a	Bruker	9.4	n	SORDINO	62	0	0.4	0.4		
+y		3dresample	1010	101001	Subj02	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y	n	n	n/a	n/a	n/a	Bruker	9.4	n	SORDINO	62	0	0.4	0.4		
+y		3dresample	1010	101002	Subj03	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y	n	n	n/a	n/a	n/a	Bruker	9.4	n	SORDINO	62	0	0.4	0.4		
+y		3dresample	1010	101003	Subj04	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y	n	n	n/a	n/a	n/a	Bruker	9.4	n	SORDINO	62	0	0.4	0.4		
+y		3dresample	1010	101004	Subj05	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y	n	n	n/a	n/a	n/a	Bruker	9.4	n	SORDINO	62	0	0.4	0.4		
+y		3dresample	1010	101005	Subj06	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y	n	n	n/a	n/a	n/a	Bruker	9.4	n	SORDINO	62	0	0.4	0.4		
+y		3dresample	1010	101006	Subj07	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y	n	n	n/a	n/a	n/a	Bruker	9.4	n	SORDINO	62	0	0.4	0.4		
+y		3dresample	1010	101007	Subj08	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y	n	n	n/a	n/a	n/a	Bruker	9.4	n	SORDINO	62	0	0.4	0.4		
+y		3dresample	1010	101008	Subj09	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y	n	n	n/a	n/a	n/a	Bruker	9.4	n	SORDINO	62	0	0.4	0.4		
+y		3dresample	1010	101009	Subj10	1		1	mouse	C57BL/6	C57BL/6J 	m	5 month	28-32g		y	n	y	n	n	n/a	n/a	n/a	Bruker	9.4	n	SORDINO	62	0	0.4	0.4		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101100	Awake01	1	1	1	mouse	C57BL/6	C57BL/6	m	25	32.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition				Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101100	Awake01	1	1	2	mouse	C57BL/6	C57BL/6	m	25	32.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition				Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101100	Awake01	1	1	3	mouse	C57BL/6	C57BL/6	m	25	32.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition				Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101101	Awake02	1	1	1	mouse	C57BL/6	C57BL/6	m	25	31.0	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition				Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101101	Awake02	1	1	2	mouse	C57BL/6	C57BL/6	m	25	31.0	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition				Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101101	Awake02	1	1	3	mouse	C57BL/6	C57BL/6	m	25	31.0	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition				Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101102	Awake03	1	1	1	mouse	C57BL/6	C57BL/6	m	25	31.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101102	Awake03	1	1	2	mouse	C57BL/6	C57BL/6	m	25	31.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101102	Awake03	1	1	3	mouse	C57BL/6	C57BL/6	m	25	31.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101103	Awake04	1	1	1	mouse	C57BL/6	C57BL/6	m	19	29.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37.2	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101103	Awake04	1	1	2	mouse	C57BL/6	C57BL/6	m	19	29.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37.2	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101103	Awake04	1	1	3	mouse	C57BL/6	C57BL/6	m	19	29.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37.2	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101104	Awake05	1	1	1	mouse	C57BL/6	C57BL/6	m	19	29.0	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101104	Awake05	1	1	2	mouse	C57BL/6	C57BL/6	m	19	29.0	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101104	Awake05	1	1	3	mouse	C57BL/6	C57BL/6	m	19	29.0	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101105	Awake06	1	1	1	mouse	C57BL/6	C57BL/6	m	19	32.1	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101105	Awake06	1	1	2	mouse	C57BL/6	C57BL/6	m	19	32.1	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101105	Awake06	1	1	3	mouse	C57BL/6	C57BL/6	m	19	32.1	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101106	Awake07	1	1	1	mouse	C57BL/6	C57BL/6	m	11	24.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.9	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101106	Awake07	1	1	2	mouse	C57BL/6	C57BL/6	m	11	24.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.9	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101106	Awake07	1	1	3	mouse	C57BL/6	C57BL/6	m	11	24.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.9	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+y	func reg	data is the same BIDS_raw and BIDS_input-RABIES	1011	101107	Awake08	1	1	1	mouse	C57BL/6	C57BL/6	m	11	24.8	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.8	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101107	Awake08	1	1	2	mouse	C57BL/6	C57BL/6	m	11	24.8	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.8	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101107	Awake08	1	1	3	mouse	C57BL/6	C57BL/6	m	11	24.8	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.8	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101108	Awake09	1	1	1	mouse	C57BL/6	C57BL/6	m	11	25.7	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.7	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+y	func reg	data is the same BIDS_raw and BIDS_input-RABIES	1011	101108	Awake09	1	1	2	mouse	C57BL/6	C57BL/6	m	11	25.7	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.7	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101108	Awake09	1	1	3	mouse	C57BL/6	C57BL/6	m	11	25.7	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.7	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101109	Awake10	1	1	1	mouse	C57BL/6	C57BL/6	m	12	26.1	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37.3	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101109	Awake10	1	1	2	mouse	C57BL/6	C57BL/6	m	12	26.1	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37.3	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+y	func reg	data is the same BIDS_raw and BIDS_input-RABIES	1011	101109	Awake10	1	1	3	mouse	C57BL/6	C57BL/6	m	12	26.1	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37.3	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101110	Awake11	1	1	1	mouse	C57BL/6	C57BL/6	m	12	25.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			35.5	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101110	Awake11	1	1	2	mouse	C57BL/6	C57BL/6	m	12	25.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			35.5	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101110	Awake11	1	1	3	mouse	C57BL/6	C57BL/6	m	12	25.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			35.5	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101111	Awake12	1	1	1	mouse	C57BL/6	C57BL/6	m	17	26.5	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101111	Awake12	1	1	2	mouse	C57BL/6	C57BL/6	m	17	26.5	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101111	Awake12	1	1	3	mouse	C57BL/6	C57BL/6	m	17	26.5	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			37	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101112	Awake13	1	1	1	mouse	C57BL/6	C57BL/6	m	18	29.8	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.3	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101112	Awake13	1	1	2	mouse	C57BL/6	C57BL/6	m	18	29.8	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.3	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101112	Awake13	1	1	3	mouse	C57BL/6	C57BL/6	m	18	29.8	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.3	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101113	Awake14	1	1	1	mouse	C57BL/6	C57BL/6	m	18	32.1	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.5	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101113	Awake14	1	1	2	mouse	C57BL/6	C57BL/6	m	18	32.1	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.5	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101113	Awake14	1	1	3	mouse	C57BL/6	C57BL/6	m	18	32.1	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.5	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101114	Awake15	1	1	1	mouse	C57BL/6	C57BL/6	m	18	27.6	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101114	Awake15	1	1	2	mouse	C57BL/6	C57BL/6	m	18	27.6	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101114	Awake15	1	1	3	mouse	C57BL/6	C57BL/6	m	18	27.6	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101115	Awake16	1	1	1	mouse	C57BL/6	C57BL/6	m	18	29.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.2	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101115	Awake16	1	1	2	mouse	C57BL/6	C57BL/6	m	18	29.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.2	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101115	Awake16	1	1	3	mouse	C57BL/6	C57BL/6	m	18	29.2	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.2	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101116	Awake18	1	1	1	mouse	C57BL/6	C57BL/6	m	21	31.4	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.6	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101116	Awake18	1	1	2	mouse	C57BL/6	C57BL/6	m	21	31.4	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.6	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
+		data is the same BIDS_raw and BIDS_input-RABIES	1011	101116	Awake18	1	1	3	mouse	C57BL/6	C57BL/6	m	21	31.4	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.6	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
 		fslorient_fslchpixdim	3001	300100	Na027	1	1	1	mouse	C57BL/6	C57BL/125		NA	NA		y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.134	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003146
 		fslorient_fslchpixdim	3001	300100	Na027	1	1	2	mouse	C57BL/6	C57BL/126		NA	NA		y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.135	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003147
 		fslorient_fslchpixdim	3001	300100	Na027	1	1	3	mouse	C57BL/6	C57BL/127		NA	NA		y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.136	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003148
@@ -417,16 +417,16 @@ y	func reg	data is the same BIDS_raw and BIDS_input-RABIES	1011	101109	Awake10	1
 		fslorient_fslchpixdim	3001	300105	Na056	5	5	2	mouse	C57BL/6	C57BL/702		NA	NA		y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.711	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003723
 		fslorient_fslchpixdim	3001	300105	Na056	5	5	3	mouse	C57BL/6	C57BL/703		NA	NA		y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.712	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003724
 		fslorient_fslchpixdim	3001	300105	Na056	5	5	4	mouse	C57BL/6	C57BL/704		NA	NA		y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.713	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003725
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300200	sub-01	1	NA	1	mouse	C57BL/6	 C57BL/6J 	male	< 24			y	y		n					Bruker Biospin	7T		GE-EPI	1000	15	0.23 x 0.23	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/2
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300201	sub-02	1	NA	1	mouse	C57BL/6	 C57BL/6J 	male	< 25			y	y		n					Bruker Biospin	7T		GE-EPI	1000	15	0.23 x 0.24	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/3
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300202	sub-03	1	NA	1	mouse	C57BL/6	 C57BL/6J 	male	< 26			y	y		n					Bruker Biospin	7T		GE-EPI	1000	15	0.23 x 0.25	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/4
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300203	sub-04	1	NA	1	mouse	C57BL/6	 C57BL/6J 	male	< 27			y	y		n					Bruker Biospin	7T		GE-EPI	1000	15	0.23 x 0.26	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/5
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300204	sub-05	1	NA	1	mouse	C57BL/6	 C57BL/6J 	male	< 28			y	y		n					Bruker Biospin	7T		GE-EPI	1000	15	0.23 x 0.27	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/6
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300205	sub-06	1	NA	1	mouse	C57BL/6	 C57BL/6J 	male	< 29			y	y		n					Bruker Biospin	7T		GE-EPI	1000	15	0.23 x 0.28	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/7
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300206	sub-07	1	NA	1	mouse	C57BL/6	 C57BL/6J 	male	< 30			y	y		n					Bruker Biospin	7T		GE-EPI	1000	15	0.23 x 0.29	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/8
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300207	sub-08	1	NA	1	mouse	C57BL/6	 C57BL/6J 	male	< 31			y	y		n					Bruker Biospin	7T		GE-EPI	1000	15	0.23 x 0.30	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/9
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300208	sub-09	1	NA	1	mouse	C57BL/6	 C57BL/6J 	male	< 32			y	y		n					Bruker Biospin	7T		GE-EPI	1000	15	0.23 x 0.31	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/10
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300209	sub-10	1	NA	1	mouse	C57BL/6	 C57BL/6J 	male	< 33			y	y		n					Bruker Biospin	7T		GE-EPI	1000	15	0.23 x 0.32	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/11
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300200	sub-01	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 24			y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.23	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/2
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300201	sub-02	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 25			y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.24	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/3
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300202	sub-03	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 26			y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.25	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/4
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300203	sub-04	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 27			y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.26	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/5
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300204	sub-05	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 28			y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.27	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/6
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300205	sub-06	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 29			y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.28	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/7
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300206	sub-07	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 30			y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.29	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/8
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300207	sub-08	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 31			y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.30	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/9
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300208	sub-09	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 32			y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.31	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/10
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300209	sub-10	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 33			y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.32	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/11
 y		fslchpixdim	3003	300300	Ey112	1	1	1	mouse	B6129PF/J1	B6129PF/J1 hybrid mice 	m	9–12											Bruker BioSpin	9.4		SE-EPI	2500	18.398	0.15×0.15	o.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7718219/	https://openneuro.org/datasets/ds002307/versions/3.2.2
 y		fslchpixdim	3003	300300		1		2	mouse	B6129PF/J1	B6129PF/J1 hybrid mice 	m	9–13											Bruker BioSpin	9.4		SE-EPI	2500	18.398	0.15×0.16	o.46	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7718219/	https://openneuro.org/datasets/ds002307/versions/3.2.3
 y		fslchpixdim	3003	300300		1		3	mouse	B6129PF/J1	B6129PF/J1 hybrid mice 	m	9–14											Bruker BioSpin	9.4		SE-EPI	2500	18.398	0.15×0.17	o.47	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7718219/	https://openneuro.org/datasets/ds002307/versions/3.2.4
