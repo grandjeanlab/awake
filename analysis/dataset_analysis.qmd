@@ -1,0 +1,142 @@
+---
+title: "analysis of the datasets"
+author: "Joanes Grandjean"
+date: "23/8/2025"
+---
+
+specificity analysis of the rs scans. 
+
+first define the plotting engine
+```{python}
+%autoindent 
+import matplotlib
+matplotlib.use('TkAgg') 
+```
+
+
+then imort libraries and set functions that we will use later
+```{python}
+
+import pandas as pd
+from os import listdir
+from os.path import join, isfile, isdir
+
+#write a function get_frame_mask that takes a path, scan_dir, and returns a mask
+def dropped_frames(path, scan_dir):
+    try:
+        frame_mask_path = join(path, scan_dir)
+        frame_mask_file = listdir(frame_mask_path)[0]
+        frame_mask_full = join(frame_mask_path, frame_mask_file)
+        frame_mask_ts = pd.read_table(join(frame_mask_path, frame_mask_file), names=['mask'], skiprows=[0])
+        dropped_frames = list(frame_mask_ts["mask"]).count(False)
+        return dropped_frames
+    except: 
+        pass
+
+#write a function get_seed_ts that takes a path, scan_dir, and returns ts
+def get_seed_ts(path, scan_dir, seed):
+    seed_prefix = "_seed_name_"
+    try:
+        seed_path = join(path, scan_dir, seed_prefix + seed)
+        seed_file = listdir(seed_path)[0]
+        seed_ts = pd.read_table(join(seed_path, seed_file), names=['ts'])
+        return seed_ts
+    except:
+        pass
+
+# correlate the time series of two seeds
+def corr_seed(seed1, seed2):
+  try:
+    return seed1["ts"].corr(seed2["ts"])
+  except: 
+    pass
+
+# determine the correlation of a reference seed with specific, unspecific, and thalamus seeds
+def specific_FC(specific_roi, unspecific_ROI):
+  try:
+    if (specific_roi>=0.1) and (unspecific_ROI<0.1):
+        cat='Specific'
+    elif (specific_roi>=0.1) and (unspecific_ROI>=0.1):
+        cat='Unspecific'
+    elif (abs(specific_roi)<0.1) and (abs(unspecific_ROI)<0.1):
+        cat='No'
+    else:
+        cat='Spurious'
+    return cat
+  except:
+    pass
+```
+
+now defile some general purpose variables
+```{python}
+
+data_dir = "/project/4180000.36/awake/complete_output_mouse"
+analysis = "gsr1" #to make a loop later on
+frame_mask_dir = "frame_censoring_mask"
+seed_dir = "analysis_datasink/seed_timecourse_csv/"
+
+seed_ref = "s1_r"
+seed_specific = "s1_l"
+seed_unspecific = "aca_r"
+seed_thalamus = "vpm_r"
+
+df = pd.read_csv("../assets/tables/mouse_metadata.tsv", sep="\t")
+df = df[df['exclude'] != 'y']
+
+df["scan"] = "sub-0" + df["rodent.sub"].astype("str") + "_ses-" + df["rodent.session"].astype("str") + "_run-" + df["rodent.run"].astype("str")
+df["scan_dir"] = "_split_name_" + df["scan"] + "_task-rest_bold" 
+
+
+#get the number of dropped frames for each scan and analysis
+p = join(data_dir, analysis, frame_mask_dir)
+df["dropped.frames." + analysis] = df["scan_dir"].apply(lambda x: dropped_frames(p,x))
+
+#get the connectivity specificity for s1 and thalamus
+p = join(data_dir, analysis, seed_dir)
+
+df["s1.specific."+analysis]=df["scan_dir"].apply(lambda x: corr_seed(get_seed_ts(p, x, seed_ref), get_seed_ts(p, x, seed_specific)))
+df["s1.unspecific."+analysis]=df["scan_dir"].apply(lambda x: corr_seed(get_seed_ts(p, x, seed_ref), get_seed_ts(p, x, seed_unspecific)))
+df["thal.specific."+analysis]=df["scan_dir"].apply(lambda x: corr_seed(get_seed_ts(p, x, seed_ref), get_seed_ts(p, x, seed_thalamus)))
+
+df["s1.cat."+analysis] = df.apply(lambda x: specific_FC(x["s1.specific."+analysis], x["s1.unspecific."+analysis]), axis=1)
+df["thal.cat."+analysis] = df.apply(lambda x: specific_FC(x["thal.specific."+analysis], x["s1.unspecific."+analysis]), axis=1)
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(12,8))
+
+sns.set_palette("colorblind")
+
+# set the order of the following by ["Specific", "Unspecific", "No", "Spurious"]
+ax1 = df["s1.cat."+analysis].value_counts(sort=False).reindex(["Specific", "Unspecific", "Spurious", "No"], fill_value=0).plot.pie(title='s1 '+analysis,ax=axes[0], autopct="%.1f%%")
+ax2 = df["thal.cat."+analysis].value_counts(sort=False).reindex(["Specific", "Unspecific", "Spurious", "No"], fill_value=0).plot.pie(title='thal '+analysis,ax=axes[1], autopct="%.1f%%")
+
+ax1.set(xlabel="", ylabel="")
+ax2.set(xlabel="", ylabel="")
+
+plt.show()
+
+
+
+
+
+ax6 = sns.jointplot(data=df, x='s1.specific.'+analysis, y='s1.unspecific.'+analysis)
+
+ax6.fig.suptitle('Functional connectivity specificity')
+ax6.fig.subplots_adjust(top=0.9)
+ax6.ax_joint.set(xlabel='Specific ROI [r]', ylabel='Unspecific ROI [r]')
+ax6.ax_joint.vlines(0.1,ymin=min(df['s1.unspecific.'+analysis]),ymax=max(df['s1.unspecific.'+analysis]),linestyles='dashed', color='black')
+ax6.ax_joint.vlines(-0.1, -0.1,0.1,linestyles='dashed', color='black')
+ax6.ax_joint.hlines(-0.1, -0.1,0.1,linestyles='dashed', color='black')
+ax6.ax_joint.hlines(0.1, -0.1,xmax=max(df['s1.specific.'+analysis]),linestyles='dashed', color='black')
+ax6.ax_marg_x.axvline(x=0.1, color='black')
+ax6.ax_marg_y.axhline(y=0.1, color='black')
+
+plt.show()
+
+```
+

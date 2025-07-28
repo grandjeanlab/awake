@@ -11,6 +11,13 @@ We accumulated datasets from several laboratories. Here, we carry out a descript
 import pandas as pd
 
 df = pd.read_csv("../assets/tables/mouse_metadata.tsv", sep="\t")
+df["scan"] = "sub-0" + df["rodent.sub"].astype("str") + "_ses-" + df["rodent.session"].astype("str") + "_run-" + df["rodent.run"].astype("str")
+
+aidaqc = pd.read_csv("../assets/tables/mouse_caculated_features_func.csv", sep=",")
+aidaqc = aidaqc.rename(columns={"tSNR (Averaged Brain ROI)": "aidaqc.tsnr", "Displacement factor (std of Mutual information)": "aidaqc.dist"})
+aidaqc["scan"] = aidaqc["FileAddress"].apply(lambda x : x.split("func/")[1].split("_task")[0])
+
+df = df.set_index("scan").join(aidaqc.set_index("scan"))
 
 #get a summary of the total number of runs, excluded runs and number of animals
 mouse_summary = df.groupby("rodent.ds").size().reset_index(name='total_run')
@@ -44,6 +51,15 @@ mouse_summary["TR"] = df.groupby("rodent.ds")["MRI.TR"].unique().values
 
 mouse_summary["TE"] = df.groupby("rodent.ds")["MRI.TE"].unique().values
 
+# get aidaqc summary
+mmouse_summary["aidaqc.tsnr.mean"] = df.groupby("rodent.ds")["aidaqc.tsnr"].mean().values
+mouse_summary["aidaqc.tsnr.std"] = df.groupby("rodent.ds")["aidaqc.tsnr"].std().values
+
+mouse_summary["aidaqc.dist.mean"] = df.groupby("rodent.ds")["aidaqc.dist"].mean().values
+mouse_summary["aidaqc.dist.std"] = df.groupby("rodent.ds")["aidaqc.dist"].std().values
+
+
+
 #output the table
 print(mouse_summary)
 
@@ -58,6 +74,14 @@ now doing the same for the rat datasets.
 import pandas as pd
 
 df = pd.read_csv("../assets/tables/rat_metadata.tsv", sep="\t")
+df["scan"] = "sub-0" + df["rodent.sub"].astype("str") + "_ses-" + df["rodent.session"].astype("str") + "_run-" + df["rodent.run"].astype("str")
+
+aidaqc = pd.read_csv("../assets/tables/rat_caculated_features_func.csv", sep=",")
+aidaqc = aidaqc.rename(columns={"tSNR (Averaged Brain ROI)": "aidaqc.tsnr", "Displacement factor (std of Mutual information)": "aidaqc.dist"})
+aidaqc["scan"] = aidaqc["FileAddress"].apply(lambda x : x.split("func/")[1].split("_task")[0])
+
+df = df.set_index("scan").join(aidaqc.set_index("scan"))
+
 
 #get a summary of the total number of runs, excluded runs and number of animals
 rat_summary = df.groupby("rodent.ds").size().reset_index(name='total_run')
@@ -90,6 +114,14 @@ rat_summary["sequence"] = df.groupby("rodent.ds")["fMRI.sequence"].unique().valu
 rat_summary["TR"] = df.groupby("rodent.ds")["MRI.TR"].unique().values
 
 rat_summary["TE"] = df.groupby("rodent.ds")["MRI.TE"].unique().values
+
+# get aidaqc summary
+mmouse_summary["aidaqc.tsnr.mean"] = df.groupby("rodent.ds")["aidaqc.tsnr"].mean().values
+mouse_summary["aidaqc.tsnr.std"] = df.groupby("rodent.ds")["aidaqc.tsnr"].std().values
+
+mouse_summary["aidaqc.dist.mean"] = df.groupby("rodent.ds")["aidaqc.dist"].mean().values
+mouse_summary["aidaqc.dist.std"] = df.groupby("rodent.ds")["aidaqc.dist"].std().values
+
 
 #output the table
 print(rat_summary)
