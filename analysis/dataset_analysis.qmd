@@ -2,15 +2,21 @@
 title: "analysis of the datasets"
 author: "Joanes Grandjean"
 date: "23/8/2025"
+format: gfm
+jupyter: python3
+execute: 
+  warning: false
 ---
 
 specificity analysis of the rs scans. 
 
-first define the plotting engine
+first define the plotting engine in interactive move
 ```{python}
+#| eval: false
 %autoindent 
 import matplotlib
 matplotlib.use('TkAgg') 
+
 ```
 
 then import libraries and set functions that we will use later
@@ -41,7 +47,6 @@ def get_fc_per_analysis(data_dir, df, analysis_list, frame_mask_dir, seed_ts_dir
         df["thal.specific."+analysis]=df["scan_dir"].apply(lambda x: corr_seed(get_seed_ts(p, x, seed_ref), get_seed_ts(p, x, seed_thalamus)))
         df["s1.cat."+analysis] = df.apply(lambda x: specific_FC(x["s1.specific."+analysis], x["s1.unspecific."+analysis]), axis=1)
         df["thal.cat."+analysis] = df.apply(lambda x: specific_FC(x["thal.specific."+analysis], x["s1.unspecific."+analysis]), axis=1)
-    df["total.frames"] = df["scan_dir"].apply(lambda x: total_frames(join(data_dir, "gsr3", frame_mask_dir), x))
     return df
   except:
     pass
@@ -61,19 +66,15 @@ def dropped_frames(path, scan_dir):
     except: 
         pass
 
-def total_frames(path, scan_dir):
-    from os.path import join
-    from os import listdir
-    from pandas import read_table   
-    try:
-        frame_mask_path = join(path, scan_dir)
-        frame_mask_file = listdir(frame_mask_path)[0]
-        frame_mask_full = join(frame_mask_path, frame_mask_file)
-        frame_mask_ts = read_table(join(frame_mask_path, frame_mask_file), names=['mask'], skiprows=[0])
-        total_frames =len(list(frame_mask_ts["mask"]))
-        return total_frames
-    except: 
-        pass
+def total_frames(tmp_listdir, scan):
+  try:
+    from re import compile
+    import nibabel as nib
+    r = compile(".*"+scan)
+    scan_file = list(filter(r.match, tmp_listdir))[0]
+    return nib.load(scan_file).header["dim"][4]
+  except:
+    pass
 
 def get_seed_ts(path, scan_dir, seed):
     from os.path import join
@@ -149,7 +150,7 @@ def plot_seed_map(data_dir, analysis_dir, seed_img_dir, analysis, df, bg_img, ma
   from os import makedirs
   from os.path import join
   output_nii = join(analysis_dir, 'group_SBA_nii')
-  output_svg = join(analysis_dir, 'group_SBA_svg')
+  output_svg = join('../assets/plot', 'group_SBA_svg')
   makedirs(output_nii, exist_ok=True)
   makedirs(output_svg, exist_ok=True)
   p = join(data_dir, analysis, seed_img_dir)
@@ -208,116 +209,68 @@ seed_thalamus = "vpm_r"
 
 # this is the variable part. 
 ```{python}
-rodent="mouse"
 
+#for rodent in ["mouse", "rat" ]:
+rodent='rat'
+print("#### NOW DOING " + rodent + " ####")
 data_dir = "/project/4180000.36/awake/complete_output_"+rodent
+bids_dir = "/project/4180000.36/awake/bids/"+rodent+"_complete"
 analysis_dir = "/project/4180000.36/awake/analysis_"+rodent
 bg_img = "../assets/template/"+rodent+"/template.nii.gz"
 mask_img = "../assets/template/"+rodent+"/mask.nii.gz"
-
-
 df = pd.read_csv("../assets/tables/"+rodent+"_metadata.tsv", sep="\t")
-df = df[df['exclude'] != 'y']
-
 df["scan"] = "sub-0" + df["rodent.sub"].astype("str") + "_ses-" + df["rodent.session"].astype("str") + "_run-" + df["rodent.run"].astype("str")
 df["scan_dir"] = "_split_name_" + df["scan"] + "_task-rest_bold" 
-
+aidaqc = pd.read_csv("../assets/tables/"+rodent+"_caculated_features_func.csv", sep=",")
+aidaqc = aidaqc.rename(columns={"tSNR (Averaged Brain ROI)": "aidaqc.tsnr", "Displacement factor (std of Mutual information)": "aidaqc.dist"})
+aidaqc["scan"] = aidaqc["FileAddress"].apply(lambda x : x.split("func/")[1].split("_task")[0])
+df = df.merge(aidaqc, on="scan")
+df = df[df['exclude'] != 'y']
 df_summary=pd.read_csv("../assets/tables/"+rodent+"_summary.tsv", sep="\t")
-
-
 #first, let's extract some infomation about motion and summarize it per dataset
 p = join(data_dir, motion_dir)
 tmp_listdir = glob.glob(join(p,"*/*/*.csv"), recursive=True)
 tmp_listdir_alt = glob.glob(join(p,"*/*.csv"), recursive=True)
 tmp_listdir = tmp_listdir + tmp_listdir_alt 
-
 df["fd.mean"]=df["scan"].apply(lambda x: get_fd(tmp_listdir, x))
+tmp_listdir = glob.glob(join(bids_dir,"*/*/func/*.nii.gz"), recursive=True)
+df["total.frames"]=df["scan"].apply(lambda x: total_frames(tmp_listdir, x))
 
+print("#### MOTION ANALYISIS ####")
 print("mean fd across all "+rodent+" datasets")
 print(df["fd.mean"].mean())
-
 df_summary = df_summary.join(df.groupby("rodent.ds")["fd.mean"].mean().rename('fd.mean'), on='rodent.ds')
-
+print("mean fd per dataset")
+print(df_summary[["rodent.ds", "fd.mean"]])
 #now we run the analysis per denoising style, we extract the number of dropped frames, the s1-s1, s1-aca, and s1-thal correlations. finally we estimate connectivity specificity
-
 df = get_fc_per_analysis(data_dir, df, analysis_list, frame_mask_dir, seed_ts_dir, seed_ref, seed_specific, seed_unspecific, seed_thalamus)
- 
-
-#get the number of dropped frames for each dataset and denoising method,
-#This corresponds to the following rabies flags for mice: 
-#1: --frame_censoring FD_censoring=true,FD_threshold=0.1,DVARS_censoring=true
-#2: --frame_censoring FD_censoring=true,FD_threshold=0.5,DVARS_censoring=true
-#3: --frame_censoring FD_censoring=true,FD_threshold=0.5,DVARS_censoring=false
-
-for analysis in analysis_list[0:3]:
-    print("Denoising method: " + analysis)
-    print("Mean number of dropped frames "+str(df["dropped.frames." + analysis].mean()))
-    print("Max number of dropped frames "+str(df["dropped.frames." + analysis].max()))
-    print("Mean relative number of dropped frames "+str(df["dropped.frames." + analysis].mean()/df["total.frames"].mean()))
-    print("Number of scans with dropped frames: " + str(len(df[df["dropped.frames." + analysis] > 0])))
-
-print("dropped frames using method 2")
-for i in np.unique(df["rodent.ds"]):
-  print("total and relative dropped frames for dataset "+str(i))
-  print(df[df["rodent.ds"]==i]["dropped.frames.gsr2"].mean())
-  print(df[df["rodent.ds"]==i]["dropped.frames.gsr2"].mean()/df[df["rodent.ds"]==i]["total.frames"].mean())
-
-print("dropped frames using method 3")
-for i in np.unique(df["rodent.ds"]):
-  print("total and relative dropped frames for dataset "+str(i))
-  print(df[df["rodent.ds"]==i]["dropped.frames.gsr3"].mean())
-  print(df[df["rodent.ds"]==i]["dropped.frames.gsr3"].mean()/df[df["rodent.ds"]==i]["total.frames"].mean())
-
-#put the values in df_summary for later use
+print("Number of dropped frames for each dataset and denoising method")
+print("This corresponds to the following rabies flags for mice")
+print("#gsr1: --frame_censoring FD_censoring=true,FD_threshold=0.1,DVARS_censoring=true")
+print("#gsr2: --frame_censoring FD_censoring=true,FD_threshold=0.5,DVARS_censoring=true")
+print("#gsr3: --frame_censoring FD_censoring=true,FD_threshold=0.5,DVARS_censoring=false")
+#for analysis in analysis_list[0:3]:
+#    print("Denoising method: " + analysis)
+#    print("Mean number of dropped frames "+str(df["dropped.frames." + analysis].mean()))
+#    print("Max number of dropped frames "+str(df["dropped.frames." + analysis].max()))
+#    print("Mean relative number of dropped frames "+str(df["dropped.frames." + analysis].mean()/df["total.frames"].mean()))
+#    print("Number of scans with dropped frames: " + str(len(df[df["dropped.frames." + analysis] > 0])))
 df_summary = df_summary.join(df.groupby("rodent.ds")["total.frames"].mean(), on='rodent.ds')
 df_summary = df_summary.join(df.groupby("rodent.ds")["dropped.frames.gsr1"].mean(), on='rodent.ds')
 df_summary = df_summary.join(df.groupby("rodent.ds")["dropped.frames.gsr2"].mean(), on='rodent.ds')
 df_summary = df_summary.join(df.groupby("rodent.ds")["dropped.frames.gsr3"].mean(), on='rodent.ds')
-
-
-#get the s1-s1 specificity per dataset for aCompCor1
-
-df["s1.cat.aCompCor1"].value_counts(normalize=True).reindex(cat_index, fill_value=0)
-for i in np.unique(df["rodent.ds"]):
-  print("dataset "+str(i))
-  print(df[df["rodent.ds"]==i]["s1.cat.aCompCor1"].value_counts(normalize=True).reindex(cat_index, fill_value=0))
-
-df["s1.cat.aCompCor2"].value_counts(normalize=True).reindex(cat_index, fill_value=0)
-for i in np.unique(df["rodent.ds"]):
-  print("dataset "+str(i))
-  print(df[df["rodent.ds"]==i]["s1.cat.aCompCor2"].value_counts(normalize=True).reindex(cat_index, fill_value=0))
-
-df["s1.cat.aCompCor3"].value_counts(normalize=True).reindex(cat_index, fill_value=0)
-for i in np.unique(df["rodent.ds"]):
-  print("dataset "+str(i))
-  print(df[df["rodent.ds"]==i]["s1.cat.aCompCor3"].value_counts(normalize=True).reindex(cat_index, fill_value=0))
-
-
-df["s1.cat.gsr1"].value_counts(normalize=True).reindex(cat_index, fill_value=0)
-for i in np.unique(df["rodent.ds"]):
-  print("dataset "+str(i))
-  print(df[df["rodent.ds"]==i]["s1.cat.gsr1"].value_counts(normalize=True).reindex(cat_index, fill_value=0))
-
-df["s1.cat.gsr2"].value_counts(normalize=True).reindex(cat_index, fill_value=0)
-for i in np.unique(df["rodent.ds"]):
-  print("dataset "+str(i))
-  print(df[df["rodent.ds"]==i]["s1.cat.gsr2"].value_counts(normalize=True).reindex(cat_index, fill_value=0))
-
-df["s1.cat.gsr3"].value_counts(normalize=True).reindex(cat_index, fill_value=0)
-for i in np.unique(df["rodent.ds"]):
-  print("dataset "+str(i))
-  print(df[df["rodent.ds"]==i]["s1.cat.gsr3"].value_counts(normalize=True).reindex(cat_index, fill_value=0))
-
-
-
+print("#### DENOISE ANALYSIS ####")
+print("dropped frames per dataset")
+print(df_summary[["rodent.ds", "total.frames", "dropped.frames.gsr1", "dropped.frames.gsr2", "dropped.frames.gsr3"]])
 for analysis in analysis_list:
-  df_summary.join(df.groupby("rodent.ds")["s1.cat."+analysis].apply(lambda x: return_cat_index(x, analysis, cat_index)).droplevel(1), on='rodent.ds')
-
-
-df_summary.to_csv("../assets/tables/"+rodent+"_summary_fc.tsv", sep="\t", index=False)
-
-
+  df_summary = df_summary.join(df.groupby("rodent.ds")["s1.cat."+analysis].apply(lambda x: return_cat_index(x, analysis, cat_index)).droplevel(1), on='rodent.ds')
+print("#### FC specifiticy analysis ####")
+print("s1-s1 specificity analysis (only showing specific values)")
+print(df_summary[["rodent.ds"]+[analysis+".Specific" for analysis in analysis_list]])
+df_summary.to_csv("../assets/tables/"+rodent+"_summary_processed.tsv", sep="\t", index=False)
+df.to_csv("../assets/tables/"+rodent+"_metadata_process.tsv", sep="\t", index=False)
 #same values but with a more concise plotting style. Overall, denoising style did not impact the overall number of specific scans. once the analysis is complete with all scans, i will pick the better performing method to carry out a singular analysis 
+print("#### make plots ####")
 columns = ["s1.cat."+x for x in analysis_list]
 specificity_denoise = pd.concat([df[col].value_counts(sort=False).reindex(cat_index, fill_value=0) for col in columns], axis=1)
 specificity_denoise.columns=analysis_list
@@ -326,11 +279,20 @@ specificity_denoise_T = specificity_denoise.T
 specificity_denoise_T.reset_index(level=0, inplace=True) 
 specificity_denoise_T = specificity_denoise_T[["index"]+cat_index]
 specificity_denoise_T.set_index('index').plot(kind='bar', stacked=True)
-plt.savefig("../assess/figure/"+rodent+"_denoise_specificity_svg")
-
-
-
+plt.savefig("../assets/plot/"+rodent+"_specificity.svg")
 #make the standard s1-s1 / s1-aca connectivity plot.   
+for analysis in analysis_list:
+  ax = sns.jointplot(data=df, x='thal.specific.'+analysis, y='s1.unspecific.'+analysis)
+  ax.fig.suptitle('FC specificity with ' + analysis)
+  ax.fig.subplots_adjust(top=0.9)
+  ax.ax_joint.set(xlabel='Specific ROI [r]', ylabel='Unspecific ROI [r]')
+  ax.ax_joint.vlines(0.1,ymin=min(df['s1.unspecific.'+analysis]),ymax=max(df['s1.unspecific.'+analysis]),linestyles='dashed', color='black')
+  ax.ax_joint.vlines(-0.1, -0.1,0.1,linestyles='dashed', color='black')
+  ax.ax_joint.hlines(-0.1, -0.1,0.1,linestyles='dashed', color='black')
+  ax.ax_joint.hlines(0.1, -0.1,xmax=max(df['thal.specific.'+analysis]),linestyles='dashed', color='black')
+  ax.ax_marg_x.axvline(x=0.1, color='black')
+  ax.ax_marg_y.axhline(y=0.1, color='black')
+  plt.savefig("../assets/plot/specific/"+rodent+"_thal_specificity_"+analysis+".svg")
 for analysis in analysis_list:
   ax = sns.jointplot(data=df, x='s1.specific.'+analysis, y='s1.unspecific.'+analysis)
   ax.fig.suptitle('FC specificity with ' + analysis)
@@ -342,11 +304,11 @@ for analysis in analysis_list:
   ax.ax_joint.hlines(0.1, -0.1,xmax=max(df['s1.specific.'+analysis]),linestyles='dashed', color='black')
   ax.ax_marg_x.axvline(x=0.1, color='black')
   ax.ax_marg_y.axhline(y=0.1, color='black')
-  plt.savefig("../assets/figure/"+rodent+"_fc_specificity_"+analysis+".svg")
-
-
+  plt.savefig("../assets/plot/specific/"+rodent+"_s1_specificity_"+analysis+".svg")
+print("#### plot SBA maps ####")
 #now use nilearn to make group average maps and plot them. 
 seed_to_plot = pd.DataFrame({'seed': [seed_ref, seed_unspecific, seed_thalamus], 'cut_coords': [(3,1,2.5), (0.2,3.2,2.4), (1.6, 0.4, 0.6)]})
+analysis_list = [ "gsr1",  "gsr3", "aCompCor1", "aCompCor3" ]  
 for analysis in analysis_list:
   for index, row in seed_to_plot.iterrows():
       plot_seed_map(data_dir, analysis_dir, seed_img_dir, analysis, df, bg_img, mask_img,row["seed"],row["cut_coords"])

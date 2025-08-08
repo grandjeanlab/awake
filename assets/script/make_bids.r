@@ -1,8 +1,8 @@
 
 library(tidyverse)
 
-meta_data<-'assets/tables/rat_metadata.tsv'
-folder_data<-'/project/4180000.36/awake/bids/rat'
+meta_data<-'assets/tables/mouse_metadata.tsv'
+folder_data<-'/project/4180000.36/awake/bids/mouse'
 
 
 df<-read_tsv(meta_data) %>% select(rodent.ds, rodent.sub, rodent.session, rodent.run, MRI.TR)
@@ -54,7 +54,7 @@ missing<-df %>% filter(is.na(scan.exist))
 print(missing)
 
 #save missing to ../tables/mouse_missing.tsv
-write_tsv(missing, '../tables/rat_missing.tsv')
+write_tsv(missing, 'assets/tables/mouse_missing.tsv')
 #save no_match to ../tables/mouse_no_match.txt
-write(no_match, '../tables/rat_no_match.txt')
+write(no_match, 'assets/tables/mouse_no_match.txt')
 

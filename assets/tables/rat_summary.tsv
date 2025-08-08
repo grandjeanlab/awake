@@ -1,6 +1,6 @@
-rodent.ds	total_run	total_included	included_percentage	total_rat	strain	male	female	unknownsex	anesthesia	field_strength	sequence	TR	TE
-2001	16	16	100.0	16	['Wistar']	8	8	0	['Isoflurane']	[7]	['GE-EPI']	[1000]	[17]
-2002a	7	7	100.0	7	['Sprague-Dawley']	7	0	0	['Sevoflurane']	[7]	['GE-EPI']	[1000]	[18]
-2002b	10	10	100.0	10	['Wistar']	10	0	0	['Isoflurane']	[7]	['SE-EPI']	[2000]	[45]
-2003	97	97	100.0	8	['Sprague-Dawley']	97	0	0	['Isoflurane']	[7]	['GE-EPI']	[2000]	[15]
-4001	291	60	20.618556701030926	89	[nan]	291	0	0	['isoflurane']	[7]	['GE-EPI']	[1000]	[15]
+rodent.ds	total_run	total_included	included_percentage	total_mouse	strain	male	female	unknownsex	headplate	restrained	anesthesia	exp.gender	field_strength	sequence	TR	TE	aidaqc.tsnr.mean	aidaqc.tsnr.std	aidaqc.dist.mean	aidaqc.dist.std
+2001	16	16	100.0	16	['Wistar']	8	8	0	['n']	['y']	['Isoflurane']	['f']	[7]	['GE-EPI']	[1000]	[17]	22.459452349237374	1.8026763021685948	0.11498564380436328	0.03786709394711215
+2002a	7	7	100.0	7	['Sprague-Dawley']	7	0	0	['n']	['y']	['Sevoflurane']	['f']	[7]	['GE-EPI']	[1000]	[18]	19.81904171402102	3.147644800390374	0.20445048770187021	0.04064753113523254
+2002b	10	10	100.0	10	['Wistar']	10	0	0	['n']	['y']	['Isoflurane']	['m']	[7]	['SE-EPI']	[2000]	[45]	20.35742644984895	2.0516331445425657	0.26095861906921963	0.09649519964730309
+2003	97	97	100.0	8	['Sprague-Dawley']	97	0	0	['y']	['y']	['Isoflurane']	['f']	[7]	['GE-EPI']	[2000]	[15]	25.418501709024614	2.6495748674906543	0.1465334830388632	0.09474918102207446
+4001	291	60	20.618556701030926	89	[nan]	291	0	0	['n']	['y']	['isoflurane']	[nan]	[7]	['GE-EPI']	[1000]	[15]	24.823888880739197	4.623731460994795	0.08331575352958438	0.04156135757738327

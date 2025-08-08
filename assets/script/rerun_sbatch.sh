@@ -1,6 +1,6 @@
 #!/bin/env bash
 
-tmp_scripts_dir='/project/4180000.36/awake/rat_scripts'
+tmp_scripts_dir='/project/4180000.36/awake/tmp_rabies_scripts_rat'
 complete_scripts_dir='/project/4180000.36/awake/complete_rabies_scripts_rat'
 output_dir='/project/4180000.36/awake/output_rat'
 
