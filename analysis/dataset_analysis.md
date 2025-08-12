@@ -1,0 +1,250 @@
+# process data for analysis
+Joanes Grandjean
+2025-10-08
+
+``` python
+%autoindent 
+```
+
+then import libraries and set functions that we will use later
+
+``` python
+#import path/file modules
+from os import listdir, makedirs
+from os.path import join, isfile, isdir
+import glob
+#import data processing modules
+import polars as pl
+#import imaging modules
+import nibabel as nib
+from nilearn.maskers import NiftiLabelsMasker
+
+def get_fc_per_analysis(data_dir, df, analysis_list, frame_mask_dir, seed_ts_dir, seed_ref, seed_specific, seed_unspecific, seed_thalamus):
+  try:
+      for analysis in analysis_list:
+          print("Running analysis for: " + analysis)
+          # get the number of dropped frames for each scan and analysis
+          p = join(data_dir, analysis, frame_mask_dir)
+          df = df.with_columns(
+              pl.col("scan_dir").map_elements(lambda x: dropped_frames(p, x)).alias("dropped.frames." + analysis))
+          # get the connectivity specificity for s1 and thalamus
+          p = join(data_dir, analysis, seed_ts_dir)
+          df = df.with_columns([
+              pl.col("scan_dir").map_elements(lambda x: corr_seed(get_seed_ts(p, x, seed_ref), get_seed_ts(p, x, seed_specific))).alias("s1.specific." + analysis),
+              pl.col("scan_dir").map_elements(lambda x: corr_seed(get_seed_ts(p, x, seed_ref), get_seed_ts(p, x, seed_unspecific))).alias("s1.unspecific." + analysis),
+              pl.col("scan_dir").map_elements(lambda x: corr_seed(get_seed_ts(p, x, seed_ref), get_seed_ts(p, x, seed_thalamus))).alias("thal.specific." + analysis)
+          ])
+          # calculate FC categories
+          df = df.with_columns([
+              pl.struct([f"s1.specific.{analysis}", f"s1.unspecific.{analysis}"]).map_elements(lambda x: specific_FC(x[f"s1.specific.{analysis}"], x[f"s1.unspecific.{analysis}"])).alias(f"s1.cat.{analysis}"),
+              pl.struct([f"thal.specific.{analysis}", f"s1.unspecific.{analysis}"]).map_elements(lambda x: specific_FC(x[f"thal.specific.{analysis}"], x[f"s1.unspecific.{analysis}"])).alias(f"thal.cat.{analysis}")
+          ])
+      return df
+  except:
+      return None
+
+#write a function get_frame_mask that takes a path, scan_dir, and returns a mask
+def dropped_frames(path, scan_dir):
+    try:
+        frame_mask_path = join(path, scan_dir)
+        frame_mask_file = listdir(frame_mask_path)[0]
+        frame_mask_full = join(frame_mask_path, frame_mask_file)
+        frame_mask_ts = pl.read_csv(frame_mask_full, new_columns=['mask'], skip_rows=0)["mask"].value_counts()
+        dropped_frames = frame_mask_ts.filter(frame_mask_ts['mask']==False)['count'][0] 
+        return dropped_frames
+    except: 
+        return None
+
+def total_frames(tmp_listdir, x):
+  try:
+    scan_file = tmp_listdir.filter(tmp_listdir.str.contains(x))[0]
+    return nib.load(scan_file).header["dim"][4]
+  except:
+    return None
+
+def get_seed_ts(path, scan_dir, seed):
+    seed_prefix = "_seed_name_"
+    try:
+        seed_path = join(path, scan_dir, seed_prefix + seed)
+        seed_file = listdir(seed_path)[0]
+        seed_ts = pl.read_csv(join(seed_path, seed_file), new_columns=['ts'])
+        return seed_ts
+    except:
+        pass
+
+# correlate the time series of two seeds
+def corr_seed(seed1, seed2):
+  try:
+    return pl.DataFrame({"a":seed1, "b":seed2}).corr()[0,1]
+  except: 
+    pass
+
+# determine the correlation of a reference seed with specific, unspecific, and thalamus seeds
+def specific_FC(specific_roi, unspecific_ROI):
+  try:
+    if (specific_roi>=0.1) and (unspecific_ROI<0.1):
+        cat='Specific'
+    elif (specific_roi>=0.1) and (unspecific_ROI>=0.1):
+        cat='Non-specific'
+    elif (abs(specific_roi)<0.1) and (abs(unspecific_ROI)<0.1):
+        cat='No'
+    else:
+        cat='Spurious'
+    return cat
+  except:
+    pass
+
+def return_cat_index(serie, analysis, cat_index, roi):
+  tmp = serie.value_counts().with_columns(pl.col("count")/pl.sum("count"))
+  tmp.columns = ["index", "count"]
+  tmp2 = pl.DataFrame({"index": cat_index}).join(tmp, on="index", how="left").with_columns(pl.col("count").fill_null(0)).transpose(column_names="index").rename(lambda column_name: roi+"."+analysis+"."+column_name).to_struct()
+  return tmp2
+
+def get_seed_path(path, scan_dir, seed): 
+    seed_prefix = "_seed_name_"
+    try:
+        seed_path = join(path, scan_dir, seed_prefix + seed)
+        seed_file = listdir(seed_path)[0]
+        seed_final = join(seed_path, seed_file)
+        return seed_final
+    except:
+        pass
+
+def get_fd(tmp_listdir, x):
+  try:
+    fd_mean = pl.read_csv(tmp_listdir.filter(tmp_listdir.str.contains(x))[0], separator=',', columns=['Mean']).mean()["Mean"][0]
+    return fd_mean
+  except:
+    return None
+
+#function to get the snr from two rois. ideally the s1 barrel field
+def get_tsnr(tmp_listdir, x, label_img, roiL, roiR):
+  try:
+    x = x.split("_")
+    sub = x[0]
+    ses = x[1]
+    run = x[2]
+    scan_file = tmp_listdir.filter(tmp_listdir.str.contains(sub) & tmp_listdir.str.contains(ses) & tmp_listdir.str.contains(run))
+    if scan_file.is_empty():
+      run = run.replace("-", "_")
+      scan_file = tmp_listdir.filter(tmp_listdir.str.contains(sub) & tmp_listdir.str.contains(ses) & tmp_listdir.str.contains(run))
+    if scan_file.is_empty():
+      return pl.Series([None, None], dtype=pl.Float32)
+    else:
+      masker = NiftiLabelsMasker(labels_img=label_img, standardize=False)
+      roi_values = masker.fit_transform(scan_file[0])
+      return pl.Series(roi_values)[0][roiL-1, roiR-1]
+  except:
+    return pl.Series([None, None], dtype=pl.Float32)
+```
+
+now defile some general purpose variables
+
+``` python
+analysis_list = [ "gsr1", "gsr2", "gsr3","wmcsf1", "wmcsf2", "wmcsf3", "aCompCor1", "aCompCor2", "aCompCor3" ]  
+motion_dir="motion_datasink/FD_csv"
+frame_mask_dir = "frame_censoring_mask"
+seed_ts_dir = "analysis_datasink/seed_timecourse_csv/"
+seed_img_dir = "analysis_datasink/seed_correlation_maps/"
+tsnr_img_dir = "tSNR_map_preprocess"
+
+cat_index = ["Specific", "Non-specific", "Spurious", "No"]
+
+seed_ref = "s1_r"
+seed_specific = "s1_l"
+seed_unspecific = "aca_r"
+seed_thalamus = "vpm_r"
+
+roi_list=["s1","thal"]
+```
+
+this is the variable part.
+
+``` python
+#for rodent in ["mouse", "rat" ]:
+rodent="mouse"
+print("#### NOW DOING " + rodent + " ####")
+data_dir = "/project/4180000.36/awake/complete_output_"+rodent
+bids_dir = "/project/4180000.36/awake/bids/"+rodent+"_complete"
+analysis_dir = "/project/4180000.36/awake/analysis_"+rodent
+mask_img = "/home/traaffneu/joagra/code/awake/assets/template/"+rodent+"/mask.nii.gz"
+label_img = "/home/traaffneu/joagra/code/awake/assets/template/"+rodent+"/labels.nii.gz"
+if rodent == "rat":
+  roiL = 520  # left barrel field cortex
+  roiR = 521  # right barrel field cortex
+if rodent == "mouse":
+  roiL = 281
+  roiR = 117
+df = pl.read_csv("../assets/tables/"+rodent+"_metadata.tsv", separator="\t", ignore_errors=True)
+df = df.with_columns([
+    pl.concat_str([
+        pl.lit("sub-0"),
+        pl.col("rodent.sub").cast(pl.Utf8),
+        pl.lit("_ses-"),
+        pl.col("rodent.session").cast(pl.Utf8),
+        pl.lit("_run-"),
+        pl.col("rodent.run").cast(pl.Utf8)
+    ]).alias("scan")
+])
+df = df.with_columns([
+    pl.format("_split_name_{}_task-rest_bold", pl.col("scan")).alias("scan_dir")
+])
+aidaqc = pl.read_csv("../assets/tables/"+rodent+"_caculated_features_func.csv")
+aidaqc = aidaqc.rename({
+    "tSNR (Averaged Brain ROI)": "aidaqc.tsnr",
+    "Displacement factor (std of Mutual information)": "aidaqc.dist"
+})
+aidaqc = aidaqc.with_columns([
+    pl.col("FileAddress").str.split("func/").list.get(1).str.split("_task").list.get(0).alias("scan")
+])
+df = df.join(aidaqc, on="scan")
+df = df.filter(pl.col("exclude").is_null() | (pl.col("exclude") != "y"))
+df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary.tsv", separator="\t")
+#first, let's extract some infomation about motion and summarize it per dataset
+p = join(data_dir, motion_dir)
+tmp_listdir = glob.glob(join(p,"*/*/*.csv"), recursive=True)
+tmp_listdir_alt = glob.glob(join(p,"*/*.csv"), recursive=True)
+tmp_listdir = tmp_listdir + tmp_listdir_alt 
+tmp_listdir = pl.Series(tmp_listdir)
+df = df.with_columns(pl.col("scan").map_elements(lambda x: get_fd(tmp_listdir, x)).alias("fd.mean"))
+tmp_listdir = glob.glob(join(bids_dir,"*/*/func/*.nii.gz"), recursive=True)
+tmp_listdir = pl.Series(tmp_listdir)
+df = df.with_columns(pl.col("scan").map_elements(lambda x: total_frames(tmp_listdir, x)).alias("total.frames"))
+df_summary = df_summary.join(
+    df.group_by("rodent.ds").agg(pl.mean("fd.mean")),
+    on="rodent.ds"
+)
+#now let's get the tsnr from S1 cortex. 
+p = join(data_dir, tsnr_img_dir)
+tmp_listdir = glob.glob(join(p,"*/*/*.nii.gz"), recursive=True)
+tmp_listdir_alt = glob.glob(join(p,"*/*.nii.gz"), recursive=True)
+tmp_listdir = tmp_listdir + tmp_listdir_alt 
+tmp_listdir = pl.Series(tmp_listdir)
+tmp = df.with_columns(pl.col("scan").map_elements(lambda x: get_tsnr(tmp_listdir, x, label_img, roiL, roiR)).alias('roi')).select('scan_dir','roi')
+df = df.join(tmp.with_columns([
+    pl.col('roi').list.get(0).alias("s1.tsnr.l"),
+    pl.col('roi').list.get(1).alias("s1.tsnr.r")
+    ]).select("s1.tsnr.l", "s1.tsnr.r", "scan_dir"), on="scan_dir")
+#now we run the analysis per denoising style, we extract the number of dropped frames, the s1-s1, s1-aca, and s1-thal correlations. finally we estimate connectivity specificity
+df = get_fc_per_analysis(data_dir, df, analysis_list, frame_mask_dir, seed_ts_dir, seed_ref, seed_specific, seed_unspecific, seed_thalamus)
+df_summary = df_summary.join(
+    df.group_by("rodent.ds").agg([
+        pl.mean("total.frames").alias("total.frames"),
+        pl.mean("dropped.frames.gsr1").alias("dropped.frames.gsr1"),
+        pl.mean("dropped.frames.gsr2").alias("dropped.frames.gsr2"),
+        pl.mean("dropped.frames.gsr3").alias("dropped.frames.gsr3")
+    ]),
+    on="rodent.ds"
+)
+for (analysis,roi) in [(analysis,roi) for analysis in analysis_list for roi in roi_list]:
+  tmp=df.group_by("rodent.ds").agg(pl.col(roi+".cat."+analysis).map_elements(lambda x: return_cat_index(x, analysis, cat_index, roi)))
+  df_summary = df_summary.join(tmp.with_columns([
+            pl.col(roi+".cat."+analysis).list.get(0).struct.field(roi+"."+analysis+'.'+cat_index[0]).alias(roi+"."+analysis+'.'+cat_index[0]),
+            pl.col(roi+".cat."+analysis).list.get(0).struct.field(roi+"."+analysis+'.'+cat_index[1]).alias(roi+"."+analysis+'.'+cat_index[1]),
+            pl.col(roi+".cat."+analysis).list.get(0).struct.field(roi+"."+analysis+'.'+cat_index[2]).alias(roi+"."+analysis+'.'+cat_index[2]),
+            pl.col(roi+".cat."+analysis).list.get(0).struct.field(roi+"."+analysis+'.'+cat_index[3]).alias(roi+"."+analysis+'.'+cat_index[3]),
+        ]).drop(roi+".cat."+analysis), on="rodent.ds")
+
+df_summary.write_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t")
+df.write_csv("../assets/tables/"+rodent+"_metadata_process.tsv", separator="\t")
+```

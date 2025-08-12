@@ -11,78 +11,87 @@ descriptive summary of the dataset and its processing.
 ```
 
 ``` python
-import pandas as pd
-def get_rodent_summary(df):
-  #get a summary of the total number of runs, excluded runs and number of animals
-  df_summary = df.groupby("rodent.ds").size().reset_index(name='total_run')
-  df_summary["total_included"] = df.groupby("rodent.ds")["exclude"].apply(lambda x: x.isna().sum()).values
-  df_summary["included_percentage"] = (df_summary["total_included"] / df_summary["total_run"]) * 100
-  df_summary["total_mouse"] = df.groupby("rodent.ds")["rodent.sub"].nunique().values
-  #get a summary of the mice used 
-  df_summary["strain"] = df.groupby("rodent.ds")["rodent.strain"].unique().values
-  df_summary["male"] =  df.groupby("rodent.ds")["rodent.sex"].apply(lambda x: (x == 'm').sum()).values
-  df_summary["female"] = df.groupby("rodent.ds")["rodent.sex"].apply(lambda x: (x == 'f').sum()).values
-  df_summary["unknownsex"] = df.groupby("rodent.ds")["rodent.sex"].apply(lambda x: x.isna().sum()).values
-  #get a summary of the animal preparation
-  df_summary["headplate"] = df.groupby("rodent.ds")["head-plate"].unique().values
-  df_summary["restrained"] = df.groupby("rodent.ds")["body.restrained"].unique().values
-  df_summary["anesthesia"] = df.groupby("rodent.ds")["anesthesia.before.acquisition"].unique().values
-  df_summary["exp.gender"] = df.groupby("rodent.ds")["main.experimenter.gender"].unique().values
-  #get a summary of the MRI parameters
-  df_summary["field_strength"] = df.groupby("rodent.ds")["MRI.field.strength"].unique().values
-  df_summary["sequence"] = df.groupby("rodent.ds")["fMRI.sequence"].unique().values
-  df_summary["TR"] = df.groupby("rodent.ds")["MRI.TR"].unique().values
-  df_summary["TE"] = df.groupby("rodent.ds")["MRI.TE"].unique().values
-  # get aidaqc summary
-  df_summary["aidaqc.tsnr.mean"] = df.groupby("rodent.ds")["aidaqc.tsnr"].mean().values
-  df_summary["aidaqc.tsnr.std"] = df.groupby("rodent.ds")["aidaqc.tsnr"].std().values
-  df_summary["aidaqc.dist.mean"] = df.groupby("rodent.ds")["aidaqc.dist"].mean().values
-  df_summary["aidaqc.dist.std"] = df.groupby("rodent.ds")["aidaqc.dist"].std().values
-  return df_summary
+import polars as pl
 
+def get_rodent_summary(df):
+    # Get a summary of the total number of runs, excluded runs and number of animals
+    df_summary = df.group_by("rodent.ds").agg([
+        pl.count().alias("total_run"),
+        (pl.col("exclude").is_null().sum()).alias("total_included"),
+        pl.col("rodent.sub").n_unique().alias("total_mouse"),
+        pl.col("rodent.strain").unique().first().alias("strain"),
+        (pl.col("rodent.sex") == 'm').sum().alias("male"),
+        (pl.col("rodent.sex") == 'f').sum().alias("female"),
+        pl.col("rodent.sex").is_null().sum().alias("unknownsex"),
+        pl.col("head-plate").unique().first().alias("headplate"),
+        pl.col("body.restrained").unique().first().alias("restrained"),
+        pl.col("anesthesia.before.acquisition").unique().first().alias("anesthesia"),
+        pl.col("main.experimenter.gender").unique().first().alias("exp.gender"),
+        pl.col("MRI.field.strength").unique().first().alias("field_strength"),
+        pl.col("fMRI.sequence").unique().first().alias("sequence"),
+        pl.col("MRI.TE").unique().first().alias("TE"),
+    ])
+    df_summary = df_summary.with_columns([
+        (pl.col("total_included") / pl.col("total_run") * 100).alias("included_percentage")
+    ])
+    return df_summary
+
+
+    
 
 for rodent in [ "mouse", "rat" ]:
-  df = pd.read_csv("../assets/tables/"+rodent+"_metadata.tsv", sep="\t")
-  df["scan"] = "sub-0" + df["rodent.sub"].astype("str") + "_ses-" + df["rodent.session"].astype("str") + "_run-" + df["rodent.run"].astype("str")
-  aidaqc = pd.read_csv("../assets/tables/"+rodent+"_caculated_features_func.csv", sep=",")
-  aidaqc = aidaqc.rename(columns={"tSNR (Averaged Brain ROI)": "aidaqc.tsnr", "Displacement factor (std of Mutual information)": "aidaqc.dist"})
-  aidaqc["scan"] = aidaqc["FileAddress"].apply(lambda x : x.split("func/")[1].split("_task")[0])
-  df = df.set_index("scan").join(aidaqc.set_index("scan"))
+# Read the CSV file
+  df = pl.read_csv("../assets/tables/"+rodent+"_metadata.tsv", separator="\t", ignore_errors=True)
+# Create a new column "scan"
+  df = df.with_columns([
+      pl.concat_str([
+          pl.lit("sub-0"),
+          pl.col("rodent.sub").cast(pl.Utf8),
+          pl.lit("_ses-"),
+          pl.col("rodent.session").cast(pl.Utf8),
+          pl.lit("_run-"),
+          pl.col("rodent.run").cast(pl.Utf8)
+      ]).alias("scan")
+  ])
+# Get the rodent summary
   df_summary = get_rodent_summary(df)
-  #saving the table for later use
-  df_summary.to_csv("../assets/tables/"+rodent+"_summary.tsv", sep="\t", index=False)
-  print("summary data for "+rodent)
-  print(df_summary[["total_run", "total_included", "included_percentage", "total_mouse", "strain"]])
+# Save the table for later use
+  df_summary.write_csv("../assets/tables/"+rodent+"_summary.tsv", separator="\t")
+  print("now doing "+rodent)
+  print(df_summary["rodent.ds", "total_run", "total_included", "total_mouse", "male", "female", "exp.gender"])
 ```
 
-    summary data for mouse
-        total_run  total_included  included_percentage  total_mouse         strain
-    0           4               4           100.000000            4      [C57BL/6]
-    1           8               8           100.000000            8      [C57BL/6]
-    2          12              12           100.000000           12      [C57BL/6]
-    3          21              21           100.000000            5      [C57BL/6]
-    4          13              13           100.000000            4      [C57BL/6]
-    5          10               0             0.000000           10      [C57BL/6]
-    6          20              20           100.000000           10      [C57BL/6]
-    7          14              14           100.000000            7      [C57BL/6]
-    8          36              34            94.444444            9      [C57BL/6]
-    9         107              34            31.775701            5  [129S2/SvPas]
-    10         10               0             0.000000           10      [C57BL/6]
-    11         51              48            94.117647           17      [C57BL/6]
-    12        112             112           100.000000            6      [C57BL/6]
-    13         10              10           100.000000           10      [C57BL/6]
-    14        479             414            86.430063           19   [B6129PF/J1]
-    summary data for rat
-       total_run  total_included  included_percentage  total_mouse  \
-    0         16              16           100.000000           16   
-    1          7               7           100.000000            7   
-    2         10              10           100.000000           10   
-    3         97              97           100.000000            8   
-    4        291              60            20.618557           89   
-
-                 strain  
-    0          [Wistar]  
-    1  [Sprague-Dawley]  
-    2          [Wistar]  
-    3  [Sprague-Dawley]  
-    4             [nan]  
+    now doing mouse
+    shape: (18, 7)
+    ┌───────────┬───────────┬────────────────┬─────────────┬──────┬────────┬────────────┐
+    │ rodent.ds ┆ total_run ┆ total_included ┆ total_mouse ┆ male ┆ female ┆ exp.gender │
+    │ ---       ┆ ---       ┆ ---            ┆ ---         ┆ ---  ┆ ---    ┆ ---        │
+    │ str       ┆ u32       ┆ u32            ┆ u32         ┆ u32  ┆ u32    ┆ str        │
+    ╞═══════════╪═══════════╪════════════════╪═════════════╪══════╪════════╪════════════╡
+    │ 3002      ┆ 10        ┆ 10             ┆ 10          ┆ 10   ┆ 0      ┆ null       │
+    │ 1005a     ┆ 13        ┆ 13             ┆ 4           ┆ 13   ┆ 0      ┆ f          │
+    │ 1012      ┆ 26        ┆ 26             ┆ 26          ┆ 14   ┆ 12     ┆ f          │
+    │ 3001      ┆ 112       ┆ 112            ┆ 6           ┆ 0    ┆ 0      ┆ null       │
+    │ 1005b     ┆ 10        ┆ 0              ┆ 10          ┆ 10   ┆ 0      ┆ f          │
+    │ …         ┆ …         ┆ …              ┆ …           ┆ …    ┆ …      ┆ …          │
+    │ 1010      ┆ 10        ┆ 0              ┆ 10          ┆ 10   ┆ 0      ┆ null       │
+    │ 1003      ┆ 12        ┆ 12             ┆ 12          ┆ 7    ┆ 5      ┆ m          │
+    │ 1001      ┆ 4         ┆ 4              ┆ 4           ┆ 4    ┆ 0      ┆ m          │
+    │ 3004      ┆ 54        ┆ 54             ┆ 9           ┆ 0    ┆ 54     ┆ f          │
+    │ 1002      ┆ 8         ┆ 8              ┆ 8           ┆ 8    ┆ 0      ┆ m          │
+    └───────────┴───────────┴────────────────┴─────────────┴──────┴────────┴────────────┘
+    now doing rat
+    shape: (7, 7)
+    ┌───────────┬───────────┬────────────────┬─────────────┬──────┬────────┬────────────┐
+    │ rodent.ds ┆ total_run ┆ total_included ┆ total_mouse ┆ male ┆ female ┆ exp.gender │
+    │ ---       ┆ ---       ┆ ---            ┆ ---         ┆ ---  ┆ ---    ┆ ---        │
+    │ str       ┆ u32       ┆ u32            ┆ u32         ┆ u32  ┆ u32    ┆ str        │
+    ╞═══════════╪═══════════╪════════════════╪═════════════╪══════╪════════╪════════════╡
+    │ 2002a     ┆ 7         ┆ 7              ┆ 7           ┆ 7    ┆ 0      ┆ f          │
+    │ 2001      ┆ 16        ┆ 16             ┆ 16          ┆ 8    ┆ 8      ┆ f          │
+    │ 2005      ┆ 5         ┆ 5              ┆ 3           ┆ 0    ┆ 5      ┆ m          │
+    │ 2004      ┆ 19        ┆ 19             ┆ 5           ┆ 10   ┆ 9      ┆ m          │
+    │ 2002b     ┆ 10        ┆ 10             ┆ 10          ┆ 10   ┆ 0      ┆ m          │
+    │ 2003      ┆ 97        ┆ 97             ┆ 8           ┆ 97   ┆ 0      ┆ f          │
+    │ 4001      ┆ 291       ┆ 60             ┆ 89          ┆ 291  ┆ 0      ┆ null       │
+    └───────────┴───────────┴────────────────┴─────────────┴──────┴────────┴────────────┘
