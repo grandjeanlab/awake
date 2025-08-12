@@ -17,39 +17,54 @@ We accumulated datasets from several laboratories. Here, we carry out a descript
 ```
 
 ```{python}
-import pandas as pd
-def get_rodent_summary(df):
-  #get a summary of the total number of runs, excluded runs and number of animals
-  df_summary = df.groupby("rodent.ds").size().reset_index(name='total_run')
-  df_summary["total_included"] = df.groupby("rodent.ds")["exclude"].apply(lambda x: x.isna().sum()).values
-  df_summary["included_percentage"] = (df_summary["total_included"] / df_summary["total_run"]) * 100
-  df_summary["total_mouse"] = df.groupby("rodent.ds")["rodent.sub"].nunique().values
-  #get a summary of the mice used 
-  df_summary["strain"] = df.groupby("rodent.ds")["rodent.strain"].unique().values
-  df_summary["male"] =  df.groupby("rodent.ds")["rodent.sex"].apply(lambda x: (x == 'm').sum()).values
-  df_summary["female"] = df.groupby("rodent.ds")["rodent.sex"].apply(lambda x: (x == 'f').sum()).values
-  df_summary["unknownsex"] = df.groupby("rodent.ds")["rodent.sex"].apply(lambda x: x.isna().sum()).values
-  #get a summary of the animal preparation
-  df_summary["headplate"] = df.groupby("rodent.ds")["head-plate"].unique().values
-  df_summary["restrained"] = df.groupby("rodent.ds")["body.restrained"].unique().values
-  df_summary["anesthesia"] = df.groupby("rodent.ds")["anesthesia.before.acquisition"].unique().values
-  df_summary["exp.gender"] = df.groupby("rodent.ds")["main.experimenter.gender"].unique().values
-  #get a summary of the MRI parameters
-  df_summary["field_strength"] = df.groupby("rodent.ds")["MRI.field.strength"].unique().values
-  df_summary["sequence"] = df.groupby("rodent.ds")["fMRI.sequence"].unique().values
-  df_summary["TR"] = df.groupby("rodent.ds")["MRI.TR"].unique().values
-  df_summary["TE"] = df.groupby("rodent.ds")["MRI.TE"].unique().values
-  return df_summary
+import polars as pl
 
+def get_rodent_summary(df):
+    # Get a summary of the total number of runs, excluded runs and number of animals
+    df_summary = df.group_by("rodent.ds").agg([
+        pl.count().alias("total_run"),
+        (pl.col("exclude").is_null().sum()).alias("total_included"),
+        pl.col("rodent.sub").n_unique().alias("total_animal"),
+        pl.col("rodent.strain").unique().first().alias("strain"),
+        (pl.col("rodent.sex") == 'm').sum().alias("male"),
+        (pl.col("rodent.sex") == 'f').sum().alias("female"),
+        pl.col("rodent.sex").is_null().sum().alias("unknownsex"),
+        pl.col("head-plate").unique().first().alias("headplate"),
+        pl.col("body.restrained").unique().first().alias("restrained"),
+        pl.col("anesthesia.before.acquisition").unique().first().alias("anesthesia"),
+        pl.col("main.experimenter.gender").unique().first().alias("exp.gender"),
+        pl.col("MRI.field.strength").unique().first().alias("field_strength"),
+        pl.col("fMRI.sequence").unique().first().alias("sequence"),
+        pl.col("MRI.TE").unique().first().alias("TE"),
+    ])
+    df_summary = df_summary.with_columns([
+        (pl.col("total_included") / pl.col("total_run") * 100).alias("included_percentage")
+    ])
+    return df_summary
+
+
+    
 
 for rodent in [ "mouse", "rat" ]:
-  df = pd.read_csv("../assets/tables/"+rodent+"_metadata.tsv", sep="\t")
-  df["scan"] = "sub-0" + df["rodent.sub"].astype("str") + "_ses-" + df["rodent.session"].astype("str") + "_run-" + df["rodent.run"].astype("str")
+# Read the CSV file
+  df = pl.read_csv("../assets/tables/"+rodent+"_metadata.tsv", separator="\t", ignore_errors=True)
+# Create a new column "scan"
+  df = df.with_columns([
+      pl.concat_str([
+          pl.lit("sub-0"),
+          pl.col("rodent.sub").cast(pl.Utf8),
+          pl.lit("_ses-"),
+          pl.col("rodent.session").cast(pl.Utf8),
+          pl.lit("_run-"),
+          pl.col("rodent.run").cast(pl.Utf8)
+      ]).alias("scan")
+  ])
+# Get the rodent summary
   df_summary = get_rodent_summary(df)
-  #saving the table for later use
-  df_summary.to_csv("../assets/tables/"+rodent+"_summary.tsv", sep="\t", index=False)
-  print("summary data for "+rodent)
-  print(df_summary[["total_run", "total_included", "included_percentage", "total_mouse", "strain"]])
+# Save the table for later use
+  df_summary.write_csv("../assets/tables/"+rodent+"_summary.tsv", separator="\t")
+  print("now doing "+rodent)
+  print(df_summary["rodent.ds", "total_run", "total_included", "total_mouse", "male", "female", "exp.gender"])
 
 ```
 
