@@ -25,6 +25,7 @@ import polars as pl
 #import imaging modules
 import nibabel as nib
 from nilearn.maskers import NiftiLabelsMasker
+import numpy as np
 
 def get_fc_per_analysis(data_dir, df, analysis_list, frame_mask_dir, seed_ts_dir, seed_ref, seed_specific, seed_unspecific, seed_thalamus):
   try:
@@ -125,7 +126,7 @@ def get_fd(tmp_listdir, x):
     return None
 
 #function to get the snr from two rois. ideally the s1 barrel field
-def get_tsnr(tmp_listdir, x, label_img, roiL, roiR):
+def get_masker(tmp_listdir, x, label_img, roiL, roiR):
   try:
     x = x.split("_")
     sub = x[0]
@@ -139,8 +140,10 @@ def get_tsnr(tmp_listdir, x, label_img, roiL, roiR):
       return pl.Series([None, None], dtype=pl.Float32)
     else:
       masker = NiftiLabelsMasker(labels_img=label_img, standardize=False)
-      roi_values = masker.fit_transform(scan_file[0])
-      return pl.Series(roi_values)[0][roiL-1, roiR-1]
+      roi_values = masker.fit_transform(scan_file[0]).astype(np.float32)
+      keyL = [key for key, val in masker.region_ids_.items() if val == roiL]
+      keyR = [key for key, val in masker.region_ids_.items() if val == roiR]
+      return pl.Series(roi_values)[0][[keyL[0],keyR[0]]]
   except:
     return pl.Series([None, None], dtype=pl.Float32)
 
@@ -156,6 +159,7 @@ frame_mask_dir = "frame_censoring_mask"
 seed_ts_dir = "analysis_datasink/seed_timecourse_csv/"
 seed_img_dir = "analysis_datasink/seed_correlation_maps/"
 tsnr_img_dir = "tSNR_map_preprocess"
+gsr_cov_img_dir = "data_diagnosis_datasink/GS_cov_nii"
 
 cat_index = ["Specific", "Non-specific", "Spurious", "No"]
 
@@ -181,8 +185,8 @@ analysis_dir = "/project/4180000.36/awake/analysis_"+rodent
 mask_img = "/home/traaffneu/joagra/code/awake/assets/template/"+rodent+"/mask.nii.gz"
 label_img = "/home/traaffneu/joagra/code/awake/assets/template/"+rodent+"/labels.nii.gz"
 if rodent == "rat":
-  roiL = 520  # left barrel field cortex
-  roiR = 521  # right barrel field cortex
+  roiL = 521  # left barrel field cortex
+  roiR = 522  # right barrel field cortex
 if rodent == "mouse":
   roiL = 281
   roiR = 117
@@ -231,11 +235,24 @@ tmp_listdir = glob.glob(join(p,"*/*/*.nii.gz"), recursive=True)
 tmp_listdir_alt = glob.glob(join(p,"*/*.nii.gz"), recursive=True)
 tmp_listdir = tmp_listdir + tmp_listdir_alt 
 tmp_listdir = pl.Series(tmp_listdir)
-tmp = df.with_columns(pl.col("scan").map_elements(lambda x: get_tsnr(tmp_listdir, x, label_img, roiL, roiR)).alias('roi')).select('scan_dir','roi')
+tmp = df.with_columns(pl.col("scan").map_elements(lambda x: get_masker(tmp_listdir, x, label_img, roiL, roiR)).alias('roi')).select('scan_dir','roi')
 df = df.join(tmp.with_columns([
     pl.col('roi').list.get(0).alias("s1.tsnr.l"),
     pl.col('roi').list.get(1).alias("s1.tsnr.r")
     ]).select("s1.tsnr.l", "s1.tsnr.r", "scan_dir"), on="scan_dir")
+#extract the global signal regression covariates from our two roi
+for analysis in analysis_list:
+  print("doing gsr covariance for "+analysis)
+  p = join(data_dir, analysis, gsr_cov_img_dir)
+  tmp_listdir = glob.glob(join(p,"*/*/*.nii.gz"), recursive=True)
+  tmp_listdir_alt = glob.glob(join(p,"*/*.nii.gz"), recursive=True)
+  tmp_listdir = tmp_listdir + tmp_listdir_alt 
+  tmp_listdir = pl.Series(tmp_listdir)
+  tmp = df.with_columns(pl.col("scan").map_elements(lambda x: get_masker(tmp_listdir, x, label_img, roiL, roiR)).alias('roi')).select('scan_dir','roi')
+  df = df.join(tmp.with_columns([
+      pl.col('roi').list.get(0).alias("s1.gsrcov.l."+analysis),
+      pl.col('roi').list.get(1).alias("s1.gsrcov.r."+analysis)
+    ]).select("scan_dir", "s1.gsrcov.l."+analysis, "s1.gsrcov.r."+analysis), on="scan_dir")
 #now we run the analysis per denoising style, we extract the number of dropped frames, the s1-s1, s1-aca, and s1-thal correlations. finally we estimate connectivity specificity
 df = get_fc_per_analysis(data_dir, df, analysis_list, frame_mask_dir, seed_ts_dir, seed_ref, seed_specific, seed_unspecific, seed_thalamus)
 df_summary = df_summary.join(

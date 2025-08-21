@@ -1,7 +1,7 @@
 
 library(tidyverse)
 
-meta_data<-'assets/tables/mouse_metadata.tsv'
+meta_data<-'/home/traaffneu/joagra/code/awake/assets/tables/mouse_metadata.tsv'
 folder_data<-'/project/4180000.36/awake/bids/mouse'
 
 

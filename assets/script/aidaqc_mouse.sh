@@ -7,7 +7,7 @@
 #SBATCH --mem=128GB
 
 root_dir="/project/4180000.36/awake"
-bids_dir="/bids/mouse"
+bids_dir="/bids/mouse_complete"
 aidaqc_dir="aidaqc_mouse"
 
 apptainer exec /groupshare/traaffneu/preclinimg/apptainer/aidaqc.sif ParsingData.py --initial_path ${root_dir}/${bids_dir} --output_path ${root_dir}/${aidaqc_dir} --format nifti

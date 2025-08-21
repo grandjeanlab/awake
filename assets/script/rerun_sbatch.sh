@@ -1,8 +1,8 @@
 #!/bin/env bash
 
-tmp_scripts_dir='/project/4180000.36/awake/tmp_rabies_scripts_rat'
-complete_scripts_dir='/project/4180000.36/awake/complete_rabies_scripts_rat'
-output_dir='/project/4180000.36/awake/output_rat'
+tmp_scripts_dir='/project/4180000.36/awake/tmp_rabies_scripts_mouse'
+complete_scripts_dir='/project/4180000.36/awake/complete_rabies_scripts_mouse'
+output_dir='/project/4180000.36/awake/output_mouse'
 
 cd $tmp_scripts_dir
 

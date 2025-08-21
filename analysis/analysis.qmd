@@ -71,7 +71,7 @@ for rodent in rodent_list:
   print(str((df_summary["headplate"] == 'y').sum()) + " datasets used headplates")
   print(str((df_summary["restrained"] == 'y').sum()) + " datasets used body restraining")
   print(str((df_summary["anesthesia"].is_in(['Isoflurane', 'Sevoflurane'])).sum()) + " datasets used anesthesia before acquisition")
-  print(str((df_summary["exp.gender"] == 'm').sum()) + " datasets were collected by males, " + str((df_summary["exp.gender"] == 'f').sum())+ " by women")
+  print(str((df_summary["exp.gender"] == 'm').sum()) + " datasets were collected by men, " + str((df_summary["exp.gender"] == 'f').sum())+ " by women")
 
   print(df_summary.select("rodent.ds", "headplate", "restrained", "anesthesia","exp.gender").sort(by="rodent.ds"))
 
