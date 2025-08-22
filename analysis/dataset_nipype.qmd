@@ -1,0 +1,68 @@
+---
+title: "process data for analysis"
+author: "Joanes Grandjean"
+date: "10/8/2025"
+format: gfm
+jupyter: python3
+execute: 
+  warning: false
+---
+
+```{python}
+#| eval: false
+%autoindent 
+```
+
+then import libraries and set functions that we will use later
+```{python}
+#| eval: false
+
+from nipype import Node, Workflow, IdentityInterface, Function
+from nipype.interfaces.io import DataFinder, DataSink
+from nipype.interfaces.nilearn import SignalExtraction
+
+data_dir = '/home/gjoanes/Downloads/sample/data'
+wf_dir = '/home/gjoanes/Downloads/sample/workflow'
+label_img = '/home/gjoanes/code/awake/assets/template/mouse/s1bf.nii.gz'
+
+def keep_filename(out_paths):
+    return out_paths.split('/')[-1].split('.')[0] + '.tsv'
+
+df_node = Node(DataFinder(), name='df_node')
+df_node.inputs.root_paths = data_dir
+df_node.inputs.match_regex = r'^(?P<basedir>.+)/(?P<filename>[^/]+)\.nii\.gz$'
+
+df_list = df_node.run().outputs
+
+
+infosource = Node(IdentityInterface(fields=['out_paths']),name="infosource")
+infosource.iterables = [('out_paths', df_list.out_paths)]
+
+
+se_node = Node(SignalExtraction(), name="se_node")
+se_node.inputs.label_files = label_img  
+se_node.inputs.class_labels = ['s1_left', 's1_right']
+
+filename_node = Node(Function(input_names=["out_paths"],
+                       output_names=["filename"],
+                       function=keep_filename),
+              name='filename_node')
+
+ds_node = Node(DataSink(), name="ds_node")
+ds_node.inputs.base_directory = join(wf_dir, 'datasink')
+ds_node.inputs.parameterization = False
+
+wf = Workflow(name="test")
+wf.base_dir = wf_dir
+
+wf.connect(infosource, 'out_paths', se_node, 'in_file')
+wf.connect(infosource, 'out_paths', filename_node, 'out_paths')
+wf.connect(filename_node, 'filename', se_node, 'out_file')
+wf.connect(se_node, 'out_file', ds_node, 'out_file')
+wf.run()
+
+
+
+
+
+```
