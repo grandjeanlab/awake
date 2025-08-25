@@ -64,7 +64,7 @@ for rodent in [ "mouse", "rat" ]:
 # Save the table for later use
   df_summary.write_csv("../assets/tables/"+rodent+"_summary.tsv", separator="\t")
   print("now doing "+rodent)
-  print(df_summary["rodent.ds", "total_run", "total_included", "total_animal", "male", "female", "exp.gender"])
+  print(df_summary["rodent.ds", "total_run", "total_included", "total_", "male", "female", "exp.gender"])
 
 ```
 
