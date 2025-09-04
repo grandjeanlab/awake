@@ -19,6 +19,10 @@ import polars as pl
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+import matplotlib
+#set matplotlib rendering to TkAgg
+matplotlib.use('TkAgg')
+
 
 pl.Config(
     tbl_formatting="MARKDOWN",
@@ -39,6 +43,12 @@ seed_thalamus = "vpm_r"
 
 roi_list=["s1","thal"]
 
+def makeswarmplot(title, x, y, hue=None):
+    ax = plt.figure(figsize=(10,5))
+    ax = sns.swarmplot(x=x, y=y, hue=hue)
+    plt.title(title)
+    return ax
+
 ```
 
 ## Mouse analysis. 
@@ -47,74 +57,89 @@ roi_list=["s1","thal"]
 ```{python}
 rodent_list = ["mouse", "rat"]
 for rodent in rodent_list:
-#rodent='rat'
-  print("#### NOW DOING " + rodent + " ####")
-  df = pl.read_csv("../assets/tables/"+rodent+"_metadata_process.tsv", separator="\t")
-  df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t")
+rodent='rat'
+print("#### NOW DOING " + rodent + " ####")
+df = pl.read_csv("../assets/tables/"+rodent+"_metadata_process.tsv", separator="\t")
+df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t")
 
-  print("summary of the data that we collected")
-  print("we processed " + str(df_summary["rodent.ds"].count()) + " datasets") 
-  print("totalling "+ str(df_summary["total_run"].sum()) +" runs")
-  print("from "+str(df_summary["total_animal"].sum()) +" mice")
-  print("the smallest dataset had "+ str(df_summary["total_run"].min())+" runs") 
-  print("the largest dataset had "+str(df_summary["total_run"].max())+" runs")
-  print("we could processed "+str(df_summary["total_included"].sum()) + "/" + str(df_summary["total_run"].sum())+ " runs.")
+print("summary of the data that we collected")
+print("we processed " + str(df_summary["rodent.ds"].count()) + " datasets") 
+print("totalling "+ str(df_summary["total_run"].sum()) +" runs")
+print("from "+str(df_summary["total_animal"].sum()) +" animals")
+print("the smallest dataset had "+ str(df_summary["total_run"].min())+" runs") 
+print("the largest dataset had "+str(df_summary["total_run"].max())+" runs")
+print("we could processed "+str(df_summary["total_included"].sum()) + "/" + str(df_summary["total_run"].sum())+ " runs.")
 
-  print("below is a summary of the data included per dataset")
+print("below is a summary of the data included per dataset")
 #to add the summary of the data included
-  print(df_summary.select("rodent.ds", "total_run", "total_animal", "total_included").sort(by="rodent.ds"))
+print(df_summary.select("rodent.ds", "total_run", "total_animal", "total_included", "strain").sort(by="rodent.ds"))
 
-  print("information about sex ratio")
-  print("the datasets contained "+str(df_summary["male"].sum())+ " males and " +str(df_summary["female"].sum())+ " females")
-  print("that corresponds to "+str(round(100*df_summary["female"].sum()/(df_summary["female"].sum()+df_summary["male"].sum()),2))+"% females ")
-  print("information about animal handling")
-  print(str((df_summary["headplate"] == 'y').sum()) + " datasets used headplates")
-  print(str((df_summary["restrained"] == 'y').sum()) + " datasets used body restraining")
-  print(str((df_summary["anesthesia"].is_in(['Isoflurane', 'Sevoflurane'])).sum()) + " datasets used anesthesia before acquisition")
-  print(str((df_summary["exp.gender"] == 'm').sum()) + " datasets were collected by men, " + str((df_summary["exp.gender"] == 'f').sum())+ " by women")
+print("information about sex ratio")
+print("the datasets contained "+str(df_summary["male"].sum())+ " male runs and " +str(df_summary["female"].sum())+ " female runs")
+print("that corresponds to "+str(round(100*df_summary["female"].sum()/(df_summary["female"].sum()+df_summary["male"].sum()),2))+"% females ")
+print("information about animal handling")
+print(str((df_summary["headplate"] == 'y').sum()) + " datasets used headplates")
+print(str((df_summary["restrained"] == 'y').sum()) + " datasets used body restraining")
+print(str((df_summary["anesthesia"].is_in(['Isoflurane', 'Sevoflurane'])).sum()) + " datasets used anesthesia before acquisition")
+print(str((df_summary["exp.gender"] == 'm').sum()) + " datasets were collected by men, " + str((df_summary["exp.gender"] == 'f').sum())+ " by women")
 
-  print(df_summary.select("rodent.ds", "headplate", "restrained", "anesthesia","exp.gender").sort(by="rodent.ds"))
+print(df_summary.select("rodent.ds", "headplate", "restrained", "anesthesia","exp.gender").sort(by="rodent.ds"))
 
-  print("information about the scanner and sequence")
-  print("lowest field strength was " + str(df_summary["field_strength"].min()) + "T")
-  print("highest field strength was " + str(df_summary["field_strength"].max()) + "T")
-  print(df_summary.select("rodent.ds", "field_strength", "sequence", "TE").sort(by="rodent.ds"))
+print("information about the scanner and sequence")
+print("lowest field strength was " + str(df_summary["field_strength"].min()) + "T")
+print("highest field strength was " + str(df_summary["field_strength"].max()) + "T")
+print(df_summary.select("rodent.ds", "field_strength", "sequence", "TE").sort(by="rodent.ds"))
 
 #first, let's extract some infomation about motion and summarize it per dataset
-  print("#### MOTION ANALYISIS ####")
-  print("mean fd across all "+rodent+" datasets")
-  print(df.select("fd.mean").mean())
-  print("mean fd per dataset")
-  print(df_summary.select("rodent.ds", "fd.mean").sort(by="rodent.ds"))
+print("#### MOTION ANALYISIS ####")
+print("mean fd across all "+rodent+" datasets")
+print(df.select("fd.mean").mean())
+print("mean fd per dataset")
+print(df_summary.select("rodent.ds", "fd.mean").sort(by="rodent.ds"))
+
+ax = makeswarmplot('framewise displacement per dataset', df["rodent.ds"], df["fd.mean"], hue=df['head-plate'])
+ax.figure.savefig("../assets/plot/"+rodent+"_fd_per_dataset.svg")
+
+#let's extract some infomation about tsnr and summarize it per dataset
+print("#### tSNR ANALYISIS ####")
+print("tSNR across all "+rodent+" datasets")
+print(df.select("s1.tsnr.l").mean())
+print("mean fd per dataset")
+
+ax = makeswarmplot('S1 tSNR per dataset', df["rodent.ds"], df["s1.tsnr.l"], hue=df['MRI.field.strength'])
+ax.figure.savefig("../assets/plot/"+rodent+"_tsnr_per_dataset.svg")
+
+
+
 #now we run the analysis per denoising style, we extract the number of dropped frames, the s1-s1, s1-aca, and s1-thal correlations. finally we estimate connectivity specificity
-  print("Number of dropped frames for each dataset and denoising method")
-  print("This corresponds to the following rabies flags for mice")
-  print("#gsr1: --frame_censoring FD_censoring=true,FD_threshold=0.1,DVARS_censoring=true")
-  print("#gsr2: --frame_censoring FD_censoring=true,FD_threshold=0.5,DVARS_censoring=true")
-  print("#gsr3: --frame_censoring FD_censoring=true,FD_threshold=0.5,DVARS_censoring=false")
-  print("#### DENOISE ANALYSIS ####")
-  print("dropped frames per dataset")
-  print(df_summary.select("rodent.ds", "total.frames", "dropped.frames.gsr1", "dropped.frames.gsr2", "dropped.frames.gsr3").sort(by="rodent.ds"))
-  print("#### FC specifiticy analysis ####")
-  for analysis in analysis_list:
-    print(" ")
-    print("overall FC specificity for "+ analysis)
-    print(df["s1.cat."+analysis].value_counts().with_columns(pl.col("count")/pl.sum("count")).sort(by='count', descending=True))
+print("Number of dropped frames for each dataset and denoising method")
+print("This corresponds to the following rabies flags for mice")
+print("#gsr1: --frame_censoring FD_censoring=true,FD_threshold=0.1,DVARS_censoring=true")
+print("#gsr2: --frame_censoring FD_censoring=true,FD_threshold=0.5,DVARS_censoring=true")
+print("#gsr3: --frame_censoring FD_censoring=true,FD_threshold=0.5,DVARS_censoring=false")
+print("#### DENOISE ANALYSIS ####")
+print("dropped frames per dataset")
+print(df_summary.select("rodent.ds", "total.frames", "dropped.frames.gsr1", "dropped.frames.gsr2", "dropped.frames.gsr3").sort(by="rodent.ds"))
+print("#### FC specifiticy analysis ####")
+for analysis in analysis_list:
+  print(" ")
+  print("overall FC specificity for "+ analysis)
+  print(df["s1.cat."+analysis].value_counts().with_columns(pl.col("count")/pl.sum("count")).sort(by='count', descending=True))
 
-  print("for gsr processing, heavy scrubbing lead to  "+str((df["s1.cat.gsr1"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr1"]=="Specific").count())  + " Specific scans")
-  print("for gsr processing, light scrubbing lead to  "+str((df["s1.cat.gsr3"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr3"]=="Specific").count())  + " Specific scans")
+print("for gsr processing, heavy scrubbing lead to  "+str((df["s1.cat.gsr1"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr1"]=="Specific").count())  + " Specific scans")
+print("for gsr processing, light scrubbing lead to  "+str((df["s1.cat.gsr3"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr3"]=="Specific").count())  + " Specific scans")
 
-  print("for aCompCor processing, heavy scrubbing lead to  "+str((df["s1.cat.aCompCor1"]=="Specific").sum()) + "/" +str((df["s1.cat.aCompCor1"]=="Specific").count())  + " Specific scans")
-  print("for aCompCor processing, light scrubbing lead to  "+str((df["s1.cat.aCompCor3"]=="Specific").sum()) + "/" +str((df["s1.cat.aCompCor3"]=="Specific").count())  + " Specific scans")
+print("for aCompCor processing, heavy scrubbing lead to  "+str((df["s1.cat.aCompCor1"]=="Specific").sum()) + "/" +str((df["s1.cat.aCompCor1"]=="Specific").count())  + " Specific scans")
+print("for aCompCor processing, light scrubbing lead to  "+str((df["s1.cat.aCompCor3"]=="Specific").sum()) + "/" +str((df["s1.cat.aCompCor3"]=="Specific").count())  + " Specific scans")
 
-  print("s1-s1 specificity analysis per dataset (only showing specific values)")
-  print(df_summary[["rodent.ds"]+["s1."+analysis+".Specific" for analysis in analysis_list]].sort(by="rodent.ds"))
+print("s1-s1 specificity analysis per dataset (only showing specific values)")
+print(df_summary[["rodent.ds"]+["s1."+analysis+".Specific" for analysis in analysis_list]].sort(by="rodent.ds"))
 
-  print("it seems that less scrubbing lead to better outcomes")
-  print("for gsr processing, "+str((df_summary["s1.gsr1.Specific"] < df_summary["s1.gsr3.Specific"]).sum())+"/"+str(df_summary["s1.gsr1.Specific"].count())+" dataset performed better with less scrubbing")
-  print("for aCompCor processing, "+str((df_summary["s1.aCompCor1.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor1.Specific"].count())+" dataset performed better with less scrubbing")
-  print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed better with aCompCor compared to gsr")
-  print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] > df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed worst with aCompCor compared to gsr")
+print("it seems that less scrubbing lead to better outcomes")
+print("for gsr processing, "+str((df_summary["s1.gsr1.Specific"] < df_summary["s1.gsr3.Specific"]).sum())+"/"+str(df_summary["s1.gsr1.Specific"].count())+" dataset performed better with less scrubbing")
+print("for aCompCor processing, "+str((df_summary["s1.aCompCor1.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor1.Specific"].count())+" dataset performed better with less scrubbing")
+print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed better with aCompCor compared to gsr")
+print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] > df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed worst with aCompCor compared to gsr")
 
 
 ```
