@@ -89,13 +89,7 @@ for rodent in ["mouse", "rat" ]:
   mask_img = "../assets/template/"+rodent+"/mask.nii.gz"
   df = pl.read_csv("../assets/tables/"+rodent+"_metadata.tsv", separator="\t")
   df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary.tsv", separator="\t")
-  print("#### plot fc categories per denoising method ####")
-  df_melted = df.melt(id_vars="rodent.ds", value_vars=['s1.cat.' + x for x in analysis_list])
-  g = sns.displot(df_melted, x='variable', hue='value', multiple='stack', hue_order=cat_index)
-  g.ax.invert_yaxis()
-  g.ax.tick_params(axis='x', rotation=90)
-  plt.savefig("../assets/plot/"+rodent+"_specificity.svg")
-#make the standard s1-s1 / s1-aca connectivity plot.   
+  #make the standard s1-s1 / s1-aca connectivity plot.   
   for analysis in analysis_list:
     ax = sns.jointplot(x=df['thal.specific.'+analysis], y=df['s1.unspecific.'+analysis])
     ax.fig.suptitle(rodent+': Thal FC specificity with ' + analysis)

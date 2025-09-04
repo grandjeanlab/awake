@@ -18,16 +18,47 @@ import polars as pl
 #import plotting modules
 import matplotlib.pyplot as plt
 import seaborn as sns
+from scipy.stats import chi2_contingency
 
 import matplotlib
 #set matplotlib rendering to TkAgg
 matplotlib.use('TkAgg')
 
-from scipy.stats import chi2_contingency
 
-def chi2_continuous(df, cat1, cat2, rodent, split=4, labels = ["lowest","low","high","highest"]):
+def makeswarmplot(title, x, y, hue=None):
+    ax = plt.figure(figsize=(10,5))
+    ax = sns.stripplot(x=x, y=y, hue=hue)
+    plt.title(title)
+    return ax
+
+def makestackplot(df_melted):
+  plt.figure(figsize=(10,5))
+  ax = sns.displot(df_melted, x='variable', hue='value', multiple='stack', hue_order=cat_index, stat='probability')
+  ax.ax.invert_yaxis()
+  ax.ax.tick_params(axis='x', rotation=90)
+  return ax
+
+def makespecificityplot(title, x,y, hue=None):
+  ax = sns.jointplot(x=x, y=y, hue=hue)
+  ax.fig.suptitle(title)
+  ax.fig.subplots_adjust(top=0.9)
+  ax.ax_joint.set(xlabel='Specific ROI [r]', ylabel='Unspecific ROI [r]')
+  ax.ax_joint.set_xlim(-1, 1)
+  ax.ax_joint.set_ylim(-1, 1)
+  ax.ax_joint.vlines(0.1,ymin=-1,ymax=1,linestyles='dashed', color='black')
+  ax.ax_joint.vlines(-0.1, -0.1,0.1,linestyles='dashed', color='black')
+  ax.ax_joint.hlines(-0.1, -0.1,0.1,linestyles='dashed', color='black')
+  ax.ax_joint.hlines(0.1, -0.1,xmax=1,linestyles='dashed', color='black')
+  ax.ax_marg_x.axvline(x=0.1, color='black')
+  ax.ax_marg_y.axhline(y=0.1, color='black')
+  return ax
+
+def split_continuous(df, cat1, cat2, split=4, labels = ["lowest","low","high","highest"]):
+  split_table = df.select(cat1, cat2).with_columns(pl.col(cat2).qcut(split, labels=labels).alias('quartiles')).drop_nulls()
+  return split_table
+
+def chi2_continuous(chi2_table, cat1, cat2, rodent):
   print(f'looking at {cat2} effect in {cat1} in {rodent}')
-  chi2_table = df.select(cat1, cat2).with_columns(pl.col(cat2).qcut(split, labels=labels).alias('quartiles')).drop_nulls()
   total_count = chi2_table.height/100
   chi2_table = chi2_table.select(cat1,'quartiles').group_by([cat1,'quartiles']).agg(pl.len()).sort(by='quartiles').pivot(index=cat1, on='quartiles', values='len').sort(by=cat1)
   print(chi2_table.with_columns(pl.all().exclude(chi2_table.columns[0])/total_count))
@@ -63,12 +94,6 @@ seed_thalamus = "vpm_r"
 
 roi_list=["s1","thal"]
 
-def makeswarmplot(title, x, y, hue=None):
-    ax = plt.figure(figsize=(10,5))
-    ax = sns.swarmplot(x=x, y=y, hue=hue)
-    plt.title(title)
-    return ax
-
 ```
 
 ## Mouse analysis. 
@@ -77,7 +102,7 @@ def makeswarmplot(title, x, y, hue=None):
 ```{python}
 rodent_list = ["mouse", "rat"]
 for rodent in rodent_list:
-rodent='rat'
+rodent='mouse'
 print("#### NOW DOING " + rodent + " ####")
 df = pl.read_csv("../assets/tables/"+rodent+"_metadata_process.tsv", separator="\t")
 df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t")
@@ -123,12 +148,9 @@ ax.figure.savefig("../assets/plot/"+rodent+"_fd_per_dataset.svg")
 print("#### tSNR ANALYISIS ####")
 print("tSNR across all "+rodent+" datasets")
 print(df.select("s1.tsnr.l").mean())
-print("mean fd per dataset")
 
-ax = makeswarmplot('S1 tSNR per dataset', df["rodent.ds"], df["s1.tsnr.l"], hue=df['MRI.field.strength'])
+ax = makeswarmplot('S1 tSNR per dataset', df["rodent.ds"], df["s1.tsnr.l"], hue=df['MRI.field.strength'].cast(pl.String))
 ax.figure.savefig("../assets/plot/"+rodent+"_tsnr_per_dataset.svg")
-
-
 
 #now we run the analysis per denoising style, we extract the number of dropped frames, the s1-s1, s1-aca, and s1-thal correlations. finally we estimate connectivity specificity
 print("Number of dropped frames for each dataset and denoising method")
@@ -160,27 +182,53 @@ print("for aCompCor processing, "+str((df_summary["s1.aCompCor1.Specific"] < df_
 print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed better with aCompCor compared to gsr")
 print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] > df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed worst with aCompCor compared to gsr")
 
+print("#### plot fc categories per denoising method ####")
+df_melted = df.melt(id_vars="rodent.ds", value_vars=['s1.cat.' + x for x in analysis_list])
+ax = makestackplot(df_melted)
+plt.savefig("../assets/plot/"+rodent+"_specificity.svg")
+
+analysis_sub = ['gsr3', 'aCompCor3']
+for analysis in analysis_sub:
+  ax = makespecificityplot(rodent+': S1 specificity with ' + analysis, df['s1.specific.'+analysis], df['s1.unspecific.'+analysis])
+  plt.savefig("../assets/plot/specific/"+rodent+"_s1_specificity_"+analysis+".svg")
+
+  ax = makespecificityplot(rodent+': Thal FC specificity with ' + analysis, df['thal.specific.'+analysis], df['s1.unspecific.'+analysis])
+  plt.savefig("../assets/plot/specific/"+rodent+"_thal_specificity_"+analysis+".svg")
+
+df_to_plot = split_continuous(df, 's1.cat.gsr3', 'fd.mean')
+df_to_plot = df_to_plot.rename({'s1.cat.gsr3':'value', 'quartiles':'variable'})
+ax = makestackplot(df_to_plot)
+plt.savefig("../assets/plot/"+rodent+"_gsr3_fd.svg")
+
+ 
 print('doing statistical analysis')
 print('first with gsr processed data')
-chi2_continuous(df, 's1.cat.gsr3', 'fd.mean', rodent)
-chi2_continuous(df, 's1.cat.gsr3', 's1.gsrcov.l.gsr3', rodent)
-chi2_continuous(df, 's1.cat.gsr3', 's1.tsnr.l', rodent)
+cat1='s1.cat.gsr3'
+cat2 = 'fd.mean'
+chi2_continuous(split_continuous(df, cat1, cat2), cat1, cat2, rodent)
+cat2 = 's1.gsrcov.l.gsr3'
+chi2_continuous(split_continuous(df, cat1, cat2), cat1, cat2, rodent)
+cat2 = 's1.tsnr.l'
+chi2_continuous(split_continuous(df, cat1, cat2), cat1, cat2, rodent)
 
-chi2_categorical(df, 's1.cat.gsr3', 'main.experimenter.gender', rodent)
-chi2_categorical(df, 's1.cat.gsr3', 'rodent.sex', rodent)
-chi2_categorical(df, 's1.cat.gsr3', 'head-plate', rodent)
-chi2_categorical(df, 's1.cat.gsr3', 'body.restrained', rodent)
+chi2_categorical(df, cat1, 'main.experimenter.gender', rodent)
+chi2_categorical(df, cat1, 'rodent.sex', rodent)
+chi2_categorical(df, cat1, 'head-plate', rodent)
+chi2_categorical(df, cat1, 'body.restrained', rodent)
 
 print('second with aCompCor processed data') 
-chi2_continuous(df, 's1.cat.aCompCor3', 'fd.mean', rodent)
-chi2_continuous(df, 's1.cat.aCompCor3', 's1.gsrcov.l.gsr3', rodent)
-chi2_continuous(df, 's1.cat.aCompCor3', 's1.tsnr.l', rodent)
+cat1='s1.cat.aCompCor3'
+cat2 = 'fd.mean'
+chi2_continuous(split_continuous(df, cat1, cat2), cat1, cat2, rodent)
+cat2 = 's1.gsrcov.l.gsr3'
+chi2_continuous(split_continuous(df, cat1, cat2), cat1, cat2, rodent)
+cat2 = 's1.tsnr.l'
+chi2_continuous(split_continuous(df, cat1, cat2), cat1, cat2, rodent)
 
-chi2_categorical(df, 's1.cat.aCompCor3', 'main.experimenter.gender', rodent)
-chi2_categorical(df, 's1.cat.aCompCor3', 'rodent.sex', rodent)
-chi2_categorical(df, 's1.cat.aCompCor3', 'head-plate', rodent)
-chi2_categorical(df, 's1.cat.aCompCor3', 'body.restrained', rodent)
-
+chi2_categorical(df, cat1, 'main.experimenter.gender', rodent)
+chi2_categorical(df, cat1, 'rodent.sex', rodent)
+chi2_categorical(df, cat1, 'head-plate', rodent)
+chi2_categorical(df, cat1, 'body.restrained', rodent)
 
 
 ```
