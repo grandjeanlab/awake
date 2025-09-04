@@ -23,13 +23,33 @@ import matplotlib
 #set matplotlib rendering to TkAgg
 matplotlib.use('TkAgg')
 
+from scipy.stats import chi2_contingency
+
+def chi2_continuous(df, cat1, cat2, rodent, split=4, labels = ["lowest","low","high","highest"]):
+  print(f'looking at {cat2} effect in {cat1} in {rodent}')
+  chi2_table = df.select(cat1, cat2).with_columns(pl.col(cat2).qcut(split, labels=labels).alias('quartiles')).drop_nulls()
+  total_count = chi2_table.height/100
+  chi2_table = chi2_table.select(cat1,'quartiles').group_by([cat1,'quartiles']).agg(pl.len()).sort(by='quartiles').pivot(index=cat1, on='quartiles', values='len').sort(by=cat1)
+  print(chi2_table.with_columns(pl.all().exclude(chi2_table.columns[0])/total_count))
+  chi2_table = chi2_table.select(pl.all().exclude(chi2_table.columns[0]))
+  q, p, dof, expect = chi2_contingency(chi2_table)
+  print(f'the effect of {cat2} on {cat1} in {rodent} is q =  {round(q,2)} with p-value = {round(p,5)}, dof = {dof}')
+
+def chi2_categorical(df, cat1, cat2, rodent):
+  print(f'looking at {cat2} effect in {cat1} in {rodent}')
+  chi2_table = df.select(cat1, cat2).drop_nulls()
+  total_count = chi2_table.height/100
+  chi2_table = chi2_table.select(cat1,cat2).group_by([cat1,cat2]).agg(pl.len()).sort(by=cat2).pivot(index=cat1, on=cat2, values='len').sort(by=cat1)
+  print(chi2_table.with_columns(pl.all().exclude(chi2_table.columns[0])/total_count))
+  chi2_table = chi2_table.select(pl.all().exclude(chi2_table.columns[0]))
+  q, p, dof, expect = chi2_contingency(chi2_table)
+  print(f'the effect of {cat2} on {cat1} in {rodent} is q =  {round(q,2)} with p-value = {round(p,5)}, dof = {dof}')
 
 pl.Config(
     tbl_formatting="MARKDOWN",
     tbl_hide_column_data_types=True,
     tbl_hide_dataframe_shape=True,
     tbl_rows=100,
-
 )
 
 analysis_list = [ "gsr1", "gsr2", "gsr3","wmcsf1", "wmcsf2", "wmcsf3", "aCompCor1", "aCompCor2", "aCompCor3" ]  
@@ -61,7 +81,6 @@ rodent='rat'
 print("#### NOW DOING " + rodent + " ####")
 df = pl.read_csv("../assets/tables/"+rodent+"_metadata_process.tsv", separator="\t")
 df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t")
-
 print("summary of the data that we collected")
 print("we processed " + str(df_summary["rodent.ds"].count()) + " datasets") 
 print("totalling "+ str(df_summary["total_run"].sum()) +" runs")
@@ -141,6 +160,29 @@ print("for aCompCor processing, "+str((df_summary["s1.aCompCor1.Specific"] < df_
 print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed better with aCompCor compared to gsr")
 print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] > df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed worst with aCompCor compared to gsr")
 
+print('doing statistical analysis')
+print('first with gsr processed data')
+chi2_continuous(df, 's1.cat.gsr3', 'fd.mean', rodent)
+chi2_continuous(df, 's1.cat.gsr3', 's1.gsrcov.l.gsr3', rodent)
+chi2_continuous(df, 's1.cat.gsr3', 's1.tsnr.l', rodent)
+
+chi2_categorical(df, 's1.cat.gsr3', 'main.experimenter.gender', rodent)
+chi2_categorical(df, 's1.cat.gsr3', 'rodent.sex', rodent)
+chi2_categorical(df, 's1.cat.gsr3', 'head-plate', rodent)
+chi2_categorical(df, 's1.cat.gsr3', 'body.restrained', rodent)
+
+print('second with aCompCor processed data') 
+chi2_continuous(df, 's1.cat.aCompCor3', 'fd.mean', rodent)
+chi2_continuous(df, 's1.cat.aCompCor3', 's1.gsrcov.l.gsr3', rodent)
+chi2_continuous(df, 's1.cat.aCompCor3', 's1.tsnr.l', rodent)
+
+chi2_categorical(df, 's1.cat.aCompCor3', 'main.experimenter.gender', rodent)
+chi2_categorical(df, 's1.cat.aCompCor3', 'rodent.sex', rodent)
+chi2_categorical(df, 's1.cat.aCompCor3', 'head-plate', rodent)
+chi2_categorical(df, 's1.cat.aCompCor3', 'body.restrained', rodent)
+
+
 
 ```
+
 
