@@ -1,8 +1,8 @@
 
 library(tidyverse)
 
-meta_data<-'/home/traaffneu/joagra/code/awake/assets/tables/mouse_metadata.tsv'
-folder_data<-'/project/4180000.36/awake/bids/mouse'
+meta_data<-'/home/traaffneu/joagra/code/awake/assets/tables/rat_metadata.tsv'
+folder_data<-'/project/4180000.36/awake/bids/rat'
 
 
 df<-read_tsv(meta_data) %>% select(rodent.ds, rodent.sub, rodent.session, rodent.run, MRI.TR)
