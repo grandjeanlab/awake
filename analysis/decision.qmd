@@ -1,0 +1,136 @@
+---
+title: "descision tree analysis"
+author: "Joanes Grandjean"
+date: "23/8/2025"
+format: gfm
+jupyter: python3
+execute: 
+  warning: false
+---
+
+```{python}
+#| eval: false
+%autoindent 
+```
+
+
+```{python}
+import polars as pl
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
+
+
+df_mouse = pl.read_csv("../assets/tables/mouse_metadata_process.tsv", separator="\t")
+df_rat = pl.read_csv("../assets/tables/rat_metadata_process.tsv", separator="\t")
+
+
+
+selector = ['rodent.species', 'rodent.sex', 'main.experimenter.gender', 'head-plate', 'body.restrained', 'anesthesia.before.acquisition', 'MRI.field.strength', 'MRI.cryocoil', 'fMRI.sequence', 'MRI.TR', 'MRI.TE', 'fd.mean', 'total.frames', 's1.tsnr.l', 's1.tsnr.r', 's1.gsrcov.l.gsr3', 's1.gsrcov.r.gsr3', 'dropped.frames.gsr3', 's1.cat.gsr3','s1.gsrcov.l.aCompCor3', 's1.gsrcov.r.aCompCor3', 'dropped.frames.aCompCor3', 's1.cat.aCompCor3' ]
+
+
+selectorX = ['rodent.species', 'rodent.sex', 'main.experimenter.gender', 'head-plate', 'body.restrained', 'anesthesia.before.acquisition', 'MRI.field.strength', 'MRI.cryocoil', 'fMRI.sequence', 'MRI.TR', 'MRI.TE', 'fd.mean', 'total.frames', 's1.tsnr.l', 's1.tsnr.r', 's1.gsrcov.l.gsr3', 's1.gsrcov.r.gsr3', 'dropped.frames.gsr3', 's1.gsrcov.l.aCompCor3', 's1.gsrcov.r.aCompCor3', 'dropped.frames.aCompCor3']
+
+selectoxY = 'cat.aCompCor3'
+
+
+df_mouse = df_mouse.select(selector)
+df_rat = df_rat.select(selector)
+df_rat = df_rat.with_columns(pl.col('MRI.field.strength').cast(pl.Float64), pl.col('MRI.TE').cast(pl.Float64))
+
+df = pl.concat([df_mouse, df_rat], how="vertical")
+
+#if s1.cat.gsr3 value is "Specific" then give value of 1 else 0
+df = df.with_columns(pl.when(pl.col('s1.cat.gsr3') == 'Specific').then(1).otherwise(0).alias('cat.gsr3'))
+df = df.with_columns(pl.when(pl.col('s1.cat.aCompCor3') == 'Specific').then(1).otherwise(0).alias('cat.aCompCor3'))
+
+#replace null values in dropped.frames.gsr3 and dropped.frames.aCompCor3 with 0
+df = df.with_columns(pl.col('dropped.frames.gsr3').fill_null(0), pl.col('dropped.frames.aCompCor3').fill_null(0))
+df = df.drop_nulls().drop_nans()
+
+
+df = df.with_columns(pl.when(pl.col('rodent.species') == 'rat').then(1).otherwise(0).alias('rodent.species'))
+df = df.with_columns(pl.when(pl.col('rodent.sex') == 'm').then(1).otherwise(0).alias('rodent.sex'))
+df = df.with_columns(pl.when(pl.col('main.experimenter.gender') == 'm').then(1).otherwise(0).alias('main.experimenter.gender'))
+df = df.with_columns(pl.when(pl.col('head-plate') == 'y').then(1).otherwise(0).alias('head-plate'))
+df = df.with_columns(pl.when(pl.col('body.restrained') == 'y').then(1).otherwise(0).alias('body.restrained'))
+df = df.with_columns(pl.when(pl.col('anesthesia.before.acquisition') == 'n').then(0).otherwise(1).alias('anesthesia.before.acquisition'))
+df = df.with_columns(pl.when(pl.col('MRI.cryocoil') == 'y').then(1).otherwise(0).alias('MRI.cryocoil'))
+df = df.with_columns(pl.when(pl.col('fMRI.sequence') == 'GE-EPI').then(1).otherwise(0).alias('fMRI.sequence'))
+
+
+
+X = df.select(selectorX)
+y = df.select(selectorY)
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state = 99)
+
+clf = DecisionTreeClassifier(random_state=1)
+clf.fit(X_train, y_train)
+
+
+y_pred = clf.predict(X_test)
+
+accuracy = accuracy_score(y_test, y_pred)
+print(f'Accuracy: {accuracy}')
+
+
+from sklearn.model_selection import GridSearchCV
+
+param_grid = {
+    'max_depth': range(1, 10, 1),
+    'min_samples_leaf': range(1, 20, 2),
+    'min_samples_split': range(2, 20, 2),
+    'criterion': ["entropy", "gini"]
+}
+
+tree = DecisionTreeClassifier(random_state=1)
+
+grid_search = GridSearchCV(estimator=tree, param_grid=param_grid, 
+                           cv=5, verbose=True)
+grid_search.fit(X_train, y_train)
+
+print("best accuracy", grid_search.best_score_)
+print(grid_search.best_estimator_)
+
+
+
+from sklearn.tree import plot_tree
+import matplotlib.pyplot as plt
+ 
+tree_clf = grid_search.best_estimator_
+
+plt.figure(figsize=(18, 15))
+plot_tree(tree_clf, filled=True, feature_names=selectorX,
+          class_names=df[selectoxY].unique().cast(pl.Utf8).to_list(), rounded=True, fontsize=10)
+plt.show()
+
+```
+
+
+
+
+
+old test with transformer
+
+```{python}
+
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import StandardScaler, OrdinalEncoder, KBinsDiscretizer
+
+transformer = ColumnTransformer(
+        [("scaler", StandardScaler(), ['MRI.field.strength', 'MRI.TR', 'MRI.TE','dropped.frames.gsr3', 'dropped.frames.aCompCor3', 'total.frames']),
+         ("cat", OrdinalEncoder(), ['rodent.species', 'rodent.sex', 'main.experimenter.gender', 'head-plate', 'body.restrained', 'anesthesia.before.acquisition', 'MRI.cryocoil', 'fMRI.sequence']),
+         ("kbin", KBinsDiscretizer(encode="ordinal"), ['fd.mean', 's1.tsnr.l', 's1.tsnr.r', 's1.gsrcov.l.gsr3', 's1.gsrcov.r.gsr3', 's1.gsrcov.l.aCompCor3', 's1.gsrcov.r.aCompCor3',]),
+        ],
+        verbose_feature_names_out=False,
+    )
+
+# enable polars output
+transformer.set_output(transform="polars")
+
+# fit and transform polars dataframe
+Xt = transformer.fit_transform(X)
+
+
+```
