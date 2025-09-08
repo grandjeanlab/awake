@@ -305,118 +305,118 @@ y	func reg	data is the same BIDS_raw and BIDS_input-RABIES	1011	101109	Awake10	1
 		data is the same BIDS_raw and BIDS_input-RABIES	1011	101116	Awake18	1	1	1	mouse	C57BL/6	C57BL/6	m	21	31.4	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.6	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
 		data is the same BIDS_raw and BIDS_input-RABIES	1011	101116	Awake18	1	1	2	mouse	C57BL/6	C57BL/6	m	21	31.4	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.6	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
 		data is the same BIDS_raw and BIDS_input-RABIES	1011	101116	Awake18	1	1	3	mouse	C57BL/6	C57BL/6	m	21	31.4	m	y	y	n	Isoflurane	Isoflurane (2~4% ~20min), Blocked 30 minutes before acquisition			36.6	Bruker	15.2	n	GE-EPI	1000	11.7	0.156	0.5		
-		fslorient_fslchpixdim	3001	300100	Na027	1	1	1	mouse	C57BL/6	C57BL/125		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.134	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003146
-		fslorient_fslchpixdim	3001	300100	Na027	1	1	2	mouse	C57BL/6	C57BL/126		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.135	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003147
-		fslorient_fslchpixdim	3001	300100	Na027	1	1	3	mouse	C57BL/6	C57BL/127		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.136	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003148
-		fslorient_fslchpixdim	3001	300100	Na027	1	1	4	mouse	C57BL/6	C57BL/128		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.137	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003149
-		fslorient_fslchpixdim	3001	300100	Na027	2	2	1	mouse	C57BL/6	C57BL/129		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.138	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003150
-		fslorient_fslchpixdim	3001	300100	Na027	2	2	2	mouse	C57BL/6	C57BL/130		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.139	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003151
-		fslorient_fslchpixdim	3001	300100	Na027	2	2	3	mouse	C57BL/6	C57BL/131		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.140	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003152
-		fslorient_fslchpixdim	3001	300100	Na027	2	2	4	mouse	C57BL/6	C57BL/132		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.141	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003153
-		fslorient_fslchpixdim	3001	300100	Na027	3	3	1	mouse	C57BL/6	C57BL/133		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.142	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003154
-		fslorient_fslchpixdim	3001	300100	Na027	3	3	2	mouse	C57BL/6	C57BL/134		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.143	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003155
-		fslorient_fslchpixdim	3001	300100	Na027	3	3	3	mouse	C57BL/6	C57BL/135		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.144	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003156
-		fslorient_fslchpixdim	3001	300100	Na027	3	3	4	mouse	C57BL/6	C57BL/136		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.145	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003157
-		fslorient_fslchpixdim	3001	300100	Na027	4	4	1	mouse	C57BL/6	C57BL/137		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.146	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003158
-		fslorient_fslchpixdim	3001	300100	Na027	4	4	2	mouse	C57BL/6	C57BL/138		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.147	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003159
-		fslorient_fslchpixdim	3001	300100	Na027	4	4	3	mouse	C57BL/6	C57BL/139		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.148	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003160
-		fslorient_fslchpixdim	3001	300100	Na027	4	4	4	mouse	C57BL/6	C57BL/140		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.149	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003161
-		fslorient_fslchpixdim	3001	300100	Na027	5	5	1	mouse	C57BL/6	C57BL/141		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.150	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003162
-		fslorient_fslchpixdim	3001	300100	Na027	5	5	2	mouse	C57BL/6	C57BL/142		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.151	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003163
-		fslorient_fslchpixdim	3001	300100	Na027	5	5	3	mouse	C57BL/6	C57BL/143		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.152	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003164
-		fslorient_fslchpixdim	3001	300100	Na027	5	5	4	mouse	C57BL/6	C57BL/144		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.153	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003165
-		fslorient_fslchpixdim	3001	300101	Na029	2	2	1	mouse	C57BL/6	C57BL/221		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.230	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003242
-		fslorient_fslchpixdim	3001	300101	Na029	2	2	2	mouse	C57BL/6	C57BL/222		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.231	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003243
-		fslorient_fslchpixdim	3001	300101	Na029	2	2	3	mouse	C57BL/6	C57BL/223		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.232	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003244
-		fslorient_fslchpixdim	3001	300101	Na029	2	2	4	mouse	C57BL/6	C57BL/224		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.233	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003245
-		fslorient_fslchpixdim	3001	300101	Na029	3	3	1	mouse	C57BL/6	C57BL/225		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.234	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003246
-		fslorient_fslchpixdim	3001	300101	Na029	3	3	2	mouse	C57BL/6	C57BL/226		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.235	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003247
-		fslorient_fslchpixdim	3001	300101	Na029	3	3	3	mouse	C57BL/6	C57BL/227		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.236	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003248
-		fslorient_fslchpixdim	3001	300101	Na029	3	3	4	mouse	C57BL/6	C57BL/228		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.237	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003249
-		fslorient_fslchpixdim	3001	300101	Na029	4	4	1	mouse	C57BL/6	C57BL/229		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.238	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003250
-		fslorient_fslchpixdim	3001	300101	Na029	4	4	2	mouse	C57BL/6	C57BL/230		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.239	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003251
-		fslorient_fslchpixdim	3001	300101	Na029	4	4	3	mouse	C57BL/6	C57BL/231		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.240	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003252
-		fslorient_fslchpixdim	3001	300101	Na029	4	4	4	mouse	C57BL/6	C57BL/232		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.241	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003253
-		fslorient_fslchpixdim	3001	300101	Na029	5	5	1	mouse	C57BL/6	C57BL/233		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.242	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003254
-		fslorient_fslchpixdim	3001	300101	Na029	5	5	2	mouse	C57BL/6	C57BL/234		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.243	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003255
-		fslorient_fslchpixdim	3001	300101	Na029	5	5	3	mouse	C57BL/6	C57BL/235		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.244	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003256
-		fslorient_fslchpixdim	3001	300101	Na029	5	5	4	mouse	C57BL/6	C57BL/236		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.245	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003257
-		fslorient_fslchpixdim	3001	300101	Na029	6	6	1	mouse	C57BL/6	C57BL/237		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.246	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003258
-		fslorient_fslchpixdim	3001	300101	Na029	6	6	2	mouse	C57BL/6	C57BL/238		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.247	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003259
-		fslorient_fslchpixdim	3001	300101	Na029	6	6	3	mouse	C57BL/6	C57BL/239		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.248	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003260
-		fslorient_fslchpixdim	3001	300101	Na029	6	6	4	mouse	C57BL/6	C57BL/240		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.249	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003261
-		fslorient_fslchpixdim	3001	300102	Na033	2	2	1	mouse	C57BL/6	C57BL/349		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.358	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003370
-		fslorient_fslchpixdim	3001	300102	Na033	2	2	2	mouse	C57BL/6	C57BL/350		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.359	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003371
-		fslorient_fslchpixdim	3001	300102	Na033	2	2	3	mouse	C57BL/6	C57BL/351		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.360	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003372
-		fslorient_fslchpixdim	3001	300102	Na033	2	2	4	mouse	C57BL/6	C57BL/352		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.361	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003373
-		fslorient_fslchpixdim	3001	300102	Na033	3	3	1	mouse	C57BL/6	C57BL/353		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.362	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003374
-		fslorient_fslchpixdim	3001	300102	Na033	3	3	2	mouse	C57BL/6	C57BL/354		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.363	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003375
-		fslorient_fslchpixdim	3001	300102	Na033	3	3	3	mouse	C57BL/6	C57BL/355		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.364	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003376
-		fslorient_fslchpixdim	3001	300102	Na033	3	3	4	mouse	C57BL/6	C57BL/356		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.365	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003377
-		fslorient_fslchpixdim	3001	300102	Na033	4	4	1	mouse	C57BL/6	C57BL/357		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.366	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003378
-		fslorient_fslchpixdim	3001	300102	Na033	4	4	2	mouse	C57BL/6	C57BL/358		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.367	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003379
-		fslorient_fslchpixdim	3001	300102	Na033	4	4	3	mouse	C57BL/6	C57BL/359		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.368	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003380
-		fslorient_fslchpixdim	3001	300102	Na033	4	4	4	mouse	C57BL/6	C57BL/360		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.369	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003381
-		fslorient_fslchpixdim	3001	300102	Na033	5	5	1	mouse	C57BL/6	C57BL/361		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.370	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003382
-		fslorient_fslchpixdim	3001	300102	Na033	5	5	2	mouse	C57BL/6	C57BL/362		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.371	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003383
-		fslorient_fslchpixdim	3001	300102	Na033	5	5	3	mouse	C57BL/6	C57BL/363		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.372	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003384
-		fslorient_fslchpixdim	3001	300102	Na033	5	5	4	mouse	C57BL/6	C57BL/364		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.373	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003385
-		fslorient_fslchpixdim	3001	300103	Na034	2	2	1	mouse	C57BL/6	C57BL/385		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.394	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003406
-		fslorient_fslchpixdim	3001	300103	Na034	2	2	2	mouse	C57BL/6	C57BL/386		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.395	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003407
-		fslorient_fslchpixdim	3001	300103	Na034	2	2	3	mouse	C57BL/6	C57BL/387		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.396	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003408
-		fslorient_fslchpixdim	3001	300103	Na034	2	2	4	mouse	C57BL/6	C57BL/388		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.397	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003409
-		fslorient_fslchpixdim	3001	300103	Na034	3	3	1	mouse	C57BL/6	C57BL/389		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.398	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003410
-		fslorient_fslchpixdim	3001	300103	Na034	3	3	2	mouse	C57BL/6	C57BL/390		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.399	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003411
-		fslorient_fslchpixdim	3001	300103	Na034	3	3	3	mouse	C57BL/6	C57BL/391		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.400	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003412
-		fslorient_fslchpixdim	3001	300103	Na034	3	3	4	mouse	C57BL/6	C57BL/392		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.401	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003413
-		fslorient_fslchpixdim	3001	300103	Na034	4	4	1	mouse	C57BL/6	C57BL/393		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.402	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003414
-		fslorient_fslchpixdim	3001	300103	Na034	4	4	2	mouse	C57BL/6	C57BL/394		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.403	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003415
-		fslorient_fslchpixdim	3001	300103	Na034	4	4	3	mouse	C57BL/6	C57BL/395		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.404	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003416
-		fslorient_fslchpixdim	3001	300103	Na034	4	4	4	mouse	C57BL/6	C57BL/396		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.405	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003417
-		fslorient_fslchpixdim	3001	300103	Na034	5	5	1	mouse	C57BL/6	C57BL/397		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.406	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003418
-		fslorient_fslchpixdim	3001	300103	Na034	5	5	2	mouse	C57BL/6	C57BL/398		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.407	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003419
-		fslorient_fslchpixdim	3001	300103	Na034	5	5	3	mouse	C57BL/6	C57BL/399		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.408	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003420
-		fslorient_fslchpixdim	3001	300103	Na034	5	5	4	mouse	C57BL/6	C57BL/400		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.409	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003421
-		fslorient_fslchpixdim	3001	300103	Na034	6	6	1	mouse	C57BL/6	C57BL/401		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.410	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003422
-		fslorient_fslchpixdim	3001	300103	Na034	6	6	2	mouse	C57BL/6	C57BL/402		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.411	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003423
-		fslorient_fslchpixdim	3001	300103	Na034	6	6	3	mouse	C57BL/6	C57BL/403		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.412	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003424
-		fslorient_fslchpixdim	3001	300103	Na034	6	6	4	mouse	C57BL/6	C57BL/404		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.413	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003425
-		fslorient_fslchpixdim	3001	300104	Na055	2	2	1	mouse	C57BL/6	C57BL/649		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.658	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003670
-		fslorient_fslchpixdim	3001	300104	Na055	2	2	2	mouse	C57BL/6	C57BL/650		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.659	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003671
-		fslorient_fslchpixdim	3001	300104	Na055	2	2	3	mouse	C57BL/6	C57BL/651		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.660	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003672
-		fslorient_fslchpixdim	3001	300104	Na055	2	2	4	mouse	C57BL/6	C57BL/652		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.661	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003673
-		fslorient_fslchpixdim	3001	300104	Na055	3	3	1	mouse	C57BL/6	C57BL/653		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.662	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003674
-		fslorient_fslchpixdim	3001	300104	Na055	3	3	2	mouse	C57BL/6	C57BL/654		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.663	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003675
-		fslorient_fslchpixdim	3001	300104	Na055	3	3	3	mouse	C57BL/6	C57BL/655		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.664	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003676
-		fslorient_fslchpixdim	3001	300104	Na055	3	3	4	mouse	C57BL/6	C57BL/656		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.665	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003677
-		fslorient_fslchpixdim	3001	300104	Na055	4	4	1	mouse	C57BL/6	C57BL/657		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.666	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003678
-		fslorient_fslchpixdim	3001	300104	Na055	4	4	2	mouse	C57BL/6	C57BL/658		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.667	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003679
-		fslorient_fslchpixdim	3001	300104	Na055	4	4	3	mouse	C57BL/6	C57BL/659		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.668	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003680
-		fslorient_fslchpixdim	3001	300104	Na055	4	4	4	mouse	C57BL/6	C57BL/660		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.669	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003681
-		fslorient_fslchpixdim	3001	300104	Na055	5	5	1	mouse	C57BL/6	C57BL/661		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.670	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003682
-		fslorient_fslchpixdim	3001	300104	Na055	5	5	2	mouse	C57BL/6	C57BL/662		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.671	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003683
-		fslorient_fslchpixdim	3001	300104	Na055	5	5	3	mouse	C57BL/6	C57BL/663		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.672	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003684
-		fslorient_fslchpixdim	3001	300104	Na055	5	5	4	mouse	C57BL/6	C57BL/664		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.673	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003685
-		fslorient_fslchpixdim	3001	300104	Na055	6	6	1	mouse	C57BL/6	C57BL/665		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.674	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003686
-		fslorient_fslchpixdim	3001	300104	Na055	6	6	2	mouse	C57BL/6	C57BL/666		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.675	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003687
-		fslorient_fslchpixdim	3001	300104	Na055	6	6	3	mouse	C57BL/6	C57BL/667		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.676	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003688
-		fslorient_fslchpixdim	3001	300104	Na055	6	6	4	mouse	C57BL/6	C57BL/668		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.677	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003689
-		fslorient_fslchpixdim	3001	300105	Na056	2	2	1	mouse	C57BL/6	C57BL/689		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.698	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003710
-		fslorient_fslchpixdim	3001	300105	Na056	2	2	2	mouse	C57BL/6	C57BL/690		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.699	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003711
-		fslorient_fslchpixdim	3001	300105	Na056	2	2	3	mouse	C57BL/6	C57BL/691		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.700	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003712
-		fslorient_fslchpixdim	3001	300105	Na056	2	2	4	mouse	C57BL/6	C57BL/692		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.701	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003713
-		fslorient_fslchpixdim	3001	300105	Na056	3	3	1	mouse	C57BL/6	C57BL/693		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.702	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003714
-		fslorient_fslchpixdim	3001	300105	Na056	3	3	2	mouse	C57BL/6	C57BL/694		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.703	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003715
-		fslorient_fslchpixdim	3001	300105	Na056	3	3	3	mouse	C57BL/6	C57BL/695		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.704	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003716
-		fslorient_fslchpixdim	3001	300105	Na056	3	3	4	mouse	C57BL/6	C57BL/696		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.705	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003717
-		fslorient_fslchpixdim	3001	300105	Na056	4	4	1	mouse	C57BL/6	C57BL/697		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.706	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003718
-		fslorient_fslchpixdim	3001	300105	Na056	4	4	2	mouse	C57BL/6	C57BL/698		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.707	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003719
-		fslorient_fslchpixdim	3001	300105	Na056	4	4	3	mouse	C57BL/6	C57BL/699		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.708	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003720
-		fslorient_fslchpixdim	3001	300105	Na056	4	4	4	mouse	C57BL/6	C57BL/700		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.709	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003721
-		fslorient_fslchpixdim	3001	300105	Na056	5	5	1	mouse	C57BL/6	C57BL/701		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.710	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003722
-		fslorient_fslchpixdim	3001	300105	Na056	5	5	2	mouse	C57BL/6	C57BL/702		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.711	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003723
-		fslorient_fslchpixdim	3001	300105	Na056	5	5	3	mouse	C57BL/6	C57BL/703		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.712	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003724
-		fslorient_fslchpixdim	3001	300105	Na056	5	5	4	mouse	C57BL/6	C57BL/704		NA	NA	m	y								Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.713	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003725
+		fslorient_fslchpixdim	3001	300100	Na027	1	1	1	mouse	C57BL/6	C57BL/125		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.134	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003146
+		fslorient_fslchpixdim	3001	300100	Na027	1	1	2	mouse	C57BL/6	C57BL/126		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.135	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003147
+		fslorient_fslchpixdim	3001	300100	Na027	1	1	3	mouse	C57BL/6	C57BL/127		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.136	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003148
+		fslorient_fslchpixdim	3001	300100	Na027	1	1	4	mouse	C57BL/6	C57BL/128		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.137	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003149
+		fslorient_fslchpixdim	3001	300100	Na027	2	2	1	mouse	C57BL/6	C57BL/129		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.138	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003150
+		fslorient_fslchpixdim	3001	300100	Na027	2	2	2	mouse	C57BL/6	C57BL/130		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.139	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003151
+		fslorient_fslchpixdim	3001	300100	Na027	2	2	3	mouse	C57BL/6	C57BL/131		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.140	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003152
+		fslorient_fslchpixdim	3001	300100	Na027	2	2	4	mouse	C57BL/6	C57BL/132		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.141	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003153
+		fslorient_fslchpixdim	3001	300100	Na027	3	3	1	mouse	C57BL/6	C57BL/133		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.142	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003154
+		fslorient_fslchpixdim	3001	300100	Na027	3	3	2	mouse	C57BL/6	C57BL/134		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.143	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003155
+		fslorient_fslchpixdim	3001	300100	Na027	3	3	3	mouse	C57BL/6	C57BL/135		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.144	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003156
+		fslorient_fslchpixdim	3001	300100	Na027	3	3	4	mouse	C57BL/6	C57BL/136		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.145	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003157
+		fslorient_fslchpixdim	3001	300100	Na027	4	4	1	mouse	C57BL/6	C57BL/137		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.146	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003158
+		fslorient_fslchpixdim	3001	300100	Na027	4	4	2	mouse	C57BL/6	C57BL/138		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.147	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003159
+		fslorient_fslchpixdim	3001	300100	Na027	4	4	3	mouse	C57BL/6	C57BL/139		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.148	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003160
+		fslorient_fslchpixdim	3001	300100	Na027	4	4	4	mouse	C57BL/6	C57BL/140		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.149	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003161
+		fslorient_fslchpixdim	3001	300100	Na027	5	5	1	mouse	C57BL/6	C57BL/141		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.150	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003162
+		fslorient_fslchpixdim	3001	300100	Na027	5	5	2	mouse	C57BL/6	C57BL/142		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.151	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003163
+		fslorient_fslchpixdim	3001	300100	Na027	5	5	3	mouse	C57BL/6	C57BL/143		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.152	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003164
+		fslorient_fslchpixdim	3001	300100	Na027	5	5	4	mouse	C57BL/6	C57BL/144		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.153	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003165
+		fslorient_fslchpixdim	3001	300101	Na029	2	2	1	mouse	C57BL/6	C57BL/221		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.230	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003242
+		fslorient_fslchpixdim	3001	300101	Na029	2	2	2	mouse	C57BL/6	C57BL/222		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.231	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003243
+		fslorient_fslchpixdim	3001	300101	Na029	2	2	3	mouse	C57BL/6	C57BL/223		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.232	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003244
+		fslorient_fslchpixdim	3001	300101	Na029	2	2	4	mouse	C57BL/6	C57BL/224		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.233	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003245
+		fslorient_fslchpixdim	3001	300101	Na029	3	3	1	mouse	C57BL/6	C57BL/225		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.234	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003246
+		fslorient_fslchpixdim	3001	300101	Na029	3	3	2	mouse	C57BL/6	C57BL/226		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.235	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003247
+		fslorient_fslchpixdim	3001	300101	Na029	3	3	3	mouse	C57BL/6	C57BL/227		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.236	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003248
+		fslorient_fslchpixdim	3001	300101	Na029	3	3	4	mouse	C57BL/6	C57BL/228		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.237	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003249
+		fslorient_fslchpixdim	3001	300101	Na029	4	4	1	mouse	C57BL/6	C57BL/229		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.238	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003250
+		fslorient_fslchpixdim	3001	300101	Na029	4	4	2	mouse	C57BL/6	C57BL/230		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.239	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003251
+		fslorient_fslchpixdim	3001	300101	Na029	4	4	3	mouse	C57BL/6	C57BL/231		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.240	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003252
+		fslorient_fslchpixdim	3001	300101	Na029	4	4	4	mouse	C57BL/6	C57BL/232		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.241	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003253
+		fslorient_fslchpixdim	3001	300101	Na029	5	5	1	mouse	C57BL/6	C57BL/233		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.242	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003254
+		fslorient_fslchpixdim	3001	300101	Na029	5	5	2	mouse	C57BL/6	C57BL/234		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.243	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003255
+		fslorient_fslchpixdim	3001	300101	Na029	5	5	3	mouse	C57BL/6	C57BL/235		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.244	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003256
+		fslorient_fslchpixdim	3001	300101	Na029	5	5	4	mouse	C57BL/6	C57BL/236		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.245	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003257
+		fslorient_fslchpixdim	3001	300101	Na029	6	6	1	mouse	C57BL/6	C57BL/237		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.246	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003258
+		fslorient_fslchpixdim	3001	300101	Na029	6	6	2	mouse	C57BL/6	C57BL/238		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.247	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003259
+		fslorient_fslchpixdim	3001	300101	Na029	6	6	3	mouse	C57BL/6	C57BL/239		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.248	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003260
+		fslorient_fslchpixdim	3001	300101	Na029	6	6	4	mouse	C57BL/6	C57BL/240		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.249	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003261
+		fslorient_fslchpixdim	3001	300102	Na033	2	2	1	mouse	C57BL/6	C57BL/349		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.358	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003370
+		fslorient_fslchpixdim	3001	300102	Na033	2	2	2	mouse	C57BL/6	C57BL/350		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.359	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003371
+		fslorient_fslchpixdim	3001	300102	Na033	2	2	3	mouse	C57BL/6	C57BL/351		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.360	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003372
+		fslorient_fslchpixdim	3001	300102	Na033	2	2	4	mouse	C57BL/6	C57BL/352		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.361	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003373
+		fslorient_fslchpixdim	3001	300102	Na033	3	3	1	mouse	C57BL/6	C57BL/353		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.362	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003374
+		fslorient_fslchpixdim	3001	300102	Na033	3	3	2	mouse	C57BL/6	C57BL/354		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.363	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003375
+		fslorient_fslchpixdim	3001	300102	Na033	3	3	3	mouse	C57BL/6	C57BL/355		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.364	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003376
+		fslorient_fslchpixdim	3001	300102	Na033	3	3	4	mouse	C57BL/6	C57BL/356		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.365	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003377
+		fslorient_fslchpixdim	3001	300102	Na033	4	4	1	mouse	C57BL/6	C57BL/357		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.366	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003378
+		fslorient_fslchpixdim	3001	300102	Na033	4	4	2	mouse	C57BL/6	C57BL/358		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.367	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003379
+		fslorient_fslchpixdim	3001	300102	Na033	4	4	3	mouse	C57BL/6	C57BL/359		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.368	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003380
+		fslorient_fslchpixdim	3001	300102	Na033	4	4	4	mouse	C57BL/6	C57BL/360		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.369	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003381
+		fslorient_fslchpixdim	3001	300102	Na033	5	5	1	mouse	C57BL/6	C57BL/361		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.370	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003382
+		fslorient_fslchpixdim	3001	300102	Na033	5	5	2	mouse	C57BL/6	C57BL/362		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.371	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003383
+		fslorient_fslchpixdim	3001	300102	Na033	5	5	3	mouse	C57BL/6	C57BL/363		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.372	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003384
+		fslorient_fslchpixdim	3001	300102	Na033	5	5	4	mouse	C57BL/6	C57BL/364		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.373	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003385
+		fslorient_fslchpixdim	3001	300103	Na034	2	2	1	mouse	C57BL/6	C57BL/385		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.394	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003406
+		fslorient_fslchpixdim	3001	300103	Na034	2	2	2	mouse	C57BL/6	C57BL/386		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.395	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003407
+		fslorient_fslchpixdim	3001	300103	Na034	2	2	3	mouse	C57BL/6	C57BL/387		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.396	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003408
+		fslorient_fslchpixdim	3001	300103	Na034	2	2	4	mouse	C57BL/6	C57BL/388		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.397	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003409
+		fslorient_fslchpixdim	3001	300103	Na034	3	3	1	mouse	C57BL/6	C57BL/389		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.398	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003410
+		fslorient_fslchpixdim	3001	300103	Na034	3	3	2	mouse	C57BL/6	C57BL/390		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.399	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003411
+		fslorient_fslchpixdim	3001	300103	Na034	3	3	3	mouse	C57BL/6	C57BL/391		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.400	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003412
+		fslorient_fslchpixdim	3001	300103	Na034	3	3	4	mouse	C57BL/6	C57BL/392		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.401	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003413
+		fslorient_fslchpixdim	3001	300103	Na034	4	4	1	mouse	C57BL/6	C57BL/393		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.402	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003414
+		fslorient_fslchpixdim	3001	300103	Na034	4	4	2	mouse	C57BL/6	C57BL/394		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.403	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003415
+		fslorient_fslchpixdim	3001	300103	Na034	4	4	3	mouse	C57BL/6	C57BL/395		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.404	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003416
+		fslorient_fslchpixdim	3001	300103	Na034	4	4	4	mouse	C57BL/6	C57BL/396		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.405	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003417
+		fslorient_fslchpixdim	3001	300103	Na034	5	5	1	mouse	C57BL/6	C57BL/397		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.406	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003418
+		fslorient_fslchpixdim	3001	300103	Na034	5	5	2	mouse	C57BL/6	C57BL/398		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.407	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003419
+		fslorient_fslchpixdim	3001	300103	Na034	5	5	3	mouse	C57BL/6	C57BL/399		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.408	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003420
+		fslorient_fslchpixdim	3001	300103	Na034	5	5	4	mouse	C57BL/6	C57BL/400		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.409	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003421
+		fslorient_fslchpixdim	3001	300103	Na034	6	6	1	mouse	C57BL/6	C57BL/401		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.410	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003422
+		fslorient_fslchpixdim	3001	300103	Na034	6	6	2	mouse	C57BL/6	C57BL/402		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.411	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003423
+		fslorient_fslchpixdim	3001	300103	Na034	6	6	3	mouse	C57BL/6	C57BL/403		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.412	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003424
+		fslorient_fslchpixdim	3001	300103	Na034	6	6	4	mouse	C57BL/6	C57BL/404		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.413	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003425
+		fslorient_fslchpixdim	3001	300104	Na055	2	2	1	mouse	C57BL/6	C57BL/649		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.658	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003670
+		fslorient_fslchpixdim	3001	300104	Na055	2	2	2	mouse	C57BL/6	C57BL/650		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.659	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003671
+		fslorient_fslchpixdim	3001	300104	Na055	2	2	3	mouse	C57BL/6	C57BL/651		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.660	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003672
+		fslorient_fslchpixdim	3001	300104	Na055	2	2	4	mouse	C57BL/6	C57BL/652		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.661	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003673
+		fslorient_fslchpixdim	3001	300104	Na055	3	3	1	mouse	C57BL/6	C57BL/653		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.662	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003674
+		fslorient_fslchpixdim	3001	300104	Na055	3	3	2	mouse	C57BL/6	C57BL/654		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.663	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003675
+		fslorient_fslchpixdim	3001	300104	Na055	3	3	3	mouse	C57BL/6	C57BL/655		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.664	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003676
+		fslorient_fslchpixdim	3001	300104	Na055	3	3	4	mouse	C57BL/6	C57BL/656		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.665	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003677
+		fslorient_fslchpixdim	3001	300104	Na055	4	4	1	mouse	C57BL/6	C57BL/657		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.666	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003678
+		fslorient_fslchpixdim	3001	300104	Na055	4	4	2	mouse	C57BL/6	C57BL/658		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.667	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003679
+		fslorient_fslchpixdim	3001	300104	Na055	4	4	3	mouse	C57BL/6	C57BL/659		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.668	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003680
+		fslorient_fslchpixdim	3001	300104	Na055	4	4	4	mouse	C57BL/6	C57BL/660		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.669	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003681
+		fslorient_fslchpixdim	3001	300104	Na055	5	5	1	mouse	C57BL/6	C57BL/661		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.670	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003682
+		fslorient_fslchpixdim	3001	300104	Na055	5	5	2	mouse	C57BL/6	C57BL/662		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.671	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003683
+		fslorient_fslchpixdim	3001	300104	Na055	5	5	3	mouse	C57BL/6	C57BL/663		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.672	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003684
+		fslorient_fslchpixdim	3001	300104	Na055	5	5	4	mouse	C57BL/6	C57BL/664		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.673	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003685
+		fslorient_fslchpixdim	3001	300104	Na055	6	6	1	mouse	C57BL/6	C57BL/665		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.674	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003686
+		fslorient_fslchpixdim	3001	300104	Na055	6	6	2	mouse	C57BL/6	C57BL/666		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.675	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003687
+		fslorient_fslchpixdim	3001	300104	Na055	6	6	3	mouse	C57BL/6	C57BL/667		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.676	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003688
+		fslorient_fslchpixdim	3001	300104	Na055	6	6	4	mouse	C57BL/6	C57BL/668		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.677	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003689
+		fslorient_fslchpixdim	3001	300105	Na056	2	2	1	mouse	C57BL/6	C57BL/689		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.698	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003710
+		fslorient_fslchpixdim	3001	300105	Na056	2	2	2	mouse	C57BL/6	C57BL/690		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.699	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003711
+		fslorient_fslchpixdim	3001	300105	Na056	2	2	3	mouse	C57BL/6	C57BL/691		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.700	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003712
+		fslorient_fslchpixdim	3001	300105	Na056	2	2	4	mouse	C57BL/6	C57BL/692		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.701	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003713
+		fslorient_fslchpixdim	3001	300105	Na056	3	3	1	mouse	C57BL/6	C57BL/693		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.702	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003714
+		fslorient_fslchpixdim	3001	300105	Na056	3	3	2	mouse	C57BL/6	C57BL/694		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.703	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003715
+		fslorient_fslchpixdim	3001	300105	Na056	3	3	3	mouse	C57BL/6	C57BL/695		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.704	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003716
+		fslorient_fslchpixdim	3001	300105	Na056	3	3	4	mouse	C57BL/6	C57BL/696		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.705	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003717
+		fslorient_fslchpixdim	3001	300105	Na056	4	4	1	mouse	C57BL/6	C57BL/697		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.706	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003718
+		fslorient_fslchpixdim	3001	300105	Na056	4	4	2	mouse	C57BL/6	C57BL/698		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.707	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003719
+		fslorient_fslchpixdim	3001	300105	Na056	4	4	3	mouse	C57BL/6	C57BL/699		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.708	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003720
+		fslorient_fslchpixdim	3001	300105	Na056	4	4	4	mouse	C57BL/6	C57BL/700		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.709	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003721
+		fslorient_fslchpixdim	3001	300105	Na056	5	5	1	mouse	C57BL/6	C57BL/701		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.710	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003722
+		fslorient_fslchpixdim	3001	300105	Na056	5	5	2	mouse	C57BL/6	C57BL/702		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.711	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003723
+		fslorient_fslchpixdim	3001	300105	Na056	5	5	3	mouse	C57BL/6	C57BL/703		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.712	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003724
+		fslorient_fslchpixdim	3001	300105	Na056	5	5	4	mouse	C57BL/6	C57BL/704		NA	NA	m	y	y		Isoflurane					Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.713	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003725
 		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300200	sub-01	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 24		f	y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.23	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/2
 		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300201	sub-02	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 25		f	y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.24	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/3
 		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300202	sub-03	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 26		f	y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.25	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/4
@@ -906,44 +906,44 @@ y		fslchpixdim	3003	300317		5		4	mouse	F1 C6/129P	B6129PF/J1 hybrid mice 	m	9–
 		fslchpixdim	3003	300318		6		2	mouse	F1 C6/129P	B6129PF/J1 hybrid mice 	m	9–493		m	y	y	n	Isoflurane					Bruker BioSpin	9.4		SE-EPI	2500	18.398	0.15×0.496	o.526	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7718219/	https://openneuro.org/datasets/ds002307/versions/3.2.483
 		fslchpixdim	3003	300318		6		3	mouse	F1 C6/129P	B6129PF/J1 hybrid mice 	m	9–494		m	y	y	n	Isoflurane					Bruker BioSpin	9.4		SE-EPI	2500	18.398	0.15×0.497	o.527	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7718219/	https://openneuro.org/datasets/ds002307/versions/3.2.484
 		fslchpixdim	3003	300318		6		4	mouse	F1 C6/129P	B6129PF/J1 hybrid mice 	m	9–495		m	y	y	n	Isoflurane					Bruker BioSpin	9.4		SE-EPI	2500	18.398	0.15×0.498	o.528	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7718219/	https://openneuro.org/datasets/ds002307/versions/3.2.485
-			1012	101200	3Mo/WT/C1_M1_C3	1		1	mouse			m	3 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101201	3Mo/WT/C1_M2_C3	1		1	mouse			m	3 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101202	3Mo/WT/C1_M3_C3	1		1	mouse			m	3 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101203	3Mo/WT/C2_M1_C3	1		1	mouse			m	3 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101204	3Mo/WT/C3_F1_C3	1		1	mouse			f	3 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101205	3Mo/WT/C3_F2_C3	1		1	mouse			f	3 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101206	3Mo/WT/C3_F3_C3	1		1	mouse			f	3 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101207	3Mo/WT/C4_F1_C3	1		1	mouse			f	3 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101208	6Mo/WT/110	1		1	mouse			f	6 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-y			1012	101209	6Mo/WT/111	1		1	mouse			f	6 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-y			1012	101210	6Mo/WT/112	1		1	mouse			f	6 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101211	6Mo/WT/113	1		1	mouse			f	6 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101212	6Mo/WT/114	1		1	mouse			f	6 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101213	6Mo/WT/115	1		1	mouse			m	6 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-y			1012	101214	6Mo/WT/116	1		1	mouse			m	6 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101215	6Mo/WT/117	1		1	mouse			m	6 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101216	6Mo/WT/118	1		1	mouse			m	6 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101217	6Mo/WT/119	1		1	mouse			m	6 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101218	10Mo/WT/C1_M1_C10	1		1	mouse			m	10 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101219	10Mo/WT/C1_M2_C10	1		1	mouse			m	10 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-y			1012	101220	10Mo/WT/C1_M3_C10	1		1	mouse			m	10 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101221	10Mo/WT/C2_M1_C10	1		1	mouse			m	10 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101222	10Mo/WT/C2_M2_C10	1		1	mouse			m	10 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101223	10Mo/WT/C3_F2_C10	1		1	mouse			f	10 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-y			1012	101224	10Mo/WT/C3_F3_C10	1		1	mouse			f	10 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101225	10Mo/WT/C4_F1_C10	1		1	mouse			f	10 Months		f	n			Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1013	101300	Lc002	1	20240529	1	mouse	C57BL/6		m	18 weeks	26,5	f	y	n	y	no					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101300	Lc002	1	20240529	2	mouse	C57BL/6		m	18 weeks	26,5	f	y	n	y	no					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101300	Lc002	1	20240529	3	mouse	C57BL/6		m	18 weeks	26,5	f	y	n	y	no					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101300	Lc002	1	20240529	4	mouse	C57BL/6		m	18 weeks	26,5	f	y	n	y	no					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101301	Lc004	1	20240529	1	mouse	C57BL/6		m	18 weeks	25,8	f	y	n	y	no					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101301	Lc004	1	20240529	2	mouse	C57BL/6		m	18 weeks	25,8	f	y	n	y	no					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101301	Lc004	1	20240529	3	mouse	C57BL/6		m	18 weeks	25,8	f	y	n	y	no					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101301	Lc004	1	20240529	4	mouse	C57BL/6		m	18 weeks	25,8	f	y	n	y	no					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101302	Lc006	1	20240603	1	mouse	C57BL/6		m	18 weeks	30,6	f	y	n	y	no					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101302	Lc006	1	20240603	2	mouse	C57BL/6		m	18 weeks	30,6	f	y	n	y	no					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101302	Lc006	1	20240603	3	mouse	C57BL/6		m	18 weeks	30,6	f	y	n	y	no					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101302	Lc006	1	20240603	4	mouse	C57BL/6		m	18 weeks	30,6	f	y	n	y	no					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
+			1012	101200	3Mo/WT/C1_M1_C3	1		1	mouse			m	3 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101201	3Mo/WT/C1_M2_C3	1		1	mouse			m	3 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101202	3Mo/WT/C1_M3_C3	1		1	mouse			m	3 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101203	3Mo/WT/C2_M1_C3	1		1	mouse			m	3 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101204	3Mo/WT/C3_F1_C3	1		1	mouse			f	3 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101205	3Mo/WT/C3_F2_C3	1		1	mouse			f	3 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101206	3Mo/WT/C3_F3_C3	1		1	mouse			f	3 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101207	3Mo/WT/C4_F1_C3	1		1	mouse			f	3 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101208	6Mo/WT/110	1		1	mouse			f	6 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+y			1012	101209	6Mo/WT/111	1		1	mouse			f	6 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+y			1012	101210	6Mo/WT/112	1		1	mouse			f	6 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101211	6Mo/WT/113	1		1	mouse			f	6 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101212	6Mo/WT/114	1		1	mouse			f	6 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101213	6Mo/WT/115	1		1	mouse			m	6 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+y			1012	101214	6Mo/WT/116	1		1	mouse			m	6 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101215	6Mo/WT/117	1		1	mouse			m	6 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101216	6Mo/WT/118	1		1	mouse			m	6 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101217	6Mo/WT/119	1		1	mouse			m	6 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101218	10Mo/WT/C1_M1_C10	1		1	mouse			m	10 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101219	10Mo/WT/C1_M2_C10	1		1	mouse			m	10 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+y			1012	101220	10Mo/WT/C1_M3_C10	1		1	mouse			m	10 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101221	10Mo/WT/C2_M1_C10	1		1	mouse			m	10 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101222	10Mo/WT/C2_M2_C10	1		1	mouse			m	10 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101223	10Mo/WT/C3_F2_C10	1		1	mouse			f	10 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+y			1012	101224	10Mo/WT/C3_F3_C10	1		1	mouse			f	10 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101225	10Mo/WT/C4_F1_C10	1		1	mouse			f	10 Months		f	n	y		Isoflurane					Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1013	101300	Lc002	1	20240529	1	mouse	C57BL/6		m	18 weeks	26,5	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
+			1013	101300	Lc002	1	20240529	2	mouse	C57BL/6		m	18 weeks	26,5	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
+			1013	101300	Lc002	1	20240529	3	mouse	C57BL/6		m	18 weeks	26,5	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
+			1013	101300	Lc002	1	20240529	4	mouse	C57BL/6		m	18 weeks	26,5	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
+			1013	101301	Lc004	1	20240529	1	mouse	C57BL/6		m	18 weeks	25,8	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
+			1013	101301	Lc004	1	20240529	2	mouse	C57BL/6		m	18 weeks	25,8	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
+			1013	101301	Lc004	1	20240529	3	mouse	C57BL/6		m	18 weeks	25,8	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
+			1013	101301	Lc004	1	20240529	4	mouse	C57BL/6		m	18 weeks	25,8	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
+			1013	101302	Lc006	1	20240603	1	mouse	C57BL/6		m	18 weeks	30,6	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
+			1013	101302	Lc006	1	20240603	2	mouse	C57BL/6		m	18 weeks	30,6	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
+			1013	101302	Lc006	1	20240603	3	mouse	C57BL/6		m	18 weeks	30,6	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
+			1013	101302	Lc006	1	20240603	4	mouse	C57BL/6		m	18 weeks	30,6	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
 			3004	300400		1		1	mouse	C57BL/6		f			f	n	y	n	Isoflurane					Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
 			3004	300400		1		2	mouse	C57BL/6		f			f	n	y	n	Isoflurane					Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
 			3004	300400		1		3	mouse	C57BL/6		f			f	n	y	n	Isoflurane					Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
@@ -998,365 +998,365 @@ y			1012	101224	10Mo/WT/C3_F3_C10	1		1	mouse			f	10 Months		f	n			Isoflurane				
 			3004	300408		2		1	mouse	C57BL/6		f			f	n	y	n	Isoflurane					Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
 			3004	300408		2		2	mouse	C57BL/6		f			f	n	y	n	Isoflurane					Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
 			3004	300408		2		3	mouse	C57BL/6		f			f	n	y	n	Isoflurane					Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
-			1014	101400	No1	1		1	mouse		ICR	m	9 week-old	35,6	f	y	y	y						Bruker	7	y	GE-EPI	2000	17	0,2	0,5		
-			1014	101401	No2	1		1	mouse		ICR	m	9 week-old	34,0	f	y	y	y						Bruker	7	y	GE-EPI	2000	17	0,2	0,5		
-			1014	101402	No3	1		1	mouse		ICR	m	9 week-old	35,2	f	y	y	y						Bruker	7	y	GE-EPI	2000	17	0,2	0,5		
-			1014	101403	No4	1		1	mouse		ICR	m	9 week-old	36,8	f	y	y	y						Bruker	7	y	GE-EPI	2000	17	0,2	0,5		
-			3005	300500		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		8		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		8		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		8		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300500		8		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300501		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300501		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300501		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300502		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300502		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300502		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300502		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300502		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300503		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300504		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300504		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300504		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300504		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300504		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300504		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300504		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300504		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300504		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300504		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300504		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300505		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300505		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300505		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300505		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300506		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300507		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300508		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300508		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300508		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300508		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300508		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300508		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300508		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300509		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300510		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300510		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300511		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300511		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300511		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300511		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300511		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300511		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300511		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300512		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300512		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300512		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			3005	300512		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300512		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300512		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300512		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-y			3005	300512		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n						Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			1014	101400	No1	1		1	mouse		ICR	m	9 week-old	35,6	f	y	y	y	Isoflurane					Bruker	7	y	GE-EPI	2000	17	0,2	0,5		
+			1014	101401	No2	1		1	mouse		ICR	m	9 week-old	34,0	f	y	y	y	Isoflurane					Bruker	7	y	GE-EPI	2000	17	0,2	0,5		
+			1014	101402	No3	1		1	mouse		ICR	m	9 week-old	35,2	f	y	y	y	Isoflurane					Bruker	7	y	GE-EPI	2000	17	0,2	0,5		
+			1014	101403	No4	1		1	mouse		ICR	m	9 week-old	36,8	f	y	y	y	Isoflurane					Bruker	7	y	GE-EPI	2000	17	0,2	0,5		
+			3005	300500		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		8		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		8		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		8		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300500		8		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300501		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300501		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300501		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300502		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300502		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300502		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300502		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300502		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300503		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300504		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300504		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300504		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300504		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300504		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300504		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300504		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300504		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300504		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300504		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300504		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300505		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300505		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300505		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300505		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300506		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300507		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300508		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300508		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300508		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300508		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300508		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300508		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300508		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300509		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300510		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300510		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300511		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300511		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300511		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300511		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300511		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300511		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300511		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		1		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		2		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		2		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		2		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		2		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		3		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		3		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300512		3		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		3		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		4		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		4		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		4		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		4		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		5		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		5		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		5		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		5		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300512		6		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300512		6		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		6		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+			3005	300512		6		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300512		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300512		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300512		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
+y			3005	300512		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	Isoflurane					Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
 			1015	101500	1	1		1	mouse	C57BL/6J		m	12w	26	m	y	n		Isoflurane					Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
 			1015	101501	2	1		1	mouse	C57BL/6J		m	12w	26	m	y	n		Isoflurane					Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
 			1015	101502	3	1		1	mouse	C57BL/6J		m	12w	26	m	y	n		Isoflurane					Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
