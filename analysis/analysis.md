@@ -305,12 +305,12 @@ for rodent in rodent_list:
 
     #### NOW DOING mouse ####
     summary of the data that we collected
-    we processed 17 datasets
-    totalling 1284 runs
-    from 162 animals
+    we processed 19 datasets
+    totalling 1344 runs
+    from 177 animals
     the smallest dataset had 4 runs
     the largest dataset had 479 runs
-    we could processed 1097/1284 runs.
+    we could processed 1157/1344 runs.
     below is a summary of the data included per dataset
     | rodent.ds | total_run | total_animal | total_included | strain      |
     |-----------|-----------|--------------|----------------|-------------|
@@ -327,18 +327,20 @@ for rodent in rodent_list:
     | 1012      | 26        | 26           | 21             | null        |
     | 1013      | 12        | 3            | 12             | C57BL/6     |
     | 1014      | 4         | 4            | 4              | null        |
+    | 1015      | 6         | 6            | 6              | C57BL/6J    |
     | 3001      | 112       | 6            | 112            | C57BL/6     |
     | 3002      | 10        | 10           | 10             | C57BL/6     |
     | 3003      | 479       | 19           | 414            | F1 C6/129P  |
+    | 3004      | 54        | 9            | 54             | C57BL/6     |
     | 3005      | 355       | 13           | 316            | C57BL/6     |
     information about sex ratio
-    the datasets contained 1076 male runs and 96 female runs
-    that corresponds to 8.19% females 
+    the datasets contained 1082 male runs and 150 female runs
+    that corresponds to 12.18% females 
     information about animal handling
-    15 datasets used headplates
-    12 datasets used body restraining
+    16 datasets used headplates
+    13 datasets used body restraining
     0 datasets used anesthesia before acquisition
-    10 datasets were collected by men, 7 by women
+    11 datasets were collected by men, 8 by women
     | rodent.ds | headplate | restrained | anesthesia | exp.gender | habituation.day | habituation.min |
     |           |           |            |            |            | s               |                 |
     |-----------|-----------|------------|------------|------------|-----------------|-----------------|
@@ -355,9 +357,11 @@ for rodent in rodent_list:
     | 1012      | n         | y          | y          | f          | 5               | 150             |
     | 1013      | y         | n          | n          | f          | 5               | 100             |
     | 1014      | y         | y          | y          | f          | 7               | 180             |
+    | 1015      | y         | n          | y          | m          | 4               | 300             |
     | 3001      | y         | y          | y          | m          | 4               | 42              |
     | 3002      | y         | y          | n          | f          | 16              | 432             |
     | 3003      | y         | y          | y          | m          | 4               | 42              |
+    | 3004      | n         | y          | y          | f          | 5               | 165             |
     | 3005      | y         | n          | y          | f          | 4               | 42              |
     information about the scanner and sequence
     lowest field strength was 7.0T
@@ -377,15 +381,17 @@ for rodent in rodent_list:
     | 1012      | 9.4            | GE-EPI   | 6.0    |
     | 1013      | 9.4            | GE-EPI   | 14.0   |
     | 1014      | 7.0            | GE-EPI   | 17.0   |
+    | 1015      | 11.7           | GE-EPI   | 14.0   |
     | 3001      | 9.4            | SE-EPI   | 18.398 |
     | 3002      | 7.0            | GE-EPI   | 15.0   |
     | 3003      | 9.4            | SE-EPI   | 18.398 |
+    | 3004      | 11.7           | GE-EPI   | 15.0   |
     | 3005      | 9.4            | SE-EPI   | null   |
     #### MOTION ANALYISIS ####
     mean fd across all mouse datasets
     | fd.mean  |
     |----------|
-    | 0.037183 |
+    | 0.037095 |
     mean fd per dataset
     | rodent.ds | fd.mean  |
     |-----------|----------|
@@ -402,16 +408,18 @@ for rodent in rodent_list:
     | 1012      | 0.017715 |
     | 1013      | 0.028279 |
     | 1014      | 0.005115 |
+    | 1015      | null     |
     | 3001      | 0.035982 |
     | 3002      | 0.022321 |
     | 3003      | 0.040797 |
+    | 3004      | 0.03515  |
     | 3005      | 0.046262 |
 
     #### tSNR ANALYISIS ####
     tSNR across all mouse datasets
     | s1.tsnr.l |
     |-----------|
-    | 10.900441 |
+    | 11.651712 |
     Number of dropped frames for each dataset and denoising method
     This corresponds to the following rabies flags for mice
     #gsr1: --frame_censoring FD_censoring=true,FD_threshold=0.1,DVARS_censoring=true
@@ -434,87 +442,89 @@ for rodent in rodent_list:
     | 1012      | 300.0        | 26.714286           | 25.428571           | 4.333333            |
     | 1013      | 480.0        | 61.333333           | 56.333333           | null                |
     | 1014      | 150.0        | 13.0                | 12.75               | null                |
+    | 1015      | null         | null                | null                | null                |
     | 3001      | 200.0        | 38.142857           | 28.821429           | 4.404255            |
     | 3002      | 1920.0       | 400.2               | 388.0               | 3.0                 |
     | 3003      | 200.0        | 55.074879           | 41.342995           | 4.953608            |
+    | 3004      | 180.0        | 51.296296           | 39.150943           | 7.75                |
     | 3005      | 200.0        | 52.234177           | 38.547468           | 4.965986            |
     #### FC specifiticy analysis ####
      
     overall FC specificity for gsr1
     | s1.cat.gsr1  | count    |
     |--------------|----------|
-    | Spurious     | 0.469456 |
-    | No           | 0.248536 |
-    | Specific     | 0.195816 |
-    | Non-specific | 0.086192 |
+    | Spurious     | 0.457371 |
+    | No           | 0.238247 |
+    | Specific     | 0.211952 |
+    | Non-specific | 0.09243  |
      
     overall FC specificity for gsr2
     | s1.cat.gsr2  | count    |
     |--------------|----------|
-    | Spurious     | 0.458577 |
-    | No           | 0.261925 |
-    | Specific     | 0.2      |
-    | Non-specific | 0.079498 |
+    | Spurious     | 0.447809 |
+    | No           | 0.250996 |
+    | Specific     | 0.21753  |
+    | Non-specific | 0.083665 |
      
     overall FC specificity for gsr3
     | s1.cat.gsr3  | count    |
     |--------------|----------|
-    | Spurious     | 0.435983 |
-    | No           | 0.283682 |
-    | Specific     | 0.206695 |
-    | Non-specific | 0.07364  |
+    | Spurious     | 0.426295 |
+    | No           | 0.271713 |
+    | Specific     | 0.223108 |
+    | Non-specific | 0.078884 |
      
     overall FC specificity for wmcsf1
     | s1.cat.wmcsf1 | count    |
     |---------------|----------|
-    | Spurious      | 0.456904 |
-    | No            | 0.246025 |
-    | Specific      | 0.192469 |
-    | Non-specific  | 0.104603 |
+    | Spurious      | 0.446215 |
+    | No            | 0.23745  |
+    | Specific      | 0.203187 |
+    | Non-specific  | 0.113147 |
      
     overall FC specificity for wmcsf2
     | s1.cat.wmcsf2 | count    |
     |---------------|----------|
-    | Spurious      | 0.448536 |
-    | No            | 0.264435 |
-    | Specific      | 0.194979 |
-    | Non-specific  | 0.09205  |
+    | Spurious      | 0.439044 |
+    | No            | 0.253386 |
+    | Specific      | 0.209562 |
+    | Non-specific  | 0.098008 |
      
     overall FC specificity for wmcsf3
     | s1.cat.wmcsf3 | count    |
     |---------------|----------|
-    | Spurious      | 0.409205 |
-    | No            | 0.276987 |
-    | Specific      | 0.210879 |
-    | Non-specific  | 0.102929 |
+    | Spurious      | 0.4      |
+    | No            | 0.264542 |
+    | Specific      | 0.224701 |
+    | Non-specific  | 0.110757 |
      
     overall FC specificity for aCompCor1
     | s1.cat.aCompCor1 | count    |
     |------------------|----------|
-    | Spurious         | 0.432636 |
-    | No               | 0.242678 |
-    | Specific         | 0.224268 |
-    | Non-specific     | 0.100418 |
+    | Spurious         | 0.41992  |
+    | No               | 0.231873 |
+    | Specific         | 0.231076 |
+    | Non-specific     | 0.117131 |
      
     overall FC specificity for aCompCor2
     | s1.cat.aCompCor2 | count    |
     |------------------|----------|
-    | Spurious         | 0.429289 |
-    | No               | 0.245188 |
-    | Specific         | 0.224268 |
-    | Non-specific     | 0.101255 |
+    | Spurious         | 0.416733 |
+    | No               | 0.23506  |
+    | Specific         | 0.230279 |
+    | Non-specific     | 0.117928 |
      
     overall FC specificity for aCompCor3
     | s1.cat.aCompCor3 | count    |
     |------------------|----------|
-    | Spurious         | 0.374059 |
-    | No               | 0.303766 |
-    | Specific         | 0.227615 |
-    | Non-specific     | 0.094561 |
-    for gsr processing, heavy scrubbing lead to  234/1195 Specific scans
-    for gsr processing, light scrubbing lead to  247/1195 Specific scans
-    for aCompCor processing, heavy scrubbing lead to  268/1195 Specific scans
-    for aCompCor processing, light scrubbing lead to  272/1195 Specific scans
+    | Spurious         | 0.36255  |
+    | No               | 0.290837 |
+    | Specific         | 0.232669 |
+    | Non-specific     | 0.113944 |
+    for gsr processing, heavy scrubbing lead to  266/1255 Specific scans
+    for gsr processing, light scrubbing lead to  280/1255 Specific scans
+    for aCompCor processing, heavy scrubbing lead to  290/1255 Specific scans
+    for aCompCor processing, light scrubbing lead to  292/1255 Specific scans
     s1-s1 specificity analysis per dataset (only showing specific values)
     | rodent.ds | s1.gsr1.S | s1.gsr2.S | s1.gsr3.S | … | s1.wmcsf3 | s1.aCompC | s1.aCompC | s1.aComp |
     |           | pecific   | pecific   | pecific   |   | .Specific | or1.Speci | or2.Speci | Cor3.Spe |
@@ -533,184 +543,186 @@ for rodent in rodent_list:
     | 1012      | 0.333333  | 0.285714  | 0.333333  | … | 0.380952  | 0.428571  | 0.428571  | 0.380952 |
     | 1013      | 0.166667  | 0.166667  | 0.25      | … | 0.166667  | 0.083333  | 0.166667  | 0.083333 |
     | 1014      | 0.25      | 0.25      | 0.0       | … | 0.0       | 0.75      | 0.5       | 0.0      |
+    | 1015      | 0.0       | 0.0       | 0.0       | … | 0.0       | 0.0       | 0.0       | 0.0      |
     | 3001      | 0.303571  | 0.3125    | 0.267857  | … | 0.214286  | 0.303571  | 0.294643  | 0.223214 |
     | 3002      | 0.5       | 0.5       | 0.7       | … | 0.7       | 0.1       | 0.0       | 0.1      |
     | 3003      | 0.149758  | 0.154589  | 0.161836  | … | 0.178744  | 0.207729  | 0.198068  | 0.21256  |
+    | 3004      | 0.592593  | 0.62963   | 0.611111  | … | 0.555556  | 0.407407  | 0.388889  | 0.37037  |
     | 3005      | 0.21519   | 0.212025  | 0.253165  | … | 0.272152  | 0.231013  | 0.224684  | 0.246835 |
     it seems that less scrubbing lead to better outcomes
-    for gsr processing, 10/17 dataset performed better with less scrubbing
-    for aCompCor processing, 7/17 dataset performed better with less scrubbing
-    for comparing gsr to aCompCor processing, 7/17 dataset performed better with aCompCor compared to gsr
-    for comparing gsr to aCompCor processing, 7/17 dataset performed worst with aCompCor compared to gsr
+    for gsr processing, 11/19 dataset performed better with less scrubbing
+    for aCompCor processing, 7/19 dataset performed better with less scrubbing
+    for comparing gsr to aCompCor processing, 7/19 dataset performed better with aCompCor compared to gsr
+    for comparing gsr to aCompCor processing, 8/19 dataset performed worst with aCompCor compared to gsr
     #### plot fc categories per denoising method ####
     doing statistical analysis
     first with gsr3 processed data
     looking at fd.mean effect in cat in mouse
-    | cat      | lowest    | low       | high      | highest   |
-    |----------|-----------|-----------|-----------|-----------|
-    | Specific | 3.18258   | 5.862647  | 4.857621  | 6.78392   |
-    | other    | 21.859296 | 19.095477 | 20.100503 | 18.257956 |
-    the effect of fd.mean on cat in mouse is q =  20.77 with p-value = 0.00012, dof = 3
+    | cat      | lowest    | low   | high      | highest   |
+    |----------|-----------|-------|-----------|-----------|
+    | Specific | 4.166667  | 6.25  | 5.128205  | 6.891026  |
+    | other    | 20.833333 | 18.75 | 19.871795 | 18.108974 |
+    the effect of fd.mean on cat in mouse is q =  12.52 with p-value = 0.00579, dof = 3
     looking at s1.gsrcov.l.gsr3 effect in cat in mouse
-    | cat      | lowest   | low      | high      | highest   |
-    |----------|----------|----------|-----------|-----------|
-    | Specific | 5.378151 | 3.697479 | 6.638655  | 4.957983  |
-    | other    | 20.92437 | 20.0     | 18.319328 | 20.084034 |
-    the effect of s1.gsrcov.l.gsr3 on cat in mouse is q =  10.93 with p-value = 0.01211, dof = 3
-    looking at s1.tsnr.l effect in cat in mouse
     | cat      | lowest    | low       | high      | highest   |
     |----------|-----------|-----------|-----------|-----------|
-    | Specific | 6.951424  | 4.522613  | 4.857621  | 4.355109  |
-    | other    | 18.090452 | 20.435511 | 20.100503 | 20.686767 |
-    the effect of s1.tsnr.l on cat in mouse is q =  12.56 with p-value = 0.00569, dof = 3
+    | Specific | 5.707395  | 4.581994  | 6.993569  | 5.144695  |
+    | other    | 19.292605 | 20.418006 | 18.006431 | 19.855305 |
+    the effect of s1.gsrcov.l.gsr3 on cat in mouse is q =  9.14 with p-value = 0.02744, dof = 3
+    looking at s1.tsnr.l effect in cat in mouse
+    | cat      | lowest   | low       | high      | highest   |
+    |----------|----------|-----------|-----------|-----------|
+    | Specific | 7.13141  | 4.246795  | 4.567308  | 6.490385  |
+    | other    | 17.86859 | 20.753205 | 20.432692 | 18.509615 |
+    the effect of s1.tsnr.l on cat in mouse is q =  17.31 with p-value = 0.00061, dof = 3
     looking at habituation.min effect in cat in mouse
-    | cat      | low       | high      |
-    |----------|-----------|-----------|
-    | Specific | 16.881998 | 3.703704  |
-    | other    | 60.465116 | 18.949182 |
-    the effect of habituation.min on cat in mouse is q =  3.4 with p-value = 0.06502, dof = 1
+    | cat      | low       | high     |
+    |----------|-----------|----------|
+    | Specific | 16.052416 | 6.224406 |
+    | other    | 57.493857 | 20.22932 |
+    the effect of habituation.min on cat in mouse is q =  0.31 with p-value = 0.58034, dof = 1
     looking at habituation.days effect in cat in mouse
-    | cat      | low       | high      |
-    |----------|-----------|-----------|
-    | Specific | 16.881998 | 3.703704  |
-    | other    | 60.465116 | 18.949182 |
-    the effect of habituation.days on cat in mouse is q =  3.4 with p-value = 0.06502, dof = 1
+    | cat      | low       | high     |
+    |----------|-----------|----------|
+    | Specific | 16.052416 | 6.224406 |
+    | other    | 57.985258 | 19.73792 |
+    the effect of habituation.days on cat in mouse is q =  0.59 with p-value = 0.44373, dof = 1
     looking at short.habituation effect in cat in mouse
     | cat      | long      |
     |----------|-----------|
-    | Specific | 20.669456 |
-    | other    | 79.330544 |
+    | Specific | 22.310757 |
+    | other    | 77.689243 |
     the effect of short.habituation on cat in mouse is q =  0.0 with p-value = 1.0, dof = 0
     looking at main.experimenter.gender effect in cat in mouse
-    | cat      | f        | m         |
-    |----------|----------|-----------|
-    | Specific | 8.619247 | 12.050209 |
-    | other    | 24.60251 | 54.728033 |
-    the effect of main.experimenter.gender on cat in mouse is q =  9.61 with p-value = 0.00193, dof = 1
+    | cat      | f         | m         |
+    |----------|-----------|-----------|
+    | Specific | 10.836653 | 11.474104 |
+    | other    | 25.099602 | 52.589641 |
+    the effect of main.experimenter.gender on cat in mouse is q =  24.29 with p-value = 0.0, dof = 1
     looking at rodent.sex effect in cat in mouse
     | cat      | f        | m         |
     |----------|----------|-----------|
-    | Specific | 1.754386 | 18.282548 |
-    | other    | 8.125577 | 71.837488 |
-    the effect of rodent.sex on cat in mouse is q =  0.24 with p-value = 0.6217, dof = 1
+    | Specific | 4.549431 | 17.322835 |
+    | other    | 9.536308 | 68.591426 |
+    the effect of rodent.sex on cat in mouse is q =  11.22 with p-value = 0.00081, dof = 1
     looking at head-plate effect in cat in mouse
-    | cat      | n       | y         |
-    |----------|---------|-----------|
-    | Specific | 1.67364 | 18.995816 |
-    | other    | 2.92887 | 76.401674 |
-    the effect of head-plate on cat in mouse is q =  7.69 with p-value = 0.00556, dof = 1
+    | cat      | n        | y         |
+    |----------|----------|-----------|
+    | Specific | 4.223108 | 18.087649 |
+    | other    | 4.462151 | 73.227092 |
+    the effect of head-plate on cat in mouse is q =  46.03 with p-value = 0.0, dof = 1
     looking at body.restrained effect in cat in mouse
     | cat      | n         | y         |
     |----------|-----------|-----------|
-    | Specific | 7.866109  | 12.803347 |
-    | other    | 22.259414 | 57.07113  |
-    the effect of body.restrained on cat in mouse is q =  8.84 with p-value = 0.00295, dof = 1
+    | Specific | 7.49004   | 14.820717 |
+    | other    | 21.673307 | 56.015936 |
+    the effect of body.restrained on cat in mouse is q =  3.12 with p-value = 0.07729, dof = 1
     looking at anesthesia.before.acquisition effect in cat in mouse
     | cat      | n         | y         |
     |----------|-----------|-----------|
-    | Specific | 3.096234  | 17.573222 |
-    | other    | 14.728033 | 64.60251  |
-    the effect of anesthesia.before.acquisition on cat in mouse is q =  1.48 with p-value = 0.22317, dof = 1
+    | Specific | 2.948207  | 19.36255  |
+    | other    | 14.023904 | 63.665339 |
+    the effect of anesthesia.before.acquisition on cat in mouse is q =  3.28 with p-value = 0.07027, dof = 1
     looking at MRI.field.strength effect in cat in mouse
     | cat      | 7.0      | 9.4       | 11.7     | 15.2     |
     |----------|----------|-----------|----------|----------|
-    | Specific | 1.087866 | 17.740586 | 0.669456 | 1.171548 |
-    | other    | 1.757322 | 71.966527 | 2.761506 | 2.845188 |
-    the effect of MRI.field.strength on cat in mouse is q =  9.07 with p-value = 0.02841, dof = 3
+    | Specific | 1.035857 | 16.89243  | 3.266932 | 1.115538 |
+    | other    | 1.673307 | 68.525896 | 4.780876 | 2.709163 |
+    the effect of MRI.field.strength on cat in mouse is q =  29.73 with p-value = 0.0, dof = 3
     looking at fMRI.sequence effect in cat in mouse
     | cat      | GE-EPI   | SE-EPI    |
     |----------|----------|-----------|
-    | Specific | 5.857741 | 14.811715 |
-    | other    | 23.34728 | 55.983264 |
-    the effect of fMRI.sequence on cat in mouse is q =  0.07 with p-value = 0.79711, dof = 1
+    | Specific | 8.207171 | 14.103586 |
+    | other    | 24.38247 | 53.306773 |
+    the effect of fMRI.sequence on cat in mouse is q =  2.65 with p-value = 0.10369, dof = 1
     doing statistical analysis
     first with aCompCor3 processed data
     looking at fd.mean effect in cat in mouse
     | cat      | lowest    | low       | high      | highest   |
     |----------|-----------|-----------|-----------|-----------|
-    | Specific | 4.606365  | 6.700168  | 4.857621  | 6.616415  |
-    | other    | 20.435511 | 18.257956 | 20.100503 | 18.425461 |
-    the effect of fd.mean on cat in mouse is q =  10.19 with p-value = 0.01705, dof = 3
+    | Specific | 4.887821  | 6.730769  | 5.208333  | 6.570513  |
+    | other    | 20.112179 | 18.269231 | 19.791667 | 18.429487 |
+    the effect of fd.mean on cat in mouse is q =  7.33 with p-value = 0.06204, dof = 3
     looking at s1.gsrcov.l.aCompCor3 effect in cat in mouse
-    | cat      | lowest   | low       | high      | highest   |
-    |----------|----------|-----------|-----------|-----------|
-    | Specific | 5.45302  | 6.208054  | 5.536913  | 5.536913  |
-    | other    | 19.54698 | 18.791946 | 19.463087 | 19.463087 |
-    the effect of s1.gsrcov.l.aCompCor3 on cat in mouse is q =  1.01 with p-value = 0.79939, dof = 3
+    | cat      | lowest    | low       | high      | highest   |
+    |----------|-----------|-----------|-----------|-----------|
+    | Specific | 5.778491  | 6.340289  | 5.617978  | 5.617978  |
+    | other    | 19.261637 | 18.619583 | 19.341894 | 19.422151 |
+    the effect of s1.gsrcov.l.aCompCor3 on cat in mouse is q =  1.01 with p-value = 0.79803, dof = 3
     looking at s1.tsnr.l effect in cat in mouse
-    | cat      | lowest    | low       | high     | highest   |
-    |----------|-----------|-----------|----------|-----------|
-    | Specific | 6.281407  | 5.443886  | 5.360134 | 5.695142  |
-    | other    | 18.760469 | 19.514238 | 19.59799 | 19.346734 |
-    the effect of s1.tsnr.l on cat in mouse is q =  1.35 with p-value = 0.71759, dof = 3
+    | cat      | lowest    | low       | high      | highest   |
+    |----------|-----------|-----------|-----------|-----------|
+    | Specific | 6.410256  | 5.448718  | 4.887821  | 6.650641  |
+    | other    | 18.589744 | 19.551282 | 20.112179 | 18.349359 |
+    the effect of s1.tsnr.l on cat in mouse is q =  5.69 with p-value = 0.12789, dof = 3
     looking at habituation.min effect in cat in mouse
     | cat      | low       | high      |
     |----------|-----------|-----------|
-    | Specific | 18.260121 | 4.134367  |
-    | other    | 59.086994 | 18.518519 |
-    the effect of habituation.min on cat in mouse is q =  3.06 with p-value = 0.08035, dof = 1
+    | Specific | 17.362817 | 5.569206  |
+    | other    | 56.183456 | 20.884521 |
+    the effect of habituation.min on cat in mouse is q =  0.74 with p-value = 0.38995, dof = 1
     looking at habituation.days effect in cat in mouse
-    | cat      | low       | high      |
-    |----------|-----------|-----------|
-    | Specific | 18.260121 | 4.134367  |
-    | other    | 59.086994 | 18.518519 |
-    the effect of habituation.days on cat in mouse is q =  3.06 with p-value = 0.08035, dof = 1
+    | cat      | low       | high     |
+    |----------|-----------|----------|
+    | Specific | 17.362817 | 5.569206 |
+    | other    | 56.674857 | 20.39312 |
+    the effect of habituation.days on cat in mouse is q =  0.42 with p-value = 0.51487, dof = 1
     looking at short.habituation effect in cat in mouse
     | cat      | long      |
     |----------|-----------|
-    | Specific | 22.761506 |
-    | other    | 77.238494 |
+    | Specific | 23.266932 |
+    | other    | 76.733068 |
     the effect of short.habituation on cat in mouse is q =  0.0 with p-value = 1.0, dof = 0
     looking at main.experimenter.gender effect in cat in mouse
-    | cat      | f         | m         |
-    |----------|-----------|-----------|
-    | Specific | 7.866109  | 14.895397 |
-    | other    | 25.355649 | 51.882845 |
-    the effect of main.experimenter.gender on cat in mouse is q =  0.21 with p-value = 0.64589, dof = 1
+    | cat      | f        | m         |
+    |----------|----------|-----------|
+    | Specific | 9.083665 | 14.183267 |
+    | other    | 26.85259 | 49.880478 |
+    the effect of main.experimenter.gender on cat in mouse is q =  1.42 with p-value = 0.23299, dof = 1
     looking at rodent.sex effect in cat in mouse
     | cat      | f        | m         |
     |----------|----------|-----------|
-    | Specific | 2.862419 | 19.944598 |
-    | other    | 7.017544 | 70.175439 |
-    the effect of rodent.sex on cat in mouse is q =  2.19 with p-value = 0.13897, dof = 1
+    | Specific | 4.461942 | 18.897638 |
+    | other    | 9.623797 | 67.016623 |
+    the effect of rodent.sex on cat in mouse is q =  6.71 with p-value = 0.00958, dof = 1
     looking at head-plate effect in cat in mouse
     | cat      | n        | y         |
     |----------|----------|-----------|
-    | Specific | 1.004184 | 21.757322 |
-    | other    | 3.598326 | 73.640167 |
-    the effect of head-plate on cat in mouse is q =  0.0 with p-value = 0.99505, dof = 1
+    | Specific | 2.549801 | 20.717131 |
+    | other    | 6.135458 | 70.59761  |
+    the effect of head-plate on cat in mouse is q =  2.12 with p-value = 0.1453, dof = 1
     looking at body.restrained effect in cat in mouse
     | cat      | n         | y         |
     |----------|-----------|-----------|
-    | Specific | 8.117155  | 14.644351 |
-    | other    | 22.008368 | 55.230126 |
-    the effect of body.restrained on cat in mouse is q =  4.79 with p-value = 0.02858, dof = 1
+    | Specific | 7.729084  | 15.537849 |
+    | other    | 21.434263 | 55.298805 |
+    the effect of body.restrained on cat in mouse is q =  2.78 with p-value = 0.09547, dof = 1
     looking at anesthesia.before.acquisition effect in cat in mouse
     | cat      | n         | y         |
     |----------|-----------|-----------|
-    | Specific | 2.845188  | 19.916318 |
-    | other    | 14.979079 | 62.259414 |
-    the effect of anesthesia.before.acquisition on cat in mouse is q =  6.35 with p-value = 0.01172, dof = 1
+    | Specific | 2.709163  | 20.557769 |
+    | other    | 14.262948 | 62.47012  |
+    the effect of anesthesia.before.acquisition on cat in mouse is q =  7.18 with p-value = 0.00736, dof = 1
     looking at MRI.field.strength effect in cat in mouse
     | cat      | 7.0      | 9.4       | 11.7     | 15.2     |
     |----------|----------|-----------|----------|----------|
-    | Specific | 0.753138 | 19.916318 | 0.920502 | 1.171548 |
-    | other    | 2.09205  | 69.790795 | 2.51046  | 2.845188 |
-    the effect of MRI.field.strength on cat in mouse is q =  1.96 with p-value = 0.58006, dof = 3
+    | Specific | 0.717131 | 18.964143 | 2.47012  | 1.115538 |
+    | other    | 1.992032 | 66.454183 | 5.577689 | 2.709163 |
+    the effect of MRI.field.strength on cat in mouse is q =  4.93 with p-value = 0.1768, dof = 3
     looking at fMRI.sequence effect in cat in mouse
-    | cat      | GE-EPI   | SE-EPI    |
-    |----------|----------|-----------|
-    | Specific | 6.694561 | 16.066946 |
-    | other    | 22.51046 | 54.728033 |
-    the effect of fMRI.sequence on cat in mouse is q =  0.0 with p-value = 0.99245, dof = 1
+    | cat      | GE-EPI    | SE-EPI    |
+    |----------|-----------|-----------|
+    | Specific | 7.968127  | 15.298805 |
+    | other    | 24.621514 | 52.111554 |
+    the effect of fMRI.sequence on cat in mouse is q =  0.38 with p-value = 0.53635, dof = 1
     #### NOW DOING rat ####
     summary of the data that we collected
-    we processed 8 datasets
-    totalling 445 runs
-    from 138 animals
+    we processed 9 datasets
+    totalling 468 runs
+    from 161 animals
     the smallest dataset had 5 runs
     the largest dataset had 291 runs
-    we could processed 212/445 runs.
+    we could processed 235/468 runs.
     below is a summary of the data included per dataset
     | rodent.ds | total_run | total_animal | total_included | strain         |
     |-----------|-----------|--------------|----------------|----------------|
@@ -721,6 +733,7 @@ for rodent in rodent_list:
     | 2003      | 97        | 8            | 97             | Sprague-Dawley |
     | 2004      | 19        | 5            | 19             | null           |
     | 2005      | 5         | 3            | 3              | null           |
+    | 2006      | 23        | 23           | 23             | null           |
     | 4001      | 291       | 89           | 60             | null           |
     information about sex ratio
     the datasets contained 423 male runs and 22 female runs
@@ -740,20 +753,22 @@ for rodent in rodent_list:
     | 2003      | y         | y          | y          | f          | 9               | 500             |
     | 2004      | y         | y          | n          | m          | 9               | 430             |
     | 2005      | n         | y          | y          | m          | 9               | 360             |
+    | 2006      | null      | null       | null       | null       | null            | null            |
     | 4001      | n         | y          | y          | m          | 7               | 330             |
     information about the scanner and sequence
     lowest field strength was 7T
     highest field strength was 7T
-    | rodent.ds | field_strength | sequence | TE |
-    |-----------|----------------|----------|----|
-    | 2001      | 7              | GE-EPI   | 17 |
-    | 2002a     | 7              | GE-EPI   | 18 |
-    | 2002b     | 7              | SE-EPI   | 45 |
-    | 2002c     | 7              | SE-EPI   | 45 |
-    | 2003      | 7              | GE-EPI   | 15 |
-    | 2004      | null           | GE-EPI   | 15 |
-    | 2005      | 7              | GE-EPI   | 17 |
-    | 4001      | 7              | GE-EPI   | 15 |
+    | rodent.ds | field_strength | sequence | TE   |
+    |-----------|----------------|----------|------|
+    | 2001      | 7              | GE-EPI   | 17   |
+    | 2002a     | 7              | GE-EPI   | 18   |
+    | 2002b     | 7              | SE-EPI   | 45   |
+    | 2002c     | 7              | SE-EPI   | 45   |
+    | 2003      | 7              | GE-EPI   | 15   |
+    | 2004      | null           | GE-EPI   | 15   |
+    | 2005      | 7              | GE-EPI   | 17   |
+    | 2006      | null           | null     | null |
+    | 4001      | 7              | GE-EPI   | 15   |
     #### MOTION ANALYISIS ####
     mean fd across all rat datasets
     | fd.mean  |
@@ -769,6 +784,7 @@ for rodent in rodent_list:
     | 2003      | 0.04796  |
     | 2004      | 0.016877 |
     | 2005      | 0.022399 |
+    | 2006      | null     |
     | 4001      | 0.039548 |
     #### tSNR ANALYISIS ####
     tSNR across all rat datasets
@@ -791,110 +807,112 @@ for rodent in rodent_list:
     | 2003      | 90.0         | 21.092784           | 9.185567            | 10.5                |
     | 2004      | 400.0        | 80.105263           | 79.157895           | null                |
     | 2005      | 2400.0       | 285.666667          | 179.666667          | 3.0                 |
+    | 2006      | null         | null                | null                | null                |
     | 4001      | 600.0        | 103.85              | 79.716667           | 13.151515           |
     #### FC specifiticy analysis ####
      
     overall FC specificity for gsr1
     | s1.cat.gsr1  | count    |
     |--------------|----------|
-    | Specific     | 0.388626 |
-    | Spurious     | 0.236967 |
-    | Non-specific | 0.208531 |
-    | No           | 0.161137 |
-    | null         | 0.004739 |
+    | Specific     | 0.348936 |
+    | Spurious     | 0.314894 |
+    | Non-specific | 0.187234 |
+    | No           | 0.144681 |
+    | null         | 0.004255 |
      
     overall FC specificity for gsr2
     | s1.cat.gsr2  | count    |
     |--------------|----------|
-    | Specific     | 0.388626 |
-    | Spurious     | 0.241706 |
-    | Non-specific | 0.203791 |
-    | No           | 0.161137 |
-    | null         | 0.004739 |
+    | Specific     | 0.348936 |
+    | Spurious     | 0.319149 |
+    | Non-specific | 0.182979 |
+    | No           | 0.144681 |
+    | null         | 0.004255 |
      
     overall FC specificity for gsr3
     | s1.cat.gsr3  | count    |
     |--------------|----------|
-    | Specific     | 0.412322 |
-    | Spurious     | 0.255924 |
-    | Non-specific | 0.199052 |
-    | No           | 0.127962 |
-    | null         | 0.004739 |
+    | Specific     | 0.370213 |
+    | Spurious     | 0.331915 |
+    | Non-specific | 0.178723 |
+    | No           | 0.114894 |
+    | null         | 0.004255 |
      
     overall FC specificity for wmcsf1
     | s1.cat.wmcsf1 | count    |
     |---------------|----------|
-    | Non-specific  | 0.312796 |
-    | Specific      | 0.293839 |
-    | Spurious      | 0.260664 |
-    | No            | 0.132701 |
+    | Spurious      | 0.33617  |
+    | Non-specific  | 0.280851 |
+    | Specific      | 0.26383  |
+    | No            | 0.119149 |
      
     overall FC specificity for wmcsf2
     | s1.cat.wmcsf2 | count    |
     |---------------|----------|
-    | Specific      | 0.317536 |
-    | Spurious      | 0.270142 |
-    | Non-specific  | 0.265403 |
-    | No            | 0.14218  |
-    | null          | 0.004739 |
+    | Spurious      | 0.344681 |
+    | Specific      | 0.285106 |
+    | Non-specific  | 0.238298 |
+    | No            | 0.12766  |
+    | null          | 0.004255 |
      
     overall FC specificity for wmcsf3
     | s1.cat.wmcsf3 | count    |
     |---------------|----------|
-    | Specific      | 0.35545  |
-    | Non-specific  | 0.28436  |
-    | Spurious      | 0.241706 |
-    | No            | 0.113744 |
-    | null          | 0.004739 |
+    | Spurious      | 0.319149 |
+    | Specific      | 0.319149 |
+    | Non-specific  | 0.255319 |
+    | No            | 0.102128 |
+    | null          | 0.004255 |
      
     overall FC specificity for aCompCor1
     | s1.cat.aCompCor1 | count    |
     |------------------|----------|
-    | Specific         | 0.336493 |
-    | Non-specific     | 0.28436  |
-    | Spurious         | 0.236967 |
-    | No               | 0.137441 |
-    | null             | 0.004739 |
+    | Spurious         | 0.314894 |
+    | Specific         | 0.302128 |
+    | Non-specific     | 0.255319 |
+    | No               | 0.123404 |
+    | null             | 0.004255 |
      
     overall FC specificity for aCompCor2
     | s1.cat.aCompCor2 | count    |
     |------------------|----------|
-    | Specific         | 0.331754 |
-    | Non-specific     | 0.312796 |
-    | Spurious         | 0.222749 |
-    | No               | 0.127962 |
-    | null             | 0.004739 |
+    | Spurious         | 0.302128 |
+    | Specific         | 0.297872 |
+    | Non-specific     | 0.280851 |
+    | No               | 0.114894 |
+    | null             | 0.004255 |
      
     overall FC specificity for aCompCor3
     | s1.cat.aCompCor3 | count    |
     |------------------|----------|
-    | Specific         | 0.36019  |
-    | Non-specific     | 0.298578 |
-    | Spurious         | 0.194313 |
-    | No               | 0.14218  |
-    | null             | 0.004739 |
-    for gsr processing, heavy scrubbing lead to  82/210 Specific scans
-    for gsr processing, light scrubbing lead to  87/210 Specific scans
-    for aCompCor processing, heavy scrubbing lead to  71/210 Specific scans
-    for aCompCor processing, light scrubbing lead to  76/210 Specific scans
+    | Specific         | 0.323404 |
+    | Spurious         | 0.276596 |
+    | Non-specific     | 0.268085 |
+    | No               | 0.12766  |
+    | null             | 0.004255 |
+    for gsr processing, heavy scrubbing lead to  82/234 Specific scans
+    for gsr processing, light scrubbing lead to  87/234 Specific scans
+    for aCompCor processing, heavy scrubbing lead to  71/234 Specific scans
+    for aCompCor processing, light scrubbing lead to  76/234 Specific scans
     s1-s1 specificity analysis per dataset (only showing specific values)
     | rodent.ds | s1.gsr1.S | s1.gsr2.S | s1.gsr3.S | … | s1.wmcsf3 | s1.aCompC | s1.aCompC | s1.aComp |
     |           | pecific   | pecific   | pecific   |   | .Specific | or1.Speci | or2.Speci | Cor3.Spe |
     |           |           |           |           |   |           | fic       | fic       | cific    |
     |-----------|-----------|-----------|-----------|---|-----------|-----------|-----------|----------|
     | 2001      | 0.625     | 0.625     | 0.625     | … | 0.4375    | 0.625     | 0.5       | 0.5625   |
-    | 2002a     | 0.666667  | 0.5       | 0.333333  | … | 0.166667  | 0.333333  | 0.166667  | 0.166667 |
+    | 2002a     | 0.571429  | 0.428571  | 0.285714  | … | 0.142857  | 0.285714  | 0.142857  | 0.142857 |
     | 2002b     | 0.0       | 0.2       | 0.4       | … | 0.4       | 0.2       | 0.2       | 0.2      |
     | 2002c     | 0.6       | 0.6       | 0.2       | … | 0.2       | 0.4       | 0.8       | 0.6      |
     | 2003      | 0.402062  | 0.391753  | 0.463918  | … | 0.391753  | 0.329897  | 0.298969  | 0.350515 |
     | 2004      | 0.210526  | 0.210526  | 0.210526  | … | 0.263158  | 0.105263  | 0.157895  | 0.210526 |
     | 2005      | 0.333333  | 0.333333  | 0.0       | … | 0.0       | 0.0       | 0.0       | 0.0      |
+    | 2006      | 0.0       | 0.0       | 0.0       | … | 0.0       | 0.0       | 0.0       | 0.0      |
     | 4001      | 0.35      | 0.366667  | 0.383333  | … | 0.35      | 0.366667  | 0.4       | 0.4      |
     it seems that less scrubbing lead to better outcomes
-    for gsr processing, 3/8 dataset performed better with less scrubbing
-    for aCompCor processing, 4/8 dataset performed better with less scrubbing
-    for comparing gsr to aCompCor processing, 2/8 dataset performed better with aCompCor compared to gsr
-    for comparing gsr to aCompCor processing, 4/8 dataset performed worst with aCompCor compared to gsr
+    for gsr processing, 3/9 dataset performed better with less scrubbing
+    for aCompCor processing, 4/9 dataset performed better with less scrubbing
+    for comparing gsr to aCompCor processing, 2/9 dataset performed better with aCompCor compared to gsr
+    for comparing gsr to aCompCor processing, 4/9 dataset performed worst with aCompCor compared to gsr
     #### plot fc categories per denoising method ####
     doing statistical analysis
     first with gsr3 processed data
@@ -919,63 +937,63 @@ for rodent in rodent_list:
     looking at habituation.min effect in cat in rat
     | cat      | low       | intermediate |
     |----------|-----------|--------------|
-    | Specific | 18.009479 | 23.222749    |
-    | other    | 25.592417 | 33.175355    |
+    | Specific | 17.924528 | 23.113208    |
+    | other    | 25.943396 | 33.018868    |
     the effect of habituation.min on cat in rat is q =  0.0 with p-value = 1.0, dof = 1
     looking at habituation.days effect in cat in rat
     | cat      | low       | intermediate |
     |----------|-----------|--------------|
-    | Specific | 12.796209 | 28.436019    |
-    | other    | 20.853081 | 37.914692    |
-    the effect of habituation.days on cat in rat is q =  0.28 with p-value = 0.59936, dof = 1
+    | Specific | 12.735849 | 28.301887    |
+    | other    | 21.226415 | 37.735849    |
+    the effect of habituation.days on cat in rat is q =  0.36 with p-value = 0.54614, dof = 1
     looking at short.habituation effect in cat in rat
     | cat      | long      |
     |----------|-----------|
-    | Specific | 41.232227 |
-    | other    | 58.767773 |
+    | Specific | 37.021277 |
+    | other    | 62.978723 |
     the effect of short.habituation on cat in rat is q =  0.0 with p-value = 1.0, dof = 0
     looking at main.experimenter.gender effect in cat in rat
     | cat      | f         | m         |
     |----------|-----------|-----------|
-    | Specific | 27.014218 | 14.218009 |
-    | other    | 29.383886 | 29.383886 |
-    the effect of main.experimenter.gender on cat in rat is q =  4.4 with p-value = 0.03604, dof = 1
+    | Specific | 26.886792 | 14.150943 |
+    | other    | 29.716981 | 29.245283 |
+    the effect of main.experimenter.gender on cat in rat is q =  4.18 with p-value = 0.04098, dof = 1
     looking at rodent.sex effect in cat in rat
     | cat      | f        | m         |
     |----------|----------|-----------|
-    | Specific | 3.791469 | 37.440758 |
-    | other    | 5.687204 | 53.080569 |
+    | Specific | 3.773585 | 37.264151 |
+    | other    | 5.660377 | 53.301887 |
     the effect of rodent.sex on cat in rat is q =  0.0 with p-value = 1.0, dof = 1
     looking at head-plate effect in cat in rat
     | cat      | n         | y         |
     |----------|-----------|-----------|
-    | Specific | 18.009479 | 23.222749 |
-    | other    | 27.014218 | 31.753555 |
-    the effect of head-plate on cat in rat is q =  0.04 with p-value = 0.85048, dof = 1
+    | Specific | 17.924528 | 23.113208 |
+    | other    | 27.358491 | 31.603774 |
+    the effect of head-plate on cat in rat is q =  0.06 with p-value = 0.80152, dof = 1
     looking at body.restrained effect in cat in rat
     | cat      | y         |
     |----------|-----------|
-    | Specific | 41.232227 |
-    | other    | 58.767773 |
+    | Specific | 41.037736 |
+    | other    | 58.962264 |
     the effect of body.restrained on cat in rat is q =  0.0 with p-value = 1.0, dof = 0
     looking at anesthesia.before.acquisition effect in cat in rat
     | cat      | n        | y         |
     |----------|----------|-----------|
-    | Specific | 1.895735 | 39.336493 |
-    | other    | 7.109005 | 51.658768 |
-    the effect of anesthesia.before.acquisition on cat in rat is q =  2.65 with p-value = 0.10332, dof = 1
+    | Specific | 1.886792 | 39.150943 |
+    | other    | 7.075472 | 51.886792 |
+    the effect of anesthesia.before.acquisition on cat in rat is q =  2.6 with p-value = 0.10703, dof = 1
     looking at MRI.field.strength effect in cat in rat
     | cat      | 7         |
     |----------|-----------|
-    | Specific | 43.229167 |
-    | other    | 56.770833 |
+    | Specific | 43.005181 |
+    | other    | 56.994819 |
     the effect of MRI.field.strength on cat in rat is q =  0.0 with p-value = 1.0, dof = 0
     looking at fMRI.sequence effect in cat in rat
     | cat      | GE-EPI    | SE-EPI   |
     |----------|-----------|----------|
-    | Specific | 39.810427 | 1.421801 |
-    | other    | 55.450237 | 3.317536 |
-    the effect of fMRI.sequence on cat in rat is q =  0.17 with p-value = 0.68166, dof = 1
+    | Specific | 39.622642 | 1.415094 |
+    | other    | 55.660377 | 3.301887 |
+    the effect of fMRI.sequence on cat in rat is q =  0.16 with p-value = 0.6909, dof = 1
     doing statistical analysis
     first with aCompCor3 processed data
     looking at fd.mean effect in cat in rat
@@ -999,60 +1017,60 @@ for rodent in rodent_list:
     looking at habituation.min effect in cat in rat
     | cat      | low       | intermediate |
     |----------|-----------|--------------|
-    | Specific | 18.009479 | 18.009479    |
-    | other    | 25.592417 | 38.388626    |
-    the effect of habituation.min on cat in rat is q =  1.59 with p-value = 0.20709, dof = 1
+    | Specific | 17.924528 | 17.924528    |
+    | other    | 25.943396 | 38.207547    |
+    the effect of habituation.min on cat in rat is q =  1.44 with p-value = 0.22986, dof = 1
     looking at habituation.days effect in cat in rat
     | cat      | low       | intermediate |
     |----------|-----------|--------------|
-    | Specific | 12.322275 | 23.696682    |
-    | other    | 21.327014 | 42.654028    |
+    | Specific | 12.264151 | 23.584906    |
+    | other    | 21.698113 | 42.45283     |
     the effect of habituation.days on cat in rat is q =  0.0 with p-value = 1.0, dof = 1
     looking at short.habituation effect in cat in rat
     | cat      | long      |
     |----------|-----------|
-    | Specific | 36.018957 |
-    | other    | 63.981043 |
+    | Specific | 32.340426 |
+    | other    | 67.659574 |
     the effect of short.habituation on cat in rat is q =  0.0 with p-value = 1.0, dof = 0
     looking at main.experimenter.gender effect in cat in rat
     | cat      | f         | m         |
     |----------|-----------|-----------|
-    | Specific | 20.853081 | 15.165877 |
-    | other    | 35.545024 | 28.436019 |
-    the effect of main.experimenter.gender on cat in rat is q =  0.03 with p-value = 0.85375, dof = 1
+    | Specific | 20.754717 | 15.09434  |
+    | other    | 35.849057 | 28.301887 |
+    the effect of main.experimenter.gender on cat in rat is q =  0.02 with p-value = 0.88943, dof = 1
     looking at rodent.sex effect in cat in rat
     | cat      | f        | m         |
     |----------|----------|-----------|
-    | Specific | 4.265403 | 31.753555 |
-    | other    | 5.21327  | 58.767773 |
-    the effect of rodent.sex on cat in rat is q =  0.4 with p-value = 0.5257, dof = 1
+    | Specific | 4.245283 | 31.603774 |
+    | other    | 5.188679 | 58.962264 |
+    the effect of rodent.sex on cat in rat is q =  0.42 with p-value = 0.51457, dof = 1
     looking at head-plate effect in cat in rat
     | cat      | n         | y         |
     |----------|-----------|-----------|
-    | Specific | 18.009479 | 18.009479 |
-    | other    | 27.014218 | 36.966825 |
-    the effect of head-plate on cat in rat is q =  0.89 with p-value = 0.34414, dof = 1
+    | Specific | 17.924528 | 17.924528 |
+    | other    | 27.358491 | 36.792453 |
+    the effect of head-plate on cat in rat is q =  0.79 with p-value = 0.37477, dof = 1
     looking at body.restrained effect in cat in rat
     | cat      | y         |
     |----------|-----------|
-    | Specific | 36.018957 |
-    | other    | 63.981043 |
+    | Specific | 35.849057 |
+    | other    | 64.150943 |
     the effect of body.restrained on cat in rat is q =  0.0 with p-value = 1.0, dof = 0
     looking at anesthesia.before.acquisition effect in cat in rat
     | cat      | n        | y         |
     |----------|----------|-----------|
-    | Specific | 1.895735 | 34.123223 |
-    | other    | 7.109005 | 56.872038 |
-    the effect of anesthesia.before.acquisition on cat in rat is q =  1.38 with p-value = 0.24035, dof = 1
+    | Specific | 1.886792 | 33.962264 |
+    | other    | 7.075472 | 57.075472 |
+    the effect of anesthesia.before.acquisition on cat in rat is q =  1.34 with p-value = 0.24651, dof = 1
     looking at MRI.field.strength effect in cat in rat
-    | cat      | 7    |
-    |----------|------|
-    | Specific | 37.5 |
-    | other    | 62.5 |
+    | cat      | 7         |
+    |----------|-----------|
+    | Specific | 37.305699 |
+    | other    | 62.694301 |
     the effect of MRI.field.strength on cat in rat is q =  0.0 with p-value = 1.0, dof = 0
     looking at fMRI.sequence effect in cat in rat
     | cat      | GE-EPI    | SE-EPI   |
     |----------|-----------|----------|
-    | Specific | 34.123223 | 1.895735 |
-    | other    | 61.137441 | 2.843602 |
+    | Specific | 33.962264 | 1.886792 |
+    | other    | 61.320755 | 2.830189 |
     the effect of fMRI.sequence on cat in rat is q =  0.0 with p-value = 1.0, dof = 1

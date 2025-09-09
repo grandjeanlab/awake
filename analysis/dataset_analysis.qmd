@@ -170,7 +170,7 @@ this is the variable part.
 ```{python}
 #| eval: false
 #for rodent in ["mouse", "rat" ]:
-rodent="rat"
+rodent="mouse"
 print("#### NOW DOING " + rodent + " ####")
 data_dir = "/project/4180000.36/awake/complete_output_"+rodent
 bids_dir = "/project/4180000.36/awake/bids/"+rodent+"_complete"
@@ -197,7 +197,7 @@ aidaqc = aidaqc.rename({
 aidaqc = aidaqc.with_columns([
     pl.col("FileAddress").str.split("func/").list.get(1).str.split("_task").list.get(0).alias("scan")
 ])
-df = df.join(aidaqc, on="scan")
+df = df.join(aidaqc, on="scan", how='left')
 df = df.filter(pl.col("exclude").is_null() | (pl.col("exclude") != "y"))
 df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary.tsv", separator="\t")
 
