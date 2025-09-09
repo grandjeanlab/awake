@@ -77,6 +77,9 @@ mkdir -p $output_dir/aCompCor3
 
 
 #find . -type f -exec sed -i 's/--detect_dummy //g' {} +
+#find . -type f -exec sed -i 's/--oblique2card 3dWarp //g' {} +
+
+#find . -type f -exec sed -i 's/--time=12:00:00/--time=24:00:00/g' {} +
 
 
 
