@@ -33,8 +33,8 @@ def makeswarmplot(title, x, y, hue=None):
 
 def makeviolinplot(df_to_plot):
   plt.figure(figsize=(10,5))
-  ax = sns.violinplot(x='value', y='fd.mean', hue='value', data=df_to_plot, inner=None)
-  ax = sns.stripplot(x='value', y='fd.mean', data=df_to_plot, dodge=True, color='black', alpha=0.3)
+  ax = sns.violinplot(x='value', y='cont_variable', hue='value', data=df_to_plot, inner=None)
+  ax = sns.stripplot(x='value', y='cont_variable', data=df_to_plot, dodge=True, color='black', alpha=0.3)
   return ax
 
 def makestackplot(df_melted):
@@ -60,11 +60,11 @@ def makespecificityplot(title, x,y, hue=None):
   return ax
 
 def split_continuous(df, cat1, cat2, split=4, labels = ["lowest","low","high","highest"]):
-  split_table = df.select(cat1, cat2).with_columns(pl.col(cat2).qcut(split, labels=labels).alias('quartiles')).drop_nulls()
+  split_table = df.select(cat1, cat2).with_columns(pl.col(cat2).qcut(split, labels=labels, allow_duplicates=True).alias('quartiles')).drop_nulls()
   return split_table
 
 def chi2_continuous(df, cat1, cat2, rodent, split=4, labels = ["lowest","low","high","highest"]):
-  chi2_table = split_continuous(df, cat1, cat2)
+  chi2_table = split_continuous(df, cat1, cat2, split, labels)
   print(f'looking at {cat2} effect in {cat1} in {rodent}')
   total_count = chi2_table.height/100
   chi2_table = chi2_table.select(cat1,'quartiles').group_by([cat1,'quartiles']).agg(pl.len()).sort(by='quartiles').pivot(index=cat1, on='quartiles', values='len').sort(by=cat1)
@@ -103,190 +103,219 @@ roi_list=["s1","thal"]
 
 ```
 
-## Mouse analysis. 
+## Whole analysis. 
 
 
 ```{python}
 rodent_list = ["mouse", "rat"]
 for rodent in rodent_list:
-rodent='mouse'
-print("#### NOW DOING " + rodent + " ####")
-df = pl.read_csv("../assets/tables/"+rodent+"_metadata_process.tsv", separator="\t")
-df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t")
-habituation = pl.read_csv("../assets/tables/habituation.tsv", separator="\t")
+#rodent='mouse'
+  print("#### NOW DOING " + rodent + " ####")
+  df = pl.read_csv("../assets/tables/"+rodent+"_metadata_process.tsv", separator="\t")
+  df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t")
+  habituation = pl.read_csv("../assets/tables/habituation.tsv", separator="\t")
 #add habituation data do df and df_summary
-df = df.join(habituation, on="rodent.ds", how="left")
-df_summary = df_summary.join(habituation, on="rodent.ds", how="left")
-#create a new col in df where habitauation.days < 6, replace true by 'short' and false by 'long' and call it habituation.duration
-df = df.with_columns((pl.col("habituation.days") < 6).alias("short.habituation"))
+  df = df.join(habituation, on="rodent.ds", how="left")
+  df_summary = df_summary.join(habituation, on="rodent.ds", how="left")
+  df = df.with_columns(pl.when(pl.col("habituation.days") < 5).then(pl.lit('short')).otherwise(pl.lit('long')).alias("short.habituation"))
+  df = df.with_columns(pl.when(pl.col("anesthesia.before.acquisition") == 'Isoflurane').then(pl.lit('y')).otherwise(pl.lit('long')).alias("short.habituation"))
 
-print("summary of the data that we collected")
-print("we processed " + str(df_summary["rodent.ds"].count()) + " datasets") 
-print("totalling "+ str(df_summary["total_run"].sum()) +" runs")
-print("from "+str(df_summary["total_animal"].sum()) +" animals")
-print("the smallest dataset had "+ str(df_summary["total_run"].min())+" runs") 
-print("the largest dataset had "+str(df_summary["total_run"].max())+" runs")
-print("we could processed "+str(df_summary["total_included"].sum()) + "/" + str(df_summary["total_run"].sum())+ " runs.")
+  print("summary of the data that we collected")
+  print("we processed " + str(df_summary["rodent.ds"].count()) + " datasets") 
+  print("totalling "+ str(df_summary["total_run"].sum()) +" runs")
+  print("from "+str(df_summary["total_animal"].sum()) +" animals")
+  print("the smallest dataset had "+ str(df_summary["total_run"].min())+" runs") 
+  print("the largest dataset had "+str(df_summary["total_run"].max())+" runs")
+  print("we could processed "+str(df_summary["total_included"].sum()) + "/" + str(df_summary["total_run"].sum())+ " runs.")
 
-print("below is a summary of the data included per dataset")
+  print("below is a summary of the data included per dataset")
 #to add the summary of the data included
-print(df_summary.select("rodent.ds", "total_run", "total_animal", "total_included", "strain").sort(by="rodent.ds"))
+  print(df_summary.select("rodent.ds", "total_run", "total_animal", "total_included", "strain").sort(by="rodent.ds"))
 
-print("information about sex ratio")
-print("the datasets contained "+str(df_summary["male"].sum())+ " male runs and " +str(df_summary["female"].sum())+ " female runs")
-print("that corresponds to "+str(round(100*df_summary["female"].sum()/(df_summary["female"].sum()+df_summary["male"].sum()),2))+"% females ")
-print("information about animal handling")
-print(str((df_summary["headplate"] == 'y').sum()) + " datasets used headplates")
-print(str((df_summary["restrained"] == 'y').sum()) + " datasets used body restraining")
-print(str((df_summary["anesthesia"].is_in(['Isoflurane', 'Sevoflurane'])).sum()) + " datasets used anesthesia before acquisition")
-print(str((df_summary["exp.gender"] == 'm').sum()) + " datasets were collected by men, " + str((df_summary["exp.gender"] == 'f').sum())+ " by women")
+  print("information about sex ratio")
+  print("the datasets contained "+str(df_summary["male"].sum())+ " male runs and " +str(df_summary["female"].sum())+ " female runs")
+  print("that corresponds to "+str(round(100*df_summary["female"].sum()/(df_summary["female"].sum()+df_summary["male"].sum()),2))+"% females ")
+  print("information about animal handling")
+  print(str((df_summary["headplate"] == 'y').sum()) + " datasets used headplates")
+  print(str((df_summary["restrained"] == 'y').sum()) + " datasets used body restraining")
+  print(str((df_summary["anesthesia"].is_in(['Isoflurane', 'Sevoflurane'])).sum()) + " datasets used anesthesia before acquisition")
+  print(str((df_summary["exp.gender"] == 'm').sum()) + " datasets were collected by men, " + str((df_summary["exp.gender"] == 'f').sum())+ " by women")
 
-print(df_summary.select("rodent.ds", "headplate", "restrained", "anesthesia","exp.gender", "habituation.days","habituation.min").sort(by="rodent.ds"))
+  print(df_summary.select("rodent.ds", "headplate", "restrained", "anesthesia","exp.gender", "habituation.days","habituation.min").sort(by="rodent.ds"))
 
-print("information about the scanner and sequence")
-print("lowest field strength was " + str(df_summary["field_strength"].min()) + "T")
-print("highest field strength was " + str(df_summary["field_strength"].max()) + "T")
-print(df_summary.select("rodent.ds", "field_strength", "sequence", "TE").sort(by="rodent.ds"))
+  print("information about the scanner and sequence")
+  print("lowest field strength was " + str(df_summary["field_strength"].min()) + "T")
+  print("highest field strength was " + str(df_summary["field_strength"].max()) + "T")
+  print(df_summary.select("rodent.ds", "field_strength", "sequence", "TE").sort(by="rodent.ds"))
 
 #first, let's extract some infomation about motion and summarize it per dataset
-print("#### MOTION ANALYISIS ####")
-print("mean fd across all "+rodent+" datasets")
-print(df.select("fd.mean").mean())
-print("mean fd per dataset")
-print(df_summary.select("rodent.ds", "fd.mean").sort(by="rodent.ds"))
+  print("#### MOTION ANALYISIS ####")
+  print("mean fd across all "+rodent+" datasets")
+  print(df.select("fd.mean").mean())
+  print("mean fd per dataset")
+  print(df_summary.select("rodent.ds", "fd.mean").sort(by="rodent.ds"))
 
-ax = makeswarmplot('framewise displacement per dataset', df["rodent.ds"], df["fd.mean"], hue=df['head-plate'])
-ax.figure.savefig("../assets/plot/"+rodent+"_fd_per_dataset.svg")
+  ax = makeswarmplot('framewise displacement per dataset', df["rodent.ds"], df["fd.mean"], hue=df['head-plate'])
+  ax.figure.savefig("../assets/plot/"+rodent+"_fd_per_dataset.svg")
 
 #let's extract some infomation about tsnr and summarize it per dataset
-print("#### tSNR ANALYISIS ####")
-print("tSNR across all "+rodent+" datasets")
-print(df.select("s1.tsnr.l").mean())
+  print("#### tSNR ANALYISIS ####")
+  print("tSNR across all "+rodent+" datasets")
+  print(df.select("s1.tsnr.l").mean())
 
-ax = makeswarmplot('S1 tSNR per dataset', df["rodent.ds"], df["s1.tsnr.l"], hue=df['MRI.field.strength'].cast(pl.String))
-ax.figure.savefig("../assets/plot/"+rodent+"_tsnr_per_dataset.svg")
+  ax = makeswarmplot('S1 tSNR per dataset', df["rodent.ds"], df["s1.tsnr.l"], hue=df['MRI.field.strength'].cast(pl.String))
+  ax.figure.savefig("../assets/plot/"+rodent+"_tsnr_per_dataset.svg")
 
 #now we run the analysis per denoising style, we extract the number of dropped frames, the s1-s1, s1-aca, and s1-thal correlations. finally we estimate connectivity specificity
-print("Number of dropped frames for each dataset and denoising method")
-print("This corresponds to the following rabies flags for mice")
-print("#gsr1: --frame_censoring FD_censoring=true,FD_threshold=0.1,DVARS_censoring=true")
-print("#gsr2: --frame_censoring FD_censoring=true,FD_threshold=0.5,DVARS_censoring=true")
-print("#gsr3: --frame_censoring FD_censoring=true,FD_threshold=0.5,DVARS_censoring=false")
-print("#### DENOISE ANALYSIS ####")
-print("dropped frames per dataset")
-print(df_summary.select("rodent.ds", "total.frames", "dropped.frames.gsr1", "dropped.frames.gsr2", "dropped.frames.gsr3").sort(by="rodent.ds"))
-print("#### FC specifiticy analysis ####")
-for analysis in analysis_list:
-  print(" ")
-  print("overall FC specificity for "+ analysis)
-  print(df["s1.cat."+analysis].value_counts().with_columns(pl.col("count")/pl.sum("count")).sort(by='count', descending=True))
+  print("Number of dropped frames for each dataset and denoising method")
+  print("This corresponds to the following rabies flags for mice")
+  print("#gsr1: --frame_censoring FD_censoring=true,FD_threshold=0.1,DVARS_censoring=true")
+  print("#gsr2: --frame_censoring FD_censoring=true,FD_threshold=0.5,DVARS_censoring=true")
+  print("#gsr3: --frame_censoring FD_censoring=true,FD_threshold=0.5,DVARS_censoring=false")
+  print("#### DENOISE ANALYSIS ####")
+  print("dropped frames per dataset")
+  print(df_summary.select("rodent.ds", "total.frames", "dropped.frames.gsr1", "dropped.frames.gsr2", "dropped.frames.gsr3").sort(by="rodent.ds"))
+  print("#### FC specifiticy analysis ####")
+  for analysis in analysis_list:
+    print(" ")
+    print("overall FC specificity for "+ analysis)
+    print(df["s1.cat."+analysis].value_counts().with_columns(pl.col("count")/pl.sum("count")).sort(by='count', descending=True))
 
-print("for gsr processing, heavy scrubbing lead to  "+str((df["s1.cat.gsr1"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr1"]=="Specific").count())  + " Specific scans")
-print("for gsr processing, light scrubbing lead to  "+str((df["s1.cat.gsr3"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr3"]=="Specific").count())  + " Specific scans")
+  print("for gsr processing, heavy scrubbing lead to  "+str((df["s1.cat.gsr1"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr1"]=="Specific").count())  + " Specific scans")
+  print("for gsr processing, light scrubbing lead to  "+str((df["s1.cat.gsr3"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr3"]=="Specific").count())  + " Specific scans")
 
-print("for aCompCor processing, heavy scrubbing lead to  "+str((df["s1.cat.aCompCor1"]=="Specific").sum()) + "/" +str((df["s1.cat.aCompCor1"]=="Specific").count())  + " Specific scans")
-print("for aCompCor processing, light scrubbing lead to  "+str((df["s1.cat.aCompCor3"]=="Specific").sum()) + "/" +str((df["s1.cat.aCompCor3"]=="Specific").count())  + " Specific scans")
+  print("for aCompCor processing, heavy scrubbing lead to  "+str((df["s1.cat.aCompCor1"]=="Specific").sum()) + "/" +str((df["s1.cat.aCompCor1"]=="Specific").count())  + " Specific scans")
+  print("for aCompCor processing, light scrubbing lead to  "+str((df["s1.cat.aCompCor3"]=="Specific").sum()) + "/" +str((df["s1.cat.aCompCor3"]=="Specific").count())  + " Specific scans")
 
-print("s1-s1 specificity analysis per dataset (only showing specific values)")
-print(df_summary[["rodent.ds"]+["s1."+analysis+".Specific" for analysis in analysis_list]].sort(by="rodent.ds"))
+  print("s1-s1 specificity analysis per dataset (only showing specific values)")
+  print(df_summary[["rodent.ds"]+["s1."+analysis+".Specific" for analysis in analysis_list]].sort(by="rodent.ds"))
 
-print("it seems that less scrubbing lead to better outcomes")
-print("for gsr processing, "+str((df_summary["s1.gsr1.Specific"] < df_summary["s1.gsr3.Specific"]).sum())+"/"+str(df_summary["s1.gsr1.Specific"].count())+" dataset performed better with less scrubbing")
-print("for aCompCor processing, "+str((df_summary["s1.aCompCor1.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor1.Specific"].count())+" dataset performed better with less scrubbing")
-print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed better with aCompCor compared to gsr")
-print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] > df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed worst with aCompCor compared to gsr")
+  print("it seems that less scrubbing lead to better outcomes")
+  print("for gsr processing, "+str((df_summary["s1.gsr1.Specific"] < df_summary["s1.gsr3.Specific"]).sum())+"/"+str(df_summary["s1.gsr1.Specific"].count())+" dataset performed better with less scrubbing")
+  print("for aCompCor processing, "+str((df_summary["s1.aCompCor1.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor1.Specific"].count())+" dataset performed better with less scrubbing")
+  print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed better with aCompCor compared to gsr")
+  print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] > df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed worst with aCompCor compared to gsr")
 
-print("#### plot fc categories per denoising method ####")
-df_melted = df.melt(id_vars="rodent.ds", value_vars=['s1.cat.' + x for x in analysis_list])
-ax = makestackplot(df_melted)
-plt.savefig("../assets/plot/"+rodent+"_specificity.svg")
+  print("#### plot fc categories per denoising method ####")
+  df_melted = df.melt(id_vars="rodent.ds", value_vars=['s1.cat.' + x for x in analysis_list])
+  ax = makestackplot(df_melted)
+  plt.savefig("../assets/plot/"+rodent+"_specificity.svg")
 
-analysis_sub = ['gsr3', 'aCompCor3']
-for analysis in analysis_sub:
-  ax = makespecificityplot(rodent+': S1 specificity with ' + analysis, df['s1.specific.'+analysis], df['s1.unspecific.'+analysis])
-  plt.savefig("../assets/plot/specific/"+rodent+"_s1_specificity_"+analysis+".svg")
+  analysis_sub = ['gsr3', 'aCompCor3']
+  for analysis in analysis_sub:
+    ax = makespecificityplot(rodent+': S1 specificity with ' + analysis, df['s1.specific.'+analysis], df['s1.unspecific.'+analysis])
+    plt.savefig("../assets/plot/specific/"+rodent+"_s1_specificity_"+analysis+".svg")
 
-  ax = makespecificityplot(rodent+': Thal FC specificity with ' + analysis, df['thal.specific.'+analysis], df['s1.unspecific.'+analysis])
-  plt.savefig("../assets/plot/specific/"+rodent+"_thal_specificity_"+analysis+".svg")
+    ax = makespecificityplot(rodent+': Thal FC specificity with ' + analysis, df['thal.specific.'+analysis], df['s1.unspecific.'+analysis])
+    plt.savefig("../assets/plot/specific/"+rodent+"_thal_specificity_"+analysis+".svg")
 
-  df_to_plot = split_continuous(df, 's1.cat.'+analysis, 'fd.mean')
-  df_to_plot = df_to_plot.rename({'s1.cat.'+analysis:'value', 'quartiles':'variable'})
-  ax = makestackplot(df_to_plot)
-  plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd.svg")
+    cat1='s1.cat.'+analysis
+    cat2 = 'fd.mean'
+    df_to_plot = split_continuous(df, cat1, cat2)
+    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+    ax = makestackplot(df_to_plot)
+    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd.svg")
 
-  ax = makeviolinplot(df_to_plot)
-  ax.set_xlabel('Connectivity category')
-  plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd_violin.svg")
+    ax = makeviolinplot(df_to_plot)
+    ax.set_xlabel('Connectivity category')
+    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd_violin.svg")
 
-  df_to_plot = split_continuous(df, 's1.cat.'+analysis, 's1.gsrcov.l.'+analysis)
-  df_to_plot = df_to_plot.rename({'s1.cat.'+analysis:'value', 'quartiles':'variable'})
-  ax = makestackplot(df_to_plot)
-  plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov.svg")
+    cat2='s1.gsrcov.l.'+analysis
+    df_to_plot = split_continuous(df, cat1, cat2)
+    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+    ax = makestackplot(df_to_plot)
+    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov.svg")
 
-  ax = makeviolinplot(df_to_plot)
-  ax.set_xlabel('Connectivity category')
-  plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov_violin.svg")
+    ax = makeviolinplot(df_to_plot)
+    ax.set_xlabel('Connectivity category')
+    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov_violin.svg")
 
-  df_to_plot = split_continuous(df, 's1.cat.'+analysis, 's1.tsnr.l')
-  df_to_plot = df_to_plot.rename({'s1.cat.'+analysis:'value', 'quartiles':'variable'})
-  ax = makestackplot(df_to_plot)
-  plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr.svg")
+    cat2='s1.tsnr.l'
+    df_to_plot = split_continuous(df, cat1, cat2)
+    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+    ax = makestackplot(df_to_plot)
+    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr.svg")
 
-  ax = makeviolinplot(df_to_plot)
-  ax.set_xlabel('Connectivity category')
-  plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr_violin.svg")
+    ax = makeviolinplot(df_to_plot)
+    ax.set_xlabel('Connectivity category')
+    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr_violin.svg")
 
-  cat1='s1.cat.'+analysis
-  cat2='main.experimenter.gender'
-  df_to_plot = df.select(cat1,cat2).drop_nulls().group_by([cat1,cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over(cat1)).alias('rel_count')).sort(by=cat1)
-  ax = sns.barplot(x=df_to_plot[cat1],y=df_to_plot['rel_count'],hue=df_to_plot[cat2], order=cat_index)
-  plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_rel_expgender.svg')
-  cat2='rodent.sex'
-  df_to_plot = df.select(cat1,cat2).drop_nulls().group_by([cat1,cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over(cat1)).alias('rel_count')).sort(by=cat1)
-  ax = sns.barplot(x=df_to_plot[cat1],y=df_to_plot['rel_count'],hue=df_to_plot[cat2], order=cat_index)
-  plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_rel_sex.svg')
-  cat2='head-plate'
-  df_to_plot = df.select(cat1,cat2).drop_nulls().group_by([cat1,cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over(cat1)).alias('rel_count')).sort(by=cat1)
-  ax = sns.barplot(x=df_to_plot[cat1],y=df_to_plot['rel_count'],hue=df_to_plot[cat2], order=cat_index)
-  plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_rel_headplate.svg')
-  cat2='body.restrained'
-  df_to_plot = df.select(cat1,cat2).drop_nulls().group_by([cat1,cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over(cat1)).alias('rel_count')).sort(by=cat1)
-  ax = sns.barplot(x=df_to_plot[cat1],y=df_to_plot['rel_count'],hue=df_to_plot[cat2], order=cat_index)
-  plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_rel_restrained.svg')
-  cat2='MRI.field.strength'
-  df_to_plot = df.select(cat1,cat2).drop_nulls().group_by([cat1,cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over(cat1)).alias('rel_count')).sort(by=cat1)
-  ax = sns.barplot(x=df_to_plot[cat1],y=df_to_plot['rel_count'],hue=df_to_plot[cat2], order=cat_index)
-  plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_rel_MRI.svg')
-  cat2='fMRI.sequence'
-  df_to_plot = df.select(cat1,cat2).drop_nulls().group_by([cat1,cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over(cat1)).alias('rel_count')).sort(by=cat1)
-  ax = sns.barplot(x=df_to_plot[cat1],y=df_to_plot['rel_count'],hue=df_to_plot[cat2], order=cat_index)
-  plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_rel_MRI.svg')
+    cat2='habituation.min'
+    df_to_plot = split_continuous(df, cat1, cat2)
+    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+    ax = makeviolinplot(df_to_plot)
+    ax.set_xlabel('Connectivity category')
+    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_min.svg")
 
+    cat2='habituation.days'
+    df_to_plot = split_continuous(df, cat1, cat2)
+    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+    ax = makeviolinplot(df_to_plot)
+    ax.set_xlabel('Connectivity category')
+    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_days.svg")
 
+    df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
+    cat2='main.experimenter.gender'
+    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_expgender.svg')
 
+    cat2='rodent.sex'
+    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_sex.svg')
 
+    cat2='head-plate'
+    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_headplate.svg')
 
+    cat2='body.restrained'
+    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_restrained.svg')
 
+    cat2='short.habituation'
+    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_shorthabituation.svg')
 
-  print('doing statistical analysis')
-  print('first with '+analysis+' processed data')
-  cat1='s1.cat.'+analysis
-  cat2 = 'fd.mean'
-  chi2_continuous(df, cat1, cat2, rodent)
-  cat2 = 's1.gsrcov.l.'+analysis
-  chi2_continuous(df, cat1, cat2, rodent)
-  cat2 = 's1.tsnr.l'
-  chi2_continuous(df, cat1, cat2, rodent)
+    cat2='anesthesia.before.acquisition'
+    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'anesthesia.svg')
 
+    cat2='MRI.field.strength'
+    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_MRI.svg')
 
+    cat2='fMRI.sequence'
+    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_fMRI.svg')
 
-  chi2_categorical(df, cat1, 'short.habituation', rodent)
-  chi2_categorical(df, cat1, 'main.experimenter.gender', rodent)
-  chi2_categorical(df, cat1, 'rodent.sex', rodent)
-  chi2_categorical(df, cat1, 'head-plate', rodent)
-  chi2_categorical(df, cat1, 'body.restrained', rodent)
-  chi2_categorical(df, cat1, 'MRI.field.strength', rodent)
-  chi2_categorical(df, cat1, 'fMRI.sequence', rodent)
+    print('doing statistical analysis')
+    print('first with '+analysis+' processed data')
+    cat2 = 'fd.mean'
+    chi2_continuous(df, 'cat', cat2, rodent)
+    cat2 = 's1.gsrcov.l.'+analysis
+    chi2_continuous(df, 'cat', cat2, rodent)
+    cat2 = 's1.tsnr.l'
+    chi2_continuous(df, 'cat', cat2, rodent)
+    cat2 = 'habituation.min'
+    chi2_continuous(df, 'cat', cat2, rodent, 3, ['low','intermediate','high'])
+    cat2 = 'habituation.days'
+    chi2_continuous(df, 'cat', cat2, rodent, 3, ['low','intermediate','high'])
+
+    chi2_categorical(df, 'cat', 'short.habituation', rodent)
+    chi2_categorical(df, 'cat', 'main.experimenter.gender', rodent)
+    chi2_categorical(df, 'cat', 'rodent.sex', rodent)
+    chi2_categorical(df, 'cat', 'head-plate', rodent)
+    chi2_categorical(df, 'cat', 'body.restrained', rodent)
+    chi2_categorical(df, 'cat', 'anesthesia.before.acquisition', rodent)
+    chi2_categorical(df, 'cat', 'MRI.field.strength', rodent)
+    chi2_categorical(df, 'cat', 'fMRI.sequence', rodent)
 
 
 ```
