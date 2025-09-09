@@ -33,13 +33,13 @@ def makeswarmplot(title, x, y, hue=None):
 
 def makeviolinplot(df_to_plot):
   plt.figure(figsize=(10,5))
-  ax = sns.violinplot(x='value', y='cont_variable', hue='value', data=df_to_plot, inner=None)
-  ax = sns.stripplot(x='value', y='cont_variable', data=df_to_plot, dodge=True, color='black', alpha=0.3)
+  ax = sns.violinplot(x=df_to_plot['value'], y=df_to_plot['cont_variable'], hue=df_to_plot['value'],  inner=None)
+  ax = sns.stripplot(x=df_to_plot['value'], y=df_to_plot['cont_variable'],  dodge=True, color='black', alpha=0.3)
   return ax
 
 def makestackplot(df_melted):
   plt.figure(figsize=(10,5))
-  ax = sns.displot(df_melted, x='variable', hue='value', multiple='stack', hue_order=cat_index, stat='probability')
+  ax = sns.displot(x=df_melted['variable'], hue=df_melted['value'], multiple='stack', hue_order=cat_index, stat='probability')
   ax.ax.invert_yaxis()
   ax.ax.tick_params(axis='x', rotation=90)
   return ax
@@ -111,14 +111,8 @@ rodent_list = ["mouse", "rat"]
 for rodent in rodent_list:
 #rodent='mouse'
   print("#### NOW DOING " + rodent + " ####")
-  df = pl.read_csv("../assets/tables/"+rodent+"_metadata_process.tsv", separator="\t")
+  df = pl.read_csv("../assets/tables/"+rodent+"_metadata_processed.tsv", separator="\t")
   df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t")
-  habituation = pl.read_csv("../assets/tables/habituation.tsv", separator="\t")
-#add habituation data do df and df_summary
-  df = df.join(habituation, on="rodent.ds", how="left")
-  df_summary = df_summary.join(habituation, on="rodent.ds", how="left")
-  df = df.with_columns(pl.when(pl.col("habituation.days") < 5).then(pl.lit('short')).otherwise(pl.lit('long')).alias("short.habituation"))
-  df = df.with_columns(pl.when(pl.col("anesthesia.before.acquisition") == 'Isoflurane').then(pl.lit('y')).otherwise(pl.lit('long')).alias("short.habituation"))
 
   print("summary of the data that we collected")
   print("we processed " + str(df_summary["rodent.ds"].count()) + " datasets") 
@@ -283,7 +277,7 @@ for rodent in rodent_list:
     cat2='anesthesia.before.acquisition'
     df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
     ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'anesthesia.svg')
+    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_anesthesia.svg')
 
     cat2='MRI.field.strength'
     df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
