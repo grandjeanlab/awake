@@ -18,7 +18,8 @@ import polars as pl
 #import plotting modules
 import matplotlib.pyplot as plt
 import seaborn as sns
-from scipy.stats import chi2_contingency
+from scipy.stats import chi2_contingency, ttest_ind
+from pingouin import ttest
 
 import matplotlib
 #set matplotlib rendering to TkAgg
@@ -112,7 +113,7 @@ for rodent in rodent_list:
 #rodent='mouse'
   print("#### NOW DOING " + rodent + " ####")
   df = pl.read_csv("../assets/tables/"+rodent+"_metadata_processed.tsv", separator="\t")
-  df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t")
+  df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t").sort(by='rodent.ds')
 
   print("summary of the data that we collected")
   print("we processed " + str(df_summary["rodent.ds"].count()) + " datasets") 
@@ -124,7 +125,11 @@ for rodent in rodent_list:
 
   print("below is a summary of the data included per dataset")
 #to add the summary of the data included
-  print(df_summary.select("rodent.ds", "total_run", "total_animal", "total_included", "strain").sort(by="rodent.ds"))
+  print(df_summary.select("rodent.ds", "total_run", "total_animal", "total_included", "strain"))
+
+  ax = sns.barplot(x=df_summary["rodent.ds"], y=df_summary["total_included"], hue=df_summary["strain"], dodge=False)
+  ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
+  plt.savefig("../assets/plot/"+rodent+"_run_included_per_dataset.svg")
 
   print("information about sex ratio")
   print("the datasets contained "+str(df_summary["male"].sum())+ " male runs and " +str(df_summary["female"].sum())+ " female runs")
@@ -135,7 +140,14 @@ for rodent in rodent_list:
   print(str((df_summary["anesthesia"].is_in(['Isoflurane', 'Sevoflurane'])).sum()) + " datasets used anesthesia before acquisition")
   print(str((df_summary["exp.gender"] == 'm').sum()) + " datasets were collected by men, " + str((df_summary["exp.gender"] == 'f').sum())+ " by women")
 
-  print(df_summary.select("rodent.ds", "headplate", "restrained", "anesthesia","exp.gender", "habituation.days","habituation.min").sort(by="rodent.ds"))
+  print(df_summary.select("rodent.ds", "headplate", "restrained", "anesthesia","exp.gender", "habituation.days","habituation.min"))
+
+  fig, ax1 = plt.subplots()
+  ax2 = ax1.twinx()
+  ax = sns.barplot(x=df_summary["rodent.ds"], y=df_summary["habituation.min"], hue=df_summary["headplate"], dodge=False, ax=ax1)
+  ax = sns.swarmplot(x=df_summary["rodent.ds"], y=df_summary["habituation.days"], color='black', marker='o', label='habituation days', legend=False, ax=ax2)
+  ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
+  plt.savefig("../assets/plot/"+rodent+"_habituation_per_dataset.svg")
 
   print("information about the scanner and sequence")
   print("lowest field strength was " + str(df_summary["field_strength"].min()) + "T")
@@ -152,6 +164,16 @@ for rodent in rodent_list:
   ax = makeswarmplot('framewise displacement per dataset', df["rodent.ds"], df["fd.mean"], hue=df['head-plate'])
   ax.figure.savefig("../assets/plot/"+rodent+"_fd_per_dataset.svg")
 
+  df_to_plot = df.select('head-plate','fd.mean').rename({'head-plate':'value','fd.mean':'cont_variable'})
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_fd_headplate_violin.svg")
+  
+  t = ttest(df.filter(pl.col('head-plate')=='y')['fd.mean'], df.filter(pl.col('head-plate')=='n')['fd.mean'])
+  print('t-test for head-plate mean.fd > no head-plate mean.fd') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+
+
+
 #let's extract some infomation about tsnr and summarize it per dataset
   print("#### tSNR ANALYISIS ####")
   print("tSNR across all "+rodent+" datasets")
@@ -159,6 +181,11 @@ for rodent in rodent_list:
 
   ax = makeswarmplot('S1 tSNR per dataset', df["rodent.ds"], df["s1.tsnr.l"], hue=df['MRI.field.strength'].cast(pl.String))
   ax.figure.savefig("../assets/plot/"+rodent+"_tsnr_per_dataset.svg")
+
+  df_to_plot = df.select('MRI.field.strength','s1.tsnr.l').rename({'MRI.field.strength':'value','s1.tsnr.l':'cont_variable'}).sort(by='value').with_columns(pl.col('value').cast(pl.String))
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_tsnr_field_violin.svg")
+ 
 
 #now we run the analysis per denoising style, we extract the number of dropped frames, the s1-s1, s1-aca, and s1-thal correlations. finally we estimate connectivity specificity
   print("Number of dropped frames for each dataset and denoising method")

@@ -18,6 +18,7 @@ import polars as pl
 #import imaging modules
 import nibabel as nib
 from nilearn.maskers import NiftiLabelsMasker
+import numpy as np
 
 def get_fc_per_analysis(data_dir, df, analysis_list, frame_mask_dir, seed_ts_dir, seed_ref, seed_specific, seed_unspecific, seed_thalamus):
   try:
@@ -117,23 +118,20 @@ def get_fd(tmp_listdir, x):
   except:
     return None
 
-#function to get the snr from two rois. ideally the s1 barrel field
-def get_tsnr(tmp_listdir, x, label_img, roiL, roiR):
+def get_roi(tmp_listdir, x):
   try:
     x = x.split("_")
     sub = x[0]
     ses = x[1]
     run = x[2]
-    scan_file = tmp_listdir.filter(tmp_listdir.str.contains(sub) & tmp_listdir.str.contains(ses) & tmp_listdir.str.contains(run))
-    if scan_file.is_empty():
+    roi_file = tmp_listdir.filter(tmp_listdir.str.contains(sub) & tmp_listdir.str.contains(ses) & tmp_listdir.str.contains(run))
+    if roi_file.is_empty():
       run = run.replace("-", "_")
-      scan_file = tmp_listdir.filter(tmp_listdir.str.contains(sub) & tmp_listdir.str.contains(ses) & tmp_listdir.str.contains(run))
-    if scan_file.is_empty():
+      roi_file = tmp_listdir.filter(tmp_listdir.str.contains(sub) & tmp_listdir.str.contains(ses) & tmp_listdir.str.contains(run))
+    if roi_file.is_empty():
       return pl.Series([None, None], dtype=pl.Float32)
-    else:
-      masker = NiftiLabelsMasker(labels_img=label_img, standardize=False)
-      roi_values = masker.fit_transform(scan_file[0])
-      return pl.Series(roi_values)[0][roiL-1, roiR-1]
+    roi_values = pl.read_csv(roi_file[0], separator='\t').transpose().to_series().cast(pl.Float32)
+    return roi_values
   except:
     return pl.Series([None, None], dtype=pl.Float32)
 ```
@@ -145,8 +143,8 @@ analysis_list = [ "gsr1", "gsr2", "gsr3","wmcsf1", "wmcsf2", "wmcsf3", "aCompCor
 motion_dir="motion_datasink/FD_csv"
 frame_mask_dir = "frame_censoring_mask"
 seed_ts_dir = "analysis_datasink/seed_timecourse_csv/"
-seed_img_dir = "analysis_datasink/seed_correlation_maps/"
-tsnr_img_dir = "tSNR_map_preprocess"
+tsnr_wf_dir = "datasink/tsnr"
+gsr_cov_wf_dir = "datasink/gsr_cov"
 
 cat_index = ["Specific", "Non-specific", "Spurious", "No"]
 
@@ -162,19 +160,11 @@ this is the variable part.
 
 ``` python
 #for rodent in ["mouse", "rat" ]:
-rodent="rat"
+rodent="mouse"
 print("#### NOW DOING " + rodent + " ####")
 data_dir = "/project/4180000.36/awake/complete_output_"+rodent
 bids_dir = "/project/4180000.36/awake/bids/"+rodent+"_complete"
 analysis_dir = "/project/4180000.36/awake/analysis_"+rodent
-mask_img = "/home/traaffneu/joagra/code/awake/assets/template/"+rodent+"/mask.nii.gz"
-label_img = "/home/traaffneu/joagra/code/awake/assets/template/"+rodent+"/labels.nii.gz"
-if rodent == "rat":
-  roiL = 520  # left barrel field cortex
-  roiR = 521  # right barrel field cortex
-if rodent == "mouse":
-  roiL = 281
-  roiR = 117
 df = pl.read_csv("../assets/tables/"+rodent+"_metadata.tsv", separator="\t", ignore_errors=True)
 df = df.with_columns([
     pl.concat_str([
@@ -200,6 +190,13 @@ aidaqc = aidaqc.with_columns([
 df = df.join(aidaqc, on="scan", how='left')
 df = df.filter(pl.col("exclude").is_null() | (pl.col("exclude") != "y"))
 df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary.tsv", separator="\t")
+
+#add habituation data do df and df_summary
+habituation = pl.read_csv("../assets/tables/habituation.tsv", separator="\t")
+df = df.join(habituation, on="rodent.ds", how="left")
+df_summary = df_summary.join(habituation, on="rodent.ds", how="left")
+df = df.with_columns(pl.when(pl.col("habituation.days") < 5).then(pl.lit('short')).otherwise(pl.lit('long')).alias("short.habituation"))
+
 #first, let's extract some infomation about motion and summarize it per dataset
 p = join(data_dir, motion_dir)
 tmp_listdir = glob.glob(join(p,"*/*/*.csv"), recursive=True)
@@ -215,16 +212,28 @@ df_summary = df_summary.join(
     on="rodent.ds"
 )
 #now let's get the tsnr from S1 cortex. 
-p = join(data_dir, tsnr_img_dir)
-tmp_listdir = glob.glob(join(p,"*/*/*.nii.gz"), recursive=True)
-tmp_listdir_alt = glob.glob(join(p,"*/*.nii.gz"), recursive=True)
-tmp_listdir = tmp_listdir + tmp_listdir_alt 
+p = join(analysis_dir, tsnr_wf_dir)
+tmp_listdir = glob.glob(join(p,"*/*.tsv"), recursive=True)
 tmp_listdir = pl.Series(tmp_listdir)
-tmp = df.with_columns(pl.col("scan").map_elements(lambda x: get_tsnr(tmp_listdir, x, label_img, roiL, roiR)).alias('roi')).select('scan_dir','roi')
+tmp = df.with_columns(pl.col("scan").map_elements(lambda x: get_roi(tmp_listdir, x)).alias('roi')).select('scan_dir','roi')
 df = df.join(tmp.with_columns([
     pl.col('roi').list.get(0).alias("s1.tsnr.l"),
     pl.col('roi').list.get(1).alias("s1.tsnr.r")
     ]).select("s1.tsnr.l", "s1.tsnr.r", "scan_dir"), on="scan_dir")
+#extract the global signal regression covariates from our two roi
+tmp_df = df.select(["scan","scan_dir"])
+for analysis in analysis_list:
+  print("doing gsr covariance for "+analysis)
+  p = join(analysis_dir, gsr_cov_wf_dir, analysis)
+  tmp_listdir = glob.glob(join(p,"*/*.tsv"), recursive=True)
+  tmp_listdir = pl.Series(tmp_listdir)
+  tmp = tmp_df.with_columns(pl.col("scan").map_elements(lambda x: get_roi(tmp_listdir, x)).alias('roi')).select('scan_dir','roi')
+  tmp = tmp.with_columns([
+      pl.col('roi').list.get(0).alias("s1.gsrcov.l."+analysis),
+      pl.col('roi').list.get(1).alias("s1.gsrcov.r."+analysis)
+    ]).select("s1.gsrcov.l."+analysis, "s1.gsrcov.r."+analysis)
+  tmp_df = pl.concat([tmp_df,tmp], how="horizontal")
+df = df.join(tmp_df, on="scan_dir")
 #now we run the analysis per denoising style, we extract the number of dropped frames, the s1-s1, s1-aca, and s1-thal correlations. finally we estimate connectivity specificity
 df = get_fc_per_analysis(data_dir, df, analysis_list, frame_mask_dir, seed_ts_dir, seed_ref, seed_specific, seed_unspecific, seed_thalamus)
 df_summary = df_summary.join(
@@ -246,5 +255,5 @@ for (analysis,roi) in [(analysis,roi) for analysis in analysis_list for roi in r
         ]).drop(roi+".cat."+analysis), on="rodent.ds")
 
 df_summary.write_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t")
-df.write_csv("../assets/tables/"+rodent+"_metadata_process.tsv", separator="\t")
+df.write_csv("../assets/tables/"+rodent+"_metadata_processed.tsv", separator="\t")
 ```

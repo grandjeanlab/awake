@@ -170,7 +170,7 @@ this is the variable part.
 ```{python}
 #| eval: false
 #for rodent in ["mouse", "rat" ]:
-rodent="mouse"
+rodent="rat"
 print("#### NOW DOING " + rodent + " ####")
 data_dir = "/project/4180000.36/awake/complete_output_"+rodent
 bids_dir = "/project/4180000.36/awake/bids/"+rodent+"_complete"
@@ -206,7 +206,6 @@ habituation = pl.read_csv("../assets/tables/habituation.tsv", separator="\t")
 df = df.join(habituation, on="rodent.ds", how="left")
 df_summary = df_summary.join(habituation, on="rodent.ds", how="left")
 df = df.with_columns(pl.when(pl.col("habituation.days") < 5).then(pl.lit('short')).otherwise(pl.lit('long')).alias("short.habituation"))
-df = df.with_columns(pl.when(pl.col("anesthesia.before.acquisition") == 'Isoflurane').then(pl.lit('y')).otherwise(pl.lit('long')).alias("short.habituation"))
 
 #first, let's extract some infomation about motion and summarize it per dataset
 p = join(data_dir, motion_dir)

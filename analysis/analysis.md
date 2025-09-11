@@ -11,7 +11,8 @@ import polars as pl
 #import plotting modules
 import matplotlib.pyplot as plt
 import seaborn as sns
-from scipy.stats import chi2_contingency
+from scipy.stats import chi2_contingency, ttest_ind
+from pingouin import ttest
 
 import matplotlib
 #set matplotlib rendering to TkAgg
@@ -103,7 +104,7 @@ for rodent in rodent_list:
 #rodent='mouse'
   print("#### NOW DOING " + rodent + " ####")
   df = pl.read_csv("../assets/tables/"+rodent+"_metadata_processed.tsv", separator="\t")
-  df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t")
+  df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t").sort(by='rodent.ds')
 
   print("summary of the data that we collected")
   print("we processed " + str(df_summary["rodent.ds"].count()) + " datasets") 
@@ -115,7 +116,11 @@ for rodent in rodent_list:
 
   print("below is a summary of the data included per dataset")
 #to add the summary of the data included
-  print(df_summary.select("rodent.ds", "total_run", "total_animal", "total_included", "strain").sort(by="rodent.ds"))
+  print(df_summary.select("rodent.ds", "total_run", "total_animal", "total_included", "strain"))
+
+  ax = sns.barplot(x=df_summary["rodent.ds"], y=df_summary["total_included"], hue=df_summary["strain"], dodge=False)
+  ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
+  plt.savefig("../assets/plot/"+rodent+"_run_included_per_dataset.svg")
 
   print("information about sex ratio")
   print("the datasets contained "+str(df_summary["male"].sum())+ " male runs and " +str(df_summary["female"].sum())+ " female runs")
@@ -126,7 +131,14 @@ for rodent in rodent_list:
   print(str((df_summary["anesthesia"].is_in(['Isoflurane', 'Sevoflurane'])).sum()) + " datasets used anesthesia before acquisition")
   print(str((df_summary["exp.gender"] == 'm').sum()) + " datasets were collected by men, " + str((df_summary["exp.gender"] == 'f').sum())+ " by women")
 
-  print(df_summary.select("rodent.ds", "headplate", "restrained", "anesthesia","exp.gender", "habituation.days","habituation.min").sort(by="rodent.ds"))
+  print(df_summary.select("rodent.ds", "headplate", "restrained", "anesthesia","exp.gender", "habituation.days","habituation.min"))
+
+  fig, ax1 = plt.subplots()
+  ax2 = ax1.twinx()
+  ax = sns.barplot(x=df_summary["rodent.ds"], y=df_summary["habituation.min"], hue=df_summary["headplate"], dodge=False, ax=ax1)
+  ax = sns.swarmplot(x=df_summary["rodent.ds"], y=df_summary["habituation.days"], color='black', marker='o', label='habituation days', legend=False, ax=ax2)
+  ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
+  plt.savefig("../assets/plot/"+rodent+"_habituation_per_dataset.svg")
 
   print("information about the scanner and sequence")
   print("lowest field strength was " + str(df_summary["field_strength"].min()) + "T")
@@ -143,6 +155,16 @@ for rodent in rodent_list:
   ax = makeswarmplot('framewise displacement per dataset', df["rodent.ds"], df["fd.mean"], hue=df['head-plate'])
   ax.figure.savefig("../assets/plot/"+rodent+"_fd_per_dataset.svg")
 
+  df_to_plot = df.select('head-plate','fd.mean').rename({'head-plate':'value','fd.mean':'cont_variable'})
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_fd_headplate_violin.svg")
+  
+  t = ttest(df.filter(pl.col('head-plate')=='y')['fd.mean'], df.filter(pl.col('head-plate')=='n')['fd.mean'])
+  print('t-test for head-plate mean.fd > no head-plate mean.fd') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+
+
+
 #let's extract some infomation about tsnr and summarize it per dataset
   print("#### tSNR ANALYISIS ####")
   print("tSNR across all "+rodent+" datasets")
@@ -150,6 +172,11 @@ for rodent in rodent_list:
 
   ax = makeswarmplot('S1 tSNR per dataset', df["rodent.ds"], df["s1.tsnr.l"], hue=df['MRI.field.strength'].cast(pl.String))
   ax.figure.savefig("../assets/plot/"+rodent+"_tsnr_per_dataset.svg")
+
+  df_to_plot = df.select('MRI.field.strength','s1.tsnr.l').rename({'MRI.field.strength':'value','s1.tsnr.l':'cont_variable'}).sort(by='value').with_columns(pl.col('value').cast(pl.String))
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_tsnr_field_violin.svg")
+ 
 
 #now we run the analysis per denoising style, we extract the number of dropped frames, the s1-s1, s1-aca, and s1-thal correlations. finally we estimate connectivity specificity
   print("Number of dropped frames for each dataset and denoising method")
@@ -333,6 +360,7 @@ for rodent in rodent_list:
     | 3003      | 479       | 19           | 414            | F1 C6/129P  |
     | 3004      | 54        | 9            | 54             | C57BL/6     |
     | 3005      | 355       | 13           | 316            | C57BL/6     |
+
     information about sex ratio
     the datasets contained 1082 male runs and 150 female runs
     that corresponds to 12.18% females 
@@ -352,7 +380,7 @@ for rodent in rodent_list:
     | 1006      | y         | n          | y          | m          | 7               | 260             |
     | 1007      | y         | y          | n          | m          | 9               | 515             |
     | 1008      | n         | y          | n          | m          | 8               | 420             |
-    | 1009      | y         | y          | y          | m          | null            | null            |
+    | 1009      | y         | y          | y          | m          | 10              | 50              |
     | 1011      | y         | y          | y          | m          | 0               | 0               |
     | 1012      | n         | y          | y          | f          | 5               | 150             |
     | 1013      | y         | n          | n          | f          | 5               | 100             |
@@ -414,7 +442,8 @@ for rodent in rodent_list:
     | 3003      | 0.040797 |
     | 3004      | 0.03515  |
     | 3005      | 0.046262 |
-
+    t-test for head-plate mean.fd > no head-plate mean.fd
+    t=3.22, p=0.00165, dof=123.93
     #### tSNR ANALYISIS ####
     tSNR across all mouse datasets
     | s1.tsnr.l |
@@ -576,23 +605,23 @@ for rodent in rodent_list:
     | other    | 17.86859 | 20.753205 | 20.432692 | 18.509615 |
     the effect of s1.tsnr.l on cat in mouse is q =  17.31 with p-value = 0.00061, dof = 3
     looking at habituation.min effect in cat in mouse
-    | cat      | low       | high     |
-    |----------|-----------|----------|
-    | Specific | 16.052416 | 6.224406 |
-    | other    | 57.493857 | 20.22932 |
-    the effect of habituation.min on cat in mouse is q =  0.31 with p-value = 0.58034, dof = 1
+    | cat      | low       | high      |
+    |----------|-----------|-----------|
+    | Specific | 15.61753  | 6.693227  |
+    | other    | 55.936255 | 21.752988 |
+    the effect of habituation.min on cat in mouse is q =  0.33 with p-value = 0.5628, dof = 1
     looking at habituation.days effect in cat in mouse
     | cat      | low       | high     |
     |----------|-----------|----------|
-    | Specific | 16.052416 | 6.224406 |
-    | other    | 57.985258 | 19.73792 |
-    the effect of habituation.days on cat in mouse is q =  0.59 with p-value = 0.44373, dof = 1
+    | Specific | 15.61753  | 6.693227 |
+    | other    | 56.414343 | 21.2749  |
+    the effect of habituation.days on cat in mouse is q =  0.61 with p-value = 0.43311, dof = 1
     looking at short.habituation effect in cat in mouse
-    | cat      | long      |
-    |----------|-----------|
-    | Specific | 22.310757 |
-    | other    | 77.689243 |
-    the effect of short.habituation on cat in mouse is q =  0.0 with p-value = 1.0, dof = 0
+    | cat      | long     | short     |
+    |----------|----------|-----------|
+    | Specific | 6.693227 | 15.61753  |
+    | other    | 21.2749  | 56.414343 |
+    the effect of short.habituation on cat in mouse is q =  0.61 with p-value = 0.43311, dof = 1
     looking at main.experimenter.gender effect in cat in mouse
     | cat      | f         | m         |
     |----------|-----------|-----------|
@@ -658,21 +687,21 @@ for rodent in rodent_list:
     looking at habituation.min effect in cat in mouse
     | cat      | low       | high      |
     |----------|-----------|-----------|
-    | Specific | 17.362817 | 5.569206  |
-    | other    | 56.183456 | 20.884521 |
-    the effect of habituation.min on cat in mouse is q =  0.74 with p-value = 0.38995, dof = 1
+    | Specific | 16.89243  | 6.374502  |
+    | other    | 54.661355 | 22.071713 |
+    the effect of habituation.min on cat in mouse is q =  0.14 with p-value = 0.70431, dof = 1
     looking at habituation.days effect in cat in mouse
-    | cat      | low       | high     |
-    |----------|-----------|----------|
-    | Specific | 17.362817 | 5.569206 |
-    | other    | 56.674857 | 20.39312 |
-    the effect of habituation.days on cat in mouse is q =  0.42 with p-value = 0.51487, dof = 1
+    | cat      | low       | high      |
+    |----------|-----------|-----------|
+    | Specific | 16.89243  | 6.374502  |
+    | other    | 55.139442 | 21.593625 |
+    the effect of habituation.days on cat in mouse is q =  0.03 with p-value = 0.86211, dof = 1
     looking at short.habituation effect in cat in mouse
-    | cat      | long      |
-    |----------|-----------|
-    | Specific | 23.266932 |
-    | other    | 76.733068 |
-    the effect of short.habituation on cat in mouse is q =  0.0 with p-value = 1.0, dof = 0
+    | cat      | long      | short     |
+    |----------|-----------|-----------|
+    | Specific | 6.374502  | 16.89243  |
+    | other    | 21.593625 | 55.139442 |
+    the effect of short.habituation on cat in mouse is q =  0.03 with p-value = 0.86211, dof = 1
     looking at main.experimenter.gender effect in cat in mouse
     | cat      | f        | m         |
     |----------|----------|-----------|
@@ -786,6 +815,8 @@ for rodent in rodent_list:
     | 2005      | 0.022399 |
     | 2006      | null     |
     | 4001      | 0.039548 |
+    t-test for head-plate mean.fd > no head-plate mean.fd
+    t=0.88, p=0.37768, dof=199.39
     #### tSNR ANALYISIS ####
     tSNR across all rat datasets
     | s1.tsnr.l |
@@ -858,8 +889,8 @@ for rodent in rodent_list:
     overall FC specificity for wmcsf3
     | s1.cat.wmcsf3 | count    |
     |---------------|----------|
-    | Spurious      | 0.319149 |
     | Specific      | 0.319149 |
+    | Spurious      | 0.319149 |
     | Non-specific  | 0.255319 |
     | No            | 0.102128 |
     | null          | 0.004255 |
@@ -947,11 +978,11 @@ for rodent in rodent_list:
     | other    | 21.226415 | 37.735849    |
     the effect of habituation.days on cat in rat is q =  0.36 with p-value = 0.54614, dof = 1
     looking at short.habituation effect in cat in rat
-    | cat      | long      |
-    |----------|-----------|
-    | Specific | 37.021277 |
-    | other    | 62.978723 |
-    the effect of short.habituation on cat in rat is q =  0.0 with p-value = 1.0, dof = 0
+    | cat      | long      | short    |
+    |----------|-----------|----------|
+    | Specific | 35.319149 | 1.702128 |
+    | other    | 59.574468 | 3.404255 |
+    the effect of short.habituation on cat in rat is q =  0.0 with p-value = 1.0, dof = 1
     looking at main.experimenter.gender effect in cat in rat
     | cat      | f         | m         |
     |----------|-----------|-----------|
@@ -1027,11 +1058,11 @@ for rodent in rodent_list:
     | other    | 21.698113 | 42.45283     |
     the effect of habituation.days on cat in rat is q =  0.0 with p-value = 1.0, dof = 1
     looking at short.habituation effect in cat in rat
-    | cat      | long      |
-    |----------|-----------|
-    | Specific | 32.340426 |
-    | other    | 67.659574 |
-    the effect of short.habituation on cat in rat is q =  0.0 with p-value = 1.0, dof = 0
+    | cat      | long      | short    |
+    |----------|-----------|----------|
+    | Specific | 31.489362 | 0.851064 |
+    | other    | 63.404255 | 4.255319 |
+    the effect of short.habituation on cat in rat is q =  0.77 with p-value = 0.38169, dof = 1
     looking at main.experimenter.gender effect in cat in rat
     | cat      | f         | m         |
     |----------|-----------|-----------|
