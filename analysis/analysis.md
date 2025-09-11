@@ -103,7 +103,7 @@ rodent_list = ["mouse", "rat"]
 for rodent in rodent_list:
 #rodent='mouse'
   print("#### NOW DOING " + rodent + " ####")
-  df = pl.read_csv("../assets/tables/"+rodent+"_metadata_processed.tsv", separator="\t")
+  df = pl.read_csv("../assets/tables/"+rodent+"_metadata_processed.tsv", separator="\t").sort(by='rodent.ds')
   df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t").sort(by='rodent.ds')
 
   print("summary of the data that we collected")
@@ -118,9 +118,10 @@ for rodent in rodent_list:
 #to add the summary of the data included
   print(df_summary.select("rodent.ds", "total_run", "total_animal", "total_included", "strain"))
 
+  plt.figure(figsize=(10,5))
   ax = sns.barplot(x=df_summary["rodent.ds"], y=df_summary["total_included"], hue=df_summary["strain"], dodge=False)
   ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
-  plt.savefig("../assets/plot/"+rodent+"_run_included_per_dataset.svg")
+  ax.figure.savefig("../assets/plot/"+rodent+"_run_included_per_dataset.svg")
 
   print("information about sex ratio")
   print("the datasets contained "+str(df_summary["male"].sum())+ " male runs and " +str(df_summary["female"].sum())+ " female runs")
@@ -138,7 +139,7 @@ for rodent in rodent_list:
   ax = sns.barplot(x=df_summary["rodent.ds"], y=df_summary["habituation.min"], hue=df_summary["headplate"], dodge=False, ax=ax1)
   ax = sns.swarmplot(x=df_summary["rodent.ds"], y=df_summary["habituation.days"], color='black', marker='o', label='habituation days', legend=False, ax=ax2)
   ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
-  plt.savefig("../assets/plot/"+rodent+"_habituation_per_dataset.svg")
+  ax.figure.savefig("../assets/plot/"+rodent+"_habituation_per_dataset.svg")
 
   print("information about the scanner and sequence")
   print("lowest field strength was " + str(df_summary["field_strength"].min()) + "T")
@@ -152,6 +153,8 @@ for rodent in rodent_list:
   print("mean fd per dataset")
   print(df_summary.select("rodent.ds", "fd.mean").sort(by="rodent.ds"))
 
+
+  plt.figure(figsize=(10,5))
   ax = makeswarmplot('framewise displacement per dataset', df["rodent.ds"], df["fd.mean"], hue=df['head-plate'])
   ax.figure.savefig("../assets/plot/"+rodent+"_fd_per_dataset.svg")
 
@@ -170,10 +173,12 @@ for rodent in rodent_list:
   print("tSNR across all "+rodent+" datasets")
   print(df.select("s1.tsnr.l").mean())
 
+  plt.figure(figsize=(10,5))
   ax = makeswarmplot('S1 tSNR per dataset', df["rodent.ds"], df["s1.tsnr.l"], hue=df['MRI.field.strength'].cast(pl.String))
   ax.figure.savefig("../assets/plot/"+rodent+"_tsnr_per_dataset.svg")
 
   df_to_plot = df.select('MRI.field.strength','s1.tsnr.l').rename({'MRI.field.strength':'value','s1.tsnr.l':'cont_variable'}).sort(by='value').with_columns(pl.col('value').cast(pl.String))
+  plt.figure(figsize=(10,5))
   ax = makeviolinplot(df_to_plot)
   ax.figure.savefig("../assets/plot/"+rodent+"_tsnr_field_violin.svg")
  
@@ -210,102 +215,129 @@ for rodent in rodent_list:
 
   print("#### plot fc categories per denoising method ####")
   df_melted = df.melt(id_vars="rodent.ds", value_vars=['s1.cat.' + x for x in analysis_list])
+  plt.figure(figsize=(10,5))
   ax = makestackplot(df_melted)
-  plt.savefig("../assets/plot/"+rodent+"_specificity.svg")
+  ax.figure.savefig("../assets/plot/"+rodent+"_specificity.svg")
+
+  chi2_categorical(df_melted, 'variable','value', 'mouse')
+
 
   analysis_sub = ['gsr3', 'aCompCor3']
   for analysis in analysis_sub:
+    plt.figure(figsize=(10,5))
     ax = makespecificityplot(rodent+': S1 specificity with ' + analysis, df['s1.specific.'+analysis], df['s1.unspecific.'+analysis])
-    plt.savefig("../assets/plot/specific/"+rodent+"_s1_specificity_"+analysis+".svg")
-
+    ax.figure.savefig("../assets/plot/specific/"+rodent+"_s1_specificity_"+analysis+".svg")
+    
+    plt.figure(figsize=(10,5))
     ax = makespecificityplot(rodent+': Thal FC specificity with ' + analysis, df['thal.specific.'+analysis], df['s1.unspecific.'+analysis])
-    plt.savefig("../assets/plot/specific/"+rodent+"_thal_specificity_"+analysis+".svg")
+    ax.figure.savefig("../assets/plot/specific/"+rodent+"_thal_specificity_"+analysis+".svg")
 
     cat1='s1.cat.'+analysis
+    df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
+
     cat2 = 'fd.mean'
     df_to_plot = split_continuous(df, cat1, cat2)
     df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
-    ax = makestackplot(df_to_plot)
-    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd.svg")
 
+    plt.figure(figsize=(10,5))
+    ax = makestackplot(df_to_plot)
+    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd.svg")
+
+    plt.figure(figsize=(10,5))
     ax = makeviolinplot(df_to_plot)
     ax.set_xlabel('Connectivity category')
-    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd_violin.svg")
+    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd_violin.svg")
 
     cat2='s1.gsrcov.l.'+analysis
     df_to_plot = split_continuous(df, cat1, cat2)
     df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+    plt.figure(figsize=(10,5))
     ax = makestackplot(df_to_plot)
-    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov.svg")
+    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov.svg")
 
+    plt.figure(figsize=(10,5))
     ax = makeviolinplot(df_to_plot)
     ax.set_xlabel('Connectivity category')
-    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov_violin.svg")
+    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov_violin.svg")
 
     cat2='s1.tsnr.l'
     df_to_plot = split_continuous(df, cat1, cat2)
     df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+    plt.figure(figsize=(10,5))
     ax = makestackplot(df_to_plot)
-    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr.svg")
+    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr.svg")
 
+    plt.figure(figsize=(10,5))
     ax = makeviolinplot(df_to_plot)
     ax.set_xlabel('Connectivity category')
-    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr_violin.svg")
+    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr_violin.svg")
 
-    cat2='habituation.min'
-    df_to_plot = split_continuous(df, cat1, cat2)
-    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_min.svg")
 
-    cat2='habituation.days'
-    df_to_plot = split_continuous(df, cat1, cat2)
-    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    plt.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_days.svg")
-
-    df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
     cat2='main.experimenter.gender'
     df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    plt.figure(figsize=(10,5))
     ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_expgender.svg')
+    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_expgender.svg')
 
     cat2='rodent.sex'
     df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    plt.figure(figsize=(10,5))
     ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_sex.svg')
+    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_sex.svg')
 
     cat2='head-plate'
     df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    plt.figure(figsize=(10,5))
     ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_headplate.svg')
+    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_headplate.svg')
 
     cat2='body.restrained'
     df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    plt.figure(figsize=(10,5))
     ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_restrained.svg')
+    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_restrained.svg')
 
     cat2='short.habituation'
     df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    plt.figure(figsize=(10,5))
     ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_shorthabituation.svg')
+    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_shorthabituation.svg')
 
     cat2='anesthesia.before.acquisition'
     df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    plt.figure(figsize=(10,5))
     ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_anesthesia.svg')
+    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_anesthesia.svg')
 
     cat2='MRI.field.strength'
     df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    plt.figure(figsize=(10,5))
     ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_MRI.svg')
+    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_MRI.svg')
 
     cat2='fMRI.sequence'
     df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+    plt.figure(figsize=(10,5))
     ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    plt.savefig('../assets/plot/'+rodent+'_'+analysis+'_fMRI.svg')
+    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_fMRI.svg')
+
+    cat2='habituation.min'
+    df_to_plot = split_continuous(df, 'cat', cat2)
+    df_to_plot = df_to_plot.rename({'cat':'value', 'quartiles':'variable', cat2:'cont_variable'})
+    plt.figure(figsize=(10,5))
+    ax = makeviolinplot(df_to_plot)
+    ax.set_xlabel('Connectivity category')
+    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_min.svg")
+
+    cat2='habituation.days'
+    df_to_plot = split_continuous(df, 'cat', cat2)
+    df_to_plot = df_to_plot.rename({'cat':'value', 'quartiles':'variable', cat2:'cont_variable'})
+    plt.figure(figsize=(10,5))
+    ax = makeviolinplot(df_to_plot)
+    ax.set_xlabel('Connectivity category')
+    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_days.svg")
+
+
 
     print('doing statistical analysis')
     print('first with '+analysis+' processed data')
@@ -316,9 +348,9 @@ for rodent in rodent_list:
     cat2 = 's1.tsnr.l'
     chi2_continuous(df, 'cat', cat2, rodent)
     cat2 = 'habituation.min'
-    chi2_continuous(df, 'cat', cat2, rodent, 3, ['low','intermediate','high'])
+    chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
     cat2 = 'habituation.days'
-    chi2_continuous(df, 'cat', cat2, rodent, 3, ['low','intermediate','high'])
+    chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
 
     chi2_categorical(df, 'cat', 'short.habituation', rodent)
     chi2_categorical(df, 'cat', 'main.experimenter.gender', rodent)
@@ -391,6 +423,7 @@ for rodent in rodent_list:
     | 3003      | y         | y          | y          | m          | 4               | 42              |
     | 3004      | n         | y          | y          | f          | 5               | 165             |
     | 3005      | y         | n          | y          | f          | 4               | 42              |
+
     information about the scanner and sequence
     lowest field strength was 7.0T
     highest field strength was 15.2T
@@ -584,6 +617,21 @@ for rodent in rodent_list:
     for comparing gsr to aCompCor processing, 7/19 dataset performed better with aCompCor compared to gsr
     for comparing gsr to aCompCor processing, 8/19 dataset performed worst with aCompCor compared to gsr
     #### plot fc categories per denoising method ####
+
+    looking at value effect in variable in mouse
+    | variable         | No       | Non-specific | Specific | Spurious |
+    |------------------|----------|--------------|----------|----------|
+    | s1.cat.aCompCor1 | 2.576361 | 1.301461     | 2.567508 | 4.665781 |
+    | s1.cat.aCompCor2 | 2.611775 | 1.310314     | 2.558654 | 4.630367 |
+    | s1.cat.aCompCor3 | 3.231518 | 1.266047     | 2.585215 | 4.028331 |
+    | s1.cat.gsr1      | 2.647189 | 1.027003     | 2.355024 | 5.081895 |
+    | s1.cat.gsr2      | 2.788845 | 0.929615     | 2.416999 | 4.975653 |
+    | s1.cat.gsr3      | 3.019035 | 0.876494     | 2.478973 | 4.736609 |
+    | s1.cat.wmcsf1    | 2.638336 | 1.257193     | 2.257636 | 4.957946 |
+    | s1.cat.wmcsf2    | 2.815405 | 1.088977     | 2.328464 | 4.878265 |
+    | s1.cat.wmcsf3    | 2.939354 | 1.230633     | 2.49668  | 4.444444 |
+    the effect of value on variable in mouse is q =  62.78 with p-value = 3e-05, dof = 24
+
     doing statistical analysis
     first with gsr3 processed data
     looking at fd.mean effect in cat in mouse
@@ -784,6 +832,7 @@ for rodent in rodent_list:
     | 2005      | n         | y          | y          | m          | 9               | 360             |
     | 2006      | null      | null       | null       | null       | null            | null            |
     | 4001      | n         | y          | y          | m          | 7               | 330             |
+
     information about the scanner and sequence
     lowest field strength was 7T
     highest field strength was 7T
@@ -945,6 +994,20 @@ for rodent in rodent_list:
     for comparing gsr to aCompCor processing, 2/9 dataset performed better with aCompCor compared to gsr
     for comparing gsr to aCompCor processing, 4/9 dataset performed worst with aCompCor compared to gsr
     #### plot fc categories per denoising method ####
+
+    looking at value effect in variable in mouse
+    | variable         | No       | Non-specific | Specific | Spurious |
+    |------------------|----------|--------------|----------|----------|
+    | s1.cat.aCompCor1 | 1.376364 | 2.847651     | 3.36972  | 3.512103 |
+    | s1.cat.aCompCor2 | 1.281443 | 3.132416     | 3.322259 | 3.36972  |
+    | s1.cat.aCompCor3 | 1.423825 | 2.990033     | 3.607024 | 3.084955 |
+    | s1.cat.gsr1      | 1.613669 | 2.088277     | 3.891789 | 3.512103 |
+    | s1.cat.gsr2      | 1.613669 | 2.040816     | 3.891789 | 3.559563 |
+    | s1.cat.gsr3      | 1.281443 | 1.993355     | 4.129093 | 3.701946 |
+    | s1.cat.wmcsf1    | 1.328904 | 3.132416     | 2.942572 | 3.749407 |
+    | s1.cat.wmcsf2    | 1.423825 | 2.657807     | 3.179877 | 3.844328 |
+    | s1.cat.wmcsf3    | 1.13906  | 2.847651     | 3.559563 | 3.559563 |
+    the effect of value on variable in mouse is q =  26.4 with p-value = 0.33317, dof = 24
     doing statistical analysis
     first with gsr3 processed data
     looking at fd.mean effect in cat in rat
@@ -966,17 +1029,17 @@ for rodent in rodent_list:
     | other    | 17.535545 | 14.691943 | 12.322275 | 14.218009 |
     the effect of s1.tsnr.l on cat in rat is q =  4.42 with p-value = 0.21941, dof = 3
     looking at habituation.min effect in cat in rat
-    | cat      | low       | intermediate |
-    |----------|-----------|--------------|
-    | Specific | 17.924528 | 23.113208    |
-    | other    | 25.943396 | 33.018868    |
-    the effect of habituation.min on cat in rat is q =  0.0 with p-value = 1.0, dof = 1
+    | cat      | low       | high      |
+    |----------|-----------|-----------|
+    | Specific | 19.811321 | 21.226415 |
+    | other    | 34.433962 | 24.528302 |
+    the effect of habituation.min on cat in rat is q =  1.73 with p-value = 0.18839, dof = 1
     looking at habituation.days effect in cat in rat
-    | cat      | low       | intermediate |
-    |----------|-----------|--------------|
-    | Specific | 12.735849 | 28.301887    |
-    | other    | 21.226415 | 37.735849    |
-    the effect of habituation.days on cat in rat is q =  0.36 with p-value = 0.54614, dof = 1
+    | cat      | low       |
+    |----------|-----------|
+    | Specific | 41.037736 |
+    | other    | 58.962264 |
+    the effect of habituation.days on cat in rat is q =  0.0 with p-value = 1.0, dof = 0
     looking at short.habituation effect in cat in rat
     | cat      | long      | short    |
     |----------|-----------|----------|
@@ -1046,17 +1109,17 @@ for rodent in rodent_list:
     | other    | 18.009479 | 14.218009 | 16.587678 | 15.165877 |
     the effect of s1.tsnr.l on cat in rat is q =  3.17 with p-value = 0.3662, dof = 3
     looking at habituation.min effect in cat in rat
-    | cat      | low       | intermediate |
-    |----------|-----------|--------------|
-    | Specific | 17.924528 | 17.924528    |
-    | other    | 25.943396 | 38.207547    |
-    the effect of habituation.min on cat in rat is q =  1.44 with p-value = 0.22986, dof = 1
+    | cat      | low       | high      |
+    |----------|-----------|-----------|
+    | Specific | 19.811321 | 16.037736 |
+    | other    | 34.433962 | 29.716981 |
+    the effect of habituation.min on cat in rat is q =  0.01 with p-value = 0.93731, dof = 1
     looking at habituation.days effect in cat in rat
-    | cat      | low       | intermediate |
-    |----------|-----------|--------------|
-    | Specific | 12.264151 | 23.584906    |
-    | other    | 21.698113 | 42.45283     |
-    the effect of habituation.days on cat in rat is q =  0.0 with p-value = 1.0, dof = 1
+    | cat      | low       |
+    |----------|-----------|
+    | Specific | 35.849057 |
+    | other    | 64.150943 |
+    the effect of habituation.days on cat in rat is q =  0.0 with p-value = 1.0, dof = 0
     looking at short.habituation effect in cat in rat
     | cat      | long      | short    |
     |----------|-----------|----------|
