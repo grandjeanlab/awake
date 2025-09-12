@@ -169,12 +169,12 @@ for rodent in rodent_list:
 
   plt.figure(figsize=(10,5))
   ax = makeswarmplot('max framewise displacement per dataset', df["rodent.ds"], df["fd.max"], hue=df['head-plate'])
-  ax.figure.savefig("../assets/plot/"+rodent+"_fd_per_dataset.svg")
+  ax.figure.savefig("../assets/plot/"+rodent+"_fdmax_per_dataset.svg")
 
   df_to_plot = df.select('head-plate','fd.max').rename({'head-plate':'value','fd.max':'cont_variable'})
   plt.figure(figsize=(10,5))
   ax = makeviolinplot(df_to_plot)
-  ax.figure.savefig("../assets/plot/"+rodent+"_fd_headplate_violin.svg")
+  ax.figure.savefig("../assets/plot/"+rodent+"_fdmax_headplate_violin.svg")
   
   t = ttest(df.filter(pl.col('head-plate')=='y')['fd.mean'], df.filter(pl.col('head-plate')=='n')['fd.mean'])
   print('t-test for head-plate mean.fd > no head-plate mean.fd') 
@@ -983,8 +983,8 @@ for rodent in rodent_list:
     overall FC specificity for wmcsf3
     | s1.cat.wmcsf3 | count    |
     |---------------|----------|
-    | Spurious      | 0.319149 |
     | Specific      | 0.319149 |
+    | Spurious      | 0.319149 |
     | Non-specific  | 0.255319 |
     | No            | 0.102128 |
     | null          | 0.004255 |
