@@ -70,6 +70,8 @@ mkdir -p $output_dir/aCompCor3
 
 #find . -type f -exec sed -i 's/mem=64GB/mem=128GB/g' {} +
 
+#find . -type f -exec sed -i 's/mem=64GB/mem=128GB/g' {} +
+
 
 #find . -type f -exec sed -i 's/--detect_dummy/--detect_dummy --bold_autobox --anat_autobox/g' {} +
 
@@ -77,6 +79,7 @@ mkdir -p $output_dir/aCompCor3
 
 
 #find . -type f -exec sed -i 's/--detect_dummy //g' {} +
+#find . -type f -exec sed -i 's/--detect_dummy /--detect_dummy --oblique2card 3dWarp /g' {} +
 #find . -type f -exec sed -i 's/--oblique2card 3dWarp //g' {} +
 
 #find . -type f -exec sed -i 's/--time=12:00:00/--time=24:00:00/g' {} +
