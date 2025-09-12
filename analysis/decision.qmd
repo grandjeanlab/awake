@@ -21,17 +21,17 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 
 
-df_mouse = pl.read_csv("../assets/tables/mouse_metadata_process.tsv", separator="\t")
-df_rat = pl.read_csv("../assets/tables/rat_metadata_process.tsv", separator="\t")
+df_mouse = pl.read_csv("../assets/tables/mouse_metadata_processed.tsv", separator="\t")
+df_rat = pl.read_csv("../assets/tables/rat_metadata_processed.tsv", separator="\t")
 
 
 
-selector = ['rodent.species', 'rodent.sex', 'main.experimenter.gender', 'head-plate', 'body.restrained', 'anesthesia.before.acquisition', 'MRI.field.strength', 'MRI.cryocoil', 'fMRI.sequence', 'MRI.TR', 'MRI.TE', 'fd.mean', 'total.frames', 's1.tsnr.l', 's1.tsnr.r', 's1.gsrcov.l.gsr3', 's1.gsrcov.r.gsr3', 'dropped.frames.gsr3', 's1.cat.gsr3','s1.gsrcov.l.aCompCor3', 's1.gsrcov.r.aCompCor3', 'dropped.frames.aCompCor3', 's1.cat.aCompCor3' ]
+selector = ['rodent.species', 'rodent.sex', 'main.experimenter.gender', 'head-plate', 'body.restrained', 'anesthesia.before.acquisition', 'MRI.field.strength', 'MRI.cryocoil', 'fMRI.sequence', 'MRI.TR', 'MRI.TE', 'fd.mean', 'total.frames', 'habituation.min', 'habituation.days', 's1.tsnr.l', 's1.tsnr.r', 's1.gsrcov.l.gsr3', 's1.gsrcov.r.gsr3', 'dropped.frames.gsr3', 's1.cat.gsr3','s1.gsrcov.l.aCompCor3', 's1.gsrcov.r.aCompCor3', 'dropped.frames.aCompCor3', 's1.cat.aCompCor3' ]
 
 
-selectorX = ['rodent.species', 'rodent.sex', 'main.experimenter.gender', 'head-plate', 'body.restrained', 'anesthesia.before.acquisition', 'MRI.field.strength', 'MRI.cryocoil', 'fMRI.sequence', 'MRI.TR', 'MRI.TE', 'fd.mean', 'total.frames', 's1.tsnr.l', 's1.tsnr.r', 's1.gsrcov.l.gsr3', 's1.gsrcov.r.gsr3', 'dropped.frames.gsr3', 's1.gsrcov.l.aCompCor3', 's1.gsrcov.r.aCompCor3', 'dropped.frames.aCompCor3']
+selectorX = ['rodent.species', 'rodent.sex', 'main.experimenter.gender', 'head-plate', 'body.restrained', 'anesthesia.before.acquisition', 'MRI.field.strength', 'MRI.cryocoil', 'fMRI.sequence', 'MRI.TR', 'MRI.TE', 'fd.mean', 'total.frames','habituation.min', 'habituation.days', 's1.tsnr.l', 's1.tsnr.r', 's1.gsrcov.l.gsr3', 's1.gsrcov.r.gsr3', 'dropped.frames.gsr3', 's1.gsrcov.l.aCompCor3', 's1.gsrcov.r.aCompCor3', 'dropped.frames.aCompCor3']
 
-selectoxY = 'cat.aCompCor3'
+selectorY = 'cat.aCompCor3'
 
 
 df_mouse = df_mouse.select(selector)
@@ -46,7 +46,7 @@ df = df.with_columns(pl.when(pl.col('s1.cat.aCompCor3') == 'Specific').then(1).o
 
 #replace null values in dropped.frames.gsr3 and dropped.frames.aCompCor3 with 0
 df = df.with_columns(pl.col('dropped.frames.gsr3').fill_null(0), pl.col('dropped.frames.aCompCor3').fill_null(0))
-df = df.drop_nulls().drop_nans()
+
 
 
 df = df.with_columns(pl.when(pl.col('rodent.species') == 'rat').then(1).otherwise(0).alias('rodent.species'))
@@ -58,6 +58,8 @@ df = df.with_columns(pl.when(pl.col('anesthesia.before.acquisition') == 'n').the
 df = df.with_columns(pl.when(pl.col('MRI.cryocoil') == 'y').then(1).otherwise(0).alias('MRI.cryocoil'))
 df = df.with_columns(pl.when(pl.col('fMRI.sequence') == 'GE-EPI').then(1).otherwise(0).alias('fMRI.sequence'))
 
+
+df = df.drop_nulls().drop_nans()
 
 
 X = df.select(selectorX)

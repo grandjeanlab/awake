@@ -185,8 +185,8 @@ for rodent in rodent_list:
   ax = makeviolinplot(df_to_plot)
   ax.figure.savefig("../assets/plot/"+rodent+"_fdmax_headplate_violin.svg")
   
-  t = ttest(df.filter(pl.col('head-plate')=='y')['fd.mean'], df.filter(pl.col('head-plate')=='n')['fd.mean'])
-  print('t-test for head-plate mean.fd > no head-plate mean.fd') 
+  t = ttest(df.filter(pl.col('head-plate')=='y')['fd.max'], df.filter(pl.col('head-plate')=='n')['fd.max'])
+  print('t-test for head-plate max.fd > no head-plate mean.fd') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
 
 
