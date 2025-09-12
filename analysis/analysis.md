@@ -159,6 +159,20 @@ for rodent in rodent_list:
   ax.figure.savefig("../assets/plot/"+rodent+"_fd_per_dataset.svg")
 
   df_to_plot = df.select('head-plate','fd.mean').rename({'head-plate':'value','fd.mean':'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_fd_headplate_violin.svg")
+  
+  t = ttest(df.filter(pl.col('head-plate')=='y')['fd.mean'], df.filter(pl.col('head-plate')=='n')['fd.mean'])
+  print('t-test for head-plate mean.fd > no head-plate mean.fd') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+
+  plt.figure(figsize=(10,5))
+  ax = makeswarmplot('max framewise displacement per dataset', df["rodent.ds"], df["fd.max"], hue=df['head-plate'])
+  ax.figure.savefig("../assets/plot/"+rodent+"_fd_per_dataset.svg")
+
+  df_to_plot = df.select('head-plate','fd.max').rename({'head-plate':'value','fd.max':'cont_variable'})
+  plt.figure(figsize=(10,5))
   ax = makeviolinplot(df_to_plot)
   ax.figure.savefig("../assets/plot/"+rodent+"_fd_headplate_violin.svg")
   
@@ -247,6 +261,19 @@ for rodent in rodent_list:
     ax = makeviolinplot(df_to_plot)
     ax.set_xlabel('Connectivity category')
     ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd_violin.svg")
+
+    cat2 = 'fd.max'
+    df_to_plot = split_continuous(df, cat1, cat2)
+    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+
+    plt.figure(figsize=(10,5))
+    ax = makestackplot(df_to_plot)
+    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fdmax.svg")
+
+    plt.figure(figsize=(10,5))
+    ax = makeviolinplot(df_to_plot)
+    ax.set_xlabel('Connectivity category')
+    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fdmax_violin.svg")
 
     cat2='s1.gsrcov.l.'+analysis
     df_to_plot = split_continuous(df, cat1, cat2)
@@ -342,6 +369,8 @@ for rodent in rodent_list:
     print('doing statistical analysis')
     print('first with '+analysis+' processed data')
     cat2 = 'fd.mean'
+    chi2_continuous(df, 'cat', cat2, rodent)
+    cat2 = 'fd.max'
     chi2_continuous(df, 'cat', cat2, rodent)
     cat2 = 's1.gsrcov.l.'+analysis
     chi2_continuous(df, 'cat', cat2, rodent)
@@ -475,6 +504,8 @@ for rodent in rodent_list:
     | 3003      | 0.040797 |
     | 3004      | 0.03515  |
     | 3005      | 0.046262 |
+    t-test for head-plate mean.fd > no head-plate mean.fd
+    t=3.22, p=0.00165, dof=123.93
     t-test for head-plate mean.fd > no head-plate mean.fd
     t=3.22, p=0.00165, dof=123.93
     #### tSNR ANALYISIS ####
@@ -640,6 +671,12 @@ for rodent in rodent_list:
     | Specific | 4.166667  | 6.25  | 5.128205  | 6.891026  |
     | other    | 20.833333 | 18.75 | 19.871795 | 18.108974 |
     the effect of fd.mean on cat in mouse is q =  12.52 with p-value = 0.00579, dof = 3
+    looking at fd.max effect in cat in mouse
+    | cat      | lowest    | low       | high      | highest   |
+    |----------|-----------|-----------|-----------|-----------|
+    | Specific | 4.567308  | 6.330128  | 6.009615  | 5.528846  |
+    | other    | 20.432692 | 18.669872 | 18.990385 | 19.471154 |
+    the effect of fd.max on cat in mouse is q =  5.08 with p-value = 0.16579, dof = 3
     looking at s1.gsrcov.l.gsr3 effect in cat in mouse
     | cat      | lowest    | low       | high      | highest   |
     |----------|-----------|-----------|-----------|-----------|
@@ -720,6 +757,12 @@ for rodent in rodent_list:
     | Specific | 4.887821  | 6.730769  | 5.208333  | 6.570513  |
     | other    | 20.112179 | 18.269231 | 19.791667 | 18.429487 |
     the effect of fd.mean on cat in mouse is q =  7.33 with p-value = 0.06204, dof = 3
+    looking at fd.max effect in cat in mouse
+    | cat      | lowest    | low       | high      | highest   |
+    |----------|-----------|-----------|-----------|-----------|
+    | Specific | 4.967949  | 6.169872  | 6.410256  | 5.849359  |
+    | other    | 20.032051 | 18.830128 | 18.589744 | 19.150641 |
+    the effect of fd.max on cat in mouse is q =  3.33 with p-value = 0.34401, dof = 3
     looking at s1.gsrcov.l.aCompCor3 effect in cat in mouse
     | cat      | lowest    | low       | high      | highest   |
     |----------|-----------|-----------|-----------|-----------|
@@ -866,6 +909,8 @@ for rodent in rodent_list:
     | 4001      | 0.039548 |
     t-test for head-plate mean.fd > no head-plate mean.fd
     t=0.88, p=0.37768, dof=199.39
+    t-test for head-plate mean.fd > no head-plate mean.fd
+    t=0.88, p=0.37768, dof=199.39
     #### tSNR ANALYISIS ####
     tSNR across all rat datasets
     | s1.tsnr.l |
@@ -938,8 +983,8 @@ for rodent in rodent_list:
     overall FC specificity for wmcsf3
     | s1.cat.wmcsf3 | count    |
     |---------------|----------|
-    | Specific      | 0.319149 |
     | Spurious      | 0.319149 |
+    | Specific      | 0.319149 |
     | Non-specific  | 0.255319 |
     | No            | 0.102128 |
     | null          | 0.004255 |
@@ -1016,6 +1061,12 @@ for rodent in rodent_list:
     | Specific | 8.056872  | 12.796209 | 10.42654  | 9.952607  |
     | other    | 17.061611 | 12.322275 | 14.218009 | 15.165877 |
     the effect of fd.mean on cat in rat is q =  3.98 with p-value = 0.26383, dof = 3
+    looking at fd.max effect in cat in rat
+    | cat      | lowest    | low       | high      | highest   |
+    |----------|-----------|-----------|-----------|-----------|
+    | Specific | 10.42654  | 12.796209 | 11.374408 | 6.635071  |
+    | other    | 14.691943 | 12.322275 | 13.270142 | 18.483412 |
+    the effect of fd.max on cat in rat is q =  7.39 with p-value = 0.06055, dof = 3
     looking at s1.gsrcov.l.gsr3 effect in cat in rat
     | cat      | lowest    | low       | high      | highest   |
     |----------|-----------|-----------|-----------|-----------|
@@ -1096,6 +1147,12 @@ for rodent in rodent_list:
     | Specific | 7.582938  | 11.374408 | 8.056872  | 9.004739  |
     | other    | 17.535545 | 13.744076 | 16.587678 | 16.113744 |
     the effect of fd.mean on cat in rat is q =  3.01 with p-value = 0.39072, dof = 3
+    looking at fd.max effect in cat in rat
+    | cat      | lowest    | low       | high      | highest   |
+    |----------|-----------|-----------|-----------|-----------|
+    | Specific | 10.42654  | 9.952607  | 8.056872  | 7.582938  |
+    | other    | 14.691943 | 15.165877 | 16.587678 | 17.535545 |
+    the effect of fd.max on cat in rat is q =  2.02 with p-value = 0.56756, dof = 3
     looking at s1.gsrcov.l.aCompCor3 effect in cat in rat
     | cat      | lowest    | low       | high      | highest   |
     |----------|-----------|-----------|-----------|-----------|
