@@ -1,8 +1,8 @@
 #!/bin/env bash
 
-tmp_scripts_dir='/project/4180000.36/awake/tmp_rabies_scripts_mouse'
-complete_scripts_dir='/project/4180000.36/awake/complete_rabies_scripts_mouse'
-output_dir='/project/4180000.36/awake/output_mouse'
+tmp_scripts_dir='/project/4180000.36/awake/tmp_rabies_scripts_rat'
+complete_scripts_dir='/project/4180000.36/awake/complete_rabies_scripts_rat'
+output_dir='/project/4180000.36/awake/output_rat'
 
 cd $tmp_scripts_dir
 
@@ -18,12 +18,26 @@ run=$(echo $line | cut -d'_' -f3)
 
 # build path to anat reg output
 
-anat_reg_output="${output_dir}/preprocess_QC_report/commonspace_reg_wf.Native2Atlas/${subject}_${session}_*_2card_RAS_inho_cor_registration.png"
+anat_reg_output=$(find ${output_dir}/preprocess_QC_report/commonspace_reg_wf.Native2Atlas -type f | grep ${subject}_${session})
 #build path to the func reg output
-func_reg_output="${output_dir}/preprocess_QC_report/EPI2Anat/${subject}_${session}_${run}_task-rest_bold_registration.png"
+func_reg_output=$(find ${output_dir}/preprocess_QC_report/EPI2Anat/ -type f | grep ${subject}_${session}_${run})
 
 #build path to aCompCor seed output
-acompcor_seed_output="${output_dir}/aCompCor3/analysis_datasink/seed_correlation_maps/_split_name_${subject}_${session}_${run}_task-rest_bold/_seed_name_vpm_r/${subject}_${session}_${run}_task-rest_bold_2card_RAS_combined_cleaned_vpm_r_corr_map.nii.gz"
+acompcor_seed_output=$(find ${output_dir}/aCompCor3/analysis_datasink/seed_correlation_maps/_split_name_${subject}_${session}_${run}_task-rest_bold/_seed_name_vpm_r -type f | grep combined_cleaned_vpm_r_corr_map.nii.gz)
+
+if [ -z $anat_reg_output ]; then 
+echo "${subject}_${session}_${run} incomplete"
+continue
+fi
+if [ -z $func_reg_output ]; then 
+echo "${subject}_${session}_${run} incomplete"
+continue
+fi
+if [ -z $acompcor_seed_output ]; then
+echo "${subject}_${session}_${run} incomplete"
+continue 
+fi
+
 
 #check if all files exist, if so, move the script to the complete directory, else run `sbatch` on the script
 if [ -f $anat_reg_output ] && [ -f $func_reg_output ] && [ -f $acompcor_seed_output ]; then
@@ -32,11 +46,6 @@ if [ -f $anat_reg_output ] && [ -f $func_reg_output ] && [ -f $acompcor_seed_out
 
 else
     echo "${subject}_${session}_${run} incomplete"
-    #sed -i 's/MultiProc/Linear/' $line
-    #sbatch $line
-    echo $line >> rerun_sbatch.log
-    #sleep for 1 hour to avoid overloading the cluster
-    #sleep 3600
 fi
 
 done
@@ -56,6 +65,7 @@ mkdir -p $output_dir/aCompCor3
 
 
 #find . -type f -exec sed -i 's/3dWarp /3dWarp --bold_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false --anat_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false /g' {} +
+#find . -type f -exec sed -i 's/--bold_inho_cor /--anat_robust_inho_cor apply=true,masking=false,brain_extraction=false,template_registration=SyN --bold_robust_inho_cor apply=true,masking=false,brain_extraction=false,template_registration=SyN --bold_inho_cor /g' {} +
 
 #find . -type f -exec sed -i 's/mem=24GB/mem=64GB/g' {} +
 
@@ -83,6 +93,9 @@ mkdir -p $output_dir/aCompCor3
 #find . -type f -exec sed -i 's/--oblique2card 3dWarp //g' {} +
 
 #find . -type f -exec sed -i 's/--time=12:00:00/--time=24:00:00/g' {} +
+#find . -type f -exec sed -i 's/--bold_autobox --anat_autobox //g' {} +
+
+#find . -type f -exec sed -i 's/MultiProc/Linear/g' {} +
 
 
 

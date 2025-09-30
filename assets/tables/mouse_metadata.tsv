@@ -932,18 +932,6 @@ y			1012	101220	10Mo/WT/C1_M3_C10	1		1	mouse			m	10 Months		f	n	y		y	Isoflurane	
 			1012	101223	10Mo/WT/C3_F2_C10	1		1	mouse			f	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
 y			1012	101224	10Mo/WT/C3_F3_C10	1		1	mouse			f	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
 			1012	101225	10Mo/WT/C4_F1_C10	1		1	mouse			f	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1013	101300	Lc002	1	20240529	1	mouse	C57BL/6		m	18 weeks	26,5	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101300	Lc002	1	20240529	2	mouse	C57BL/6		m	18 weeks	26,5	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101300	Lc002	1	20240529	3	mouse	C57BL/6		m	18 weeks	26,5	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101300	Lc002	1	20240529	4	mouse	C57BL/6		m	18 weeks	26,5	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101301	Lc004	1	20240529	1	mouse	C57BL/6		m	18 weeks	25,8	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101301	Lc004	1	20240529	2	mouse	C57BL/6		m	18 weeks	25,8	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101301	Lc004	1	20240529	3	mouse	C57BL/6		m	18 weeks	25,8	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101301	Lc004	1	20240529	4	mouse	C57BL/6		m	18 weeks	25,8	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101302	Lc006	1	20240603	1	mouse	C57BL/6		m	18 weeks	30,6	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101302	Lc006	1	20240603	2	mouse	C57BL/6		m	18 weeks	30,6	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101302	Lc006	1	20240603	3	mouse	C57BL/6		m	18 weeks	30,6	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
-			1013	101302	Lc006	1	20240603	4	mouse	C57BL/6		m	18 weeks	30,6	f	y	n	y	n					Bruker	9.4	n	GE-EPI	1250	14	0,25	0,4		
 			3004	300400		1		1	mouse	C57BL/6		f			f	n	y	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
 			3004	300400		1		2	mouse	C57BL/6		f			f	n	y	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
 			3004	300400		1		3	mouse	C57BL/6		f			f	n	y	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
@@ -1357,9 +1345,69 @@ y			3005	300512		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	y	Isoflurane				Bruker	
 y			3005	300512		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	y	Isoflurane				Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
 y			3005	300512		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	y	Isoflurane				Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
 y			3005	300512		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	y	Isoflurane				Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			1015	101500	1	1		1	mouse	C57BL/6J		m	12w	26	m	y	n		y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
-			1015	101501	2	1		1	mouse	C57BL/6J		m	12w	26	m	y	n		y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
-			1015	101502	3	1		1	mouse	C57BL/6J		m	12w	26	m	y	n		y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
-			1015	101503	4	1		1	mouse	C57BL/6J		m	12w	26	m	y	n		y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
-			1015	101504	5	1		1	mouse	C57BL/6J		m	12w	26	m	y	n		y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
-			1015	101505	6	1		1	mouse	C57BL/6J		m	12w	26	m	y	n		y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
+			1015	101500	1	1		1	mouse	C57BL/6J		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
+			1015	101501	2	1		1	mouse	C57BL/6J		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
+			1015	101502	3	1		1	mouse	C57BL/6J		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
+			1015	101503	4	1		1	mouse	C57BL/6J		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
+			1015	101504	5	1		1	mouse	C57BL/6J		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
+			1015	101505	6	1		1	mouse	C57BL/6J		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
+			1013	101300	Lc002	1	20240529	1	mouse	C57BL/6		m	135 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101300	Lc002	1	20240529	2	mouse	C57BL/6		m	135 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101300	Lc002	1	20240529	3	mouse	C57BL/6		m	135 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101300	Lc002	1	20240529	4	mouse	C57BL/6		m	135 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101301	Lc003	1	20240529	1	mouse	C57BL/6		m	135 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101301	Lc003	1	20240529	2	mouse	C57BL/6		m	135 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101301	Lc003	1	20240529	3	mouse	C57BL/6		m	135 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101301	Lc003	1	20240529	4	mouse	C57BL/6		m	135 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101302	Lc004	1	20240529	1	mouse	C57BL/6		m	135 days	25,8	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101302	Lc004	1	20240529	2	mouse	C57BL/6		m	135 days	25,8	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101302	Lc004	1	20240529	3	mouse	C57BL/6		m	135 days	25,8	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101302	Lc004	1	20240529	4	mouse	C57BL/6		m	135 days	25,8	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101303	Lc006	1	20240603	1	mouse	C57BL/6		m	132 days	30,6	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101303	Lc006	1	20240603	2	mouse	C57BL/6		m	132 days	30,6	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101303	Lc006	1	20240603	3	mouse	C57BL/6		m	132 days	30,6	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101303	Lc006	1	20240603	4	mouse	C57BL/6		m	132 days	30,6	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101304	Lc008	1	20240604	1	mouse	C57BL/6		m	140 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101304	Lc008	1	20240604	2	mouse	C57BL/6		m	140 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101304	Lc008	1	20240604	3	mouse	C57BL/6		m	140 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101304	Lc008	1	20240604	4	mouse	C57BL/6		m	140 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101305	Lc011	1	20240616	1	mouse	C57BL/6		m	131 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101305	Lc011	1	20240616	2	mouse	C57BL/6		m	131 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101305	Lc011	1	20240616	3	mouse	C57BL/6		m	131 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101305	Lc011	1	20240616	4	mouse	C57BL/6		m	131 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101306	Lc013	1	20240616	1	mouse	C57BL/6		m	131 days	25,8	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101306	Lc013	1	20240616	2	mouse	C57BL/6		m	131 days	25,8	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101306	Lc013	1	20240616	3	mouse	C57BL/6		m	131 days	25,8	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101306	Lc013	1	20240616	4	mouse	C57BL/6		m	131 days	25,8	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101307	Lc015	1	20240616	1	mouse	C57BL/6		m	129 days	30,6	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101307	Lc015	1	20240616	2	mouse	C57BL/6		m	129 days	30,6	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101307	Lc015	1	20240616	3	mouse	C57BL/6		m	129 days	30,6	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1013	101307	Lc015	1	20240616	4	mouse	C57BL/6		m	129 days	30,6	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
+			1016	101600	Lc037	1	20241010	1	mouse	C57BL/6		m	95 days	22,4	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101600	Lc037	1	20241010	2	mouse	C57BL/6		m	95 days	22,4	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101600	Lc037	1	20241010	3	mouse	C57BL/6		m	95 days	22,4	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101600	Lc037	1	20241010	4	mouse	C57BL/6		m	95 days	22,4	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101601	Lc038	1	20241010	1	mouse	C57BL/6		m	95 days	23,9	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101601	Lc038	1	20241010	2	mouse	C57BL/6		m	95 days	23,9	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101601	Lc038	1	20241010	3	mouse	C57BL/6		m	95 days	23,9	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101601	Lc038	1	20241010	4	mouse	C57BL/6		m	95 days	23,9	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101602	Lc046	1	20241223	1	mouse	C57BL/6		m	124 days	25,7	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101602	Lc046	1	20241223	2	mouse	C57BL/6		m	124 days	25,7	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101602	Lc046	1	20241223	3	mouse	C57BL/6		m	124 days	25,7	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101602	Lc046	1	20241223	4	mouse	C57BL/6		m	124 days	25,7	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101603	Lc048	1	20241223	1	mouse	C57BL/6		m	124 days	25,6	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101603	Lc048	1	20241223	2	mouse	C57BL/6		m	124 days	25,6	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101603	Lc048	1	20241223	3	mouse	C57BL/6		m	124 days	25,6	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101603	Lc048	1	20241223	4	mouse	C57BL/6		m	124 days	25,6	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101604	Lc049	1	20241223	1	mouse	C57BL/6		m	124 days	23,1	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101604	Lc049	1	20241223	2	mouse	C57BL/6		m	124 days	23,1	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101604	Lc049	1	20241223	3	mouse	C57BL/6		m	124 days	23,1	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101604	Lc049	1	20241223	4	mouse	C57BL/6		m	124 days	23,1	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101605	Lc055	1	20250109	1	mouse	C57BL/6		m	130 days	24	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101605	Lc055	1	20250109	2	mouse	C57BL/6		m	130 days	24	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101605	Lc055	1	20250109	3	mouse	C57BL/6		m	130 days	24	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101605	Lc055	1	20250109	4	mouse	C57BL/6		m	130 days	24	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101606	Lc064	1	20250126	1	mouse	C57BL/6		f	106 days	19,4	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101606	Lc064	1	20250126	2	mouse	C57BL/6		f	106 days	19,4	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101606	Lc064	1	20250126	3	mouse	C57BL/6		f	106 days	19,4	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
+			1016	101606	Lc064	1	20250126	4	mouse	C57BL/6		f	106 days	19,4	m	y	n	y	n					Bruker	9.4	y	SE-EPI	1500	13	234	0,38		
