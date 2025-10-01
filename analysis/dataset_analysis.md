@@ -17,8 +17,6 @@ import glob
 import polars as pl
 #import imaging modules
 import nibabel as nib
-from nilearn.maskers import NiftiLabelsMasker
-import numpy as np
 
 def get_fc_per_analysis(data_dir, df, analysis_list, frame_mask_dir, seed_ts_dir, seed_ref, seed_specific, seed_unspecific, seed_thalamus):
   try:
@@ -118,6 +116,13 @@ def get_fd(tmp_listdir, x):
   except:
     return None
 
+def get_fd_max(tmp_listdir, x):
+  try:
+    fd_mean = pl.read_csv(tmp_listdir.filter(tmp_listdir.str.contains(x))[0], separator=',', columns=['Mean']).max()["Mean"][0]
+    return fd_mean
+  except:
+    return None
+
 def get_roi(tmp_listdir, x):
   try:
     x = x.split("_")
@@ -134,6 +139,12 @@ def get_roi(tmp_listdir, x):
     return roi_values
   except:
     return pl.Series([None, None], dtype=pl.Float32)
+
+def drop_col(df):
+  try:
+    return df.drop(["exclude.reason","comments","animal.id.orig","rodent.session.orig","rodent.stain.orig","anesthesia.before.acquisition.orig","average.heart.rate","average.temperature","Link.to.paper","Link.to.Download.data"])
+  except:
+    return df
 ```
 
 now defile some general purpose variables
@@ -166,6 +177,7 @@ data_dir = "/project/4180000.36/awake/complete_output_"+rodent
 bids_dir = "/project/4180000.36/awake/bids/"+rodent+"_complete"
 analysis_dir = "/project/4180000.36/awake/analysis_"+rodent
 df = pl.read_csv("../assets/tables/"+rodent+"_metadata.tsv", separator="\t", ignore_errors=True)
+df = drop_col(df)
 df = df.with_columns([
     pl.concat_str([
         pl.lit("sub-0"),
@@ -204,6 +216,7 @@ tmp_listdir_alt = glob.glob(join(p,"*/*.csv"), recursive=True)
 tmp_listdir = tmp_listdir + tmp_listdir_alt 
 tmp_listdir = pl.Series(tmp_listdir)
 df = df.with_columns(pl.col("scan").map_elements(lambda x: get_fd(tmp_listdir, x)).alias("fd.mean"))
+df = df.with_columns(pl.col("scan").map_elements(lambda x: get_fd_max(tmp_listdir, x)).alias("fd.max"))
 tmp_listdir = glob.glob(join(bids_dir,"*/*/func/*.nii.gz"), recursive=True)
 tmp_listdir = pl.Series(tmp_listdir)
 df = df.with_columns(pl.col("scan").map_elements(lambda x: total_frames(tmp_listdir, x)).alias("total.frames"))

@@ -147,6 +147,12 @@ def get_roi(tmp_listdir, x):
   except:
     return pl.Series([None, None], dtype=pl.Float32)
 
+def drop_col(df):
+  try:
+    return df.drop(["exclude.reason","comments","animal.id.orig","rodent.session.orig","rodent.strain.orig","anesthesia.before.acquisition.orig","average.heart.rate","average.temperature","Link.to.paper","Link.to.Download.data"])
+  except:
+    return df
+
 ```
 
 now defile some general purpose variables
@@ -181,6 +187,7 @@ data_dir = "/project/4180000.36/awake/complete_output_"+rodent
 bids_dir = "/project/4180000.36/awake/bids/"+rodent+"_complete"
 analysis_dir = "/project/4180000.36/awake/analysis_"+rodent
 df = pl.read_csv("../assets/tables/"+rodent+"_metadata.tsv", separator="\t", ignore_errors=True)
+df = drop_col(df)
 df = df.with_columns([
     pl.concat_str([
         pl.lit("sub-0"),
