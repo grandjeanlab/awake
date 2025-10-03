@@ -136,10 +136,10 @@ for rodent in rodent_list:
   print("the datasets contained "+str(df_summary["male"].sum())+ " male runs and " +str(df_summary["female"].sum())+ " female runs")
   print("that corresponds to "+str(round(100*df_summary["female"].sum()/(df_summary["female"].sum()+df_summary["male"].sum()),2))+"% females ")
   print("information about animal handling")
-  print(str((df_summary["headplate"] == 'y').sum()) + " datasets used headplates")
-  print(str((df_summary["restrained"] == 'y').sum()) + " datasets used body restraining")
-  print(str((df_summary["anesthesia"] == 'y').sum()) + " datasets used anesthesia before acquisition")
-  print(str((df_summary["exp.gender"] == 'm').sum()) + " datasets were collected by men, " + str((df_summary["exp.gender"] == 'f').sum())+ " by women")
+  print(str((df_summary["headplate"] == 'y').sum()) + "/" +str(len(df_summary)) +" datasets used headplates")
+  print(str((df_summary["restrained"] == 'y').sum()) + "/" +str(len(df_summary)) +" datasets used body restraining")
+  print(str((df_summary["anesthesia"] == 'y').sum()) + "/" +str(len(df_summary)) +" datasets used anesthesia before acquisition")
+  print(str((df_summary["exp.gender"] == 'm').sum()) + "/" +str(len(df_summary)) +" datasets were collected by men, " + str((df_summary["exp.gender"] == 'f').sum())+ " by women")
 
   print(df_summary.select("rodent.ds", "headplate", "restrained", "anesthesia","exp.gender", "habituation.days","habituation.min"))
 
@@ -151,8 +151,8 @@ for rodent in rodent_list:
   ax.figure.savefig("../assets/plot/"+rodent+"_habituation_per_dataset.svg")
 
   print("information about the scanner and sequence")
-  print("lowest field strength was " + str(df_summary["field_strength"].min()) + "T")
-  print("highest field strength was " + str(df_summary["field_strength"].max()) + "T")
+  print("lowest field strength was " + str(df_summary["field_strength"].min()) + " T")
+  print("highest field strength was " + str(df_summary["field_strength"].max()) + " T")
   print(df_summary.select("rodent.ds", "field_strength", "sequence", "TE").sort(by="rodent.ds"))
 
 #first, let's extract some infomation about motion and summarize it per dataset
