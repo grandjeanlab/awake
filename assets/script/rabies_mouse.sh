@@ -164,7 +164,7 @@ echo " " >> $script_file
 
 
 #run the preprocessing step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc preprocess "${bids}" $""{preprocess} "${bold_only}${prep_arg}${trcor} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear preprocess "${bids}" $""{preprocess} "${bold_only}${prep_arg}${trcor} >> $script_file 
 
 #copy the QC report, motion, and tSNR maps
 echo "cp -r $""{preprocess}/preprocess_QC_report "$output_dir >> $script_file 
@@ -177,27 +177,27 @@ echo "#### run RABIES confound/analysis for white matter / csf regression ####" 
 echo " " >> $script_file
 
 #run the confound correction step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc confound_correction $""{preprocess} $""{confound_wmcsf1} "${conf_arg_gen}${conf_arg_wmcsf1} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confound_correction $""{preprocess} $""{confound_wmcsf1} "${conf_arg_gen}${conf_arg_wmcsf1} >> $script_file 
 #run the analysis step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_wmcsf1} $""{analysis_wmcsf1} "${analysis_arg} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_wmcsf1} $""{analysis_wmcsf1} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_wmcsf1/confound_correction_datasink/frame_censoring_mask "$output_dir"/wmcsf1" >> $script_file 
 echo "cp -r $""analysis_wmcsf1/analysis_datasink "$output_dir"/wmcsf1" >> $script_file 
 echo "cp -r $""analysis_wmcsf1/data_diagnosis_datasink "$output_dir"/wmcsf1" >> $script_file 
 
 #run the confound correction step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc confound_correction $""{preprocess} $""{confound_wmcsf2} "${conf_arg_gen}${conf_arg_wmcsf2} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confound_correction $""{preprocess} $""{confound_wmcsf2} "${conf_arg_gen}${conf_arg_wmcsf2} >> $script_file 
 #run the analysis step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_wmcsf2} $""{analysis_wmcsf2} "${analysis_arg} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_wmcsf2} $""{analysis_wmcsf2} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_wmcsf2/confound_correction_datasink/frame_censoring_mask "$output_dir"/wmcsf2" >> $script_file 
 echo "cp -r $""analysis_wmcsf2/analysis_datasink "$output_dir"/wmcsf2" >> $script_file 
 echo "cp -r $""analysis_wmcsf2/data_diagnosis_datasink "$output_dir"/wmcsf2" >> $script_file 
 
 #run the confound correction step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc confound_correction $""{preprocess} $""{confound_wmcsf3} "${conf_arg_gen}${conf_arg_wmcsf3} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confound_correction $""{preprocess} $""{confound_wmcsf3} "${conf_arg_gen}${conf_arg_wmcsf3} >> $script_file 
 #run the analysis step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_wmcsf3} $""{analysis_wmcsf3} "${analysis_arg} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_wmcsf3} $""{analysis_wmcsf3} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_wmcsf3/confound_correction_datasink/frame_censoring_mask "$output_dir"/wmcsf3" >> $script_file 
 echo "cp -r $""analysis_wmcsf3/analysis_datasink "$output_dir"/wmcsf3" >> $script_file 
@@ -208,27 +208,27 @@ echo "#### run RABIES confound/analysis for global signal regression ####" >> $s
 echo " " >> $script_file
 
 #run the confound correction step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc confound_correction $""{preprocess} $""{confound_gsr1} "${conf_arg_gen}${conf_arg_gsr1} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confound_correction $""{preprocess} $""{confound_gsr1} "${conf_arg_gen}${conf_arg_gsr1} >> $script_file 
 #run the analysis step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_gsr1} $""{analysis_gsr1} "${analysis_arg} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_gsr1} $""{analysis_gsr1} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_gsr1/confound_correction_datasink/frame_censoring_mask "$output_dir"/gsr1" >> $script_file 
 echo "cp -r $""analysis_gsr1/analysis_datasink "$output_dir"/gsr1" >> $script_file 
 echo "cp -r $""analysis_gsr1/data_diagnosis_datasink "$output_dir"/gsr1" >> $script_file 
 
 #run the confound correction step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc confound_correction $""{preprocess} $""{confound_gsr2} "${conf_arg_gen}${conf_arg_gsr2} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confound_correction $""{preprocess} $""{confound_gsr2} "${conf_arg_gen}${conf_arg_gsr2} >> $script_file 
 #run the analysis step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_gsr2} $""{analysis_gsr2} "${analysis_arg} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_gsr2} $""{analysis_gsr2} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_gsr2/confound_correction_datasink/frame_censoring_mask "$output_dir"/gsr2" >> $script_file 
 echo "cp -r $""analysis_gsr2/analysis_datasink "$output_dir"/gsr2" >> $script_file 
 echo "cp -r $""analysis_gsr2/data_diagnosis_datasink "$output_dir"/gsr2" >> $script_file 
 
 #run the confound correction step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc confound_correction $""{preprocess} $""{confound_gsr3} "${conf_arg_gen}${conf_arg_gsr3} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confound_correction $""{preprocess} $""{confound_gsr3} "${conf_arg_gen}${conf_arg_gsr3} >> $script_file 
 #run the analysis step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_gsr3} $""{analysis_gsr3} "${analysis_arg} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_gsr3} $""{analysis_gsr3} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_gsr3/confound_correction_datasink/frame_censoring_mask "$output_dir"/gsr3" >> $script_file 
 echo "cp -r $""analysis_gsr3/analysis_datasink "$output_dir"/gsr3" >> $script_file 
@@ -239,27 +239,27 @@ echo "#### run RABIES confound/analysis for white matter / csf regression ####" 
 echo " " >> $script_file
 
 #run the confound correction step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc confound_correction $""{preprocess} $""{confound_aCompCor1} "${conf_arg_gen}${conf_arg_aCompCor1} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confound_correction $""{preprocess} $""{confound_aCompCor1} "${conf_arg_gen}${conf_arg_aCompCor1} >> $script_file 
 #run the analysis step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_aCompCor1} $""{analysis_aCompCor1} "${analysis_arg} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_aCompCor1} $""{analysis_aCompCor1} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_aCompCor1/confound_correction_datasink/frame_censoring_mask "$output_dir"/aCompCor1" >> $script_file 
 echo "cp -r $""analysis_aCompCor1/analysis_datasink "$output_dir"/aCompCor1" >> $script_file 
 echo "cp -r $""analysis_aCompCor1/data_diagnosis_datasink "$output_dir"/aCompCor1" >> $script_file 
 
 #run the confound correction step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc confound_correction $""{preprocess} $""{confound_aCompCor2} "${conf_arg_gen}${conf_arg_aCompCor2} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confound_correction $""{preprocess} $""{confound_aCompCor2} "${conf_arg_gen}${conf_arg_aCompCor2} >> $script_file 
 #run the analysis step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_aCompCor2} $""{analysis_aCompCor2} "${analysis_arg} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_aCompCor2} $""{analysis_aCompCor2} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_aCompCor2/confound_correction_datasink/frame_censoring_mask "$output_dir"/aCompCor2" >> $script_file 
 echo "cp -r $""analysis_aCompCor2/analysis_datasink "$output_dir"/aCompCor2" >> $script_file 
 echo "cp -r $""analysis_aCompCor2/data_diagnosis_datasink "$output_dir"/aCompCor2" >> $script_file 
 
 #run the confound correction step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc confound_correction $""{preprocess} $""{confound_aCompCor3} "${conf_arg_gen}${conf_arg_aCompCor3} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confound_correction $""{preprocess} $""{confound_aCompCor3} "${conf_arg_gen}${conf_arg_aCompCor3} >> $script_file 
 #run the analysis step of rabies
-echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_aCompCor3} $""{analysis_aCompCor3} "${analysis_arg} >> $script_file 
+echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_aCompCor3} $""{analysis_aCompCor3} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_aCompCor3/confound_correction_datasink/frame_censoring_mask "$output_dir"/aCompCor3" >> $script_file 
 echo "cp -r $""analysis_aCompCor3/analysis_datasink "$output_dir"/aCompCor3" >> $script_file 

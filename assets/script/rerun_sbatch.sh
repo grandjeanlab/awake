@@ -1,8 +1,8 @@
 #!/bin/env bash
 
-tmp_scripts_dir='/project/4180000.36/awake/tmp_rabies_scripts_rat'
-complete_scripts_dir='/project/4180000.36/awake/complete_rabies_scripts_rat'
-output_dir='/project/4180000.36/awake/output_rat'
+tmp_scripts_dir='/project/4180000.36/awake/tmp_rabies_scripts_mouse'
+complete_scripts_dir='/project/4180000.36/awake/complete_rabies_scripts_mouse'
+output_dir='/project/4180000.36/awake/output_mouse'
 
 cd $tmp_scripts_dir
 
@@ -18,12 +18,12 @@ run=$(echo $line | cut -d'_' -f3)
 
 # build path to anat reg output
 
-anat_reg_output=$(find ${output_dir}/preprocess_QC_report/commonspace_reg_wf.Native2Atlas -type f | grep ${subject}_${session})
+anat_reg_output=$(find ${output_dir}/preprocess_QC_report/commonspace_reg_wf.Native2Atlas -type f | head -1 | grep ${subject}_${session}_ | head -n 1)
 #build path to the func reg output
-func_reg_output=$(find ${output_dir}/preprocess_QC_report/EPI2Anat/ -type f | grep ${subject}_${session}_${run})
+func_reg_output=$(find ${output_dir}/preprocess_QC_report/EPI2Anat/ -type f | grep ${subject}_${session}_${run}_ | head -n 1) 
 
 #build path to aCompCor seed output
-acompcor_seed_output=$(find ${output_dir}/aCompCor3/analysis_datasink/seed_correlation_maps/_split_name_${subject}_${session}_${run}_task-rest_bold/_seed_name_vpm_r -type f | grep combined_cleaned_vpm_r_corr_map.nii.gz)
+acompcor_seed_output=$(find ${output_dir}/aCompCor3/analysis_datasink/seed_correlation_maps/_split_name_${subject}_${session}_${run}_task-rest_bold/_seed_name_vpm_r -type f | grep combined_cleaned_vpm_r_corr_map.nii.gz | head -n 1)
 
 if [ -z $anat_reg_output ]; then 
 echo "${subject}_${session}_${run} incomplete"
