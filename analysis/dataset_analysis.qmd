@@ -181,7 +181,7 @@ this is the variable part.
 ```{python}
 #| eval: false
 #for rodent in ["mouse", "rat" ]:
-rodent="mouse"
+rodent="rat"
 print("#### NOW DOING " + rodent + " ####")
 data_dir = "/project/4180000.36/awake/complete_output_"+rodent
 bids_dir = "/project/4180000.36/awake/bids/"+rodent+"_complete"
@@ -205,7 +205,7 @@ df = df.with_columns([
     pl.col("rodent.ds").cast(pl.String).alias("rodent.ds")
 ])
 
-aidaqc = pl.read_csv("../assets/tables/"+rodent+"_caculated_features_func.csv")
+ idaqc = pl.read_csv("../assets/tables/"+rodent+"_caculated_features_func.csv")
 aidaqc = aidaqc.rename({
     "tSNR (Averaged Brain ROI)": "aidaqc.tsnr",
     "Displacement factor (std of Mutual information)": "aidaqc.dist"
@@ -222,9 +222,10 @@ df_summary=df_summary.with_columns([
 
 #add habituation data do df and df_summary
 habituation = pl.read_csv("../assets/tables/habituation.tsv", separator="\t")
+habituation = habituation.with_columns(pl.when(pl.col("habituation.days") < 5).then(pl.lit('short')).otherwise(pl.lit('long')).alias("short.habituation"))
 df = df.join(habituation, on="rodent.ds", how="left")
 df_summary = df_summary.join(habituation, on="rodent.ds", how="left")
-df = df.with_columns(pl.when(pl.col("habituation.days") < 5).then(pl.lit('short')).otherwise(pl.lit('long')).alias("short.habituation"))
+
 
 #first, let's extract some infomation about motion and summarize it per dataset
 p = join(data_dir, motion_dir)
@@ -241,6 +242,8 @@ df_summary = df_summary.join(
     df.group_by("rodent.ds").agg(pl.mean("fd.mean")),
     on="rodent.ds"
 )
+
+
 #now let's get the tsnr from S1 cortex. 
 p = join(analysis_dir, tsnr_wf_dir)
 tmp_listdir = glob.glob(join(p,"*/*.tsv"), recursive=True)
@@ -249,7 +252,7 @@ tmp = df.with_columns(pl.col("scan").map_elements(lambda x: get_roi(tmp_listdir,
 df = df.join(tmp.with_columns([
     pl.col('roi').list.get(0).alias("s1.tsnr.l"),
     pl.col('roi').list.get(1).alias("s1.tsnr.r")
-    ]).select("s1.tsnr.l", "s1.tsnr.r", "scan_dir"), on="scan_dir")
+    ]).select("s1.tsnr.l", "s1.tsnr.r", "scan_dir"), on="scan_dir", how="left")
 #extract the global signal regression covariates from our two roi
 tmp_df = df.select(["scan","scan_dir"])
 for analysis in analysis_list:

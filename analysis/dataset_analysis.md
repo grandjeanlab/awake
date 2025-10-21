@@ -142,7 +142,7 @@ def get_roi(tmp_listdir, x):
 
 def drop_col(df):
   try:
-    return df.drop(["exclude.reason","comments","animal.id.orig","rodent.session.orig","rodent.stain.orig","anesthesia.before.acquisition.orig","average.heart.rate","average.temperature","Link.to.paper","Link.to.Download.data"])
+    return df.drop(["exclude.reason","comments","animal.id.orig","rodent.session.orig","rodent.strain.orig","anesthesia.before.acquisition.orig","average.heart.rate","average.temperature","Link.to.paper","Link.to.Download.data"])
   except:
     return df
 ```
@@ -191,6 +191,10 @@ df = df.with_columns([
 df = df.with_columns([
     pl.format("_split_name_{}_task-rest_bold", pl.col("scan")).alias("scan_dir")
 ])
+df = df.with_columns([
+    pl.col("rodent.ds").cast(pl.String).alias("rodent.ds")
+])
+
 aidaqc = pl.read_csv("../assets/tables/"+rodent+"_caculated_features_func.csv")
 aidaqc = aidaqc.rename({
     "tSNR (Averaged Brain ROI)": "aidaqc.tsnr",
@@ -202,6 +206,9 @@ aidaqc = aidaqc.with_columns([
 df = df.join(aidaqc, on="scan", how='left')
 df = df.filter(pl.col("exclude").is_null() | (pl.col("exclude") != "y"))
 df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary.tsv", separator="\t")
+df_summary=df_summary.with_columns([
+    pl.col("rodent.ds").cast(pl.String).alias("rodent.ds")
+])
 
 #add habituation data do df and df_summary
 habituation = pl.read_csv("../assets/tables/habituation.tsv", separator="\t")
