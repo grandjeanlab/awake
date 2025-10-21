@@ -3,26 +3,26 @@ exclude	exclude.reason	comments	rodent.ds	rodent.sub	animal.id.orig	rodent.sessi
 		data is the same BIDS_raw and BIDS_input-RABIES	1001	100101	20190305_m09_awake	1	1	1	mouse	C57BL/6	C57BL/6	m	7-9	25	m	y	n	n	n	n	262~293		37+_0.5	Bruker	9.4	y	GE-EPI	1000	15	0.225	0.5		
 		data is the same BIDS_raw and BIDS_input-RABIES	1001	100102	20190305_m10_awake	1	1	1	mouse	C57BL/6	C57BL/6	m	7-9	25	m	y	n	n	n	n	262~293		37+_0.5	Bruker	9.4	y	GE-EPI	1000	15	0.225	0.5		
 		data is the same BIDS_raw and BIDS_input-RABIES	1001	100103	20190305_m15_awake	1	1	1	mouse	C57BL/6	C57BL/6	m	7-9	25	m	y	n	n	n	n	262~293		37+_0.5	Bruker	9.4	y	GE-EPI	1000	15	0.225	0.5		
-		data is the same BIDS_raw and BIDS_input-RABIES	1002	100200	IN-11466-23	1	A060723	1	mouse	C57BL/6	C57BL/6	m	16-20	26.3	m	y	n	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
-		data is the same BIDS_raw and BIDS_input-RABIES	1002	100201	IN-05801-23	1	A220523	1	mouse	C57BL/6	C57BL/6	m	12-16	24	m	y	n	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
-		data is the same BIDS_raw and BIDS_input-RABIES	1002	100202	IN-11467-23	1	B060723	1	mouse	C57BL/6	C57BL/6	m	16-20	26.4	m	y	n	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
-		data is the same BIDS_raw and BIDS_input-RABIES	1002	100203	IN-05802-23	1	B220523	1	mouse	C57BL/6	C57BL/6	m	12-16	29.4	m	y	n	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
-		data is the same BIDS_raw and BIDS_input-RABIES	1002	100204	IN-44984-22	1	B230523	1	mouse	C57BL/6	C57BL/6	m	20-24	28.6	m	y	n	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
-		data is the same BIDS_raw and BIDS_input-RABIES	1002	100205	IN-08439-23	1	C060723	1	mouse	C57BL/6	C57BL/6	m	16-20	31.3	m	y	n	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
-		data is the same BIDS_raw and BIDS_input-RABIES	1002	100206	IN-45002-22	1	C220523	1	mouse	C57BL/6	C57BL/6	m	20-24	25.7	m	y	n	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
-		data is the same BIDS_raw and BIDS_input-RABIES	1002	100207	IN-08441-23	1	D060723	1	mouse	C57BL/6	C57BL/6	m	16-20	32.2	m	y	n	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
-		fslorient, fslchpixdim 	1003	100300	1	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	57-58	32.20	m	y	y	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	1000	15	0.235	0.6		
-		fslorient, fslchpixdim 	1003	100301	2	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	57-58	29.00	m	y	y	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	1000	15	0.235	0.6		
-		fslorient, fslchpixdim 	1003	100302	3	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	f	57-58	32.60	m	y	y	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	1000	15	0.235	0.6		
-		fslorient, fslchpixdim 	1003	100303	4	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	f	58.00	32.80	m	y	y	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	1000	15	0.235	0.6		
-		fslorient, fslchpixdim 	1003	100304	5	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	52-53	33.60	m	y	y	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	1000	15	0.235	0.6		
-		fslorient, fslchpixdim 	1003	100305	6	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	52-53	40.50	m	y	y	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	1000	15	0.235	0.6		
-		fslorient, fslchpixdim 	1003	100306	7	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	f	52-53	33.50	m	y	y	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	1000	15	0.235	0.6		
-		fslorient, fslchpixdim 	1003	100307	8	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	52.00	40.60	m	y	y	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	1000	15	0.235	0.6		
-		fslorient, fslchpixdim 	1003	100308	9	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	f	52-53	38.50	m	y	y	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	1000	15	0.235	0.6		
-		fslorient, fslchpixdim 	1003	100309	10	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	f	52-53	35.10	m	y	y	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	1000	15	0.235	0.6		
-		fslorient, fslchpixdim 	1003	100310	11	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	46-47	39.60	m	y	y	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	1000	15	0.235	0.6		
-		fslorient, fslchpixdim 	1003	100311	12	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	46-47	36.30	m	y	y	n	n	n	NA	NA	NA	Bruker	7	n	GE-EPI	1000	15	0.235	0.6		
+		data is the same BIDS_raw and BIDS_input-RABIES	1002	100200	IN-11466-23	1	A060723	1	mouse	C57BL/6	C57BL/6	m	16-20	26.3	m	y	n	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
+		data is the same BIDS_raw and BIDS_input-RABIES	1002	100201	IN-05801-23	1	A220523	1	mouse	C57BL/6	C57BL/6	m	12-16	24	m	y	n	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
+		data is the same BIDS_raw and BIDS_input-RABIES	1002	100202	IN-11467-23	1	B060723	1	mouse	C57BL/6	C57BL/6	m	16-20	26.4	m	y	n	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
+		data is the same BIDS_raw and BIDS_input-RABIES	1002	100203	IN-05802-23	1	B220523	1	mouse	C57BL/6	C57BL/6	m	12-16	29.4	m	y	n	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
+		data is the same BIDS_raw and BIDS_input-RABIES	1002	100204	IN-44984-22	1	B230523	1	mouse	C57BL/6	C57BL/6	m	20-24	28.6	m	y	n	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
+		data is the same BIDS_raw and BIDS_input-RABIES	1002	100205	IN-08439-23	1	C060723	1	mouse	C57BL/6	C57BL/6	m	16-20	31.3	m	y	n	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
+		data is the same BIDS_raw and BIDS_input-RABIES	1002	100206	IN-45002-22	1	C220523	1	mouse	C57BL/6	C57BL/6	m	20-24	25.7	m	y	n	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
+		data is the same BIDS_raw and BIDS_input-RABIES	1002	100207	IN-08441-23	1	D060723	1	mouse	C57BL/6	C57BL/6	m	16-20	32.2	m	y	n	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	2000	16.385	30	0,25 x 0,25		
+		fslorient, fslchpixdim 	1003	100300	1	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	57-58	32.20	m	y	y	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	1000	15	0.235	0.6		
+		fslorient, fslchpixdim 	1003	100301	2	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	57-58	29.00	m	y	y	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	1000	15	0.235	0.6		
+		fslorient, fslchpixdim 	1003	100302	3	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	f	57-58	32.60	m	y	y	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	1000	15	0.235	0.6		
+		fslorient, fslchpixdim 	1003	100303	4	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	f	58.00	32.80	m	y	y	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	1000	15	0.235	0.6		
+		fslorient, fslchpixdim 	1003	100304	5	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	52-53	33.60	m	y	y	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	1000	15	0.235	0.6		
+		fslorient, fslchpixdim 	1003	100305	6	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	52-53	40.50	m	y	y	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	1000	15	0.235	0.6		
+		fslorient, fslchpixdim 	1003	100306	7	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	f	52-53	33.50	m	y	y	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	1000	15	0.235	0.6		
+		fslorient, fslchpixdim 	1003	100307	8	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	52.00	40.60	m	y	y	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	1000	15	0.235	0.6		
+		fslorient, fslchpixdim 	1003	100308	9	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	f	52-53	38.50	m	y	y	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	1000	15	0.235	0.6		
+		fslorient, fslchpixdim 	1003	100309	10	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	f	52-53	35.10	m	y	y	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	1000	15	0.235	0.6		
+		fslorient, fslchpixdim 	1003	100310	11	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	46-47	39.60	m	y	y	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	1000	15	0.235	0.6		
+		fslorient, fslchpixdim 	1003	100311	12	1	1	1	mouse	C57BL/6	Vglut1-IRES2-Cre-D (jax:023527)	m	46-47	36.30	m	y	y	n	n	n	NA	NA	NA	Bruker	7.0	n	GE-EPI	1000	15	0.235	0.6		
 		3dresample	1004	100400	sub-WT05	1	1	1	mouse	C57BL/6	c57bl6	m	9m	35	f	y	y	y	n	n	NA	NA	NA	Bruker	11.7	n	GE-EPI	1800	11	anat = 0.2, func = 0.31	anat = 0.2, func = 0.31		
 		3dresample	1004	100400	sub-WT05	2	1	1	mouse	C57BL/6	c57bl7	m	9m	35	f	y	y	y	n	n	NA	NA	NA	Bruker	11.7	n	GE-EPI	1800	11	anat = 0.2, func = 0.31	anat = 0.2, func = 0.31		
 		3dresample	1004	100400	sub-WT05	2	1	2	mouse	C57BL/6	c57bl7	m	9m	35	f	y	y	y	n	n	NA	NA	NA	Bruker	11.7	n	GE-EPI	1800	11	anat = 0.2, func = 0.31	anat = 0.2, func = 0.31		
@@ -44,29 +44,213 @@ exclude	exclude.reason	comments	rodent.ds	rodent.sub	animal.id.orig	rodent.sessi
 		3dresample	1004	100404	sub-WT25	2	1	1	mouse	C57BL/6	c57bl10	m	9m	32	f	y	y	y	n	n	NA	NA	NA	Bruker	11.7	n	GE-EPI	1800	11	anat = 0.2, func = 0.31	anat = 0.2, func = 0.31		
 		3dresample	1004	100404	sub-WT25	2	1	2	mouse	C57BL/6	c57bl10	m	9m	32	f	y	y	y	n	n	NA	NA	NA	Bruker	11.7	n	GE-EPI	1800	11	anat = 0.2, func = 0.31	anat = 0.2, func = 0.31		
 		3dresample	1004	100404	sub-WT25	2	1	3	mouse	C57BL/6	c57bl10	m	9m	32	f	y	y	y	n	n	NA	NA	NA	Bruker	11.7	n	GE-EPI	1800	11	anat = 0.2, func = 0.31	anat = 0.2, func = 0.31		
-		fslorient. 1 anat img per subj, in ses-1. 	1005a	100500	1	1	E17	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
-		fslorient	1005a	100500	1	2	E18	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
-		fslorient	1005a	100500	1	3	E23	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	25	0.125*0.125	0.4		
-		fslorient	1005a	100500	1	4	E20	1	mouse	C57BL/6	C57BL/6	m	NA	27.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	25	0.125*0.125	0.4		
-		fslorient	1005a	100500	1	5	E29	1	mouse	C57BL/6	C57BL/6	m	NA	27.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	2500	25	0.125*0.125	0.4		
-y	too many tp	fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005b	100501	2	1	E18	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img	1005a	100502	7	1	E7	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
-		fslorient. only keep T2 anat img	1005a	100502	7	2	E18	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
-		fslorient. only keep T2 anat img	1005a	100502	7	3	E19	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
-y	too many tp	fslorient. only keep T2 anat img	1005b	100502	7	4	E10	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-		fslorient. 1 anat img per subj, in ses-1	1005a	100503	15	1	E19	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
-		fslorient	1005a	100503	15	2	E20	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
-		fslorient. 1 anat img per subj, in ses-1	1005a	100504	16	1	E26	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	25	0.14*0.14	0.4		
-		fslorient	1005a	100504	16	2	E35	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
-		fslorient	1005a	100504	16	3	E57	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
-y	too many tp	fslorient	1005b	100505	109	1	E4	1	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-y	too many tp	fslorient	1005b	100506	113	1	E4	1	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-y	too many tp	fslorient	1005b	100507	115	1	E7	1	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-y	too many tp	fslorient	1005b	100508	117	1	E10	1	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-y	too many tp	fslorient	1005b	100509	119	1	E15	1	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
-y	too many tp	fslorient	1005b	100510	138	1	E28 (E77)	1	mouse	C57BL/6	C57BL/6	m	11	20.5	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	14.4	0.125*0.125	0.4		
-y	too many tp	fslorient	1005b	100511	141	1	E40	1	mouse	C57BL/6	C57BL/6	m	11	22.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	14.4	0.125*0.125	0.4		
-y	too many tp	fslorient	1005b	100512	150	1	E16 (E14)	1	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1. 	1005	100500	1	1	E17	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
+		fslorient	1005	100500	1	2	E18	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
+		fslorient	1005	100500	1	3	E23	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	25	0.125*0.125	0.4		
+		fslorient	1005	100500	1	4	E20	1	mouse	C57BL/6	C57BL/6	m	NA	27.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	25	0.125*0.125	0.4		
+y		fslorient	1005	100500	1	5	E29	1	mouse	C57BL/6	C57BL/6	m	NA	27.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	2500	25	0.125*0.125	0.4		
+y		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	2	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	3	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	4	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	5	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	6	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	7	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	8	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	9	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	10	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	11	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	12	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	13	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	14	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	15	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	16	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	17	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	18	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	19	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	20	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	21	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	22	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	23	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img. 	1005	100501	2	1	E18	24	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1 only keep T2 anat img	1005	100502	7	1	E7	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	2	E18	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
+y		fslorient. only keep T2 anat img	1005	100502	7	3	E19	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
+y		fslorient. only keep T2 anat img	1005	100502	7	4	E10	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient. only keep T2 anat img	1005	100502	7	4	E10	2	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	3	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	4	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	5	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	6	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	7	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	8	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	9	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	10	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	11	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	12	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	13	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	14	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	15	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	16	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	17	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	18	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	19	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	20	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	21	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	22	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	23	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. only keep T2 anat img	1005	100502	7	4	E10	24	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient. 1 anat img per subj, in ses-1	1005	100503	15	1	E19	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
+		fslorient	1005	100503	15	2	E20	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	SE-EPI	1500	25	0.15*0.15	0.4		
+		fslorient. 1 anat img per subj, in ses-1	1005	100504	16	1	E26	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	25	0.14*0.14	0.4		
+y		fslorient	1005	100504	16	2	E35	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
+y		fslorient	1005	100504	16	3	E57	1	mouse	C57BL/6	C57BL/6	m	NA	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	12.5	0.18*0.18	0.4		
+		fslorient	1005	100505	109	1	E4	1	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	2	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	3	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	4	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	5	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	6	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	7	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	8	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	9	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	10	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	11	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	12	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	13	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	14	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	15	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	16	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	17	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	18	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	19	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	20	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	21	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	22	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	23	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100505	109	1	E4	24	mouse	C57BL/6	C57BL/6	m	10	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	1	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100506	113	1	E4	2	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	3	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	4	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	5	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	6	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	7	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	8	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	9	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	10	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	11	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	12	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	13	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	14	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	15	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	16	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	17	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	18	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	19	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	20	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	21	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	22	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	23	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100506	113	1	E4	24	mouse	C57BL/6	C57BL/6	m	11	24.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	1	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100507	115	1	E7	2	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100507	115	1	E7	3	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	4	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	5	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	6	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	7	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	8	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	9	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	10	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	11	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	12	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	13	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	14	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	15	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	16	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	17	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	18	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	19	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	20	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	21	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	22	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	23	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100507	115	1	E7	24	mouse	C57BL/6	C57BL/6	m	12	25.2	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	1	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	2	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	3	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	4	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	5	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	6	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	7	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	8	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	9	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	10	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	11	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	12	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	13	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	14	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	15	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	16	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	17	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	18	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	19	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	20	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	21	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	22	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	23	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100508	117	1	E10	24	mouse	C57BL/6	C57BL/6	m	12	NA	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	1	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	2	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	3	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	4	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	5	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	6	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	7	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	8	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	9	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	10	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	11	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	12	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	13	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	14	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	15	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	16	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	17	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	18	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	19	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	20	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	21	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	22	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	23	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+		fslorient	1005	100509	119	1	E15	24	mouse	C57BL/6	C57BL/6	m	12	23.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	14	0.2*0.2	0.4		
+y		fslorient	1005	100510	138	1	E28 (E77)	1	mouse	C57BL/6	C57BL/6	m	11	20.5	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	14.4	0.125*0.125	0.4		
+		fslorient	1005	100511	141	1	E40	1	mouse	C57BL/6	C57BL/6	m	11	22.4	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	y	GE-EPI	1500	14.4	0.125*0.125	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	1	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	2	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	3	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	4	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	5	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	6	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	7	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	8	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	9	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	10	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	11	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	12	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	13	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	14	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	15	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	16	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	17	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	18	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	19	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	20	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	21	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	22	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	23	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
+		fslorient	1005	100512	150	1	E16 (E14)	24	mouse	C57BL/6	C57BL/6	m	11	22.1	f	y	y	n	y	isoflurane	NA	NA	NA	Bruker	9.4	n	GE-EPI	600	11	0.2*0.2	0.4		
 		3dresample	1006	100600	jgrCAM408726	2	2	3	mouse	C57BL/6	C57BL/6J // Charles River // Ger	f	9 months	32.2	m	y	n	y	y	Isoflurane				Bruker	11.7	n	GE-EPI	1000	0.014	0.283 x 0.298	0.45		
 		3dresample	1006	100600	jgrCAM408726	6	6	1	mouse	C57BL/6	C57BL/6J // Charles River // Ger	f	11 months	35.2	m	y	n	y	y	Isoflurane				Bruker	11.7	n	GE-EPI	1000	0.014	0.283 x 0.298	0.45		
 		3dresample	1006	100601	jgrCAM408731	1	1	1	mouse	C57BL/6	C57BL/6J // Charles River // Ger	f	11 months	26.2	m	y	n	y	y	Isoflurane				Bruker	11.7	n	GE-EPI	1000	0.014	0.283 x 0.298	0.45		
@@ -417,16 +601,16 @@ y	func reg	data is the same BIDS_raw and BIDS_input-RABIES	1011	101109	Awake10	1
 		fslorient_fslchpixdim	3001	300105	Na056	5	5	2	mouse	C57BL/6	C57BL/702		NA	NA	m	y	y		y	Isoflurane				Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.711	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003723
 		fslorient_fslchpixdim	3001	300105	Na056	5	5	3	mouse	C57BL/6	C57BL/703		NA	NA	m	y	y		y	Isoflurane				Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.712	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003724
 		fslorient_fslchpixdim	3001	300105	Na056	5	5	4	mouse	C57BL/6	C57BL/704		NA	NA	m	y	y		y	Isoflurane				Bruker BioSpin MRI	9.4		SE-EPI	2500	18.398	0.15 x 0.713	0.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7486714/	https://openneuro.org/datasets/ds003725
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300200	sub-01	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 24		f	y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.23	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/2
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300201	sub-02	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 25		f	y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.24	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/3
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300202	sub-03	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 26		f	y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.25	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/4
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300203	sub-04	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 27		f	y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.26	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/5
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300204	sub-05	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 28		f	y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.27	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/6
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300205	sub-06	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 29		f	y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.28	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/7
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300206	sub-07	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 30		f	y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.29	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/8
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300207	sub-08	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 31		f	y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.30	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/9
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300208	sub-09	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 32		f	y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.31	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/10
-		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300209	sub-10	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 33		f	y	y		n					Bruker Biospin	7		GE-EPI	1000	15	0.23 x 0.32	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/11
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300200	sub-01	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 24		f	y	y		n					Bruker Biospin	7.0		GE-EPI	1000	15	0.23 x 0.23	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/2
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300201	sub-02	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 25		f	y	y		n					Bruker Biospin	7.0		GE-EPI	1000	15	0.23 x 0.24	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/3
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300202	sub-03	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 26		f	y	y		n					Bruker Biospin	7.0		GE-EPI	1000	15	0.23 x 0.25	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/4
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300203	sub-04	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 27		f	y	y		n					Bruker Biospin	7.0		GE-EPI	1000	15	0.23 x 0.26	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/5
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300204	sub-05	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 28		f	y	y		n					Bruker Biospin	7.0		GE-EPI	1000	15	0.23 x 0.27	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/6
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300205	sub-06	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 29		f	y	y		n					Bruker Biospin	7.0		GE-EPI	1000	15	0.23 x 0.28	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/7
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300206	sub-07	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 30		f	y	y		n					Bruker Biospin	7.0		GE-EPI	1000	15	0.23 x 0.29	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/8
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300207	sub-08	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 31		f	y	y		n					Bruker Biospin	7.0		GE-EPI	1000	15	0.23 x 0.30	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/9
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300208	sub-09	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 32		f	y	y		n					Bruker Biospin	7.0		GE-EPI	1000	15	0.23 x 0.31	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/10
+		authors suggestion: remove the first 120 scans (2 minutes) to account for thermal gradient equilibration.	3002	300209	sub-10	1	NA	1	mouse	C57BL/6	 C57BL/6J 	m	< 33		f	y	y		n					Bruker Biospin	7.0		GE-EPI	1000	15	0.23 x 0.32	0.6	https://pubmed.ncbi.nlm.nih.gov/34998465/	https://data.mendeley.com/datasets/np2fx99hn6/11
 y		fslchpixdim	3003	300300	Ey112	1	1	1	mouse	F1 C6/129P	B6129PF/J1 hybrid mice 	m	9–12		m	y	y	n	y	Isoflurane				Bruker BioSpin	9.4		SE-EPI	2500	18.398	0.15×0.15	o.45	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7718219/	https://openneuro.org/datasets/ds002307/versions/3.2.2
 y		fslchpixdim	3003	300300		1		2	mouse	F1 C6/129P	B6129PF/J1 hybrid mice 	m	9–13		m	y	y	n	y	Isoflurane				Bruker BioSpin	9.4		SE-EPI	2500	18.398	0.15×0.16	o.46	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7718219/	https://openneuro.org/datasets/ds002307/versions/3.2.3
 y		fslchpixdim	3003	300300		1		3	mouse	F1 C6/129P	B6129PF/J1 hybrid mice 	m	9–14		m	y	y	n	y	Isoflurane				Bruker BioSpin	9.4		SE-EPI	2500	18.398	0.15×0.17	o.47	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7718219/	https://openneuro.org/datasets/ds002307/versions/3.2.4
@@ -906,32 +1090,32 @@ y		fslchpixdim	3003	300317		5		4	mouse	F1 C6/129P	B6129PF/J1 hybrid mice 	m	9–
 		fslchpixdim	3003	300318		6		2	mouse	F1 C6/129P	B6129PF/J1 hybrid mice 	m	9–493		m	y	y	n	y	Isoflurane				Bruker BioSpin	9.4		SE-EPI	2500	18.398	0.15×0.496	o.526	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7718219/	https://openneuro.org/datasets/ds002307/versions/3.2.483
 		fslchpixdim	3003	300318		6		3	mouse	F1 C6/129P	B6129PF/J1 hybrid mice 	m	9–494		m	y	y	n	y	Isoflurane				Bruker BioSpin	9.4		SE-EPI	2500	18.398	0.15×0.497	o.527	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7718219/	https://openneuro.org/datasets/ds002307/versions/3.2.484
 		fslchpixdim	3003	300318		6		4	mouse	F1 C6/129P	B6129PF/J1 hybrid mice 	m	9–495		m	y	y	n	y	Isoflurane				Bruker BioSpin	9.4		SE-EPI	2500	18.398	0.15×0.498	o.528	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7718219/	https://openneuro.org/datasets/ds002307/versions/3.2.485
-			1012	101200	3Mo/WT/C1_M1_C3	1		1	mouse			m	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101201	3Mo/WT/C1_M2_C3	1		1	mouse			m	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101202	3Mo/WT/C1_M3_C3	1		1	mouse			m	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101203	3Mo/WT/C2_M1_C3	1		1	mouse			m	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101204	3Mo/WT/C3_F1_C3	1		1	mouse			f	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101205	3Mo/WT/C3_F2_C3	1		1	mouse			f	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101206	3Mo/WT/C3_F3_C3	1		1	mouse			f	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101207	3Mo/WT/C4_F1_C3	1		1	mouse			f	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101208	6Mo/WT/110	1		1	mouse			f	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-y			1012	101209	6Mo/WT/111	1		1	mouse			f	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-y			1012	101210	6Mo/WT/112	1		1	mouse			f	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101211	6Mo/WT/113	1		1	mouse			f	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101212	6Mo/WT/114	1		1	mouse			f	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101213	6Mo/WT/115	1		1	mouse			m	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-y			1012	101214	6Mo/WT/116	1		1	mouse			m	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101215	6Mo/WT/117	1		1	mouse			m	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101216	6Mo/WT/118	1		1	mouse			m	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101217	6Mo/WT/119	1		1	mouse			m	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101218	10Mo/WT/C1_M1_C10	1		1	mouse			m	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101219	10Mo/WT/C1_M2_C10	1		1	mouse			m	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-y			1012	101220	10Mo/WT/C1_M3_C10	1		1	mouse			m	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101221	10Mo/WT/C2_M1_C10	1		1	mouse			m	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101222	10Mo/WT/C2_M2_C10	1		1	mouse			m	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101223	10Mo/WT/C3_F2_C10	1		1	mouse			f	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-y			1012	101224	10Mo/WT/C3_F3_C10	1		1	mouse			f	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
-			1012	101225	10Mo/WT/C4_F1_C10	1		1	mouse			f	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101200	3Mo/WT/C1_M1_C3	1		1	mouse	C57BL/6		m	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101201	3Mo/WT/C1_M2_C3	1		1	mouse	C57BL/6		m	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101202	3Mo/WT/C1_M3_C3	1		1	mouse	C57BL/6		m	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101203	3Mo/WT/C2_M1_C3	1		1	mouse	C57BL/6		m	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101204	3Mo/WT/C3_F1_C3	1		1	mouse	C57BL/6		f	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101205	3Mo/WT/C3_F2_C3	1		1	mouse	C57BL/6		f	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101206	3Mo/WT/C3_F3_C3	1		1	mouse	C57BL/6		f	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101207	3Mo/WT/C4_F1_C3	1		1	mouse	C57BL/6		f	3 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101208	6Mo/WT/110	1		1	mouse	C57BL/6		f	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+y			1012	101209	6Mo/WT/111	1		1	mouse	C57BL/6		f	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+y			1012	101210	6Mo/WT/112	1		1	mouse	C57BL/6		f	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101211	6Mo/WT/113	1		1	mouse	C57BL/6		f	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101212	6Mo/WT/114	1		1	mouse	C57BL/6		f	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101213	6Mo/WT/115	1		1	mouse	C57BL/6		m	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+y			1012	101214	6Mo/WT/116	1		1	mouse	C57BL/6		m	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101215	6Mo/WT/117	1		1	mouse	C57BL/6		m	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101216	6Mo/WT/118	1		1	mouse	C57BL/6		m	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101217	6Mo/WT/119	1		1	mouse	C57BL/6		m	6 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101218	10Mo/WT/C1_M1_C10	1		1	mouse	C57BL/6		m	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101219	10Mo/WT/C1_M2_C10	1		1	mouse	C57BL/6		m	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+y			1012	101220	10Mo/WT/C1_M3_C10	1		1	mouse	C57BL/6		m	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101221	10Mo/WT/C2_M1_C10	1		1	mouse	C57BL/6		m	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101222	10Mo/WT/C2_M2_C10	1		1	mouse	C57BL/6		m	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101223	10Mo/WT/C3_F2_C10	1		1	mouse	C57BL/6		f	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+y			1012	101224	10Mo/WT/C3_F3_C10	1		1	mouse	C57BL/6		f	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
+			1012	101225	10Mo/WT/C4_F1_C10	1		1	mouse	C57BL/6		f	10 Months		f	n	y		y	Isoflurane				Bruker	9.4		GE-EPI	1500	6	0,25	1,25		
 			3004	300400		1		1	mouse	C57BL/6		f			f	n	y	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
 			3004	300400		1		2	mouse	C57BL/6		f			f	n	y	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
 			3004	300400		1		3	mouse	C57BL/6		f			f	n	y	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
@@ -986,10 +1170,10 @@ y			1012	101224	10Mo/WT/C3_F3_C10	1		1	mouse			f	10 Months		f	n	y		y	Isoflurane	
 			3004	300408		2		1	mouse	C57BL/6		f			f	n	y	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
 			3004	300408		2		2	mouse	C57BL/6		f			f	n	y	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
 			3004	300408		2		3	mouse	C57BL/6		f			f	n	y	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1200	15	0.18x0.15	0.4		
-			1014	101400	No1	1		1	mouse		ICR	m	9 week-old	35,6	f	y	y	y	y	Isoflurane				Bruker	7	y	GE-EPI	2000	17	0,2	0,5		
-			1014	101401	No2	1		1	mouse		ICR	m	9 week-old	34,0	f	y	y	y	y	Isoflurane				Bruker	7	y	GE-EPI	2000	17	0,2	0,5		
-			1014	101402	No3	1		1	mouse		ICR	m	9 week-old	35,2	f	y	y	y	y	Isoflurane				Bruker	7	y	GE-EPI	2000	17	0,2	0,5		
-			1014	101403	No4	1		1	mouse		ICR	m	9 week-old	36,8	f	y	y	y	y	Isoflurane				Bruker	7	y	GE-EPI	2000	17	0,2	0,5		
+			1014	101400	No1	1		1	mouse	ICR		m	9 week-old	35,6	f	y	y	y	y	Isoflurane				Bruker	7.0	y	GE-EPI	2000	17	0,2	0,5		
+			1014	101401	No2	1		1	mouse	ICR		m	9 week-old	34,0	f	y	y	y	y	Isoflurane				Bruker	7.0	y	GE-EPI	2000	17	0,2	0,5		
+			1014	101402	No3	1		1	mouse	ICR		m	9 week-old	35,2	f	y	y	y	y	Isoflurane				Bruker	7.0	y	GE-EPI	2000	17	0,2	0,5		
+			1014	101403	No4	1		1	mouse	ICR		m	9 week-old	36,8	f	y	y	y	y	Isoflurane				Bruker	7.0	y	GE-EPI	2000	17	0,2	0,5		
 			3005	300500		1		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	y	Isoflurane				Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
 			3005	300500		1		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	y	Isoflurane				Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
 			3005	300500		1		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	y	Isoflurane				Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
@@ -1345,12 +1529,12 @@ y			3005	300512		7		1	mouse	C57BL/6		m	12 weeks		f	y	n	n	y	Isoflurane				Bruker	
 y			3005	300512		7		2	mouse	C57BL/6		m	12 weeks		f	y	n	n	y	Isoflurane				Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
 y			3005	300512		7		3	mouse	C57BL/6		m	12 weeks		f	y	n	n	y	Isoflurane				Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
 y			3005	300512		7		4	mouse	C57BL/6		m	12 weeks		f	y	n	n	y	Isoflurane				Bruker	9.4	n	SE-EPI	2500	18,398	0.15	0.45	https://www.biorxiv.org/content/10.1101/2020.09.05.284364v1	
-			1015	101500	1	1		1	mouse	C57BL/6J		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
-			1015	101501	2	1		1	mouse	C57BL/6J		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
-			1015	101502	3	1		1	mouse	C57BL/6J		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
-			1015	101503	4	1		1	mouse	C57BL/6J		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
-			1015	101504	5	1		1	mouse	C57BL/6J		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
-			1015	101505	6	1		1	mouse	C57BL/6J		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
+			1015	101500	1	1		1	mouse	C57BL/6		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
+			1015	101501	2	1		1	mouse	C57BL/6		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
+			1015	101502	3	1		1	mouse	C57BL/6		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
+			1015	101503	4	1		1	mouse	C57BL/6		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
+			1015	101504	5	1		1	mouse	C57BL/6		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
+			1015	101505	6	1		1	mouse	C57BL/6		m	12w	26	m	y	n	n	y	Isoflurane				Bruker	11.7	y	GE-EPI	1500	14	0.1 x 0.1	1		
 			1013	101300	Lc002	1	20240529	1	mouse	C57BL/6		m	135 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
 			1013	101300	Lc002	1	20240529	2	mouse	C57BL/6		m	135 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
 			1013	101300	Lc002	1	20240529	3	mouse	C57BL/6		m	135 days	26,5	f	y	n	y	n					Bruker	9.4	n	SE-EPI	1250	14	0,25	0,4		
