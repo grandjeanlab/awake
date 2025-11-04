@@ -1,0 +1,295 @@
+---
+title: "making plots for the report"
+author: "Joanes Grandjean"
+date: "10/8/2025"
+format: gfm
+jupyter: python3
+execute: 
+  warning: false
+---
+
+
+first define the plotting engine in interactive move
+```{python}
+#| eval: false
+%autoindent 
+import matplotlib
+matplotlib.use('TkAgg') 
+
+```
+
+then import libraries and set functions that we will use later
+```{python}
+#| eval: false
+#import path/file modules
+from os import  makedirs, listdir
+from os.path import join 
+#import data processing modules
+import polars as pl
+from numpy import hstack
+#import imaing modules
+from nilearn.image import mean_img
+from nilearn.plotting import plot_stat_map
+from nilearn.glm.second_level import SecondLevelModel
+
+#function to plot the seed maps. call get_seed_path and do_second_level
+def plot_seed_map(output_nii, output_svg, analysis, seed_path, scan_dir_list, bg_img, mask_img,seed,cut_coords):
+  try:
+    second_level_input = scan_dir_list.map_elements(lambda x: get_seed_path(seed_path, x, seed))
+    second_level_input = second_level_input.filter(second_level_input.is_not_null())
+    filename_export = "ds-"+str(i)+"_analysis_"+analysis+"_seed-"+seed
+    filename_path_nii = join(output_nii, filename_export)
+    filename_path_svg = join(output_svg, filename_export)
+    title = 'dataset: '+i+', analysis: '+analysis+', seed: ' + seed + ', n = '+ str(len(second_level_input))
+    do_mean_img(second_level_input, bg_img, mask_img, title, cut_coords, filename_path_nii, filename_path_svg)
+  except:
+    pass
+
+def do_mean_img(second_level_input, bg_img, mask_img, title, cut_coords, filename_path_nii, filename_path_svg):
+  try:
+    print("doing mean image")
+    mean_map = mean_img(second_level_input)
+    print("writing mean map to "+filename_path_nii)
+    mean_map.to_filename(filename_path_nii+'.nii.gz')
+    print("writing plot map to "+filename_path_svg)
+    plot_stat_map(mean_map, bg_img,title=title, threshold=0.1, vmax=1, symmetric_cbar=True, cmap='coolwarm',  black_bg=False, cut_coords=cut_coords,output_file=filename_path_svg+'.svg')
+  except:
+    pass
+
+def plot_contrast_map(output_nii, output_svg, analysis, seed_path, scan_dir_list_g1, scan_dir_list_g2, contrast_title, bg_img, mask_img,seed,cut_coords):
+  import pandas as pd
+  try:
+    second_level_input_g1 = scan_dir_list_g1.map_elements(lambda x: get_seed_path(seed_path, x, seed))
+    second_level_input_g1 = second_level_input_g1.filter(second_level_input_g1.is_not_null())
+    second_level_input_g2 = scan_dir_list_g2.map_elements(lambda x: get_seed_path(seed_path, x, seed))
+    second_level_input_g2 = second_level_input_g2.filter(second_level_input_g2.is_not_null())
+    second_level_input = pl.concat([second_level_input_g1,second_level_input_g2])
+    condition_effect = hstack(([1] * second_level_input_g1.shape[0], [0] * second_level_input_g2.shape[0]))
+    design_matrix = pd.DataFrame({"group_diff": condition_effect, "intercept": 1})
+    filename_export = "contrast-"+contrast_title+"_analysis_"+analysis+"_seed-"+seed
+    filename_path_nii = join(output_nii, filename_export)
+    filename_path_svg = join(output_svg, filename_export)
+    title = 'contrast: '+contrast_title+ ', n1 = '+ str(len(second_level_input_g1))+ 'n2 = ' +str(len(second_level_input_g2))
+    do_ttest_img(second_level_input, design_matrix, bg_img, mask_img, title, cut_coords, filename_path_nii, filename_path_svg)
+  except:
+    pass
+
+def do_ttest_img(second_level_input, design_matrix, bg_img, mask_img, title, cut_coords, filename_path_nii, filename_path_svg):
+  try:
+    print("doing test fit")
+    second_level_model = SecondLevelModel(mask_img=mask_img, n_jobs=-1).fit(second_level_input.to_list(), design_matrix=design_matrix)
+    z_map = second_level_model.compute_contrast(second_level_contrast="group_diff",output_type="z_score")
+    print("writing z map to "+filename_path_nii)
+    z_map.to_filename(filename_path_nii+'.nii.gz')
+    print("writing plot map to "+filename_path_svg)
+    plot_stat_map(z_map, bg_img,title=title, threshold=1.9, vmax=5, symmetric_cbar=True, cmap='coolwarm',  black_bg=False, cut_coords=cut_coords,output_file=filename_path_svg+'.svg')
+  except:
+    pass
+
+def get_seed_path(path, scan_dir, seed): 
+    seed_prefix = "_seed_name_"
+    try:
+        seed_path = join(path, scan_dir, seed_prefix + seed)
+        seed_file = listdir(seed_path)[0]
+        seed_final = join(seed_path, seed_file)
+        return seed_final
+    except:
+        pass
+
+def get_seed_to_plot(rodent):
+  if rodent == "mouse": 
+    return pl.DataFrame({'seed': [seed_ref, seed_unspecific, seed_thalamus], 'cut_coords': [(3,1,2.5), (0.2,3.2,2.4), (1.6, 0.4, 0.6)]}, strict=False)
+  if rodent == "rat": 
+    return pl.DataFrame({'seed': [seed_ref, seed_unspecific, seed_thalamus], 'cut_coords': [(4.6,-1.6,4.7), (0.3,1,4.5), (2.5, -2.5, 2)]}, strict=False)
+
+def get_analysis(rodent):
+  if rodent == "mouse": 
+    return  "aCompCor3"
+  if rodent == "rat": 
+    return "gsr3"
+
+def get_scan_dir_dataset(df, i):
+  try:
+    return df.filter(df["rodent.ds"]==i)["scan_dir"]
+  except:
+    pass
+
+def filt_df(df, filt_factor, filt_condition):
+  try:
+    return df.filter(pl.col(filt_factor) == filt_condition).get_column("scan_dir")
+  except:
+    pass
+
+
+```
+
+now defile some general purpose variables
+```{python}
+#| eval: false
+seed_img_dir="analysis_datasink/seed_correlation_maps"
+
+seed_ref = "s1_r"
+seed_specific = "s1_l"
+seed_unspecific = "aca_r"
+seed_thalamus = "vpm_r"
+
+```
+
+
+```{python}
+#| eval: false
+rodent='mouse'
+print("### now processing "+rodent+" ###")
+bg_img = "../assets/template/"+rodent+"/template.nii.gz"
+mask_img = "../assets/template/"+rodent+"/mask.nii.gz"
+df = pl.read_csv("../assets/tables/"+rodent+"_metadata_processed.tsv", separator="\t")
+df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t")
+
+data_dir="/project/4180000.36/awake/complete_output_"+rodent
+analysis_dir="/project/4180000.36/awake/analysis_"+rodent
+
+seed_to_plot = get_seed_to_plot(rodent)
+
+print("### now plotting sba map accross all scans  ###")
+output_nii = join(analysis_dir, 'total_SBA_nii')
+output_svg = join(analysis_dir, 'total_SBA_svg')
+makedirs(output_nii, exist_ok=True)
+makedirs(output_svg, exist_ok=True)
+
+scan_dir_list = df.get_column("scan_dir")
+i="all"
+analysis=get_analysis(rodent)
+seed_path = join(data_dir, analysis, seed_img_dir)
+for row in seed_to_plot.iter_rows(named=True):
+  plot_seed_map(output_nii, output_svg, analysis, seed_path, scan_dir_list, bg_img, mask_img,row["seed"],row["cut_coords"])
+
+print("### now plotting sba map only for specific scans  ###")
+i="specific"
+analysis=get_analysis(rodent)
+scan_dir_list = df.filter(pl.col("s1.cat."+analysis) =="Specific").get_column("scan_dir")
+seed_path = join(data_dir, analysis, seed_img_dir)
+for row in seed_to_plot.iter_rows(named=True):
+  plot_seed_map(output_nii, output_svg, analysis, seed_path, scan_dir_list, bg_img, mask_img,row["seed"],row["cut_coords"])
+
+print("### now plotting per dataset sba map  ###")
+output_nii = join(analysis_dir, 'group_SBA_nii')
+output_svg = join(analysis_dir, 'group_SBA_svg')
+makedirs(output_nii, exist_ok=True)
+makedirs(output_svg, exist_ok=True)
+
+for i in df["rodent.ds"].unique():
+  scan_dir_list = get_scan_dir_dataset(df, i)
+  print("now doing ds "+str(i))
+  print("getting list of seed maps")
+  analysis=get_analysis(rodent)
+  seed_path = join(data_dir, analysis, seed_img_dir)
+  for row in seed_to_plot.iter_rows(named=True):
+    plot_seed_map(output_nii, output_svg, analysis, seed_path, scan_dir_list, bg_img, mask_img,row["seed"],row["cut_coords"])
+
+print("### now doing stats  ###")
+output_nii = join(analysis_dir, 'stat_SBA_nii')
+output_svg = join(analysis_dir, 'stat_SBA_svg')
+makedirs(output_nii, exist_ok=True)
+makedirs(output_svg, exist_ok=True)
+
+print("testing habituation effect")
+
+filt_factor="short.habituation"
+filt_condition_g1 = "short"
+filt_condition_g2 = "long"
+scan_dir_list_g1 = filt_df(df, filt_factor, filt_condition_g1)
+scan_dir_list_g2 = filt_df(df, filt_factor, filt_condition_g2)
+contrast_title = "habituation_"+filt_condition_g1 + "_vs_" + filt_condition_g2
+analysis=get_analysis(rodent)
+seed_path = join(data_dir, analysis, seed_img_dir)
+for row in seed_to_plot.iter_rows(named=True):
+  plot_contrast_map(output_nii, output_svg, analysis, seed_path, scan_dir_list_g1, scan_dir_list_g2, contrast_title, bg_img, mask_img,row["seed"],row["cut_coords"])
+
+print("testing anesthesia effect")
+
+filt_factor="anesthesia.before.acquisition"
+filt_condition_g1 = "y"
+filt_condition_g2 = "n"
+scan_dir_list_g1 = filt_df(df, filt_factor, filt_condition_g1)
+scan_dir_list_g2 = filt_df(df, filt_factor, filt_condition_g2)
+contrast_title = "anesthesia_"+filt_condition_g1 + "_vs_" + filt_condition_g2
+analysis=get_analysis(rodent)
+seed_path = join(data_dir, analysis, seed_img_dir)
+for row in seed_to_plot.iter_rows(named=True):
+  plot_contrast_map(output_nii, output_svg, analysis, seed_path, scan_dir_list_g1, scan_dir_list_g2, contrast_title, bg_img, mask_img,row["seed"],row["cut_coords"])
+  
+print("testing head-plate effect")
+
+filt_factor="head-plate"
+filt_condition_g1 = "y"
+filt_condition_g2 = "n"
+scan_dir_list_g1 = filt_df(df, filt_factor, filt_condition_g1)
+scan_dir_list_g2 = filt_df(df, filt_factor, filt_condition_g2)
+contrast_title = "headplate_"+filt_condition_g1 + "_vs_" + filt_condition_g2
+analysis=get_analysis(rodent)
+seed_path = join(data_dir, analysis, seed_img_dir)
+for row in seed_to_plot.iter_rows(named=True):
+  plot_contrast_map(output_nii, output_svg, analysis, seed_path, scan_dir_list_g1, scan_dir_list_g2, contrast_title, bg_img, mask_img,row["seed"],row["cut_coords"])
+
+print("testing experimenter effect")
+
+filt_factor="main.experimenter.gender"
+filt_condition_g1 = "m"
+filt_condition_g2 = "f"
+scan_dir_list_g1 = filt_df(df, filt_factor, filt_condition_g1)
+scan_dir_list_g2 = filt_df(df, filt_factor, filt_condition_g2)
+contrast_title = "gender_"+filt_condition_g1 + "_vs_" + filt_condition_g2
+analysis=get_analysis(rodent)
+seed_path = join(data_dir, analysis, seed_img_dir)
+for row in seed_to_plot.iter_rows(named=True):
+  plot_contrast_map(output_nii, output_svg, analysis, seed_path, scan_dir_list_g1, scan_dir_list_g2, contrast_title, bg_img, mask_img,row["seed"],row["cut_coords"])
+
+
+print("testing sequence effect")
+
+filt_factor="fMRI.sequence"
+filt_condition_g1 = "GE-EPI"
+filt_condition_g2 = "SE-EPI"
+scan_dir_list_g1 = filt_df(df, filt_factor, filt_condition_g1)
+scan_dir_list_g2 = filt_df(df, filt_factor, filt_condition_g2)
+contrast_title = "sequence_"+filt_condition_g1 + "_vs_" + filt_condition_g2
+analysis=get_analysis(rodent)
+seed_path = join(data_dir, analysis, seed_img_dir)
+for row in seed_to_plot.iter_rows(named=True):
+  plot_contrast_map(output_nii, output_svg, analysis, seed_path, scan_dir_list_g1, scan_dir_list_g2, contrast_title, bg_img, mask_img,row["seed"],row["cut_coords"])
+
+print("testing mean fd")
+split=4 
+labels = ["lowest","low","high","highest"]
+df = df.with_columns(pl.col("fd.mean").qcut(4, labels=labels, allow_duplicates=True).alias('quartiles'))
+
+filt_factor="quartiles"
+filt_condition_g1 = "lowest"
+filt_condition_g2 = "highest"
+scan_dir_list_g1 = filt_df(df, filt_factor, filt_condition_g1)
+scan_dir_list_g2 = filt_df(df, filt_factor, filt_condition_g2)
+contrast_title = "fdmean_"+filt_condition_g1 + "_vs_" + filt_condition_g2
+analysis=get_analysis(rodent)
+seed_path = join(data_dir, analysis, seed_img_dir)
+for row in seed_to_plot.iter_rows(named=True):
+  plot_contrast_map(output_nii, output_svg, analysis, seed_path, scan_dir_list_g1, scan_dir_list_g2, contrast_title, bg_img, mask_img,row["seed"],row["cut_coords"])
+
+print("testing max fd")
+split=4 
+labels = ["lowest","low","high","highest"]
+df = df.with_columns(pl.col("fd.max").qcut(4, labels=labels, allow_duplicates=True).alias('quartiles'))
+
+filt_factor="quartiles"
+filt_condition_g1 = "lowest"
+filt_condition_g2 = "highest"
+scan_dir_list_g1 = filt_df(df, filt_factor, filt_condition_g1)
+scan_dir_list_g2 = filt_df(df, filt_factor, filt_condition_g2)
+contrast_title = "fdmax_"+filt_condition_g1 + "_vs_" + filt_condition_g2
+analysis=get_analysis(rodent)
+seed_path = join(data_dir, analysis, seed_img_dir)
+for row in seed_to_plot.iter_rows(named=True):
+  plot_contrast_map(output_nii, output_svg, analysis, seed_path, scan_dir_list_g1, scan_dir_list_g2, contrast_title, bg_img, mask_img,row["seed"],row["cut_coords"])
+
+
+
+```
