@@ -246,17 +246,17 @@ for rodent in rodent_list:
   print("for gsr processing, heavy scrubbing lead to  "+str((df["s1.cat.gsr1"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr1"]=="Specific").count())  + " Specific scans")
   print("for gsr processing, light scrubbing lead to  "+str((df["s1.cat.gsr3"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr3"]=="Specific").count())  + " Specific scans")
 
-  print("for aCompCor processing, heavy scrubbing lead to  "+str((df["s1.cat.aCompCor1"]=="Specific").sum()) + "/" +str((df["s1.cat.aCompCor1"]=="Specific").count())  + " Specific scans")
-  print("for aCompCor processing, light scrubbing lead to  "+str((df["s1.cat.aCompCor3"]=="Specific").sum()) + "/" +str((df["s1.cat.aCompCor3"]=="Specific").count())  + " Specific scans")
+  print("for wmcsf processing, heavy scrubbing lead to  "+str((df["s1.cat.wmcsf1"]=="Specific").sum()) + "/" +str((df["s1.cat.wmcsf1"]=="Specific").count())  + " Specific scans")
+  print("for wmcsf processing, light scrubbing lead to  "+str((df["s1.cat.wmcsf3"]=="Specific").sum()) + "/" +str((df["s1.cat.wmcsf3"]=="Specific").count())  + " Specific scans")
 
   print("s1-s1 specificity analysis per dataset (only showing specific values)")
   print(df_summary[["rodent.ds"]+["s1."+analysis+".Specific" for analysis in analysis_list]].sort(by="rodent.ds"))
 
   print("it seems that less scrubbing lead to better outcomes")
   print("for gsr processing, "+str((df_summary["s1.gsr1.Specific"] < df_summary["s1.gsr3.Specific"]).sum())+"/"+str(df_summary["s1.gsr1.Specific"].count())+" dataset performed better with less scrubbing")
-  print("for aCompCor processing, "+str((df_summary["s1.aCompCor1.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor1.Specific"].count())+" dataset performed better with less scrubbing")
-  print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed better with aCompCor compared to gsr")
-  print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] > df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed worst with aCompCor compared to gsr")
+  print("for wmcsf processing, "+str((df_summary["s1.wmcsf1.Specific"] < df_summary["s1.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.wmcsf1.Specific"].count())+" dataset performed better with less scrubbing")
+  print("for comparing gsr to wmcsf processing, "+str((df_summary["s1.gsr3.Specific"] < df_summary["s1.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.wmcsf3.Specific"].count())+" dataset performed better with wmcsf compared to gsr")
+  print("for comparing gsr to wmcsf processing, "+str((df_summary["s1.gsr3.Specific"] > df_summary["s1.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.wmcsf3.Specific"].count())+" dataset performed worst with wmcsf compared to gsr")
 
   print("#### plot fc categories per denoising method ####")
   df_melted = df.melt(id_vars="rodent.ds", value_vars=['s1.cat.' + x for x in analysis_list])

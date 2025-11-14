@@ -237,17 +237,17 @@ for rodent in rodent_list:
   print("for gsr processing, heavy scrubbing lead to  "+str((df["s1.cat.gsr1"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr1"]=="Specific").count())  + " Specific scans")
   print("for gsr processing, light scrubbing lead to  "+str((df["s1.cat.gsr3"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr3"]=="Specific").count())  + " Specific scans")
 
-  print("for aCompCor processing, heavy scrubbing lead to  "+str((df["s1.cat.aCompCor1"]=="Specific").sum()) + "/" +str((df["s1.cat.aCompCor1"]=="Specific").count())  + " Specific scans")
-  print("for aCompCor processing, light scrubbing lead to  "+str((df["s1.cat.aCompCor3"]=="Specific").sum()) + "/" +str((df["s1.cat.aCompCor3"]=="Specific").count())  + " Specific scans")
+  print("for wmcsf processing, heavy scrubbing lead to  "+str((df["s1.cat.wmcsf1"]=="Specific").sum()) + "/" +str((df["s1.cat.wmcsf1"]=="Specific").count())  + " Specific scans")
+  print("for wmcsf processing, light scrubbing lead to  "+str((df["s1.cat.wmcsf3"]=="Specific").sum()) + "/" +str((df["s1.cat.wmcsf3"]=="Specific").count())  + " Specific scans")
 
   print("s1-s1 specificity analysis per dataset (only showing specific values)")
   print(df_summary[["rodent.ds"]+["s1."+analysis+".Specific" for analysis in analysis_list]].sort(by="rodent.ds"))
 
   print("it seems that less scrubbing lead to better outcomes")
   print("for gsr processing, "+str((df_summary["s1.gsr1.Specific"] < df_summary["s1.gsr3.Specific"]).sum())+"/"+str(df_summary["s1.gsr1.Specific"].count())+" dataset performed better with less scrubbing")
-  print("for aCompCor processing, "+str((df_summary["s1.aCompCor1.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor1.Specific"].count())+" dataset performed better with less scrubbing")
-  print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] < df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed better with aCompCor compared to gsr")
-  print("for comparing gsr to aCompCor processing, "+str((df_summary["s1.gsr3.Specific"] > df_summary["s1.aCompCor3.Specific"]).sum())+"/"+str(df_summary["s1.aCompCor3.Specific"].count())+" dataset performed worst with aCompCor compared to gsr")
+  print("for wmcsf processing, "+str((df_summary["s1.wmcsf1.Specific"] < df_summary["s1.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.wmcsf1.Specific"].count())+" dataset performed better with less scrubbing")
+  print("for comparing gsr to wmcsf processing, "+str((df_summary["s1.gsr3.Specific"] < df_summary["s1.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.wmcsf3.Specific"].count())+" dataset performed better with wmcsf compared to gsr")
+  print("for comparing gsr to wmcsf processing, "+str((df_summary["s1.gsr3.Specific"] > df_summary["s1.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.wmcsf3.Specific"].count())+" dataset performed worst with wmcsf compared to gsr")
 
   print("#### plot fc categories per denoising method ####")
   df_melted = df.melt(id_vars="rodent.ds", value_vars=['s1.cat.' + x for x in analysis_list])
@@ -673,8 +673,8 @@ for rodent in rodent_list:
     | Non-specific     | 0.11903  |
     for gsr processing, heavy scrubbing lead to  298/1361 Specific scans
     for gsr processing, light scrubbing lead to  327/1361 Specific scans
-    for aCompCor processing, heavy scrubbing lead to  323/1361 Specific scans
-    for aCompCor processing, light scrubbing lead to  326/1361 Specific scans
+    for wmcsf processing, heavy scrubbing lead to  292/1361 Specific scans
+    for wmcsf processing, light scrubbing lead to  341/1361 Specific scans
     s1-s1 specificity analysis per dataset (only showing specific values)
     | rodent.ds | s1.gsr1.S | s1.gsr2.S | s1.gsr3.S | … | s1.wmcsf3 | s1.aCompC | s1.aCompC | s1.aComp |
     |           | pecific   | pecific   | pecific   |   | .Specific | or1.Speci | or2.Speci | Cor3.Spe |
@@ -702,9 +702,9 @@ for rodent in rodent_list:
     | 3005      | 0.21519   | 0.212025  | 0.253165  | … | 0.272152  | 0.231013  | 0.224684  | 0.246835 |
     it seems that less scrubbing lead to better outcomes
     for gsr processing, 11/20 dataset performed better with less scrubbing
-    for aCompCor processing, 9/20 dataset performed better with less scrubbing
-    for comparing gsr to aCompCor processing, 8/20 dataset performed better with aCompCor compared to gsr
-    for comparing gsr to aCompCor processing, 8/20 dataset performed worst with aCompCor compared to gsr
+    for wmcsf processing, 13/20 dataset performed better with less scrubbing
+    for comparing gsr to wmcsf processing, 8/20 dataset performed better with wmcsf compared to gsr
+    for comparing gsr to wmcsf processing, 6/20 dataset performed worst with wmcsf compared to gsr
     #### plot fc categories per denoising method ####
 
     looking at value effect in variable in mouse
@@ -1007,8 +1007,8 @@ for rodent in rodent_list:
     | null             | 0.008439 |
     for gsr processing, heavy scrubbing lead to  95/235 Specific scans
     for gsr processing, light scrubbing lead to  99/235 Specific scans
-    for aCompCor processing, heavy scrubbing lead to  81/235 Specific scans
-    for aCompCor processing, light scrubbing lead to  87/235 Specific scans
+    for wmcsf processing, heavy scrubbing lead to  70/236 Specific scans
+    for wmcsf processing, light scrubbing lead to  85/235 Specific scans
     s1-s1 specificity analysis per dataset (only showing specific values)
     | rodent.ds | s1.gsr1.S | s1.gsr2.S | s1.gsr3.S | … | s1.wmcsf3 | s1.aCompC | s1.aCompC | s1.aComp |
     |           | pecific   | pecific   | pecific   |   | .Specific | or1.Speci | or2.Speci | Cor3.Spe |
@@ -1025,9 +1025,9 @@ for rodent in rodent_list:
     | 4001      | 0.35      | 0.366667  | 0.383333  | … | 0.35      | 0.366667  | 0.4       | 0.4      |
     it seems that less scrubbing lead to better outcomes
     for gsr processing, 3/9 dataset performed better with less scrubbing
-    for aCompCor processing, 5/9 dataset performed better with less scrubbing
-    for comparing gsr to aCompCor processing, 3/9 dataset performed better with aCompCor compared to gsr
-    for comparing gsr to aCompCor processing, 4/9 dataset performed worst with aCompCor compared to gsr
+    for wmcsf processing, 5/9 dataset performed better with less scrubbing
+    for comparing gsr to wmcsf processing, 1/9 dataset performed better with wmcsf compared to gsr
+    for comparing gsr to wmcsf processing, 5/9 dataset performed worst with wmcsf compared to gsr
     #### plot fc categories per denoising method ####
 
     looking at value effect in variable in mouse
