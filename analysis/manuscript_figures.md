@@ -1,19 +1,12 @@
----
-title: "figure plots"
-author: "Joanes Grandjean"
-date: "11/10/2025"
-format: gfm
-jupyter: python3
-execute: 
-  warning: false
----
+# figure plots
+Joanes Grandjean
+2025-11-10
 
-```{python}
-#| eval: false
+``` python
 %autoindent 
 ```
 
-```{python}
+``` python
 import polars as pl
 #import plotting modules
 import matplotlib.pyplot as plt
@@ -78,13 +71,13 @@ print(is_colorblind_friendly(met_colors_name))
 
 sns.set_theme(style="white", palette=met_colors)
 sns_saveparms = "bbox_inches='tight', dppi=600"
-
-
-
 ```
 
-```{python}
+    Palette 'Hiroshige' has '10' discrete colors
+    Palette 'Hiroshige' is colorblind friendly.
+    True
 
+``` python
 def figure1(df, df_summary, rodent, save_plot):
   #figure 1ab
   if rodent == 'mouse':
@@ -277,11 +270,9 @@ def figure3(df, rodent, save_plot):
       ax.figure.savefig("../figure/Figure3"+pannel_label+".svg", bbox_inches='tight',dpi=600)
   else:
       plt.show()
-
 ```
 
-```{python}
-
+``` python
 save_plot = True
 
 rodent_list = ['mouse', 'rat']
@@ -292,5 +283,8 @@ for rodent in rodent_list:
   figure1(df, df_summary, rodent, save_plot)
   figure2(df, rodent, save_plot)
   figure3(df, rodent, save_plot)
-
 ```
+
+    #### NOW DOING mouse ####
+
+    #### NOW DOING rat ####
