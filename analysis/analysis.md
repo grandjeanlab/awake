@@ -257,160 +257,162 @@ for rodent in rodent_list:
 
   chi2_categorical(df_melted, 'variable','value', 'mouse')
 
+  if rodent=="mouse":
+    analysis = "wmcsf3"
+  else:
+    analysis = "gsr3"
 
-  analysis_sub = ['gsr3', 'aCompCor3']
-  for analysis in analysis_sub:
-    plt.figure(figsize=(10,5))
-    ax = makespecificityplot(rodent+': S1 specificity with ' + analysis, df['s1.specific.'+analysis], df['s1.unspecific.'+analysis])
-    ax.figure.savefig("../assets/plot/specific/"+rodent+"_s1_specificity_"+analysis+".svg")
+  plt.figure(figsize=(10,5))
+  ax = makespecificityplot(rodent+': S1 specificity with ' + analysis, df['s1.specific.'+analysis], df['s1.unspecific.'+analysis])
+  ax.figure.savefig("../assets/plot/specific/"+rodent+"_s1_specificity_"+analysis+".svg")
 
-    plt.figure(figsize=(10,5))
-    ax = makespecificityplot(rodent+': Thal FC specificity with ' + analysis, df['thal.specific.'+analysis], df['s1.unspecific.'+analysis])
-    ax.figure.savefig("../assets/plot/specific/"+rodent+"_thal_specificity_"+analysis+".svg")
+  plt.figure(figsize=(10,5))
+  ax = makespecificityplot(rodent+': Thal FC specificity with ' + analysis, df['thal.specific.'+analysis], df['s1.unspecific.'+analysis])
+  ax.figure.savefig("../assets/plot/specific/"+rodent+"_thal_specificity_"+analysis+".svg")
 
-    cat1='s1.cat.'+analysis
-    df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
+  cat1='s1.cat.'+analysis
+  df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
 
-    cat2 = 'fd.mean'
-    df_to_plot = split_continuous(df, cat1, cat2)
-    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+  cat2 = 'fd.mean'
+  df_to_plot = split_continuous(df, cat1, cat2)
+  df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
 
-    plt.figure(figsize=(10,5))
-    ax = makestackplot(df_to_plot)
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd.svg")
+  plt.figure(figsize=(10,5))
+  ax = makestackplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd.svg")
 
-    plt.figure(figsize=(10,5))
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd_violin.svg")
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.set_xlabel('Connectivity category')
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd_violin.svg")
 
-    cat2 = 'fd.max'
-    df_to_plot = split_continuous(df, cat1, cat2)
-    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+  cat2 = 'fd.max'
+  df_to_plot = split_continuous(df, cat1, cat2)
+  df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
 
-    plt.figure(figsize=(10,5))
-    ax = makestackplot(df_to_plot)
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fdmax.svg")
+  plt.figure(figsize=(10,5))
+  ax = makestackplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fdmax.svg")
 
-    plt.figure(figsize=(10,5))
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fdmax_violin.svg")
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.set_xlabel('Connectivity category')
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fdmax_violin.svg")
 
-    cat2='s1.gsrcov.l.'+analysis
-    df_to_plot = split_continuous(df, cat1, cat2)
-    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
-    plt.figure(figsize=(10,5))
-    ax = makestackplot(df_to_plot)
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov.svg")
+  cat2='s1.gsrcov.l.'+analysis
+  df_to_plot = split_continuous(df, cat1, cat2)
+  df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makestackplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov.svg")
 
-    plt.figure(figsize=(10,5))
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov_violin.svg")
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.set_xlabel('Connectivity category')
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov_violin.svg")
 
-    cat2='s1.tsnr.l'
-    df_to_plot = split_continuous(df, cat1, cat2)
-    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
-    plt.figure(figsize=(10,5))
-    ax = makestackplot(df_to_plot)
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr.svg")
+  cat2='s1.tsnr.l'
+  df_to_plot = split_continuous(df, cat1, cat2)
+  df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makestackplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr.svg")
 
-    plt.figure(figsize=(10,5))
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr_violin.svg")
-
-
-    cat2='main.experimenter.gender'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_expgender.svg')
-
-    cat2='rodent.sex'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_sex.svg')
-
-    cat2='head-plate'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_headplate.svg')
-
-    cat2='body.restrained'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_restrained.svg')
-
-    cat2='short.habituation'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_shorthabituation.svg')
-
-    cat2='anesthesia.before.acquisition'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_anesthesia.svg')
-
-    cat2='MRI.field.strength'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_MRI.svg')
-
-    cat2='fMRI.sequence'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_fMRI.svg')
-
-    cat2='habituation.min'
-    df_to_plot = split_continuous(df, 'cat', cat2)
-    df_to_plot = df_to_plot.rename({'cat':'value', 'quartiles':'variable', cat2:'cont_variable'})
-    plt.figure(figsize=(10,5))
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_min.svg")
-
-    cat2='habituation.days'
-    df_to_plot = split_continuous(df, 'cat', cat2)
-    df_to_plot = df_to_plot.rename({'cat':'value', 'quartiles':'variable', cat2:'cont_variable'})
-    plt.figure(figsize=(10,5))
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_days.svg")
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.set_xlabel('Connectivity category')
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr_violin.svg")
 
 
+  cat2='main.experimenter.gender'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_expgender.svg')
 
-    print('doing statistical analysis')
-    print('first with '+analysis+' processed data')
-    cat2 = 'fd.mean'
-    chi2_continuous(df, 'cat', cat2, rodent)
-    cat2 = 'fd.max'
-    chi2_continuous(df, 'cat', cat2, rodent)
-    cat2 = 's1.gsrcov.l.'+analysis
-    chi2_continuous(df, 'cat', cat2, rodent)
-    cat2 = 's1.tsnr.l'
-    chi2_continuous(df, 'cat', cat2, rodent)
-    cat2 = 'habituation.min'
-    chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
-    cat2 = 'habituation.days'
-    chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
+  cat2='rodent.sex'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_sex.svg')
 
-    chi2_categorical(df, 'cat', 'short.habituation', rodent)
-    chi2_categorical(df, 'cat', 'main.experimenter.gender', rodent)
-    chi2_categorical(df, 'cat', 'rodent.sex', rodent)
-    chi2_categorical(df, 'cat', 'head-plate', rodent)
-    chi2_categorical(df, 'cat', 'body.restrained', rodent)
-    chi2_categorical(df, 'cat', 'anesthesia.before.acquisition', rodent)
-    chi2_categorical(df, 'cat', 'MRI.field.strength', rodent)
-    chi2_categorical(df, 'cat', 'fMRI.sequence', rodent)
+  cat2='head-plate'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_headplate.svg')
+
+  cat2='body.restrained'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_restrained.svg')
+
+  cat2='short.habituation'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_shorthabituation.svg')
+
+  cat2='anesthesia.before.acquisition'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_anesthesia.svg')
+
+  cat2='MRI.field.strength'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_MRI.svg')
+
+  cat2='fMRI.sequence'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_fMRI.svg')
+
+  cat2='habituation.min'
+  df_to_plot = split_continuous(df, 'cat', cat2)
+  df_to_plot = df_to_plot.rename({'cat':'value', 'quartiles':'variable', cat2:'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.set_xlabel('Connectivity category')
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_min.svg")
+
+  cat2='habituation.days'
+  df_to_plot = split_continuous(df, 'cat', cat2)
+  df_to_plot = df_to_plot.rename({'cat':'value', 'quartiles':'variable', cat2:'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.set_xlabel('Connectivity category')
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_days.svg")
+
+
+
+  print('doing statistical analysis')
+  print('first with '+analysis+' processed data')
+  cat2 = 'fd.mean'
+  chi2_continuous(df, 'cat', cat2, rodent)
+  cat2 = 'fd.max'
+  chi2_continuous(df, 'cat', cat2, rodent)
+  cat2 = 's1.gsrcov.l.'+analysis
+  chi2_continuous(df, 'cat', cat2, rodent)
+  cat2 = 's1.tsnr.l'
+  chi2_continuous(df, 'cat', cat2, rodent)
+  cat2 = 'habituation.min'
+  chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
+  cat2 = 'habituation.days'
+  chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
+
+  chi2_categorical(df, 'cat', 'short.habituation', rodent)
+  chi2_categorical(df, 'cat', 'main.experimenter.gender', rodent)
+  chi2_categorical(df, 'cat', 'rodent.sex', rodent)
+  chi2_categorical(df, 'cat', 'head-plate', rodent)
+  chi2_categorical(df, 'cat', 'body.restrained', rodent)
+  chi2_categorical(df, 'cat', 'anesthesia.before.acquisition', rodent)
+  chi2_categorical(df, 'cat', 'MRI.field.strength', rodent)
+  chi2_categorical(df, 'cat', 'fMRI.sequence', rodent)
 ```
 
     #### NOW DOING mouse ####
@@ -476,6 +478,7 @@ for rodent in rodent_list:
     | 3003      | y         | y          | y          | m          | 4               | 42              |
     | 3004      | n         | y          | y          | f          | 5               | 165             |
     | 3005      | y         | n          | y          | f          | 4               | 42              |
+
     information about the scanner and sequence
     lowest field strength was 7.0 T
     highest field strength was 15.2 T
@@ -703,6 +706,7 @@ for rodent in rodent_list:
     for comparing gsr to aCompCor processing, 8/20 dataset performed better with aCompCor compared to gsr
     for comparing gsr to aCompCor processing, 8/20 dataset performed worst with aCompCor compared to gsr
     #### plot fc categories per denoising method ####
+
     looking at value effect in variable in mouse
     | variable         | No       | Non-specific | Specific | Spurious |
     |------------------|----------|--------------|----------|----------|
@@ -716,178 +720,93 @@ for rodent in rodent_list:
     | s1.cat.wmcsf2    | 3.151278 | 1.102131     | 2.457343 | 4.400359 |
     | s1.cat.wmcsf3    | 3.192097 | 1.151114     | 2.783901 | 3.983999 |
     the effect of value on variable in mouse is q =  74.75 with p-value = 0.0, dof = 24
+
     doing statistical analysis
-    first with gsr3 processed data
+    first with wmcsf3 processed data
     looking at fd.mean effect in cat in mouse
     | cat      | lowest    | low       | high      | highest   |
     |----------|-----------|-----------|-----------|-----------|
-    | Specific | 5.518764  | 6.107432  | 5.518764  | 6.916851  |
-    | other    | 19.499632 | 18.910964 | 19.426049 | 18.101545 |
-    the effect of fd.mean on cat in mouse is q =  3.86 with p-value = 0.27722, dof = 3
+    | Specific | 5.813098  | 6.254599  | 5.813098  | 7.211185  |
+    | other    | 19.205298 | 18.763797 | 19.131714 | 17.807211 |
+    the effect of fd.mean on cat in mouse is q =  3.72 with p-value = 0.29326, dof = 3
     looking at fd.max effect in cat in mouse
     | cat      | lowest    | low       | high      | highest   |
     |----------|-----------|-----------|-----------|-----------|
-    | Specific | 5.665931  | 6.843267  | 5.886681  | 5.665931  |
-    | other    | 19.352465 | 18.175129 | 19.058131 | 19.352465 |
-    the effect of fd.max on cat in mouse is q =  2.8 with p-value = 0.42348, dof = 3
-    looking at s1.gsrcov.l.gsr3 effect in cat in mouse
-    | cat      | lowest    | low      | high      | highest   |
-    |----------|-----------|----------|-----------|-----------|
-    | Specific | 6.199262  | 5.97786  | 6.346863  | 5.535055  |
-    | other    | 18.819188 | 19.04059 | 18.597786 | 19.483395 |
-    the effect of s1.gsrcov.l.gsr3 on cat in mouse is q =  1.15 with p-value = 0.76484, dof = 3
+    | Specific | 6.033848  | 7.137601  | 6.033848  | 5.886681  |
+    | other    | 18.984547 | 17.880795 | 18.910964 | 19.131714 |
+    the effect of fd.max on cat in mouse is q =  2.9 with p-value = 0.40764, dof = 3
+    looking at s1.gsrcov.l.wmcsf3 effect in cat in mouse
+    | cat      | lowest    | low       | high     | highest   |
+    |----------|-----------|-----------|----------|-----------|
+    | Specific | 7.60709   | 6.20384   | 5.243722 | 6.05613   |
+    | other    | 17.429838 | 18.759232 | 19.71935 | 18.980798 |
+    the effect of s1.gsrcov.l.wmcsf3 on cat in mouse is q =  8.21 with p-value = 0.04195, dof = 3
     looking at s1.tsnr.l effect in cat in mouse
     | cat      | lowest    | low       | high      | highest   |
     |----------|-----------|-----------|-----------|-----------|
-    | Specific | 7.064018  | 4.415011  | 4.782929  | 7.799853  |
-    | other    | 17.954378 | 20.603385 | 20.161884 | 17.218543 |
-    the effect of s1.tsnr.l on cat in mouse is q =  24.75 with p-value = 2e-05, dof = 3
+    | Specific | 7.579102  | 4.562178  | 4.562178  | 8.388521  |
+    | other    | 17.439294 | 20.456218 | 20.382634 | 16.629875 |
+    the effect of s1.tsnr.l on cat in mouse is q =  34.62 with p-value = 0.0, dof = 3
     looking at habituation.min effect in cat in mouse
     | cat      | low       | high      |
     |----------|-----------|-----------|
-    | Specific | 14.401176 | 9.625276  |
-    | other    | 51.579721 | 24.393828 |
-    the effect of habituation.min on cat in mouse is q =  6.65 with p-value = 0.00991, dof = 1
+    | Specific | 14.695077 | 10.360029 |
+    | other    | 51.285819 | 23.659074 |
+    the effect of habituation.min on cat in mouse is q =  10.46 with p-value = 0.00122, dof = 1
     looking at habituation.days effect in cat in mouse
     | cat      | low       | high      |
     |----------|-----------|-----------|
-    | Specific | 14.548126 | 9.478325  |
-    | other    | 51.873622 | 24.099927 |
-    the effect of habituation.days on cat in mouse is q =  6.31 with p-value = 0.012, dof = 1
+    | Specific | 14.915503 | 10.139603 |
+    | other    | 51.506245 | 23.438648 |
+    the effect of habituation.days on cat in mouse is q =  9.28 with p-value = 0.00232, dof = 1
     looking at short.habituation effect in cat in mouse
     | cat      | long      | short     |
     |----------|-----------|-----------|
-    | Specific | 9.478325  | 14.548126 |
-    | other    | 24.099927 | 51.873622 |
-    the effect of short.habituation on cat in mouse is q =  6.31 with p-value = 0.012, dof = 1
+    | Specific | 10.139603 | 14.915503 |
+    | other    | 23.438648 | 51.506245 |
+    the effect of short.habituation on cat in mouse is q =  9.28 with p-value = 0.00232, dof = 1
     looking at main.experimenter.gender effect in cat in mouse
     | cat      | f         | m         |
     |----------|-----------|-----------|
-    | Specific | 12.784717 | 11.241734 |
-    | other    | 33.798677 | 42.174871 |
-    the effect of main.experimenter.gender on cat in mouse is q =  7.25 with p-value = 0.00708, dof = 1
+    | Specific | 13.445996 | 11.609111 |
+    | other    | 33.137399 | 41.807494 |
+    the effect of main.experimenter.gender on cat in mouse is q =  8.8 with p-value = 0.00302, dof = 1
     looking at rodent.sex effect in cat in mouse
     | cat      | f        | m         |
     |----------|----------|-----------|
-    | Specific | 4.243395 | 19.535629 |
-    | other    | 5.364291 | 70.856685 |
-    the effect of rodent.sex on cat in mouse is q =  29.21 with p-value = 0.0, dof = 1
+    | Specific | 3.923139 | 21.457166 |
+    | other    | 5.684548 | 68.935148 |
+    the effect of rodent.sex on cat in mouse is q =  15.85 with p-value = 7e-05, dof = 1
     looking at head-plate effect in cat in mouse
     | cat      | n        | y         |
     |----------|----------|-----------|
-    | Specific | 3.894195 | 20.132256 |
-    | other    | 4.114622 | 71.858927 |
-    the effect of head-plate on cat in mouse is q =  37.82 with p-value = 0.0, dof = 1
+    | Specific | 3.600294 | 21.454813 |
+    | other    | 4.408523 | 70.53637  |
+    the effect of head-plate on cat in mouse is q =  23.85 with p-value = 0.0, dof = 1
     looking at body.restrained effect in cat in mouse
     | cat      | n         | y         |
     |----------|-----------|-----------|
-    | Specific | 7.714916  | 16.311536 |
-    | other    | 22.703894 | 53.269655 |
-    the effect of body.restrained on cat in mouse is q =  0.48 with p-value = 0.48785, dof = 1
+    | Specific | 8.890522  | 16.164585 |
+    | other    | 21.528288 | 53.416605 |
+    the effect of body.restrained on cat in mouse is q =  5.2 with p-value = 0.02258, dof = 1
     looking at anesthesia.before.acquisition effect in cat in mouse
     | cat      | n        | y         |
     |----------|----------|-----------|
-    | Specific | 3.379868 | 20.646583 |
-    | other    | 8.082292 | 67.891256 |
-    the effect of anesthesia.before.acquisition on cat in mouse is q =  2.55 with p-value = 0.11027, dof = 1
+    | Specific | 3.379868 | 21.675239 |
+    | other    | 8.082292 | 66.862601 |
+    the effect of anesthesia.before.acquisition on cat in mouse is q =  1.59 with p-value = 0.20786, dof = 1
     looking at MRI.field.strength effect in cat in mouse
     | cat      | 7.0      | 9.4       | 11.7     | 15.2     |
     |----------|----------|-----------|----------|----------|
-    | Specific | 0.95518  | 18.883174 | 3.159442 | 1.028655 |
-    | other    | 1.542983 | 67.67083  | 4.261572 | 2.498163 |
-    the effect of MRI.field.strength on cat in mouse is q =  26.64 with p-value = 1e-05, dof = 3
+    | Specific | 1.028655 | 20.05878  | 3.232917 | 0.734754 |
+    | other    | 1.469508 | 66.495224 | 4.188097 | 2.792065 |
+    the effect of MRI.field.strength on cat in mouse is q =  25.81 with p-value = 1e-05, dof = 3
     looking at fMRI.sequence effect in cat in mouse
     | cat      | GE-EPI    | SE-EPI    |
     |----------|-----------|-----------|
-    | Specific | 10.139603 | 13.886848 |
-    | other    | 23.365173 | 52.608376 |
-    the effect of fMRI.sequence on cat in mouse is q =  14.1 with p-value = 0.00017, dof = 1
-    doing statistical analysis
-    first with aCompCor3 processed data
-    looking at fd.mean effect in cat in mouse
-    | cat      | lowest    | low      | high      | highest  |
-    |----------|-----------|----------|-----------|----------|
-    | Specific | 5.518764  | 6.181015 | 5.886681  | 6.401766 |
-    | other    | 19.499632 | 18.83738 | 19.058131 | 18.61663 |
-    the effect of fd.mean on cat in mouse is q =  1.3 with p-value = 0.73015, dof = 3
-    looking at fd.max effect in cat in mouse
-    | cat      | lowest    | low      | high     | highest   |
-    |----------|-----------|----------|----------|-----------|
-    | Specific | 5.592347  | 6.181015 | 6.107432 | 6.107432  |
-    | other    | 19.426049 | 18.83738 | 18.83738 | 18.910964 |
-    the effect of fd.max on cat in mouse is q =  0.67 with p-value = 0.87935, dof = 3
-    looking at s1.gsrcov.l.aCompCor3 effect in cat in mouse
-    | cat      | lowest    | low       | high      | highest   |
-    |----------|-----------|-----------|-----------|-----------|
-    | Specific | 5.747973  | 6.779661  | 5.969049  | 5.453206  |
-    | other    | 19.307296 | 18.201916 | 19.012528 | 19.528371 |
-    the effect of s1.gsrcov.l.aCompCor3 on cat in mouse is q =  2.92 with p-value = 0.40408, dof = 3
-    looking at s1.tsnr.l effect in cat in mouse
-    | cat      | lowest    | low       | high      | highest   |
-    |----------|-----------|-----------|-----------|-----------|
-    | Specific | 6.47535   | 5.518764  | 4.562178  | 7.431935  |
-    | other    | 18.543046 | 19.499632 | 20.382634 | 17.586461 |
-    the effect of s1.tsnr.l on cat in mouse is q =  13.5 with p-value = 0.00368, dof = 3
-    looking at habituation.min effect in cat in mouse
-    | cat      | low       | high     |
-    |----------|-----------|----------|
-    | Specific | 15.576782 | 8.376194 |
-    | other    | 50.404115 | 25.64291 |
-    the effect of habituation.min on cat in mouse is q =  0.12 with p-value = 0.72766, dof = 1
-    looking at habituation.days effect in cat in mouse
-    | cat      | low       | high      |
-    |----------|-----------|-----------|
-    | Specific | 15.797208 | 8.155768  |
-    | other    | 50.624541 | 25.422483 |
-    the effect of habituation.days on cat in mouse is q =  0.02 with p-value = 0.88931, dof = 1
-    looking at short.habituation effect in cat in mouse
-    | cat      | long      | short     |
-    |----------|-----------|-----------|
-    | Specific | 8.155768  | 15.797208 |
-    | other    | 25.422483 | 50.624541 |
-    the effect of short.habituation on cat in mouse is q =  0.02 with p-value = 0.88931, dof = 1
-    looking at main.experimenter.gender effect in cat in mouse
-    | cat      | f         | m         |
-    |----------|-----------|-----------|
-    | Specific | 11.241734 | 12.711242 |
-    | other    | 35.341661 | 40.705364 |
-    the effect of main.experimenter.gender on cat in mouse is q =  0.01 with p-value = 0.93525, dof = 1
-    looking at rodent.sex effect in cat in mouse
-    | cat      | f        | m         |
-    |----------|----------|-----------|
-    | Specific | 2.882306 | 21.216974 |
-    | other    | 6.72538  | 69.17534  |
-    the effect of rodent.sex on cat in mouse is q =  2.18 with p-value = 0.13957, dof = 1
-    looking at head-plate effect in cat in mouse
-    | cat      | n        | y         |
-    |----------|----------|-----------|
-    | Specific | 2.351212 | 21.601763 |
-    | other    | 5.657605 | 70.38942  |
-    the effect of head-plate on cat in mouse is q =  1.59 with p-value = 0.20713, dof = 1
-    looking at body.restrained effect in cat in mouse
-    | cat      | n         | y         |
-    |----------|-----------|-----------|
-    | Specific | 8.082292  | 15.870683 |
-    | other    | 22.336517 | 53.710507 |
-    the effect of body.restrained on cat in mouse is q =  2.04 with p-value = 0.15367, dof = 1
-    looking at anesthesia.before.acquisition effect in cat in mouse
-    | cat      | n        | y        |
-    |----------|----------|----------|
-    | Specific | 2.130786 | 21.82219 |
-    | other    | 9.331374 | 66.71565 |
-    the effect of anesthesia.before.acquisition on cat in mouse is q =  2.46 with p-value = 0.1168, dof = 1
-    looking at MRI.field.strength effect in cat in mouse
-    | cat      | 7.0      | 9.4       | 11.7     | 15.2     |
-    |----------|----------|-----------|----------|----------|
-    | Specific | 0.661278 | 19.764879 | 2.498163 | 1.028655 |
-    | other    | 1.836885 | 66.789126 | 4.922851 | 2.498163 |
-    the effect of MRI.field.strength on cat in mouse is q =  6.87 with p-value = 0.07614, dof = 3
-    looking at fMRI.sequence effect in cat in mouse
-    | cat      | GE-EPI    | SE-EPI    |
-    |----------|-----------|-----------|
-    | Specific | 8.963997  | 14.988979 |
-    | other    | 24.540779 | 51.506245 |
-    the effect of fMRI.sequence on cat in mouse is q =  2.73 with p-value = 0.09862, dof = 1
+    | Specific | 10.286554 | 14.768553 |
+    | other    | 23.218222 | 51.726672 |
+    the effect of fMRI.sequence on cat in mouse is q =  11.2 with p-value = 0.00082, dof = 1
     #### NOW DOING rat ####
     summary of the data that we collected
     we processed 9 datasets
@@ -908,6 +827,7 @@ for rodent in rodent_list:
     | 2005      | 5         | 3            | 5              | Wistar              |
     | 2006      | 23        | 23           | 23             | Black hooded Lister |
     | 4001      | 290       | 89           | 60             | Long-Evans          |
+
     information about sex ratio
     the datasets contained 445 male runs and 22 female runs
     that corresponds to 4.71% females 
@@ -1109,6 +1029,7 @@ for rodent in rodent_list:
     for comparing gsr to aCompCor processing, 3/9 dataset performed better with aCompCor compared to gsr
     for comparing gsr to aCompCor processing, 4/9 dataset performed worst with aCompCor compared to gsr
     #### plot fc categories per denoising method ####
+
     looking at value effect in variable in mouse
     | variable         | No       | Non-specific | Specific | Spurious |
     |------------------|----------|--------------|----------|----------|
@@ -1208,89 +1129,3 @@ for rodent in rodent_list:
     | Specific | 40.506329 | 1.265823 |
     | other    | 55.274262 | 2.953586 |
     the effect of fMRI.sequence on cat in rat is q =  0.2 with p-value = 0.65727, dof = 1
-    doing statistical analysis
-    first with aCompCor3 processed data
-    looking at fd.mean effect in cat in rat
-    | cat      | lowest    | low       | high      | highest   |
-    |----------|-----------|-----------|-----------|-----------|
-    | Specific | 8.860759  | 11.392405 | 8.016878  | 8.438819  |
-    | other    | 16.455696 | 13.50211  | 16.877637 | 16.455696 |
-    the effect of fd.mean on cat in rat is q =  2.87 with p-value = 0.4116, dof = 3
-    looking at fd.max effect in cat in rat
-    | cat      | lowest    | low       | high      | highest   |
-    |----------|-----------|-----------|-----------|-----------|
-    | Specific | 11.814346 | 10.126582 | 7.594937  | 7.172996  |
-    | other    | 13.50211  | 14.767932 | 17.299578 | 17.721519 |
-    the effect of fd.max on cat in rat is q =  5.52 with p-value = 0.13744, dof = 3
-    looking at s1.gsrcov.l.aCompCor3 effect in cat in rat
-    | cat      | lowest    | low       | high      | highest   |
-    |----------|-----------|-----------|-----------|-----------|
-    | Specific | 9.2827    | 8.438819  | 11.392405 | 7.594937  |
-    | other    | 16.033755 | 16.455696 | 13.50211  | 17.299578 |
-    the effect of s1.gsrcov.l.aCompCor3 on cat in rat is q =  3.26 with p-value = 0.35345, dof = 3
-    looking at s1.tsnr.l effect in cat in rat
-    | cat      | lowest    | low       | high      | highest   |
-    |----------|-----------|-----------|-----------|-----------|
-    | Specific | 7.594937  | 10.126582 | 8.438819  | 10.548523 |
-    | other    | 17.721519 | 14.767932 | 16.455696 | 14.345992 |
-    the effect of s1.tsnr.l on cat in rat is q =  2.58 with p-value = 0.46142, dof = 3
-    looking at habituation.min effect in cat in rat
-    | cat      | low       | high      |
-    |----------|-----------|-----------|
-    | Specific | 20.675105 | 16.033755 |
-    | other    | 30.379747 | 32.911392 |
-    the effect of habituation.min on cat in rat is q =  1.21 with p-value = 0.27111, dof = 1
-    looking at habituation.days effect in cat in rat
-    | cat      | low       |
-    |----------|-----------|
-    | Specific | 36.708861 |
-    | other    | 63.291139 |
-    the effect of habituation.days on cat in rat is q =  0.0 with p-value = 1.0, dof = 0
-    looking at short.habituation effect in cat in rat
-    | cat      | long      | short    |
-    |----------|-----------|----------|
-    | Specific | 35.443038 | 1.265823 |
-    | other    | 59.493671 | 3.797468 |
-    the effect of short.habituation on cat in rat is q =  0.31 with p-value = 0.578, dof = 1
-    looking at main.experimenter.gender effect in cat in rat
-    | cat      | f         | m         |
-    |----------|-----------|-----------|
-    | Specific | 18.987342 | 17.721519 |
-    | other    | 31.64557  | 31.64557  |
-    the effect of main.experimenter.gender on cat in rat is q =  0.01 with p-value = 0.90359, dof = 1
-    looking at rodent.sex effect in cat in rat
-    | cat      | f        | m         |
-    |----------|----------|-----------|
-    | Specific | 4.219409 | 32.489451 |
-    | other    | 5.063291 | 58.227848 |
-    the effect of rodent.sex on cat in rat is q =  0.44 with p-value = 0.50841, dof = 1
-    looking at head-plate effect in cat in rat
-    | cat      | n         | y         |
-    |----------|-----------|-----------|
-    | Specific | 20.675105 | 16.033755 |
-    | other    | 30.379747 | 32.911392 |
-    the effect of head-plate on cat in rat is q =  1.21 with p-value = 0.27111, dof = 1
-    looking at body.restrained effect in cat in rat
-    | cat      | y         |
-    |----------|-----------|
-    | Specific | 36.708861 |
-    | other    | 63.291139 |
-    the effect of body.restrained on cat in rat is q =  0.0 with p-value = 1.0, dof = 0
-    looking at anesthesia.before.acquisition effect in cat in rat
-    | cat      | n        | y         |
-    |----------|----------|-----------|
-    | Specific | 1.687764 | 35.021097 |
-    | other    | 6.329114 | 56.962025 |
-    the effect of anesthesia.before.acquisition on cat in rat is q =  1.51 with p-value = 0.21941, dof = 1
-    looking at MRI.field.strength effect in cat in rat
-    | cat      | 7.0       | 9.4       |
-    |----------|-----------|-----------|
-    | Specific | 31.223629 | 5.485232  |
-    | other    | 51.054852 | 12.236287 |
-    the effect of MRI.field.strength on cat in rat is q =  0.46 with p-value = 0.49853, dof = 1
-    looking at fMRI.sequence effect in cat in rat
-    | cat      | GE-EPI    | SE-EPI   |
-    |----------|-----------|----------|
-    | Specific | 35.021097 | 1.687764 |
-    | other    | 60.759494 | 2.531646 |
-    the effect of fMRI.sequence on cat in rat is q =  0.0 with p-value = 1.0, dof = 1

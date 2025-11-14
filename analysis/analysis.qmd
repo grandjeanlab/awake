@@ -266,160 +266,162 @@ for rodent in rodent_list:
 
   chi2_categorical(df_melted, 'variable','value', 'mouse')
 
+  if rodent=="mouse":
+    analysis = "wmcsf3"
+  else:
+    analysis = "gsr3"
 
-  analysis_sub = ['gsr3', 'aCompCor3']
-  for analysis in analysis_sub:
-    plt.figure(figsize=(10,5))
-    ax = makespecificityplot(rodent+': S1 specificity with ' + analysis, df['s1.specific.'+analysis], df['s1.unspecific.'+analysis])
-    ax.figure.savefig("../assets/plot/specific/"+rodent+"_s1_specificity_"+analysis+".svg")
+  plt.figure(figsize=(10,5))
+  ax = makespecificityplot(rodent+': S1 specificity with ' + analysis, df['s1.specific.'+analysis], df['s1.unspecific.'+analysis])
+  ax.figure.savefig("../assets/plot/specific/"+rodent+"_s1_specificity_"+analysis+".svg")
 
-    plt.figure(figsize=(10,5))
-    ax = makespecificityplot(rodent+': Thal FC specificity with ' + analysis, df['thal.specific.'+analysis], df['s1.unspecific.'+analysis])
-    ax.figure.savefig("../assets/plot/specific/"+rodent+"_thal_specificity_"+analysis+".svg")
+  plt.figure(figsize=(10,5))
+  ax = makespecificityplot(rodent+': Thal FC specificity with ' + analysis, df['thal.specific.'+analysis], df['s1.unspecific.'+analysis])
+  ax.figure.savefig("../assets/plot/specific/"+rodent+"_thal_specificity_"+analysis+".svg")
 
-    cat1='s1.cat.'+analysis
-    df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
+  cat1='s1.cat.'+analysis
+  df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
 
-    cat2 = 'fd.mean'
-    df_to_plot = split_continuous(df, cat1, cat2)
-    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+  cat2 = 'fd.mean'
+  df_to_plot = split_continuous(df, cat1, cat2)
+  df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
 
-    plt.figure(figsize=(10,5))
-    ax = makestackplot(df_to_plot)
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd.svg")
+  plt.figure(figsize=(10,5))
+  ax = makestackplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd.svg")
 
-    plt.figure(figsize=(10,5))
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd_violin.svg")
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.set_xlabel('Connectivity category')
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd_violin.svg")
 
-    cat2 = 'fd.max'
-    df_to_plot = split_continuous(df, cat1, cat2)
-    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+  cat2 = 'fd.max'
+  df_to_plot = split_continuous(df, cat1, cat2)
+  df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
 
-    plt.figure(figsize=(10,5))
-    ax = makestackplot(df_to_plot)
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fdmax.svg")
+  plt.figure(figsize=(10,5))
+  ax = makestackplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fdmax.svg")
 
-    plt.figure(figsize=(10,5))
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fdmax_violin.svg")
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.set_xlabel('Connectivity category')
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fdmax_violin.svg")
 
-    cat2='s1.gsrcov.l.'+analysis
-    df_to_plot = split_continuous(df, cat1, cat2)
-    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
-    plt.figure(figsize=(10,5))
-    ax = makestackplot(df_to_plot)
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov.svg")
+  cat2='s1.gsrcov.l.'+analysis
+  df_to_plot = split_continuous(df, cat1, cat2)
+  df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makestackplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov.svg")
 
-    plt.figure(figsize=(10,5))
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov_violin.svg")
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.set_xlabel('Connectivity category')
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov_violin.svg")
 
-    cat2='s1.tsnr.l'
-    df_to_plot = split_continuous(df, cat1, cat2)
-    df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
-    plt.figure(figsize=(10,5))
-    ax = makestackplot(df_to_plot)
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr.svg")
+  cat2='s1.tsnr.l'
+  df_to_plot = split_continuous(df, cat1, cat2)
+  df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makestackplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr.svg")
 
-    plt.figure(figsize=(10,5))
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr_violin.svg")
-
-
-    cat2='main.experimenter.gender'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_expgender.svg')
-
-    cat2='rodent.sex'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_sex.svg')
-
-    cat2='head-plate'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_headplate.svg')
-
-    cat2='body.restrained'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_restrained.svg')
-
-    cat2='short.habituation'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_shorthabituation.svg')
-
-    cat2='anesthesia.before.acquisition'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_anesthesia.svg')
-
-    cat2='MRI.field.strength'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_MRI.svg')
-
-    cat2='fMRI.sequence'
-    df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-    plt.figure(figsize=(10,5))
-    ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-    ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_fMRI.svg')
-
-    cat2='habituation.min'
-    df_to_plot = split_continuous(df, 'cat', cat2)
-    df_to_plot = df_to_plot.rename({'cat':'value', 'quartiles':'variable', cat2:'cont_variable'})
-    plt.figure(figsize=(10,5))
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_min.svg")
-
-    cat2='habituation.days'
-    df_to_plot = split_continuous(df, 'cat', cat2)
-    df_to_plot = df_to_plot.rename({'cat':'value', 'quartiles':'variable', cat2:'cont_variable'})
-    plt.figure(figsize=(10,5))
-    ax = makeviolinplot(df_to_plot)
-    ax.set_xlabel('Connectivity category')
-    ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_days.svg")
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.set_xlabel('Connectivity category')
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr_violin.svg")
 
 
+  cat2='main.experimenter.gender'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_expgender.svg')
 
-    print('doing statistical analysis')
-    print('first with '+analysis+' processed data')
-    cat2 = 'fd.mean'
-    chi2_continuous(df, 'cat', cat2, rodent)
-    cat2 = 'fd.max'
-    chi2_continuous(df, 'cat', cat2, rodent)
-    cat2 = 's1.gsrcov.l.'+analysis
-    chi2_continuous(df, 'cat', cat2, rodent)
-    cat2 = 's1.tsnr.l'
-    chi2_continuous(df, 'cat', cat2, rodent)
-    cat2 = 'habituation.min'
-    chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
-    cat2 = 'habituation.days'
-    chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
+  cat2='rodent.sex'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_sex.svg')
 
-    chi2_categorical(df, 'cat', 'short.habituation', rodent)
-    chi2_categorical(df, 'cat', 'main.experimenter.gender', rodent)
-    chi2_categorical(df, 'cat', 'rodent.sex', rodent)
-    chi2_categorical(df, 'cat', 'head-plate', rodent)
-    chi2_categorical(df, 'cat', 'body.restrained', rodent)
-    chi2_categorical(df, 'cat', 'anesthesia.before.acquisition', rodent)
-    chi2_categorical(df, 'cat', 'MRI.field.strength', rodent)
-    chi2_categorical(df, 'cat', 'fMRI.sequence', rodent)
+  cat2='head-plate'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_headplate.svg')
+
+  cat2='body.restrained'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_restrained.svg')
+
+  cat2='short.habituation'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_shorthabituation.svg')
+
+  cat2='anesthesia.before.acquisition'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_anesthesia.svg')
+
+  cat2='MRI.field.strength'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_MRI.svg')
+
+  cat2='fMRI.sequence'
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
+  plt.figure(figsize=(10,5))
+  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
+  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_fMRI.svg')
+
+  cat2='habituation.min'
+  df_to_plot = split_continuous(df, 'cat', cat2)
+  df_to_plot = df_to_plot.rename({'cat':'value', 'quartiles':'variable', cat2:'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.set_xlabel('Connectivity category')
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_min.svg")
+
+  cat2='habituation.days'
+  df_to_plot = split_continuous(df, 'cat', cat2)
+  df_to_plot = df_to_plot.rename({'cat':'value', 'quartiles':'variable', cat2:'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.set_xlabel('Connectivity category')
+  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_days.svg")
+
+
+
+  print('doing statistical analysis')
+  print('first with '+analysis+' processed data')
+  cat2 = 'fd.mean'
+  chi2_continuous(df, 'cat', cat2, rodent)
+  cat2 = 'fd.max'
+  chi2_continuous(df, 'cat', cat2, rodent)
+  cat2 = 's1.gsrcov.l.'+analysis
+  chi2_continuous(df, 'cat', cat2, rodent)
+  cat2 = 's1.tsnr.l'
+  chi2_continuous(df, 'cat', cat2, rodent)
+  cat2 = 'habituation.min'
+  chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
+  cat2 = 'habituation.days'
+  chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
+
+  chi2_categorical(df, 'cat', 'short.habituation', rodent)
+  chi2_categorical(df, 'cat', 'main.experimenter.gender', rodent)
+  chi2_categorical(df, 'cat', 'rodent.sex', rodent)
+  chi2_categorical(df, 'cat', 'head-plate', rodent)
+  chi2_categorical(df, 'cat', 'body.restrained', rodent)
+  chi2_categorical(df, 'cat', 'anesthesia.before.acquisition', rodent)
+  chi2_categorical(df, 'cat', 'MRI.field.strength', rodent)
+  chi2_categorical(df, 'cat', 'fMRI.sequence', rodent)
 
 
 ```

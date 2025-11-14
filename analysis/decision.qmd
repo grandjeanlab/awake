@@ -29,7 +29,7 @@ df_rat = pl.read_csv("../assets/tables/rat_metadata_processed.tsv", separator="\
 selector = ['rodent.species', 'rodent.sex', 'main.experimenter.gender', 'head-plate', 'body.restrained', 'anesthesia.before.acquisition', 'MRI.field.strength', 'MRI.cryocoil', 'fMRI.sequence', 'MRI.TR', 'MRI.TE', 'fd.mean', 'total.frames', 'habituation.min', 'habituation.days', 's1.tsnr.l', 's1.tsnr.r', 's1.gsrcov.l.gsr3', 's1.gsrcov.r.gsr3', 'dropped.frames.gsr3', 's1.cat.gsr3','s1.gsrcov.l.aCompCor3', 's1.gsrcov.r.aCompCor3', 'dropped.frames.aCompCor3', 's1.cat.aCompCor3' ]
 
 
-selectorX = ['rodent.species', 'rodent.sex', 'main.experimenter.gender', 'head-plate', 'body.restrained', 'anesthesia.before.acquisition', 'MRI.field.strength', 'MRI.cryocoil', 'fMRI.sequence', 'MRI.TR', 'MRI.TE', 'fd.mean', 'total.frames','habituation.min', 'habituation.days', 's1.tsnr.l', 's1.tsnr.r', 's1.gsrcov.l.gsr3', 's1.gsrcov.r.gsr3', 'dropped.frames.gsr3', 's1.gsrcov.l.aCompCor3', 's1.gsrcov.r.aCompCor3', 'dropped.frames.aCompCor3']
+selectorX = ['rodent.species', 'rodent.sex', 'main.experimenter.gender', 'head-plate', 'body.restrained', 'anesthesia.before.acquisition', 'MRI.field.strength', 'MRI.cryocoil', 'fMRI.sequence', 'MRI.TR', 'MRI.TE', 'fd.mean', 'total.frames','habituation.min', 'habituation.days',  'dropped.frames.gsr3', 'dropped.frames.aCompCor3']
 
 selectorY = 'cat.aCompCor3'
 
@@ -104,7 +104,7 @@ tree_clf = grid_search.best_estimator_
 
 plt.figure(figsize=(18, 15))
 plot_tree(tree_clf, filled=True, feature_names=selectorX,
-          class_names=df[selectoxY].unique().cast(pl.Utf8).to_list(), rounded=True, fontsize=10)
+          class_names=df[selectorY].unique().cast(pl.Utf8).to_list(), rounded=True, fontsize=10)
 plt.show()
 
 ```
