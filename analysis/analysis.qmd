@@ -195,6 +195,26 @@ for rodent in rodent_list:
   print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
 
 
+  print("sanity test for manuscript, habituation on motion")
+  t = ttest(df.filter(pl.col('short.habituation')=='long')['fd.max'], df.filter(pl.col('short.habituation')=='short')['fd.max'])
+  print('t-test for long habituation max.fd > short habituation mean.fd') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  
+  print("sanity test for manuscript, sex on motion")
+  t = ttest(df.filter(pl.col('rodent.sex')=='m')['fd.max'], df.filter(pl.col('rodent.sex')=='f')['fd.max'])
+  print('t-test for male rodent max.fd > female rodent mean.fd') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  
+  print("sanity test for manuscript, exp gender on motion")
+  t = ttest(df.filter(pl.col('main.experimenter.gender')=='m')['fd.max'], df.filter(pl.col('main.experimenter.gender')=='f')['fd.max'])
+  print('t-test for man max.fd > woman mean.fd') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  
+  print("sanity test for manuscript, exp gender on motion")
+  t = ttest(df.filter(pl.col('main.experimenter.gender')=='m')['fd.mean'], df.filter(pl.col('main.experimenter.gender')=='f')['fd.mean'])
+  print('t-test for man max.fd > woman mean.fd') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+ 
 
 #let's extract some infomation about tsnr and summarize it per dataset
   print("#### tSNR ANALYISIS ####")
@@ -413,6 +433,15 @@ for rodent in rodent_list:
   chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
   cat2 = 'habituation.days'
   chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
+
+  print('sanity test for manuscript, look at the association between dropped frames and framewise displacement')
+  split=4 
+  labels = ["lowest","low","high","highest"]
+  cat1='dropped.frames.gsr1.perc'
+  cat2='fd.max'
+  df = df.with_columns((100*pl.col("dropped.frames.gsr1")/pl.col("total.frames")).alias(cat1))
+  df = df.with_columns(pl.col(cat1).qcut(split, labels=labels, allow_duplicates=True).alias('cat1quartiles'))
+  chi2_continuous(df, 'cat1quartiles', cat2, rodent)
 
   chi2_categorical(df, 'cat', 'short.habituation', rodent)
   chi2_categorical(df, 'cat', 'main.experimenter.gender', rodent)

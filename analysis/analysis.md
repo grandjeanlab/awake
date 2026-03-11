@@ -186,6 +186,26 @@ for rodent in rodent_list:
   print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
 
 
+  print("sanity test for manuscript, habituation on motion")
+  t = ttest(df.filter(pl.col('short.habituation')=='long')['fd.max'], df.filter(pl.col('short.habituation')=='short')['fd.max'])
+  print('t-test for long habituation max.fd > short habituation mean.fd') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  
+  print("sanity test for manuscript, sex on motion")
+  t = ttest(df.filter(pl.col('rodent.sex')=='m')['fd.max'], df.filter(pl.col('rodent.sex')=='f')['fd.max'])
+  print('t-test for male rodent max.fd > female rodent mean.fd') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  
+  print("sanity test for manuscript, exp gender on motion")
+  t = ttest(df.filter(pl.col('main.experimenter.gender')=='m')['fd.max'], df.filter(pl.col('main.experimenter.gender')=='f')['fd.max'])
+  print('t-test for man max.fd > woman mean.fd') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  
+  print("sanity test for manuscript, exp gender on motion")
+  t = ttest(df.filter(pl.col('main.experimenter.gender')=='m')['fd.mean'], df.filter(pl.col('main.experimenter.gender')=='f')['fd.mean'])
+  print('t-test for man max.fd > woman mean.fd') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+ 
 
 #let's extract some infomation about tsnr and summarize it per dataset
   print("#### tSNR ANALYISIS ####")
@@ -405,6 +425,15 @@ for rodent in rodent_list:
   cat2 = 'habituation.days'
   chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
 
+  print('sanity test for manuscript, look at the association between dropped frames and framewise displacement')
+  split=4 
+  labels = ["lowest","low","high","highest"]
+  cat1='dropped.frames.gsr1.perc'
+  cat2='fd.max'
+  df = df.with_columns((100*pl.col("dropped.frames.gsr1")/pl.col("total.frames")).alias(cat1))
+  df = df.with_columns(pl.col(cat1).qcut(split, labels=labels, allow_duplicates=True).alias('cat1quartiles'))
+  chi2_continuous(df, 'cat1quartiles', cat2, rodent)
+
   chi2_categorical(df, 'cat', 'short.habituation', rodent)
   chi2_categorical(df, 'cat', 'main.experimenter.gender', rodent)
   chi2_categorical(df, 'cat', 'rodent.sex', rodent)
@@ -537,6 +566,18 @@ for rodent in rodent_list:
     t=2.09, p=0.03895, dof=124.45
     t-test for head-plate max.fd > no head-plate mean.fd
     t=2.73, p=0.00729, dof=130.73
+    sanity test for manuscript, habituation on motion
+    t-test for long habituation max.fd > short habituation mean.fd
+    t=-15.34, p=0.0, dof=774.64
+    sanity test for manuscript, sex on motion
+    t-test for male rodent max.fd > female rodent mean.fd
+    t=0.22, p=0.82791, dof=143.01
+    sanity test for manuscript, exp gender on motion
+    t-test for man max.fd > woman mean.fd
+    t=3.89, p=0.00011, dof=1282.06
+    sanity test for manuscript, exp gender on motion
+    t-test for man max.fd > woman mean.fd
+    t=2.29, p=0.02209, dof=1143.0
     #### tSNR ANALYISIS ####
     tSNR across all mouse datasets
     | s1.tsnr.l |
@@ -759,6 +800,15 @@ for rodent in rodent_list:
     | Specific | 14.915503 | 10.139603 |
     | other    | 51.506245 | 23.438648 |
     the effect of habituation.days on cat in mouse is q =  9.28 with p-value = 0.00232, dof = 1
+    sanity test for manuscript, look at the association between dropped frames and framewise displacement
+    looking at fd.max effect in cat1quartiles in mouse
+    | cat1quartiles | lowest    | low      | high     | highest  |
+    |---------------|-----------|----------|----------|----------|
+    | lowest        | 19.941133 | 3.458425 | 1.103753 | 0.883002 |
+    | low           | 3.826343  | 8.830022 | 6.254599 | 6.843267 |
+    | high          | 0.956586  | 6.843267 | 8.388521 | 7.652686 |
+    | highest       | 0.294334  | 5.886681 | 9.19794  | 9.639441 |
+    the effect of fd.max on cat1quartiles in mouse is q =  763.02 with p-value = 0.0, dof = 9
     looking at short.habituation effect in cat in mouse
     | cat      | long      | short     |
     |----------|-----------|-----------|
@@ -827,7 +877,6 @@ for rodent in rodent_list:
     | 2005      | 5         | 3            | 5              | Wistar              |
     | 2006      | 23        | 23           | 23             | Black hooded Lister |
     | 4001      | 290       | 89           | 60             | Long-Evans          |
-
     information about sex ratio
     the datasets contained 445 male runs and 22 female runs
     that corresponds to 4.71% females 
@@ -848,6 +897,7 @@ for rodent in rodent_list:
     | 2005      | n         | y          | y          | m          | 9               | 360             |
     | 2006      | n         | y          | y          | m          | 8               | 250             |
     | 4001      | n         | y          | y          | m          | 7               | 330             |
+
     information about the scanner and sequence
     lowest field strength was 7.0 T
     highest field strength was 9.4 T
@@ -884,6 +934,18 @@ for rodent in rodent_list:
     t=0.74, p=0.4587, dof=203.84
     t-test for head-plate max.fd > no head-plate mean.fd
     t=-6.46, p=0.0, dof=198.95
+    sanity test for manuscript, habituation on motion
+    t-test for long habituation max.fd > short habituation mean.fd
+    t=-1.59, p=0.13829, dof=12.16
+    sanity test for manuscript, sex on motion
+    t-test for male rodent max.fd > female rodent mean.fd
+    t=6.05, p=0.0, dof=57.14
+    sanity test for manuscript, exp gender on motion
+    t-test for man max.fd > woman mean.fd
+    t=5.41, p=0.0, dof=190.19
+    sanity test for manuscript, exp gender on motion
+    t-test for man max.fd > woman mean.fd
+    t=-3.28, p=0.00122, dof=222.91
     #### tSNR ANALYISIS ####
     tSNR across all rat datasets
     | s1.tsnr.l |
@@ -1081,6 +1143,15 @@ for rodent in rodent_list:
     | Specific | 41.772152 |
     | other    | 58.227848 |
     the effect of habituation.days on cat in rat is q =  0.0 with p-value = 1.0, dof = 0
+    sanity test for manuscript, look at the association between dropped frames and framewise displacement
+    looking at fd.max effect in cat1quartiles in rat
+    | cat1quartiles | lowest    | low      | high     | highest   |
+    |---------------|-----------|----------|----------|-----------|
+    | lowest        | 15.189873 | 6.329114 | 2.109705 | 1.687764  |
+    | low           | 5.907173  | 7.594937 | 6.329114 | 6.329114  |
+    | high          | 3.375527  | 5.907173 | 7.594937 | 6.751055  |
+    | highest       | 0.843882  | 5.063291 | 8.860759 | 10.126582 |
+    the effect of fd.max on cat1quartiles in rat is q =  68.25 with p-value = 0.0, dof = 9
     looking at short.habituation effect in cat in rat
     | cat      | long      | short    |
     |----------|-----------|----------|
