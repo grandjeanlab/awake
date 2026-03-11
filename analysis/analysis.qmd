@@ -191,28 +191,28 @@ for rodent in rodent_list:
   ax.figure.savefig("../assets/plot/"+rodent+"_fdmax_headplate_violin.svg")
   
   t = ttest(df.filter(pl.col('head-plate')=='y')['fd.max'], df.filter(pl.col('head-plate')=='n')['fd.max'])
-  print('t-test for head-plate max.fd > no head-plate mean.fd') 
+  print('t-test for head-plate max.fd > no head-plate max.fd') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
 
 
   print("sanity test for manuscript, habituation on motion")
   t = ttest(df.filter(pl.col('short.habituation')=='long')['fd.max'], df.filter(pl.col('short.habituation')=='short')['fd.max'])
-  print('t-test for long habituation max.fd > short habituation mean.fd') 
+  print('t-test for long habituation max.fd > short habituation max.fd') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
   
   print("sanity test for manuscript, sex on motion")
   t = ttest(df.filter(pl.col('rodent.sex')=='m')['fd.max'], df.filter(pl.col('rodent.sex')=='f')['fd.max'])
-  print('t-test for male rodent max.fd > female rodent mean.fd') 
+  print('t-test for male rodent max.fd > female rodent max.fd') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
   
   print("sanity test for manuscript, exp gender on motion")
   t = ttest(df.filter(pl.col('main.experimenter.gender')=='m')['fd.max'], df.filter(pl.col('main.experimenter.gender')=='f')['fd.max'])
-  print('t-test for man max.fd > woman mean.fd') 
+  print('t-test for man max.fd > woman max.fd') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
   
   print("sanity test for manuscript, exp gender on motion")
   t = ttest(df.filter(pl.col('main.experimenter.gender')=='m')['fd.mean'], df.filter(pl.col('main.experimenter.gender')=='f')['fd.mean'])
-  print('t-test for man max.fd > woman mean.fd') 
+  print('t-test for man mean.fd > woman mean.fd') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
  
 

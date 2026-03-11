@@ -182,28 +182,28 @@ for rodent in rodent_list:
   ax.figure.savefig("../assets/plot/"+rodent+"_fdmax_headplate_violin.svg")
   
   t = ttest(df.filter(pl.col('head-plate')=='y')['fd.max'], df.filter(pl.col('head-plate')=='n')['fd.max'])
-  print('t-test for head-plate max.fd > no head-plate mean.fd') 
+  print('t-test for head-plate max.fd > no head-plate max.fd') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
 
 
   print("sanity test for manuscript, habituation on motion")
   t = ttest(df.filter(pl.col('short.habituation')=='long')['fd.max'], df.filter(pl.col('short.habituation')=='short')['fd.max'])
-  print('t-test for long habituation max.fd > short habituation mean.fd') 
+  print('t-test for long habituation max.fd > short habituation max.fd') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
   
   print("sanity test for manuscript, sex on motion")
   t = ttest(df.filter(pl.col('rodent.sex')=='m')['fd.max'], df.filter(pl.col('rodent.sex')=='f')['fd.max'])
-  print('t-test for male rodent max.fd > female rodent mean.fd') 
+  print('t-test for male rodent max.fd > female rodent max.fd') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
   
   print("sanity test for manuscript, exp gender on motion")
   t = ttest(df.filter(pl.col('main.experimenter.gender')=='m')['fd.max'], df.filter(pl.col('main.experimenter.gender')=='f')['fd.max'])
-  print('t-test for man max.fd > woman mean.fd') 
+  print('t-test for man max.fd > woman max.fd') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
   
   print("sanity test for manuscript, exp gender on motion")
   t = ttest(df.filter(pl.col('main.experimenter.gender')=='m')['fd.mean'], df.filter(pl.col('main.experimenter.gender')=='f')['fd.mean'])
-  print('t-test for man max.fd > woman mean.fd') 
+  print('t-test for man mean.fd > woman mean.fd') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
  
 
@@ -564,19 +564,19 @@ for rodent in rodent_list:
     number of scans with max FD > 0.45 mm: 537/1361
     t-test for head-plate mean.fd > no head-plate mean.fd
     t=2.09, p=0.03895, dof=124.45
-    t-test for head-plate max.fd > no head-plate mean.fd
+    t-test for head-plate max.fd > no head-plate max.fd
     t=2.73, p=0.00729, dof=130.73
     sanity test for manuscript, habituation on motion
-    t-test for long habituation max.fd > short habituation mean.fd
+    t-test for long habituation max.fd > short habituation max.fd
     t=-15.34, p=0.0, dof=774.64
     sanity test for manuscript, sex on motion
-    t-test for male rodent max.fd > female rodent mean.fd
+    t-test for male rodent max.fd > female rodent max.fd
     t=0.22, p=0.82791, dof=143.01
     sanity test for manuscript, exp gender on motion
-    t-test for man max.fd > woman mean.fd
+    t-test for man max.fd > woman max.fd
     t=3.89, p=0.00011, dof=1282.06
     sanity test for manuscript, exp gender on motion
-    t-test for man max.fd > woman mean.fd
+    t-test for man mean.fd > woman mean.fd
     t=2.29, p=0.02209, dof=1143.0
     #### tSNR ANALYISIS ####
     tSNR across all mouse datasets
@@ -932,19 +932,19 @@ for rodent in rodent_list:
     number of scans with max FD > 0.45 mm: 71/237
     t-test for head-plate mean.fd > no head-plate mean.fd
     t=0.74, p=0.4587, dof=203.84
-    t-test for head-plate max.fd > no head-plate mean.fd
+    t-test for head-plate max.fd > no head-plate max.fd
     t=-6.46, p=0.0, dof=198.95
     sanity test for manuscript, habituation on motion
-    t-test for long habituation max.fd > short habituation mean.fd
+    t-test for long habituation max.fd > short habituation max.fd
     t=-1.59, p=0.13829, dof=12.16
     sanity test for manuscript, sex on motion
-    t-test for male rodent max.fd > female rodent mean.fd
+    t-test for male rodent max.fd > female rodent max.fd
     t=6.05, p=0.0, dof=57.14
     sanity test for manuscript, exp gender on motion
-    t-test for man max.fd > woman mean.fd
+    t-test for man max.fd > woman max.fd
     t=5.41, p=0.0, dof=190.19
     sanity test for manuscript, exp gender on motion
-    t-test for man max.fd > woman mean.fd
+    t-test for man mean.fd > woman mean.fd
     t=-3.28, p=0.00122, dof=222.91
     #### tSNR ANALYISIS ####
     tSNR across all rat datasets
