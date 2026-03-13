@@ -17,15 +17,22 @@ import matplotlib
 matplotlib.use('TkAgg')
 
 
-def makeviolinplot(df_to_plot):
-  ax = sns.violinplot(x=df_to_plot['value'], y=df_to_plot['cont_variable'], hue=df_to_plot['value'],  inner=None)
-  ax = sns.stripplot(x=df_to_plot['value'], y=df_to_plot['cont_variable'],  dodge=True, color='black', alpha=0.3)
+def makeviolinplot(df_to_plot, order,hue_order, axs):
+  ax = sns.violinplot(x=df_to_plot['value'], y=df_to_plot['cont_variable'], order=order,hue=df_to_plot['value'], hue_order=hue_order, inner=None, ax=axs)
+  ax = sns.stripplot(x=df_to_plot['value'], y=df_to_plot['cont_variable'],  dodge=True, color='black', alpha=0.3, ax=axs)
   return ax
 
 def makestackplot(df_melted):
   ax = sns.displot(x=df_melted['variable'], hue=df_melted['value'], multiple='stack', hue_order=cat_index, stat='probability', legend = None)
   ax.ax.invert_yaxis()
   ax.ax.tick_params(axis='x', rotation=90)
+  return ax
+
+def makepie(df, cat2, order_cat2, met_colors):
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over(cat2)).alias('rel_count'))
+  df_to_plot = df_to_plot.with_columns(pl.when((pl.col(cat2)==order_cat2[1]) & (pl.col('cat')=='Specific')).then(pl.lit(1)).when((pl.col(cat2)==order_cat2[1]) & (pl.col('cat')=='other')).then(pl.lit(2)).when((pl.col(cat2)==order_cat2[0]) & (pl.col('cat')=='other')).then(pl.lit(3)).when((pl.col(cat2)==order_cat2[0]) & (pl.col('cat')=='Specific')).then(pl.lit(4)).alias('order')).sort(by='order')
+  fig, ax = plt.subplots(figsize=(5,10))
+  ax.pie(df_to_plot['rel_count'], labels=df_to_plot['len'], pctdistance=1.25, labeldistance=.6, startangle=270, colors=[met_colors[0], met_colors[1], met_colors[1], met_colors[0]])
   return ax
 
 def makespecificityplot(x,y, hue=None):
@@ -59,7 +66,7 @@ analysis_list = [ "gsr1", "gsr2", "gsr3","wmcsf1", "wmcsf2", "wmcsf3", "aCompCor
 cat_index = ["Specific", "Non-specific", "Spurious", "No"]
 
 #set color theme for all the plots
-plt.rcParams['font.size'] = 6
+plt.rcParams['font.size'] = 11
 plt.rcParams['axes.spines.right'] = False
 plt.rcParams['axes.spines.top'] = False
 
@@ -70,7 +77,6 @@ met_colors = met_brew(name=met_colors_name)
 print(is_colorblind_friendly(met_colors_name))
 
 sns.set_theme(style="white", palette=met_colors)
-sns_saveparms = "bbox_inches='tight', dppi=600"
 ```
 
     Palette 'Hiroshige' has '10' discrete colors
@@ -79,74 +85,61 @@ sns_saveparms = "bbox_inches='tight', dppi=600"
 
 ``` python
 def figure1(df, df_summary, rodent, save_plot):
-  #figure 1ab
+  fig, axs = plt.subplots(ncols=2)
+  #figure 1ac
   if rodent == 'mouse':
-    pannel_label = 'a'
+    pannel_label1 = 'a'
   else:
-    pannel_label = 'b'
-  plt.figure(figsize=(10,10))
-  ax = sns.barplot(x=df_summary["rodent.ds"], y=df_summary["habituation.min"], hue=df_summary["headplate"], dodge=False)
+    pannel_label1 = 'c'
+  ax1 = sns.barplot(x=df_summary["rodent.ds"], y=df_summary["habituation.min"], hue=df_summary["headplate"], dodge=False, hue_order=['y','n'], ax=axs[0])
   for i in df_summary.with_row_index().iter_rows():
-    ax.text(i[0], i[19], i[18], color='black', ha='center', va='bottom')
-  ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
-  ax.set(xlabel='Dataset ID', ylabel='Habituation time (min)')
-  ax.legend_.set_title('Head-plate')
+    ax1.text(i[0], i[19], i[18], color='black', ha='center', va='bottom')
+  ax1.set_xticklabels(ax1.get_xticklabels(), rotation=90)
+  ax1.set(xlabel='Dataset ID', ylabel='Habituation time (min)')
+  ax1.legend_.set_title('Head-plate')
+  sns.despine()
+  #figure 1bd
+  if rodent == 'mouse':
+    pannel_label2 = 'b'
+  else:
+    pannel_label2 = 'd'
+  ax2 = sns.stripplot(x=df["rodent.ds"], y=df["fd.mean"], hue=df['head-plate'], hue_order=['y','n'], ax=axs[1])
+  ax2.set_xticklabels(ax2.get_xticklabels(), rotation=90)
+  ax2.set(xlabel='Dataset ID', ylabel='Framewise displacement (mm)')
+  ax2.legend_.remove()
+  sns.despine()
   if save_plot:
-    ax.figure.savefig("../figure/Figure1"+pannel_label+".svg", bbox_inches='tight',dpi=600)
+    fig.figure.savefig("../figure/Figure1"+pannel_label1+pannel_label2+".svg", bbox_inches='tight',dpi=600)
   else:
     plt.show()
-  #figure 1ce
+  fig, axs = plt.subplots(ncols=3, sharey=True)
+  #figure 1eh
   if rodent == 'mouse':
-    pannel_label = 'c'
+    pannel_label1 = 'e'
   else:
-    pannel_label = 'e'
-  plt.figure(figsize=(5,10))
-  ax = sns.stripplot(x=df["rodent.ds"], y=df["fd.mean"], hue=df['head-plate'])
-  ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
-  ax.set(xlabel='Dataset ID', ylabel='Framewise displacement (mm)')
-  ax.legend_.set_title('Head-plate')
-  if save_plot:
-    ax.figure.savefig("../figure/Figure1"+pannel_label+".svg", bbox_inches='tight',dpi=600)
-  else:
-    plt.show()
-  #figure 1df
-  if rodent == 'mouse':
-    pannel_label = 'd'
-  else:
-    pannel_label = 'f'
+    pannel_label1 = 'h'
   df_to_plot = df.select('head-plate','fd.mean').rename({'head-plate':'value','fd.mean':'cont_variable'})
-  plt.figure(figsize=(5,10))
-  ax = makeviolinplot(df_to_plot)
-  ax.set(xlabel='Head-plate', ylabel='Framewise displacement (mm)')
-  if save_plot:
-    ax.figure.savefig("../figure/Figure1"+pannel_label+".svg", bbox_inches='tight',dpi=600)
-  else:
-    plt.show()
-  #figure 1gi
+  ax1 = makeviolinplot(df_to_plot,['y','n'],['y','n'],axs[0])
+  ax1.set(xlabel='Head-plate', ylabel='Framewise displacement (mm)')
+  #figure 1fi
   if rodent == 'mouse':
-    pannel_label = 'g'
+    pannel_label2 = 'f'
   else:
-    pannel_label = 'i'
-  plt.figure(figsize=(5,10))
-  ax = sns.scatterplot(x=df["habituation.min"], y=df["fd.mean"], hue=df['head-plate'])
-  ax.set_xticklabels(ax.get_xticklabels(), rotation=90)
-  ax.set(xlabel='Habituation (min)', ylabel='Framewise displacement (mm)')
-  ax.legend_.set_title('Head-plate')
-  if save_plot:
-    ax.figure.savefig("../figure/Figure1"+pannel_label+".svg", bbox_inches='tight',dpi=600)
-  else:
-    plt.show()
+    pannel_label2 = 'i'
+  ax2 = sns.scatterplot(x=df["habituation.min"], y=df["fd.mean"], hue=df['head-plate'], hue_order=['y','n'], ax=axs[1])
+  ax2.set(xlabel='Habituation (min)', ylabel='Framewise displacement (mm)')
+  ax2.legend_.set_title('Head-plate')
   #figure 1hj
   if rodent == 'mouse':
-    pannel_label = 'h'
+    pannel_label3 = 'h'
   else:
-    pannel_label = 'j'
+    pannel_label3 = 'j'
   df_to_plot = df.select('short.habituation','fd.mean').rename({'short.habituation':'value','fd.mean':'cont_variable'})
-  plt.figure(figsize=(5,10))
-  ax = makeviolinplot(df_to_plot)
-  ax.set(xlabel='Habituation', ylabel='Framewise displacement (mm)')
+  ax3 = makeviolinplot(df_to_plot, ['short','long'], ['short','long'], axs[2])
+  ax3.set(xlabel='Habituation', ylabel='Framewise displacement (mm)')
+  sns.despine()
   if save_plot:
-    ax.figure.savefig("../figure/Figure1"+pannel_label+".svg", bbox_inches='tight',dpi=600)
+    fig.figure.savefig("../figure/Figure1"+pannel_label1 + pannel_label2 + pannel_label3+".svg", bbox_inches='tight',dpi=600)
   else:
     plt.show()
 
@@ -157,7 +150,7 @@ def figure2(df, rodent, save_plot):
   else:
     pannel_label = 'b'
   df_melted = df.melt(id_vars="rodent.ds", value_vars=['s1.cat.' + x for x in analysis_list])
-  plt.figure(figsize=(10,5))
+  df_melted = df_melted.sort(pl.col('variable').cast(pl.Enum(['s1.cat.gsr1', 's1.cat.gsr2', 's1.cat.gsr3','s1.cat.wmcsf1', 's1.cat.wmcsf2', 's1.cat.wmcsf3', 's1.cat.aCompCor1', 's1.cat.aCompCor2', 's1.cat.aCompCor3'])))
   ax = makestackplot(df_melted)
   ax.set(xlabel='Denoising model', ylabel='Runs (%)')
   if save_plot:
@@ -171,7 +164,7 @@ def figure2(df, rodent, save_plot):
   else:
     analysis = 'gsr3'
     pannel_label = 'd'
-  plt.figure(figsize=(10,5))
+  plt.figure()
   ax = makespecificityplot(df['s1.specific.'+analysis], df['s1.unspecific.'+analysis])
   if save_plot:
     ax.figure.savefig("../figure/Figure2"+pannel_label+".svg", bbox_inches='tight',dpi=600)
@@ -191,7 +184,7 @@ def figure3(df, rodent, save_plot):
   cat2 = 'fd.mean'
   df_to_plot = split_continuous(df, cat1, cat2)
   df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
-  plt.figure(figsize=(10,10))
+  df_to_plot = df_to_plot.sort(pl.col('variable').cast(pl.Enum(['lowest','low','high','highest'])))
   ax = makestackplot(df_to_plot)
   ax.set(xlabel='Framewise displacement (bin)', ylabel='Runs (%)')
   if save_plot:
@@ -205,13 +198,9 @@ def figure3(df, rodent, save_plot):
   else:
       analysis = 'gsr3'
       pannel_label = 'e'
-  cat1='s1.cat.'+analysis
-  df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
   cat2='short.habituation'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(5,10))
-  ax = sns.barplot(x=df_to_plot[cat2],y=df_to_plot['len'],hue=df_to_plot['cat'])
-  ax.set(xlabel='Habituation', ylabel='Runs (%)')
+  order_cat2 = ['short','long']
+  ax = makepie(df, cat2, order_cat2, met_colors)
   if save_plot:
       ax.figure.savefig("../figure/Figure3"+pannel_label+".svg", bbox_inches='tight',dpi=600)
   else:
@@ -223,13 +212,9 @@ def figure3(df, rodent, save_plot):
   else:
       analysis = 'gsr3'
       pannel_label = 'f'
-  cat1='s1.cat.'+analysis
-  df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
   cat2='head-plate'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(5,10))
-  ax = sns.barplot(x=df_to_plot[cat2],y=df_to_plot['len'],hue=df_to_plot['cat'])
-  ax.set(xlabel='Head-plate', ylabel='Runs (%)')
+  order_cat2 = ['y','n']
+  ax = makepie(df, cat2, order_cat2, met_colors)
   if save_plot:
       ax.figure.savefig("../figure/Figure3"+pannel_label+".svg", bbox_inches='tight',dpi=600)
   else:
@@ -241,13 +226,9 @@ def figure3(df, rodent, save_plot):
   else:
       analysis = 'gsr3'
       pannel_label = 'i'
-  cat1='s1.cat.'+analysis
-  df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
   cat2='main.experimenter.gender'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(5,10))
-  ax = sns.barplot(x=df_to_plot[cat2],y=df_to_plot['len'],hue=df_to_plot['cat'])
-  ax.set(xlabel='Experimenter gender', ylabel='Runs (%)')
+  order_cat2 = ['f','m']
+  ax = makepie(df, cat2, order_cat2, met_colors)
   if save_plot:
       ax.figure.savefig("../figure/Figure3"+pannel_label+".svg", bbox_inches='tight',dpi=600)
   else:
@@ -261,11 +242,9 @@ def figure3(df, rodent, save_plot):
       pannel_label = 'j'
   cat1='s1.cat.'+analysis
   df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
-  cat2='fMRI.sequence'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(5,10))
-  ax = sns.barplot(x=df_to_plot[cat2],y=df_to_plot['len'],hue=df_to_plot['cat'])
-  ax.set(xlabel='fMRI sequence', ylabel='Runs (%)')
+  cat2='rodent.sex'
+  order_cat2 = ['f','m']
+  ax = makepie(df, cat2, order_cat2, met_colors)
   if save_plot:
       ax.figure.savefig("../figure/Figure3"+pannel_label+".svg", bbox_inches='tight',dpi=600)
   else:

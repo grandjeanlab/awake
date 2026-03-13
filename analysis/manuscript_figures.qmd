@@ -35,6 +35,13 @@ def makestackplot(df_melted):
   ax.ax.tick_params(axis='x', rotation=90)
   return ax
 
+def makepie(df, cat2, order_cat2, met_colors):
+  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over(cat2)).alias('rel_count'))
+  df_to_plot = df_to_plot.with_columns(pl.when((pl.col(cat2)==order_cat2[1]) & (pl.col('cat')=='Specific')).then(pl.lit(1)).when((pl.col(cat2)==order_cat2[1]) & (pl.col('cat')=='other')).then(pl.lit(2)).when((pl.col(cat2)==order_cat2[0]) & (pl.col('cat')=='other')).then(pl.lit(3)).when((pl.col(cat2)==order_cat2[0]) & (pl.col('cat')=='Specific')).then(pl.lit(4)).alias('order')).sort(by='order')
+  fig, ax = plt.subplots(figsize=(5,10))
+  ax.pie(df_to_plot['rel_count'], labels=df_to_plot['len'], pctdistance=1.25, labeldistance=.6, startangle=270, colors=[met_colors[0], met_colors[1], met_colors[1], met_colors[0]])
+  return ax
+
 def makespecificityplot(x,y, hue=None):
   ax = sns.jointplot(x=x, y=y, hue=hue, kind="kde")
   ax.fig.subplots_adjust(top=0.9)
@@ -196,12 +203,9 @@ def figure3(df, rodent, save_plot):
   else:
       analysis = 'gsr3'
       pannel_label = 'e'
-  cat1='s1.cat.'+analysis
-  df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
   cat2='short.habituation'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  ax = sns.barplot(x=df_to_plot[cat2],y=df_to_plot['len'],hue=df_to_plot['cat'], order=['short','long'])
-  ax.set(xlabel='Habituation', ylabel='Runs (%)')
+  order_cat2 = ['short','long']
+  ax = makepie(df, cat2, order_cat2, met_colors)
   if save_plot:
       ax.figure.savefig("../figure/Figure3"+pannel_label+".svg", bbox_inches='tight',dpi=600)
   else:
@@ -213,13 +217,9 @@ def figure3(df, rodent, save_plot):
   else:
       analysis = 'gsr3'
       pannel_label = 'f'
-  cat1='s1.cat.'+analysis
-  df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
   cat2='head-plate'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(5,10))
-  ax = sns.barplot(x=df_to_plot[cat2],y=df_to_plot['len'],hue=df_to_plot['cat'], order=['y','n'])
-  ax.set(xlabel='Head-plate', ylabel='Runs (%)')
+  order_cat2 = ['y','n']
+  ax = makepie(df, cat2, order_cat2, met_colors)
   if save_plot:
       ax.figure.savefig("../figure/Figure3"+pannel_label+".svg", bbox_inches='tight',dpi=600)
   else:
@@ -231,13 +231,9 @@ def figure3(df, rodent, save_plot):
   else:
       analysis = 'gsr3'
       pannel_label = 'i'
-  cat1='s1.cat.'+analysis
-  df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
   cat2='main.experimenter.gender'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(5,10))
-  ax = sns.barplot(x=df_to_plot[cat2],y=df_to_plot['len'],hue=df_to_plot['cat'], order=['f','m'])
-  ax.set(xlabel='Experimenter gender', ylabel='Runs (%)')
+  order_cat2 = ['f','m']
+  ax = makepie(df, cat2, order_cat2, met_colors)
   if save_plot:
       ax.figure.savefig("../figure/Figure3"+pannel_label+".svg", bbox_inches='tight',dpi=600)
   else:
@@ -251,11 +247,9 @@ def figure3(df, rodent, save_plot):
       pannel_label = 'j'
   cat1='s1.cat.'+analysis
   df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
-  cat2='fMRI.sequence'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(5,10))
-  ax = sns.barplot(x=df_to_plot[cat2],y=df_to_plot['len'],hue=df_to_plot['cat'], order=['GE-EPI','SE-EPI'])
-  ax.set(xlabel='fMRI sequence', ylabel='Runs (%)')
+  cat2='rodent.sex'
+  order_cat2 = ['f','m']
+  ax = makepie(df, cat2, order_cat2, met_colors)
   if save_plot:
       ax.figure.savefig("../figure/Figure3"+pannel_label+".svg", bbox_inches='tight',dpi=600)
   else:
@@ -277,3 +271,5 @@ for rodent in rodent_list:
   figure3(df, rodent, save_plot)
 
 ```
+
+
