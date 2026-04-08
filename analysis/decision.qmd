@@ -38,7 +38,8 @@ df_mouse = df_mouse.select(selector)
 df_rat = df_rat.select(selector)
 df_rat = df_rat.with_columns(pl.col('MRI.field.strength').cast(pl.Float64), pl.col('MRI.TE').cast(pl.Float64))
 
-df = pl.concat([df_mouse, df_rat], how="vertical")
+#df = pl.concat([df_mouse, df_rat], how="vertical")
+df = df_mouse
 
 #if s1.cat.gsr3 value is "Specific" then give value of 1 else 0
 df = df.with_columns(pl.when(pl.col('s1.cat.gsr3') == 'Specific').then(1).otherwise(0).alias('cat.gsr3'))
@@ -102,7 +103,7 @@ import matplotlib.pyplot as plt
  
 tree_clf = grid_search.best_estimator_
 
-plt.figure(figsize=(18, 15))
+plt.figure(figsize=(20, 20))
 plot_tree(tree_clf, filled=True, feature_names=selectorX,
           class_names=df[selectorY].unique().cast(pl.Utf8).to_list(), rounded=True, fontsize=10)
 plt.show()
