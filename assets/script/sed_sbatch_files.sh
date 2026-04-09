@@ -16,7 +16,10 @@ sed -i 's/--conf_list/--nuisance_regressors/g' $file
 
 
 #add fc and dr analysis
-sed -i 's/vpm_r.nii.gz/vpm_r.nii --ROI_labels_file \/home\/traaffneu\/joagra\/code\/awake\/assets\/template\/mouse\/labels.nii.gz --FC_matrix --prior_maps \/home\/traaffneu\/joagra\/code\/awake\/assets\/template\/mouse\/ica.nii.gz --DR_ICA --prior_bold_idx 1 2 --prior_confound_idx 3 4/ g' $file
+sed -i 's/vpm_r.nii.gz/vpm_r.nii.gz --ROI_labels_file \/home\/traaffneu\/joagra\/code\/awake\/assets\/template\/mouse\/labels.nii.gz --FC_matrix --prior_maps \/home\/traaffneu\/joagra\/code\/awake\/assets\/template\/mouse\/ica.nii.gz --DR_ICA --prior_bold_idx 1 2 --prior_confound_idx 3 4/ g' $file
 
 #make sure we get also clean time series
 sed -i 's/frame_censoring_mask//g' $file
+
+#make sure we get also clean time series
+sed -i 's/analysis_datasink/commonspace_analysis_datasink/g' $file

@@ -183,7 +183,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc conf
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_wmcsf1} $""{analysis_wmcsf1} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_wmcsf1/confound_correction_datasink/ "$output_dir"/wmcsf1" >> $script_file 
-echo "cp -r $""analysis_wmcsf1/analysis_datasink "$output_dir"/wmcsf1" >> $script_file 
+echo "cp -r $""analysis_wmcsf1/commonspace_commonspace_analysis_datasink "$output_dir"/wmcsf1" >> $script_file 
 echo "cp -r $""analysis_wmcsf1/data_diagnosis_datasink "$output_dir"/wmcsf1" >> $script_file 
 
 #run the confound correction step of rabies
@@ -192,7 +192,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc conf
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_wmcsf2} $""{analysis_wmcsf2} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_wmcsf2/confound_correction_datasink/ "$output_dir"/wmcsf2" >> $script_file 
-echo "cp -r $""analysis_wmcsf2/analysis_datasink "$output_dir"/wmcsf2" >> $script_file 
+echo "cp -r $""analysis_wmcsf2/commonspace_commonspace_analysis_datasink "$output_dir"/wmcsf2" >> $script_file 
 echo "cp -r $""analysis_wmcsf2/data_diagnosis_datasink "$output_dir"/wmcsf2" >> $script_file 
 
 #run the confound correction step of rabies
@@ -201,7 +201,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc conf
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_wmcsf3} $""{analysis_wmcsf3} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_wmcsf3/confound_correction_datasink/ "$output_dir"/wmcsf3" >> $script_file 
-echo "cp -r $""analysis_wmcsf3/analysis_datasink "$output_dir"/wmcsf3" >> $script_file 
+echo "cp -r $""analysis_wmcsf3/commonspace_commonspace_analysis_datasink "$output_dir"/wmcsf3" >> $script_file 
 echo "cp -r $""analysis_wmcsf3/data_diagnosis_datasink "$output_dir"/wmcsf3" >> $script_file 
 
 
@@ -214,7 +214,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc conf
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_gsr1} $""{analysis_gsr1} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_gsr1/confound_correction_datasink/ "$output_dir"/gsr1" >> $script_file 
-echo "cp -r $""analysis_gsr1/analysis_datasink "$output_dir"/gsr1" >> $script_file 
+echo "cp -r $""analysis_gsr1/commonspace_commonspace_analysis_datasink "$output_dir"/gsr1" >> $script_file 
 echo "cp -r $""analysis_gsr1/data_diagnosis_datasink "$output_dir"/gsr1" >> $script_file 
 
 #run the confound correction step of rabies
@@ -223,7 +223,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc conf
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_gsr2} $""{analysis_gsr2} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_gsr2/confound_correction_datasink/ "$output_dir"/gsr2" >> $script_file 
-echo "cp -r $""analysis_gsr2/analysis_datasink "$output_dir"/gsr2" >> $script_file 
+echo "cp -r $""analysis_gsr2/commonspace_commonspace_analysis_datasink "$output_dir"/gsr2" >> $script_file 
 echo "cp -r $""analysis_gsr2/data_diagnosis_datasink "$output_dir"/gsr2" >> $script_file 
 
 #run the confound correction step of rabies
@@ -232,7 +232,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc conf
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_gsr3} $""{analysis_gsr3} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_gsr3/confound_correction_datasink/ "$output_dir"/gsr3" >> $script_file 
-echo "cp -r $""analysis_gsr3/analysis_datasink "$output_dir"/gsr3" >> $script_file 
+echo "cp -r $""analysis_gsr3/commonspace_commonspace_analysis_datasink "$output_dir"/gsr3" >> $script_file 
 echo "cp -r $""analysis_gsr3/data_diagnosis_datasink "$output_dir"/gsr3" >> $script_file 
 
 echo " " >> $script_file
@@ -245,7 +245,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc conf
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_aCompCor1} $""{analysis_aCompCor1} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_aCompCor1/confound_correction_datasink/ "$output_dir"/aCompCor1" >> $script_file 
-echo "cp -r $""analysis_aCompCor1/analysis_datasink "$output_dir"/aCompCor1" >> $script_file 
+echo "cp -r $""analysis_aCompCor1/commonspace_commonspace_analysis_datasink "$output_dir"/aCompCor1" >> $script_file 
 echo "cp -r $""analysis_aCompCor1/data_diagnosis_datasink "$output_dir"/aCompCor1" >> $script_file 
 
 #run the confound correction step of rabies
@@ -254,7 +254,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc conf
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_aCompCor2} $""{analysis_aCompCor2} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_aCompCor2/confound_correction_datasink/ "$output_dir"/aCompCor2" >> $script_file 
-echo "cp -r $""analysis_aCompCor2/analysis_datasink "$output_dir"/aCompCor2" >> $script_file 
+echo "cp -r $""analysis_aCompCor2/commonspace_commonspace_analysis_datasink "$output_dir"/aCompCor2" >> $script_file 
 echo "cp -r $""analysis_aCompCor2/data_diagnosis_datasink "$output_dir"/aCompCor2" >> $script_file 
 
 #run the confound correction step of rabies
@@ -263,7 +263,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc conf
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p MultiProc analysis $""{confound_aCompCor3} $""{analysis_aCompCor3} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_aCompCor3/confound_correction_datasink/ "$output_dir"/aCompCor3" >> $script_file 
-echo "cp -r $""analysis_aCompCor3/analysis_datasink "$output_dir"/aCompCor3" >> $script_file 
+echo "cp -r $""analysis_aCompCor3/commonspace_commonspace_analysis_datasink "$output_dir"/aCompCor3" >> $script_file 
 echo "cp -r $""analysis_aCompCor3/data_diagnosis_datasink "$output_dir"/aCompCor3" >> $script_file 
 
 
