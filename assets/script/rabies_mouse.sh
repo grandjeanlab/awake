@@ -45,7 +45,7 @@ conf_arg_aCompCor3=' --nuisance_regressors mot_6 aCompCor_percent --frame_censor
 
 
 
-analysis_arg='--seed_list '${template_dir}'/s1_r.nii.gz '${template_dir}'/s1_l.nii.gz '${template_dir}'/aca_r.nii.gz '${template_dir}'/vpm_r.nii.gz --ROI_labels_file '${template_dir}'/labels.nii.gz --FC_matrix --prior_maps '${template_dir}'/ica.nii.gz --DR_ICA --prior_bold_idx 1 2 --prior_confound_idx 3 4 --data_diagnosis'
+analysis_arg='--seed_list '${template_dir}'/s1_r.nii.gz '${template_dir}'/s1_l.nii.gz '${template_dir}'/aca_r.nii.gz '${template_dir}'/vpm_r.nii.gz --ROI_labels_file /home/traaffneu/joagra/code/awake/assets/template/mouse/labels.nii.gz --FC_matrix --prior_maps /home/traaffneu/joagra/code/awake/assets/template/mouse/ica.nii.gz --DR_ICA --prior_bold_idx 1 2 --prior_confound_idx 3 4 --ROI_labels_file '${template_dir}'/labels.nii.gz --FC_matrix --prior_maps '${template_dir}'/ica.nii.gz --DR_ICA --prior_bold_idx 1 2 --prior_confound_idx 3 4 --data_diagnosis'
 
 #make the script directory. this is where your runnable rabies script per func scan will be run. 
 mkdir -p $script_dir
@@ -106,7 +106,7 @@ echo "#SBATCH --mem=24GB" >> $script_file
 
 #create temporary folders in scratch folder so you don't clutter your project folder
 echo " " >> $script_file
-echo "module load rabies" >> $script_file
+echo "" >> $script_file
 echo " " >> $script_file
 echo "#### init varibles and make tmp directories ####" >> $script_file
 echo " " >> $script_file
@@ -185,7 +185,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confoun
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_wmcsf1} $""{analysis_wmcsf1} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_wmcsf1/confound_correction_datasink/ "$output_dir"/wmcsf1" >> $script_file 
-echo "cp -r $""analysis_wmcsf1/commonspace_analysis_datasink "$output_dir"/wmcsf1" >> $script_file 
+echo "cp -r $""analysis_wmcsf1/commonspace_commonspace_analysis_datasink "$output_dir"/wmcsf1" >> $script_file 
 echo "cp -r $""analysis_wmcsf1/data_diagnosis_datasink "$output_dir"/wmcsf1" >> $script_file 
 
 #run the confound correction step of rabies
@@ -194,7 +194,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confoun
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_wmcsf2} $""{analysis_wmcsf2} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_wmcsf2/confound_correction_datasink/ "$output_dir"/wmcsf2" >> $script_file 
-echo "cp -r $""analysis_wmcsf2/commonspace_analysis_datasink "$output_dir"/wmcsf2" >> $script_file 
+echo "cp -r $""analysis_wmcsf2/commonspace_commonspace_analysis_datasink "$output_dir"/wmcsf2" >> $script_file 
 echo "cp -r $""analysis_wmcsf2/data_diagnosis_datasink "$output_dir"/wmcsf2" >> $script_file 
 
 #run the confound correction step of rabies
@@ -203,7 +203,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confoun
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_wmcsf3} $""{analysis_wmcsf3} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_wmcsf3/confound_correction_datasink/ "$output_dir"/wmcsf3" >> $script_file 
-echo "cp -r $""analysis_wmcsf3/commonspace_analysis_datasink "$output_dir"/wmcsf3" >> $script_file 
+echo "cp -r $""analysis_wmcsf3/commonspace_commonspace_analysis_datasink "$output_dir"/wmcsf3" >> $script_file 
 echo "cp -r $""analysis_wmcsf3/data_diagnosis_datasink "$output_dir"/wmcsf3" >> $script_file 
 
 
@@ -216,7 +216,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confoun
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_gsr1} $""{analysis_gsr1} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_gsr1/confound_correction_datasink/ "$output_dir"/gsr1" >> $script_file 
-echo "cp -r $""analysis_gsr1/commonspace_analysis_datasink "$output_dir"/gsr1" >> $script_file 
+echo "cp -r $""analysis_gsr1/commonspace_commonspace_analysis_datasink "$output_dir"/gsr1" >> $script_file 
 echo "cp -r $""analysis_gsr1/data_diagnosis_datasink "$output_dir"/gsr1" >> $script_file 
 
 #run the confound correction step of rabies
@@ -225,7 +225,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confoun
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_gsr2} $""{analysis_gsr2} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_gsr2/confound_correction_datasink/ "$output_dir"/gsr2" >> $script_file 
-echo "cp -r $""analysis_gsr2/commonspace_analysis_datasink "$output_dir"/gsr2" >> $script_file 
+echo "cp -r $""analysis_gsr2/commonspace_commonspace_analysis_datasink "$output_dir"/gsr2" >> $script_file 
 echo "cp -r $""analysis_gsr2/data_diagnosis_datasink "$output_dir"/gsr2" >> $script_file 
 
 #run the confound correction step of rabies
@@ -234,7 +234,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confoun
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_gsr3} $""{analysis_gsr3} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_gsr3/confound_correction_datasink/ "$output_dir"/gsr3" >> $script_file 
-echo "cp -r $""analysis_gsr3/commonspace_analysis_datasink "$output_dir"/gsr3" >> $script_file 
+echo "cp -r $""analysis_gsr3/commonspace_commonspace_analysis_datasink "$output_dir"/gsr3" >> $script_file 
 echo "cp -r $""analysis_gsr3/data_diagnosis_datasink "$output_dir"/gsr3" >> $script_file 
 
 echo " " >> $script_file
@@ -247,7 +247,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confoun
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_aCompCor1} $""{analysis_aCompCor1} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_aCompCor1/confound_correction_datasink/ "$output_dir"/aCompCor1" >> $script_file 
-echo "cp -r $""analysis_aCompCor1/commonspace_analysis_datasink "$output_dir"/aCompCor1" >> $script_file 
+echo "cp -r $""analysis_aCompCor1/commonspace_commonspace_analysis_datasink "$output_dir"/aCompCor1" >> $script_file 
 echo "cp -r $""analysis_aCompCor1/data_diagnosis_datasink "$output_dir"/aCompCor1" >> $script_file 
 
 #run the confound correction step of rabies
@@ -256,7 +256,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confoun
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_aCompCor2} $""{analysis_aCompCor2} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_aCompCor2/confound_correction_datasink/ "$output_dir"/aCompCor2" >> $script_file 
-echo "cp -r $""analysis_aCompCor2/commonspace_analysis_datasink "$output_dir"/aCompCor2" >> $script_file 
+echo "cp -r $""analysis_aCompCor2/commonspace_commonspace_analysis_datasink "$output_dir"/aCompCor2" >> $script_file 
 echo "cp -r $""analysis_aCompCor2/data_diagnosis_datasink "$output_dir"/aCompCor2" >> $script_file 
 
 #run the confound correction step of rabies
@@ -265,7 +265,7 @@ echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear confoun
 echo "apptainer run "${rabies}" --inclusion_ids "${func_file}" -p Linear analysis $""{confound_aCompCor3} $""{analysis_aCompCor3} "${analysis_arg} >> $script_file 
 #copy the analysis outputs and the data diagnosis to the output directory
 echo "cp -r $""confound_aCompCor3/confound_correction_datasink/ "$output_dir"/aCompCor3" >> $script_file 
-echo "cp -r $""analysis_aCompCor3/commonspace_analysis_datasink "$output_dir"/aCompCor3" >> $script_file 
+echo "cp -r $""analysis_aCompCor3/commonspace_commonspace_analysis_datasink "$output_dir"/aCompCor3" >> $script_file 
 echo "cp -r $""analysis_aCompCor3/data_diagnosis_datasink "$output_dir"/aCompCor3" >> $script_file 
 
 

@@ -22,7 +22,7 @@ anat_reg_output="${output_dir}/preprocess_QC_report/commonspace_reg_wf.Native2At
 
 
 #build path to aCompCor seed output
-acompcor_seed_output="${output_dir}/aCompCor3/analysis_datasink/seed_correlation_maps/_split_name_${subject}_${session}_${run}_task-rest_bold/_seed_name_vpm_r/${subject}_${session}_${run}_*_vpm_r_corr_map.nii.gz"
+acompcor_seed_output="${output_dir}/aCompCor3/commonspace_analysis_datasink/seed_correlation_maps/_split_name_${subject}_${session}_${run}_task-rest_bold/_seed_name_vpm_r/${subject}_${session}_${run}_*_vpm_r_corr_map.nii.gz"
 
 #check if all files exist, if so, move the script to the complete directory, else run `sbatch` on the script
 if [ -f $anat_reg_output ] && [ -f $acompcor_seed_output ]; then

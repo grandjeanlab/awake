@@ -23,7 +23,7 @@ anat_reg_output=$(find ${output_dir}/preprocess_QC_report/commonspace_reg_wf.Nat
 func_reg_output=$(find ${output_dir}/preprocess_QC_report/EPI2Anat/ -type f | grep ${subject}_${session}_${run}_ | head -n 1) 
 
 #build path to aCompCor seed output
-acompcor_seed_output=$(find ${output_dir}/aCompCor3/analysis_datasink/seed_correlation_maps/_split_name_${subject}_${session}_${run}_task-rest_bold/_seed_name_vpm_r -type f | grep combined_cleaned_vpm_r_corr_map.nii.gz | head -n 1)
+acompcor_seed_output=$(find ${output_dir}/aCompCor3/commonspace_analysis_datasink/seed_correlation_maps/_split_name_${subject}_${session}_${run}_task-rest_bold/_seed_name_vpm_r -type f | grep combined_cleaned_vpm_r_corr_map.nii.gz | head -n 1)
 
 if [ -z $anat_reg_output ]; then 
 echo "${subject}_${session}_${run} incomplete"
