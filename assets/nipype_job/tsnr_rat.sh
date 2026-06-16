@@ -7,7 +7,5 @@
 #SBATCH --mail-type=FAIL
 #SBATCH --partition=batch
 #SBATCH --mem=64GB
- 
-source /home/traaffneu/joagra/python/nipype/.venv/bin/activate
- 
-python /home/traaffneu/joagra/code/awake/assets/nipype_job/tsnr.py rat
+
+apptainer exec /groupshare/traaffneu/preclinimg/apptainer/nvim.sif python3 /home/traaffneu/joagra/code/awake/assets/nipype_job/tsnr.py rat
