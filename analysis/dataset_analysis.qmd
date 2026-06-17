@@ -25,48 +25,108 @@ import polars as pl
 #import imaging modules
 import nibabel as nib
 
-def get_fc_per_analysis(data_dir, df, analysis_list, frame_mask_dir, seed_ts_dir, seed_ref, seed_specific, seed_unspecific, seed_thalamus):
-  try:
-      for analysis in analysis_list:
-          print("Running analysis for: " + analysis)
-          # get the number of dropped frames for each scan and analysis
-          p = join(data_dir, analysis, frame_mask_dir)
-          df = df.with_columns(
-              pl.col("scan_dir").map_elements(lambda x: dropped_frames(p, x), return_dtype=pl.Int8).alias("dropped.frames." + analysis))
-          # get the connectivity specificity for s1 and thalamus
-          p = join(data_dir, analysis, seed_ts_dir)
-          df = df.with_columns([
-              pl.col("scan_dir").map_elements(lambda x: corr_seed(get_seed_ts(p, x, seed_ref), get_seed_ts(p, x, seed_specific))).alias("s1.specific." + analysis),
-              pl.col("scan_dir").map_elements(lambda x: corr_seed(get_seed_ts(p, x, seed_ref), get_seed_ts(p, x, seed_unspecific))).alias("s1.unspecific." + analysis),
-              pl.col("scan_dir").map_elements(lambda x: corr_seed(get_seed_ts(p, x, seed_ref), get_seed_ts(p, x, seed_thalamus))).alias("thal.specific." + analysis)
-          ])
-          # calculate FC categories
-          df = df.with_columns([
-              pl.struct([f"s1.specific.{analysis}", f"s1.unspecific.{analysis}"]).map_elements(lambda x: specific_FC(x[f"s1.specific.{analysis}"], x[f"s1.unspecific.{analysis}"])).alias(f"s1.cat.{analysis}"),
-              pl.struct([f"thal.specific.{analysis}", f"s1.unspecific.{analysis}"]).map_elements(lambda x: specific_FC(x[f"thal.specific.{analysis}"], x[f"s1.unspecific.{analysis}"])).alias(f"thal.cat.{analysis}")
-          ])
-      return df
-  except:
+def find_file(file_list, include=None):
+  """
+  Find first file containing all substrings in `include`.
+  Parameters:
+  - file_list: iterable of file paths (list or Series)
+  - include: list/tuple of substrings that must all be present
+  Returns:
+  - first matching file path or None
+  """
+  if not include:
       return None
+  for f in file_list:
+      if all(s in f for s in include if s):
+          return f
+  return None
+
+def get_fc_per_analysis(
+    data_dir, df, analysis_list,
+    frame_mask_dir, seed_ts_dir,
+    seed_ref, seed_specific, seed_unspecific, seed_thalamus
+):
+  for analysis in analysis_list:
+    print(f"Running analysis for: {analysis}")
+    frame_path = join(data_dir, analysis, frame_mask_dir)
+    seed_path = join(data_dir, analysis, seed_ts_dir)
+    # --- dropped frames ---
+    dropped_col = f"dropped.frames.{analysis}"
+    # --- compute everything in ONE with_columns ---
+    df = df.with_columns([
+        # dropped frames
+        pl.col("scan_dir")
+        .map_elements(lambda x: dropped_frames(frame_path, x), return_dtype=pl.Int16)
+        .alias(dropped_col),
+        # seed correlations (cache seed_ts per row to avoid recomputation)
+        pl.struct(["scan_dir"]).map_elements(
+            lambda s: corr_seed(
+                get_seed_ts(seed_path, s["scan_dir"], seed_ref),
+                get_seed_ts(seed_path, s["scan_dir"], seed_specific)
+            ),
+            return_dtype=pl.Float64
+        ).alias(f"s1.specific.{analysis}"),
+        pl.struct(["scan_dir"]).map_elements(
+            lambda s: corr_seed(
+                get_seed_ts(seed_path, s["scan_dir"], seed_ref),
+                get_seed_ts(seed_path, s["scan_dir"], seed_unspecific)
+            ),
+            return_dtype=pl.Float64
+        ).alias(f"s1.unspecific.{analysis}"),
+        pl.struct(["scan_dir"]).map_elements(
+            lambda s: corr_seed(
+                get_seed_ts(seed_path, s["scan_dir"], seed_ref),
+                get_seed_ts(seed_path, s["scan_dir"], seed_thalamus)
+            ),
+            return_dtype=pl.Float64
+        ).alias(f"thal.specific.{analysis}")
+    ])
+    # --- categories (separate step for clarity) ---
+    df = df.with_columns([
+        pl.struct([f"s1.specific.{analysis}", f"s1.unspecific.{analysis}"])
+        .map_elements(lambda x: specific_FC(
+            x[f"s1.specific.{analysis}"],
+            x[f"s1.unspecific.{analysis}"]
+        ))
+        .alias(f"s1.cat.{analysis}"),
+        pl.struct([f"thal.specific.{analysis}", f"s1.unspecific.{analysis}"])
+        .map_elements(lambda x: specific_FC(
+            x[f"thal.specific.{analysis}"],
+            x[f"s1.unspecific.{analysis}"]
+        ))
+        .alias(f"thal.cat.{analysis}")
+    ])
+  return df
 
 #write a function get_frame_mask that takes a path, scan_dir, and returns a mask
 def dropped_frames(path, scan_dir):
+    frame_mask_path = join(path, scan_dir)
+    if not isdir(frame_mask_path):
+        return None
+    files = listdir(frame_mask_path)
+    if not files:
+        return None
+    frame_mask_full = join(frame_mask_path, files[0])
     try:
-        frame_mask_path = join(path, scan_dir)
-        frame_mask_file = listdir(frame_mask_path)[0]
-        frame_mask_full = join(frame_mask_path, frame_mask_file)
-        frame_mask_ts = pl.read_csv(frame_mask_full, new_columns=['mask'], skip_rows=0)["mask"].value_counts()
-        dropped_frames = frame_mask_ts.filter(frame_mask_ts['mask']==False)['count'][0]
-        return dropped_frames
-    except: 
+        df = pl.read_csv(frame_mask_full, new_columns=["mask"])
+        # Ensure column exists and is boolean-like
+        if "mask" not in df.columns:
+            return None
+        # Count False directly (faster than value_counts)
+        return df.filter(pl.col("mask") == False).height
+    except Exception:
         return None
 
-def total_frames(tmp_listdir, x):
-  try:
-    scan_file = tmp_listdir.filter(tmp_listdir.str.contains(x))[0]
-    return nib.load(scan_file).header["dim"][4]
-  except:
+def total_frames(file_list, scan_id):
+  file = find_file(file_list, [scan_id])
+  if not file:
     return None
+  try:
+    import nibabel as nib
+    return int(nib.load(file).header["dim"][4])
+  except (OSError, KeyError, IndexError):
+    return None
+
 
 def get_seed_ts(path, scan_dir, seed):
     seed_prefix = "_seed_name_"
@@ -80,81 +140,109 @@ def get_seed_ts(path, scan_dir, seed):
 
 # correlate the time series of two seeds
 def corr_seed(seed1, seed2):
-  try:
-    return pl.DataFrame({"a":seed1, "b":seed2}).corr()[0,1]
-  except: 
-    pass
+  df = pl.DataFrame({"a": seed1, "b": seed2})
+  # Filter invalid values (NaN / null / inf)
+  df = df.filter(
+      pl.col("a").is_finite() &
+      pl.col("b").is_finite()
+  )
+  # Need at least 2 rows
+  if df.height < 2:
+      return None
+  # Check for zero variance (constant column)
+  stats = df.select([
+      pl.col("a").std().alias("std_a"),
+      pl.col("b").std().alias("std_b"),
+  ])
+  if stats["std_a"][0] == 0 or stats["std_b"][0] == 0:
+      return None
+  return df.corr()[0, 1]
 
 # determine the correlation of a reference seed with specific, unspecific, and thalamus seeds
-def specific_FC(specific_roi, unspecific_ROI):
-  try:
-    if (specific_roi>=0.1) and (unspecific_ROI<0.1):
-        cat='Specific'
-    elif (specific_roi>=0.1) and (unspecific_ROI>=0.1):
-        cat='Non-specific'
-    elif (abs(specific_roi)<0.1) and (abs(unspecific_ROI)<0.1):
-        cat='No'
-    else:
-        cat='Spurious'
-    return cat
-  except:
-    pass
+def specific_FC(specific_roi, unspecific_roi):
+  # Guard against invalid inputs
+  if specific_roi is None or unspecific_roi is None:
+      return None
+  if specific_roi >= 0.1:
+      return "Specific" if unspecific_roi < 0.1 else "Non-specific"
+  if abs(specific_roi) < 0.1 and abs(unspecific_roi) < 0.1:
+      return "No"
+  return "Spurious"
 
 def return_cat_index(df, cat_name, cat_index):
-  tmp=df.group_by("rodent.ds").agg(pl.col(cat_name).value_counts(normalize=True)).explode(cat_name).unnest(cat_name).pivot(on=cat_name, index='rodent.ds').select(["rodent.ds", *cat_index]) 
-  tmp = tmp.rename({
-    col: cat_name + "." + col
-    for col in tmp.columns[-4:]
+  # Aggregate normalized value counts
+  tmp = (
+      df.group_by("rodent.ds")
+      .agg(pl.col(cat_name).value_counts(normalize=True))
+      .explode(cat_name)
+      .unnest(cat_name)
+      .pivot(index="rodent.ds", on=cat_name, values="proportion")
+  )
+  # Ensure requested columns exist (avoid KeyErrors)
+  for col in cat_index:
+      if col not in tmp.columns:
+          tmp = tmp.with_columns(pl.lit(None).alias(col))
+  # Select and rename cleanly
+  tmp = tmp.select(["rodent.ds", *cat_index]).rename({
+      col: f"{cat_name}.{col}" for col in cat_index
   })
   return tmp
 
-def get_seed_path(path, scan_dir, seed): 
-    seed_prefix = "_seed_name_"
-    try:
-        seed_path = join(path, scan_dir, seed_prefix + seed)
-        seed_file = listdir(seed_path)[0]
-        seed_final = join(seed_path, seed_file)
-        return seed_final
-    except:
-        pass
-
-def get_dr_dice(tmp_listdir, x):
+def get_dr_dice(file_list, scan_id):
+  fallback = [None] * 18
   try:
-    tmp = pl.read_lines(tmp_listdir.filter(tmp_listdir.str.contains(x))[0]).cast(pl.Float32)["line"].to_list()
-    return tmp
-  except:
-    return [None] * 18
+    # find matching file
+    file = find_file(file_list, [scan_id])
+    if file is None:
+      return fallback
+    # read lines and convert to float list
+    return (
+        pl.read_csv(file, has_header=False)
+        .select(pl.col("column_1").cast(pl.Float32))
+        .to_series()
+        .to_list()
+    )
+  except (OSError, pl.exceptions.PolarsError, ValueError):
+    return fallback
 
-def get_fd(tmp_listdir, x):
+def get_fd(file_list, scan_id):
+  file = find_file(file_list, [scan_id])
+  if not file:
+      return None
   try:
-    fd_mean = pl.read_csv(tmp_listdir.filter(tmp_listdir.str.contains(x))[0], separator=',', columns=['MeanFD']).mean()["MeanFD"][0]
-    return fd_mean
-  except:
-    return None
+      return pl.read_csv(file, columns=["MeanFD"])["MeanFD"].mean()
+  except (OSError, pl.exceptions.PolarsError):
+      return None
+def get_fd_max(file_list, scan_id):
+  file = find_file(file_list, [scan_id])
+  if not file:
+      return None
+  try:
+      return pl.read_csv(file, columns=["MeanFD"])["MeanFD"].max()
+  except (OSError, pl.exceptions.PolarsError):
+      return None
 
-def get_fd_max(tmp_listdir, x):
+def get_roi(file_list, scan_id):
+  # Predefine fallback output
+  empty = pl.Series([None, None], dtype=pl.Float32)
   try:
-    fd_mean = pl.read_csv(tmp_listdir.filter(tmp_listdir.str.contains(x))[0], separator=',', columns=['MeanFD']).max()["MeanFD"][0]
-    return fd_mean
-  except:
-    return None
-
-def get_roi(tmp_listdir, x):
-  try:
-    x = x.split("_")
-    sub = x[0]
-    ses = x[1]
-    run = x[2]
-    roi_file = tmp_listdir.filter(tmp_listdir.str.contains(sub) & tmp_listdir.str.contains(ses) & tmp_listdir.str.contains(run))
-    if roi_file.is_empty():
-      run = run.replace("-", "_")
-      roi_file = tmp_listdir.filter(tmp_listdir.str.contains(sub) & tmp_listdir.str.contains(ses) & tmp_listdir.str.contains(run))
-    if roi_file.is_empty():
-      return pl.Series([None, None], dtype=pl.Float32)
-    roi_values = pl.read_csv(roi_file[0], separator='\t').transpose().to_series().cast(pl.Float32)
-    return roi_values
-  except:
-    return pl.Series([None, None], dtype=pl.Float32)
+      parts = scan_id.split("_")
+      if len(parts) < 3:
+          return empty
+      sub, ses, run = parts[:3]
+      roi_file = find_file(file_list, [sub, ses, run]) \
+            or find_file(file_list, [sub, ses, run.replace("-", "_")])
+      if roi_file is None:
+          return empty
+      # read + transform
+      return (
+          pl.read_csv(roi_file, separator="\t")
+          .transpose()
+          .to_series()
+          .cast(pl.Float32)
+      )
+  except (OSError, pl.exceptions.PolarsError, ValueError):
+      return empty
 
 def drop_col(df):
   try:
@@ -296,11 +384,22 @@ for (analysis,roi) in [(analysis,roi) for analysis in analysis_list for roi in r
 for analysis in analysis_list:
   print("doing dr dice for "+analysis)
   p = join(data_dir, analysis, dr_dice_dir)
-  tmp_listdir = glob.glob(join(p,"*/dice"), recursive=True)
-  tmp_listdir = pl.Series(tmp_listdir)
-  tmp = df.select("scan_dir").with_columns(pl.col("scan_dir").map_elements(lambda x: get_dr_dice(tmp_listdir, x)))
-  tmp = tmp.with_columns(pl.col("scan_dir").list.to_struct(fields=[f"dr{i}.{analysis}" for i in range(18)])).unnest("scan_dir")
-  df = pl.concat([df, tmp], how="horizontal")
+  files = glob.glob(join(p, "*/dice"))
+# create column names once
+  dice_cols = [f"dr{i}.{analysis}" for i in range(18)]
+  tmp = (
+    df.select("scan_dir")
+    .with_columns(
+        pl.col("scan_dir")
+        .map_elements(lambda x: get_dr_dice(files, x))
+        .alias("dice")
+    )
+    .with_columns(
+        pl.col("dice").list.to_struct(fields=dice_cols)
+    )
+    .unnest("dice")
+  )
+  df = df.join(tmp, on="scan_dir", how="left")
 
 
 df_summary.write_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t")
