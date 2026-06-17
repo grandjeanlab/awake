@@ -179,7 +179,7 @@ for rodent in rodent_list:
   
   t = ttest(df.filter(pl.col('head-plate')=='y')['fd.mean'], df.filter(pl.col('head-plate')=='n')['fd.mean'])
   print('t-test for head-plate mean.fd > no head-plate mean.fd') 
-  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
 
   plt.figure(figsize=(10,5))
   ax = makeswarmplot('max framewise displacement per dataset', df["rodent.ds"], df["fd.max"], hue=df['head-plate'])
@@ -192,28 +192,28 @@ for rodent in rodent_list:
   
   t = ttest(df.filter(pl.col('head-plate')=='y')['fd.max'], df.filter(pl.col('head-plate')=='n')['fd.max'])
   print('t-test for head-plate max.fd > no head-plate max.fd') 
-  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
 
 
   print("sanity test for manuscript, habituation on motion")
   t = ttest(df.filter(pl.col('short.habituation')=='long')['fd.max'], df.filter(pl.col('short.habituation')=='short')['fd.max'])
   print('t-test for long habituation max.fd > short habituation max.fd') 
-  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
   
   print("sanity test for manuscript, sex on motion")
   t = ttest(df.filter(pl.col('rodent.sex')=='m')['fd.max'], df.filter(pl.col('rodent.sex')=='f')['fd.max'])
   print('t-test for male rodent max.fd > female rodent max.fd') 
-  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
   
   print("sanity test for manuscript, exp gender on motion")
   t = ttest(df.filter(pl.col('main.experimenter.gender')=='m')['fd.max'], df.filter(pl.col('main.experimenter.gender')=='f')['fd.max'])
   print('t-test for man max.fd > woman max.fd') 
-  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
   
   print("sanity test for manuscript, exp gender on motion")
   t = ttest(df.filter(pl.col('main.experimenter.gender')=='m')['fd.mean'], df.filter(pl.col('main.experimenter.gender')=='f')['fd.mean'])
   print('t-test for man mean.fd > woman mean.fd') 
-  print(f't={round(t["T"].item(),2)}, p={round(t["p-val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
  
 
 #let's extract some infomation about tsnr and summarize it per dataset
@@ -270,13 +270,13 @@ for rodent in rodent_list:
   print("for wmcsf processing, light scrubbing lead to  "+str((df["s1.cat.wmcsf3"]=="Specific").sum()) + "/" +str((df["s1.cat.wmcsf3"]=="Specific").count())  + " Specific scans")
 
   print("s1-s1 specificity analysis per dataset (only showing specific values)")
-  print(df_summary[["rodent.ds"]+["s1."+analysis+".Specific" for analysis in analysis_list]].sort(by="rodent.ds"))
+  print(df_summary[["rodent.ds"]+["s1.cat."+analysis+".Specific" for analysis in analysis_list]].sort(by="rodent.ds"))
 
   print("it seems that less scrubbing lead to better outcomes")
-  print("for gsr processing, "+str((df_summary["s1.gsr1.Specific"] < df_summary["s1.gsr3.Specific"]).sum())+"/"+str(df_summary["s1.gsr1.Specific"].count())+" dataset performed better with less scrubbing")
-  print("for wmcsf processing, "+str((df_summary["s1.wmcsf1.Specific"] < df_summary["s1.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.wmcsf1.Specific"].count())+" dataset performed better with less scrubbing")
-  print("for comparing gsr to wmcsf processing, "+str((df_summary["s1.gsr3.Specific"] < df_summary["s1.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.wmcsf3.Specific"].count())+" dataset performed better with wmcsf compared to gsr")
-  print("for comparing gsr to wmcsf processing, "+str((df_summary["s1.gsr3.Specific"] > df_summary["s1.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.wmcsf3.Specific"].count())+" dataset performed worst with wmcsf compared to gsr")
+  print("for gsr processing, "+str((df_summary["s1.cat.gsr1.Specific"] < df_summary["s1.cat.gsr3.Specific"]).sum())+"/"+str(df_summary["s1.cat.gsr1.Specific"].count())+" dataset performed better with less scrubbing")
+  print("for wmcsf processing, "+str((df_summary["s1.cat.wmcsf1.Specific"] < df_summary["s1.cat.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.cat.wmcsf1.Specific"].count())+" dataset performed better with less scrubbing")
+  print("for comparing gsr to wmcsf processing, "+str((df_summary["s1.cat.gsr3.Specific"] < df_summary["s1.cat.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.cat.wmcsf3.Specific"].count())+" dataset performed better with wmcsf compared to gsr")
+  print("for comparing gsr to wmcsf processing, "+str((df_summary["s1.cat.gsr3.Specific"] > df_summary["s1.cat.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.cat.wmcsf3.Specific"].count())+" dataset performed worst with wmcsf compared to gsr")
 
   print("#### plot fc categories per denoising method ####")
   df_melted = df.melt(id_vars="rodent.ds", value_vars=['s1.cat.' + x for x in analysis_list])
