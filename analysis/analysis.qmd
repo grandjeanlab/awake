@@ -452,6 +452,61 @@ for rodent in rodent_list:
   chi2_categorical(df, 'cat', 'MRI.field.strength', rodent)
   chi2_categorical(df, 'cat', 'fMRI.sequence', rodent)
 
+### adding the dice analysis ####
+  if rodent=="mouse":
+    analysis = "wmcsf3"
+    dr_s1=2
+    dr_aca=9
+  else:
+    analysis = "gsr3"
+    dr_s1=5
+    dr_aca=7
+
+  #create two new columns in df, one for the dice score for dr_s1 from the column f"dr{dr_s1}.{analysis} and one for the dice score for dr_aca
+  df = df.with_columns(pl.col(f"dr{dr_s1}.{analysis}").alias('dice_s1'))
+  df = df.with_columns(pl.col(f"dr{dr_aca}.{analysis}").alias('dice_aca'))
+
+  #plot the relation between categories and dice score for s1 and aca
+  plt.figure(figsize=(10,5))
+  ax = sns.jointplot(x=df["dice_s1"], y=df["dice_aca"], hue=df[f"s1.cat.{analysis}"])
+  ax.figure.savefig("../assets/plot/"+rodent+"dice_s1_vs_dice_aca.svg")
+
+  #plot the dice for s1 and aca per dataset
+  plt.figure(figsize=(10,5))
+  ax = makeswarmplot('Dice ICA S1 per dataset', df["rodent.ds"], df["dice_s1"], hue=df['head-plate'])
+  ax.figure.savefig("../assets/plot/"+rodent+"dice_s1_per_dataset.svg")
+
+  plt.figure(figsize=(10,5))
+  ax = makeswarmplot('Dice ICA ACA per dataset', df["rodent.ds"], df["dice_aca"], hue=df['head-plate'])
+  ax.figure.savefig("../assets/plot/"+rodent+"dice_aca_per_dataset.svg")
+
+  #run a couple ttest to recapitulate observations about specificity.
+  t = ttest(df.filter(pl.col('head-plate')=='y')['dice_s1'], df.filter(pl.col('head-plate')=='n')['dice_s1'])
+  print('t-test for head-plate dice_s1 > no head-plate dice_s1') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+
+  t = ttest(df.filter(pl.col('head-plate')=='y')['dice_aca'], df.filter(pl.col('head-plate')=='n')['dice_aca'])
+  print('t-test for head-plate dice_aca > no head-plate dice_aca') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+
+  t = ttest(df.filter(pl.col('short.habituation')=='long')['dice_s1'], df.filter(pl.col('short.habituation')=='short')['dice_s1'])
+  print('t-test for long habituation dice_s1 > short habituation dice_s1') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+
+  t = ttest(df.filter(pl.col('short.habituation')=='long')['dice_aca'], df.filter(pl.col('short.habituation')=='short')['dice_aca'])
+  print('t-test for long habituation dice_aca > short habituation dice_aca') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+
+  t = ttest(df.filter(pl.col('fMRI.sequence')=='GE-EPI')['dice_s1'], df.filter(pl.col('fMRI.sequence')=='SE-EPI')['dice_s1'])
+  print('t-test for GE-EPI dice_s1 > SE-EPI dice_s1') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+
+  t = ttest(df.filter(pl.col('fMRI.sequence')=='GE-EPI')['dice_aca'], df.filter(pl.col('fMRI.sequence')=='SE-EPI')['dice_aca'])
+  print('t-test for GE-EPI dice_aca > SE-EPI dice_aca') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+
+
+
 
 ```
 
