@@ -200,6 +200,12 @@ for rodent in rodent_list:
   print('t-test for long habituation max.fd > short habituation max.fd') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
   
+  df_to_plot = df.select('short.habituation','fd.max').rename({'short.habituation':'value','fd.max':'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_fdmax_habituation_violin.svg")
+  
+
   print("sanity test for manuscript, sex on motion")
   t = ttest(df.filter(pl.col('rodent.sex')=='m')['fd.max'], df.filter(pl.col('rodent.sex')=='f')['fd.max'])
   print('t-test for male rodent max.fd > female rodent max.fd') 
@@ -209,7 +215,12 @@ for rodent in rodent_list:
   t = ttest(df.filter(pl.col('main.experimenter.gender')=='m')['fd.max'], df.filter(pl.col('main.experimenter.gender')=='f')['fd.max'])
   print('t-test for man max.fd > woman max.fd') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
-  
+
+  df_to_plot = df.select('main.experimenter.gender','fd.max').rename({'main.experimenter.gender':'value','fd.max':'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_fdmax_gender_violin.svg")
+
   print("sanity test for manuscript, exp gender on motion")
   t = ttest(df.filter(pl.col('main.experimenter.gender')=='m')['fd.mean'], df.filter(pl.col('main.experimenter.gender')=='f')['fd.mean'])
   print('t-test for man mean.fd > woman mean.fd') 
@@ -287,7 +298,7 @@ for rodent in rodent_list:
   chi2_categorical(df_melted, 'variable','value', 'mouse')
 
   if rodent=="mouse":
-    analysis = "wmcsf3"
+    analysis = "gsr3"
   else:
     analysis = "gsr3"
 
@@ -454,7 +465,7 @@ for rodent in rodent_list:
 
 ### adding the dice analysis ####
   if rodent=="mouse":
-    analysis = "wmcsf3"
+    analysis = "gsr3"
     dr_s1=2
     dr_aca=9
   else:
@@ -462,48 +473,210 @@ for rodent in rodent_list:
     dr_s1=5
     dr_aca=7
 
+  #first test if processing change the dice outcome
+
+  import statsmodels.formula.api as smf
+  import scipy.stats as stats
+
+  print("do dice statistical analysis for s1")
+  cols = [c for c in df.columns if c.startswith(f"dr{dr_s1}")]
+  df_dice = df.select(["scan", *cols]).unpivot(index=["scan"], on=cols).drop_nulls().to_pandas()
+  
+  # Fit linear mixed model and reduced model
+  full_model= smf.mixedlm("value ~ variable", df_dice, groups="scan").fit()
+  print(full_model.summary())
+
+  reduced_model = smf.mixedlm("value ~ 1", data=df_dice, groups="scan").fit()
+ 
+  # carry out likelyhood test ratio
+  lr_stat = 2 * (full_model.llf - reduced_model.llf)
+  df_diff = full_model.df_modelwc - reduced_model.df_modelwc
+
+  p_value = stats.chi2.sf(lr_stat, df_diff)
+
+  print(f"LR statistic: {lr_stat}, df: {df_diff}, p-value: {p_value}")
+  
+  plt.figure(figsize=(10,10))
+  ax = sns.ecdfplot(data=df_dice, x="value", hue="variable")
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_s1_per_processing_ecdf.svg")
+
+  plt.figure(figsize=(10,10))
+  ax = sns.violinplot(x="variable", y="value", data=df_dice, inner="box", hue="variable")
+  ax.set_xticklabels(ax.get_xticklabels(), rotation=45)
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_s1_per_processing.svg")
+
+  print("do dice stat analysis with aca compoment")
+  cols = [c for c in df.columns if c.startswith(f"dr{dr_aca}")]
+  df_dice = df.select(["scan", *cols]).unpivot(index=["scan"], on=cols).drop_nulls().to_pandas()
+  
+  # Fit linear mixed model and reduced model
+  full_model= smf.mixedlm("value ~ variable", df_dice, groups="scan").fit()
+  print(full_model.summary())
+
+  reduced_model = smf.mixedlm("value ~ 1", data=df_dice, groups="scan").fit()
+ 
+  # carry out likelyhood test ratio
+  lr_stat = 2 * (full_model.llf - reduced_model.llf)
+  df_diff = full_model.df_modelwc - reduced_model.df_modelwc
+
+  p_value = stats.chi2.sf(lr_stat, df_diff)
+
+  print(f"LR statistic: {lr_stat}, df: {df_diff}, p-value: {p_value}")
+
+  plt.figure(figsize=(10,10))
+  ax = sns.ecdfplot(data=df_dice, x="value", hue="variable")
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_aca_per_processing_ecdf.svg")
+
+
+  plt.figure(figsize=(10,10))
+  ax = sns.violinplot(x="variable", y="value", data=df_dice, inner="box", hue="variable")
+  ax.set_xticklabels(ax.get_xticklabels(), rotation=45)
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_aca_per_processing.svg")
+
+ 
+
   #create two new columns in df, one for the dice score for dr_s1 from the column f"dr{dr_s1}.{analysis} and one for the dice score for dr_aca
   df = df.with_columns(pl.col(f"dr{dr_s1}.{analysis}").alias('dice_s1'))
   df = df.with_columns(pl.col(f"dr{dr_aca}.{analysis}").alias('dice_aca'))
 
   #plot the relation between categories and dice score for s1 and aca
-  plt.figure(figsize=(10,5))
+  plt.figure(figsize=(10,10))
   ax = sns.jointplot(x=df["dice_s1"], y=df["dice_aca"], hue=df[f"s1.cat.{analysis}"])
-  ax.figure.savefig("../assets/plot/"+rodent+"dice_s1_vs_dice_aca.svg")
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_s1_vs_dice_aca.svg")
 
   #plot the dice for s1 and aca per dataset
-  plt.figure(figsize=(10,5))
+  plt.figure(figsize=(10,10))
   ax = makeswarmplot('Dice ICA S1 per dataset', df["rodent.ds"], df["dice_s1"], hue=df['head-plate'])
-  ax.figure.savefig("../assets/plot/"+rodent+"dice_s1_per_dataset.svg")
+  ax.set_xticklabels(ax.get_xticklabels(), rotation=45)
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_s1_per_dataset.svg")
 
-  plt.figure(figsize=(10,5))
+  plt.figure(figsize=(10,10))
   ax = makeswarmplot('Dice ICA ACA per dataset', df["rodent.ds"], df["dice_aca"], hue=df['head-plate'])
-  ax.figure.savefig("../assets/plot/"+rodent+"dice_aca_per_dataset.svg")
+  ax.set_xticklabels(ax.get_xticklabels(), rotation=45)
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_aca_per_dataset.svg")
 
   #run a couple ttest to recapitulate observations about specificity.
   t = ttest(df.filter(pl.col('head-plate')=='y')['dice_s1'], df.filter(pl.col('head-plate')=='n')['dice_s1'])
   print('t-test for head-plate dice_s1 > no head-plate dice_s1') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  df_to_plot = df.select('head-plate','dice_s1').rename({'head-plate':'value','dice_s1':'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_s1_headplate_violin.svg")
 
   t = ttest(df.filter(pl.col('head-plate')=='y')['dice_aca'], df.filter(pl.col('head-plate')=='n')['dice_aca'])
   print('t-test for head-plate dice_aca > no head-plate dice_aca') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  df_to_plot = df.select('head-plate','dice_aca').rename({'head-plate':'value','dice_aca':'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_aca_headplate_violin.svg")
 
   t = ttest(df.filter(pl.col('short.habituation')=='long')['dice_s1'], df.filter(pl.col('short.habituation')=='short')['dice_s1'])
   print('t-test for long habituation dice_s1 > short habituation dice_s1') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  df_to_plot = df.select('short.habituation','dice_s1').rename({'short.habituation':'value','dice_s1':'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_s1_habituation_violin.svg")
+
 
   t = ttest(df.filter(pl.col('short.habituation')=='long')['dice_aca'], df.filter(pl.col('short.habituation')=='short')['dice_aca'])
   print('t-test for long habituation dice_aca > short habituation dice_aca') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  df_to_plot = df.select('short.habituation','dice_aca').rename({'short.habituation':'value','dice_aca':'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_s1_habituation_violin.svg")
+
 
   t = ttest(df.filter(pl.col('fMRI.sequence')=='GE-EPI')['dice_s1'], df.filter(pl.col('fMRI.sequence')=='SE-EPI')['dice_s1'])
   print('t-test for GE-EPI dice_s1 > SE-EPI dice_s1') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  df_to_plot = df.select('fMRI.sequence','dice_s1').rename({'fMRI.sequence':'value','dice_s1':'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_s1_sequence_violin.svg")
+
 
   t = ttest(df.filter(pl.col('fMRI.sequence')=='GE-EPI')['dice_aca'], df.filter(pl.col('fMRI.sequence')=='SE-EPI')['dice_aca'])
   print('t-test for GE-EPI dice_aca > SE-EPI dice_aca') 
   print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  df_to_plot = df.select('fMRI.sequence','dice_aca').rename({'fMRI.sequence':'value','dice_aca':'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_aca_sequence_violin.svg")
+
+
+  t = ttest(df.filter(pl.col('main.experimenter.gender')=='m')['dice_s1'], df.filter(pl.col('main.experimenter.gender')=='f')['dice_s1'])
+  print('t-test for man dice_s1 > woman dice_s1') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  df_to_plot = df.select('main.experimenter.gender','dice_s1').rename({'main.experimenter.gender':'value','dice_s1':'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_s1_gender_violin.svg")
+
+  t = ttest(df.filter(pl.col('anesthesia.before.acquisition')=='y')['dice_s1'], df.filter(pl.col('anesthesia.before.acquisition')=='n')['dice_s1'])
+  print('t-test for anesthesia dice_s1 > no anesthesia dice_s1') 
+  print(f't={round(t["T"].item(),2)}, p={round(t["p_val"].item(),5)}, dof={round(t["dof"].item(),2)}')
+  df_to_plot = df.select('anesthesia.before.acquisition','dice_s1').rename({'anesthesia.before.acquisition':'value','dice_s1':'cont_variable'})
+  plt.figure(figsize=(10,5))
+  ax = makeviolinplot(df_to_plot)
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_s1_anesthesia_violin.svg")
+
+ 
+  print("analysis of dice in s1 as a function of mean framewise displacement")
+  df = df.with_columns(pl.col("fd.mean").alias("fd_mean"), pl.col("fd.max").alias("fd_max"))
+
+  full_model = smf.ols("dice_s1 ~ fd_mean", data=df).fit()
+  reduced_model = smf.ols("dice_s1 ~ 1", data=df).fit()
+
+  lr_stat = 2 * (full_model.llf - reduced_model.llf)
+  df_diff = full_model.df_model - reduced_model.df_model
+  p_value = stats.chi2.sf(lr_stat, df_diff)
+  print(f"LR statistic: {lr_stat}, df: {df_diff}, p-value: {p_value}")
+
+  plt.figure(figsize=(10,10))
+  ax = sns.scatterplot(x=df["fd_mean"], y=df["dice_s1"])
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_s1_vs_fd_mean.svg")
+
+  full_model = smf.ols("dice_s1 ~ fd_max", data=df).fit()
+  reduced_model = smf.ols("dice_s1 ~ 1", data=df).fit()
+
+  lr_stat = 2 * (full_model.llf - reduced_model.llf)
+  df_diff = full_model.df_model - reduced_model.df_model
+  p_value = stats.chi2.sf(lr_stat, df_diff)
+  print(f"LR statistic: {lr_stat}, df: {df_diff}, p-value: {p_value}")
+
+  plt.figure(figsize=(10,10))
+  ax = sns.scatterplot(x=df["fd_max"], y=df["dice_s1"])
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_s1_vs_fd_max.svg")
+
+
+  print("analysis of dice in aca as a function of mean framewise displacement")
+  full_model = smf.ols("dice_aca ~ fd_mean", data=df).fit()
+  reduced_model = smf.ols("dice_aca ~ 1", data=df).fit()
+
+  lr_stat = 2 * (full_model.llf - reduced_model.llf)
+  df_diff = full_model.df_model - reduced_model.df_model
+  p_value = stats.chi2.sf(lr_stat, df_diff)
+  print(f"LR statistic: {lr_stat}, df: {df_diff}, p-value: {p_value}")
+
+  plt.figure(figsize=(10,10))
+  ax = sns.scatterplot(x=df["fd_mean"], y=df["dice_aca"])
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_aca_vs_fd_mean.svg")
+
+  full_model = smf.ols("dice_aca ~ fd_max", data=df).fit()
+  reduced_model = smf.ols("dice_aca ~ 1", data=df).fit()
+
+  lr_stat = 2 * (full_model.llf - reduced_model.llf)
+  df_diff = full_model.df_model - reduced_model.df_model
+  p_value = stats.chi2.sf(lr_stat, df_diff)
+  print(f"LR statistic: {lr_stat}, df: {df_diff}, p-value: {p_value}")
+
+  plt.figure(figsize=(10,10))
+  ax = sns.scatterplot(x=df["fd_max"], y=df["dice_aca"])
+  ax.figure.savefig("../assets/plot/"+rodent+"_dice_aca_vs_fd_max.svg")
 
 
 
