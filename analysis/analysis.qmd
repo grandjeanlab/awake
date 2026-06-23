@@ -18,8 +18,10 @@ import polars as pl
 #import plotting modules
 import matplotlib.pyplot as plt
 import seaborn as sns
-from scipy.stats import chi2_contingency, ttest_ind
+#import stats modules
+from scipy.stats import chi2
 from pingouin import ttest
+import statsmodels.formula.api as smf
 
 import matplotlib
 #set matplotlib rendering to TkAgg
@@ -38,52 +40,6 @@ def makeviolinplot(df_to_plot):
   ax = sns.stripplot(x=df_to_plot['value'], y=df_to_plot['cont_variable'],  dodge=True, color='black', alpha=0.3)
   return ax
 
-def makestackplot(df_melted):
-  plt.figure(figsize=(10,5))
-  ax = sns.displot(x=df_melted['variable'], hue=df_melted['value'], multiple='stack', hue_order=cat_index, stat='probability')
-  ax.ax.invert_yaxis()
-  ax.ax.tick_params(axis='x', rotation=90)
-  return ax
-
-def makespecificityplot(title, x,y, hue=None):
-  ax = sns.jointplot(x=x, y=y, hue=hue)
-  ax.fig.suptitle(title)
-  ax.fig.subplots_adjust(top=0.9)
-  ax.ax_joint.set(xlabel='Specific ROI [r]', ylabel='Unspecific ROI [r]')
-  ax.ax_joint.set_xlim(-1, 1)
-  ax.ax_joint.set_ylim(-1, 1)
-  ax.ax_joint.vlines(0.1,ymin=-1,ymax=1,linestyles='dashed', color='black')
-  ax.ax_joint.vlines(-0.1, -0.1,0.1,linestyles='dashed', color='black')
-  ax.ax_joint.hlines(-0.1, -0.1,0.1,linestyles='dashed', color='black')
-  ax.ax_joint.hlines(0.1, -0.1,xmax=1,linestyles='dashed', color='black')
-  ax.ax_marg_x.axvline(x=0.1, color='black')
-  ax.ax_marg_y.axhline(y=0.1, color='black')
-  return ax
-
-def split_continuous(df, cat1, cat2, split=4, labels = ["lowest","low","high","highest"]):
-  split_table = df.select(cat1, cat2).with_columns(pl.col(cat2).qcut(split, labels=labels, allow_duplicates=True).alias('quartiles')).drop_nulls()
-  return split_table
-
-def chi2_continuous(df, cat1, cat2, rodent, split=4, labels = ["lowest","low","high","highest"]):
-  chi2_table = split_continuous(df, cat1, cat2, split, labels)
-  print(f'looking at {cat2} effect in {cat1} in {rodent}')
-  total_count = chi2_table.height/100
-  chi2_table = chi2_table.select(cat1,'quartiles').group_by([cat1,'quartiles']).agg(pl.len()).sort(by='quartiles').pivot(index=cat1, on='quartiles', values='len').sort(by=cat1)
-  print(chi2_table.with_columns(pl.all().exclude(chi2_table.columns[0])/total_count))
-  chi2_table = chi2_table.select(pl.all().exclude(chi2_table.columns[0]))
-  q, p, dof, expect = chi2_contingency(chi2_table)
-  print(f'the effect of {cat2} on {cat1} in {rodent} is q =  {round(q,2)} with p-value = {round(p,5)}, dof = {dof}')
-
-def chi2_categorical(df, cat1, cat2, rodent):
-  print(f'looking at {cat2} effect in {cat1} in {rodent}')
-  chi2_table = df.select(cat1, cat2).drop_nulls()
-  total_count = chi2_table.height/100
-  chi2_table = chi2_table.select(cat1,cat2).group_by([cat1,cat2]).agg(pl.len()).sort(by=cat2).pivot(index=cat1, on=cat2, values='len').sort(by=cat1)
-  print(chi2_table.with_columns(pl.all().exclude(chi2_table.columns[0])/total_count))
-  chi2_table = chi2_table.select(pl.all().exclude(chi2_table.columns[0]))
-  q, p, dof, expect = chi2_contingency(chi2_table)
-  print(f'the effect of {cat2} on {cat1} in {rodent} is q =  {round(q,2)} with p-value = {round(p,5)}, dof = {dof}')
-
 pl.Config(
     tbl_formatting="MARKDOWN",
     tbl_hide_column_data_types=True,
@@ -93,13 +49,6 @@ pl.Config(
 
 analysis_list = [ "gsr1", "gsr2", "gsr3","wmcsf1", "wmcsf2", "wmcsf3", "aCompCor1", "aCompCor2", "aCompCor3" ]  
 
-cat_index = ["Specific", "Non-specific", "Spurious", "No"]
-
-seed_ref = "s1_r"
-seed_specific = "s1_l"
-seed_unspecific = "aca_r"
-seed_thalamus = "vpm_r"
-
 roi_list=["s1","thal"]
 
 ```
@@ -108,7 +57,7 @@ roi_list=["s1","thal"]
 
 
 ```{python}
-rodent_list = ["mouse", "rat"]
+rodent_list = ["mouse"]
 for rodent in rodent_list:
 #rodent='mouse'
   print("#### NOW DOING " + rodent + " ####")
@@ -163,7 +112,6 @@ for rodent in rodent_list:
   print(df.select("fd.mean").mean())
   print("mean fd per dataset")
   print(df_summary.select("rodent.ds", "fd.mean").sort(by="rodent.ds"))
-
 
   plt.figure(figsize=(10,5))
   ax = makeswarmplot('framewise displacement per dataset', df["rodent.ds"], df["fd.mean"], hue=df['head-plate'])
@@ -268,201 +216,6 @@ for rodent in rodent_list:
   ).sort(by="rodent.ds"))
 
 
-  print("#### FC specifiticy analysis ####")
-  for analysis in analysis_list:
-    print(" ")
-    print("overall FC specificity for "+ analysis)
-    print(df["s1.cat."+analysis].value_counts().with_columns(pl.col("count")/pl.sum("count")).sort(by='count', descending=True))
-
-  print("for gsr processing, heavy scrubbing lead to  "+str((df["s1.cat.gsr1"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr1"]=="Specific").count())  + " Specific scans")
-  print("for gsr processing, light scrubbing lead to  "+str((df["s1.cat.gsr3"]=="Specific").sum()) + "/" +str((df["s1.cat.gsr3"]=="Specific").count())  + " Specific scans")
-
-  print("for wmcsf processing, heavy scrubbing lead to  "+str((df["s1.cat.wmcsf1"]=="Specific").sum()) + "/" +str((df["s1.cat.wmcsf1"]=="Specific").count())  + " Specific scans")
-  print("for wmcsf processing, light scrubbing lead to  "+str((df["s1.cat.wmcsf3"]=="Specific").sum()) + "/" +str((df["s1.cat.wmcsf3"]=="Specific").count())  + " Specific scans")
-
-  print("s1-s1 specificity analysis per dataset (only showing specific values)")
-  print(df_summary[["rodent.ds"]+["s1.cat."+analysis+".Specific" for analysis in analysis_list]].sort(by="rodent.ds"))
-
-  print("it seems that less scrubbing lead to better outcomes")
-  print("for gsr processing, "+str((df_summary["s1.cat.gsr1.Specific"] < df_summary["s1.cat.gsr3.Specific"]).sum())+"/"+str(df_summary["s1.cat.gsr1.Specific"].count())+" dataset performed better with less scrubbing")
-  print("for wmcsf processing, "+str((df_summary["s1.cat.wmcsf1.Specific"] < df_summary["s1.cat.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.cat.wmcsf1.Specific"].count())+" dataset performed better with less scrubbing")
-  print("for comparing gsr to wmcsf processing, "+str((df_summary["s1.cat.gsr3.Specific"] < df_summary["s1.cat.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.cat.wmcsf3.Specific"].count())+" dataset performed better with wmcsf compared to gsr")
-  print("for comparing gsr to wmcsf processing, "+str((df_summary["s1.cat.gsr3.Specific"] > df_summary["s1.cat.wmcsf3.Specific"]).sum())+"/"+str(df_summary["s1.cat.wmcsf3.Specific"].count())+" dataset performed worst with wmcsf compared to gsr")
-
-  print("#### plot fc categories per denoising method ####")
-  df_melted = df.melt(id_vars="rodent.ds", value_vars=['s1.cat.' + x for x in analysis_list])
-  plt.figure(figsize=(10,5))
-  ax = makestackplot(df_melted)
-  ax.figure.savefig("../assets/plot/"+rodent+"_specificity.svg")
-
-  chi2_categorical(df_melted, 'variable','value', 'mouse')
-
-  if rodent=="mouse":
-    analysis = "gsr3"
-  else:
-    analysis = "gsr3"
-
-  plt.figure(figsize=(10,5))
-  ax = makespecificityplot(rodent+': S1 specificity with ' + analysis, df['s1.specific.'+analysis], df['s1.unspecific.'+analysis])
-  ax.figure.savefig("../assets/plot/specific/"+rodent+"_s1_specificity_"+analysis+".svg")
-
-  plt.figure(figsize=(10,5))
-  ax = makespecificityplot(rodent+': Thal FC specificity with ' + analysis, df['thal.specific.'+analysis], df['s1.unspecific.'+analysis])
-  ax.figure.savefig("../assets/plot/specific/"+rodent+"_thal_specificity_"+analysis+".svg")
-
-  cat1='s1.cat.'+analysis
-  df = df.with_columns(pl.when(pl.col(cat1)=='Specific').then(pl.lit('Specific')).otherwise(pl.lit('other')).alias('cat'))
-
-  cat2 = 'fd.mean'
-  df_to_plot = split_continuous(df, cat1, cat2)
-  df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
-
-  plt.figure(figsize=(10,5))
-  ax = makestackplot(df_to_plot)
-  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd.svg")
-
-  plt.figure(figsize=(10,5))
-  ax = makeviolinplot(df_to_plot)
-  ax.set_xlabel('Connectivity category')
-  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fd_violin.svg")
-
-  cat2 = 'fd.max'
-  df_to_plot = split_continuous(df, cat1, cat2)
-  df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
-
-  plt.figure(figsize=(10,5))
-  ax = makestackplot(df_to_plot)
-  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fdmax.svg")
-
-  plt.figure(figsize=(10,5))
-  ax = makeviolinplot(df_to_plot)
-  ax.set_xlabel('Connectivity category')
-  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_fdmax_violin.svg")
-
-  cat2='s1.gsrcov.l.'+analysis
-  df_to_plot = split_continuous(df, cat1, cat2)
-  df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
-  plt.figure(figsize=(10,5))
-  ax = makestackplot(df_to_plot)
-  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov.svg")
-
-  plt.figure(figsize=(10,5))
-  ax = makeviolinplot(df_to_plot)
-  ax.set_xlabel('Connectivity category')
-  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_gsrcov_violin.svg")
-
-  cat2='s1.tsnr.l'
-  df_to_plot = split_continuous(df, cat1, cat2)
-  df_to_plot = df_to_plot.rename({cat1:'value', 'quartiles':'variable', cat2:'cont_variable'})
-  plt.figure(figsize=(10,5))
-  ax = makestackplot(df_to_plot)
-  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr.svg")
-
-  plt.figure(figsize=(10,5))
-  ax = makeviolinplot(df_to_plot)
-  ax.set_xlabel('Connectivity category')
-  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_tsnr_violin.svg")
-
-
-  cat2='main.experimenter.gender'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(10,5))
-  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_expgender.svg')
-
-  cat2='rodent.sex'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(10,5))
-  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_sex.svg')
-
-  cat2='head-plate'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(10,5))
-  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_headplate.svg')
-
-  cat2='body.restrained'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(10,5))
-  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_restrained.svg')
-
-  cat2='short.habituation'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(10,5))
-  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_shorthabituation.svg')
-
-  cat2='anesthesia.before.acquisition'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(10,5))
-  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_anesthesia.svg')
-
-  cat2='MRI.field.strength'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(10,5))
-  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_MRI.svg')
-
-  cat2='fMRI.sequence'
-  df_to_plot = df.select('cat',cat2).drop_nulls().group_by(['cat',cat2]).agg(pl.len()).sort(by=cat2).with_columns((pl.col('len') / pl.col('len').sum().over('cat')).alias('rel_count')).sort(by='cat')
-  plt.figure(figsize=(10,5))
-  ax = sns.barplot(x=df_to_plot['cat'],y=df_to_plot['len'],hue=df_to_plot[cat2])
-  ax.figure.savefig('../assets/plot/'+rodent+'_'+analysis+'_fMRI.svg')
-
-  cat2='habituation.min'
-  df_to_plot = split_continuous(df, 'cat', cat2)
-  df_to_plot = df_to_plot.rename({'cat':'value', 'quartiles':'variable', cat2:'cont_variable'})
-  plt.figure(figsize=(10,5))
-  ax = makeviolinplot(df_to_plot)
-  ax.set_xlabel('Connectivity category')
-  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_min.svg")
-
-  cat2='habituation.days'
-  df_to_plot = split_continuous(df, 'cat', cat2)
-  df_to_plot = df_to_plot.rename({'cat':'value', 'quartiles':'variable', cat2:'cont_variable'})
-  plt.figure(figsize=(10,5))
-  ax = makeviolinplot(df_to_plot)
-  ax.set_xlabel('Connectivity category')
-  ax.figure.savefig("../assets/plot/"+rodent+"_"+analysis+"_habituation_days.svg")
-
-
-
-  print('doing statistical analysis')
-  print('first with '+analysis+' processed data')
-  cat2 = 'fd.mean'
-  chi2_continuous(df, 'cat', cat2, rodent)
-  cat2 = 'fd.max'
-  chi2_continuous(df, 'cat', cat2, rodent)
-  cat2 = 's1.gsrcov.l.'+analysis
-  chi2_continuous(df, 'cat', cat2, rodent)
-  cat2 = 's1.tsnr.l'
-  chi2_continuous(df, 'cat', cat2, rodent)
-  cat2 = 'habituation.min'
-  chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
-  cat2 = 'habituation.days'
-  chi2_continuous(df, 'cat', cat2, rodent, 2, ['low','high'])
-
-  print('sanity test for manuscript, look at the association between dropped frames and framewise displacement')
-  split=4 
-  labels = ["lowest","low","high","highest"]
-  cat1='dropped.frames.gsr1.perc'
-  cat2='fd.max'
-  df = df.with_columns((100*pl.col("dropped.frames.gsr1")/pl.col("total.frames")).alias(cat1))
-  df = df.with_columns(pl.col(cat1).qcut(split, labels=labels, allow_duplicates=True).alias('cat1quartiles'))
-  chi2_continuous(df, 'cat1quartiles', cat2, rodent)
-
-  chi2_categorical(df, 'cat', 'short.habituation', rodent)
-  chi2_categorical(df, 'cat', 'main.experimenter.gender', rodent)
-  chi2_categorical(df, 'cat', 'rodent.sex', rodent)
-  chi2_categorical(df, 'cat', 'head-plate', rodent)
-  chi2_categorical(df, 'cat', 'body.restrained', rodent)
-  chi2_categorical(df, 'cat', 'anesthesia.before.acquisition', rodent)
-  chi2_categorical(df, 'cat', 'MRI.field.strength', rodent)
-  chi2_categorical(df, 'cat', 'fMRI.sequence', rodent)
-
 ### adding the dice analysis ####
   if rodent=="mouse":
     analysis = "gsr3"
@@ -474,9 +227,6 @@ for rodent in rodent_list:
     dr_aca=7
 
   #first test if processing change the dice outcome
-
-  import statsmodels.formula.api as smf
-  import scipy.stats as stats
 
   print("do dice statistical analysis for s1")
   cols = [c for c in df.columns if c.startswith(f"dr{dr_s1}")]
@@ -492,7 +242,7 @@ for rodent in rodent_list:
   lr_stat = 2 * (full_model.llf - reduced_model.llf)
   df_diff = full_model.df_modelwc - reduced_model.df_modelwc
 
-  p_value = stats.chi2.sf(lr_stat, df_diff)
+  p_value = chi2.sf(lr_stat, df_diff)
 
   print(f"LR statistic: {lr_stat}, df: {df_diff}, p-value: {p_value}")
   
@@ -519,7 +269,7 @@ for rodent in rodent_list:
   lr_stat = 2 * (full_model.llf - reduced_model.llf)
   df_diff = full_model.df_modelwc - reduced_model.df_modelwc
 
-  p_value = stats.chi2.sf(lr_stat, df_diff)
+  p_value = chi2.sf(lr_stat, df_diff)
 
   print(f"LR statistic: {lr_stat}, df: {df_diff}, p-value: {p_value}")
 
@@ -534,15 +284,9 @@ for rodent in rodent_list:
   ax.figure.savefig("../assets/plot/"+rodent+"_dice_aca_per_processing.svg")
 
  
-
   #create two new columns in df, one for the dice score for dr_s1 from the column f"dr{dr_s1}.{analysis} and one for the dice score for dr_aca
   df = df.with_columns(pl.col(f"dr{dr_s1}.{analysis}").alias('dice_s1'))
   df = df.with_columns(pl.col(f"dr{dr_aca}.{analysis}").alias('dice_aca'))
-
-  #plot the relation between categories and dice score for s1 and aca
-  plt.figure(figsize=(10,10))
-  ax = sns.jointplot(x=df["dice_s1"], y=df["dice_aca"], hue=df[f"s1.cat.{analysis}"])
-  ax.figure.savefig("../assets/plot/"+rodent+"_dice_s1_vs_dice_aca.svg")
 
   #plot the dice for s1 and aca per dataset
   plt.figure(figsize=(10,10))
@@ -633,7 +377,7 @@ for rodent in rodent_list:
 
   lr_stat = 2 * (full_model.llf - reduced_model.llf)
   df_diff = full_model.df_model - reduced_model.df_model
-  p_value = stats.chi2.sf(lr_stat, df_diff)
+  p_value = chi2.sf(lr_stat, df_diff)
   print(f"LR statistic: {lr_stat}, df: {df_diff}, p-value: {p_value}")
 
   plt.figure(figsize=(10,10))
@@ -645,7 +389,7 @@ for rodent in rodent_list:
 
   lr_stat = 2 * (full_model.llf - reduced_model.llf)
   df_diff = full_model.df_model - reduced_model.df_model
-  p_value = stats.chi2.sf(lr_stat, df_diff)
+  p_value = chi2.sf(lr_stat, df_diff)
   print(f"LR statistic: {lr_stat}, df: {df_diff}, p-value: {p_value}")
 
   plt.figure(figsize=(10,10))
@@ -659,7 +403,7 @@ for rodent in rodent_list:
 
   lr_stat = 2 * (full_model.llf - reduced_model.llf)
   df_diff = full_model.df_model - reduced_model.df_model
-  p_value = stats.chi2.sf(lr_stat, df_diff)
+  p_value = chi2.sf(lr_stat, df_diff)
   print(f"LR statistic: {lr_stat}, df: {df_diff}, p-value: {p_value}")
 
   plt.figure(figsize=(10,10))
@@ -671,14 +415,31 @@ for rodent in rodent_list:
 
   lr_stat = 2 * (full_model.llf - reduced_model.llf)
   df_diff = full_model.df_model - reduced_model.df_model
-  p_value = stats.chi2.sf(lr_stat, df_diff)
+  p_value = chi2.sf(lr_stat, df_diff)
   print(f"LR statistic: {lr_stat}, df: {df_diff}, p-value: {p_value}")
 
   plt.figure(figsize=(10,10))
   ax = sns.scatterplot(x=df["fd_max"], y=df["dice_aca"])
   ax.figure.savefig("../assets/plot/"+rodent+"_dice_aca_vs_fd_max.svg")
 
+  #finally, plot the dictionary components
+  from nilearn.image import iter_img
+  from nilearn.plotting import plot_stat_map, show
+  from nibabel import load as load_nii
 
+  bg_img = load_nii("../assets/template/"+rodent+"/template.nii.gz")
+  dict_img = load_nii("../assets/template/"+rodent+"/dict_"+analysis+".nii.gz")
+  for i, cur_img in enumerate(iter_img(dict_img)):
+    plot_stat_map(
+        cur_img,
+        bg_img=bg_img,
+        title=f"IC {int(i)}",
+        threshold=0.03,
+        vmax=0.1,
+        vmin=-0.1,
+        colorbar=False,
+        output_file=f"../assets/plot/dict/{rodent}_dict_{analysis}_IC{int(i)}.svg"
+    )
 
 
 ```
