@@ -65,6 +65,7 @@ mkdir -p $output_dir/aCompCor3
 
 ##add inho_cor flag
 #find . -type f -exec sed -i 's/3dWarp /3dWarp --bold_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false --anat_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false /g' {} +
+#find . -type f -exec sed -i 's/3dWarp /3dWarp --bold_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false /g' {} +
 
 ##remove inho_cor flag
 #find . -type f -exec sed -i 's/--bold_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false --anat_inho_cor method=N4_reg,otsu_thresh=2,multiotsu=false //g' {} +

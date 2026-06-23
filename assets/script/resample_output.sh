@@ -18,7 +18,7 @@ check_pixdim_and_continue() {
 }
 
 
-cd /project/4180000.36/awake/output_mouse/
+cd /project/4180000.36/awake/complete_output_rat/
 fd -t f -e .nii.gz cleaned ./*/confound_correction_datasink/cleaned_timeseries/ | while read line
 do
 
@@ -26,12 +26,12 @@ check_pixdim_and_continue "$line" || continue
 
 echo $line
 
-sbatch --mem=8G --time=00:5:00 << EOF
+sbatch --mem=8G --time=00:10:00 << EOF
 #!/bin/bash
 module load afni
 
 echo \$TMPDIR
-3dresample -input $line -prefix \$TMPDIR/tmp.nii.gz -dxyz 0.4 0.4 0.4
+3dresample -input $line -prefix \$TMPDIR/tmp.nii.gz -dxyz 0.5 0.5 0.5
 
 rm $line
 mv \$TMPDIR/tmp.nii.gz $line
