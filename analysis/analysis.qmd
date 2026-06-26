@@ -23,10 +23,24 @@ from scipy.stats import chi2
 from pingouin import ttest
 import statsmodels.formula.api as smf
 
+#import img plotting modules
+from nilearn.image import iter_img, index_img
+from nilearn.plotting import plot_stat_map, show
+from nibabel import load as load_nii
+import numpy as np
+import os
+
 import matplotlib
+from met_brewer import met_brew, is_colorblind_friendly
 #set matplotlib rendering to TkAgg
 matplotlib.use('TkAgg')
 
+met_colors_name = "Hiroshige"
+
+met_colors = met_brew(name=met_colors_name)
+print(is_colorblind_friendly(met_colors_name))
+
+sns.set_theme(style="white", palette=met_colors)
 
 def makeswarmplot(title, x, y, hue=None):
     ax = plt.figure(figsize=(10,5))
@@ -39,6 +53,36 @@ def makeviolinplot(df_to_plot):
   ax = sns.violinplot(x=df_to_plot['value'], y=df_to_plot['cont_variable'], hue=df_to_plot['value'],  inner=None)
   ax = sns.stripplot(x=df_to_plot['value'], y=df_to_plot['cont_variable'],  dodge=True, color='black', alpha=0.3)
   return ax
+
+def get_threshold(img, threshold=90):
+      data = img.get_fdata().flatten()
+      data = data[data != 0]
+      return np.percentile(data,threshold)
+
+def plot_stat_map_with_threshold(img, title, coord_cut, output_file, bg_img=bg_img, threshold=90):
+    thresh_value = get_threshold(img, threshold)
+    plot_stat_map(
+        img,
+        bg_img=bg_img,
+        title=title,
+        display_mode='y',
+        cut_coords=[coord_cut],
+        threshold=thresh_value,
+        vmin=0,
+        colorbar=False,
+        black_bg=False,
+        output_file=output_file
+    )
+
+def get_dr_map(scan, data_dir, analysis, dr_index):
+    dr_dice_dir= "commonspace_analysis_datasink/dual_regression_nii"
+    dr_map_path = os.path.join(data_dir, analysis,dr_dice_dir, f"_split_name_{scan}_task-rest_bold", f"{scan}_task-rest_bold_cleaned_DR_maps.nii.gz")
+    if os.path.isfile(dr_map_path): 
+      return index_img(dr_map_path, dr_index)
+    else: 
+      print(f"DR map not found for scan {scan} at {dr_map_path}")
+      return None
+
 
 pl.Config(
     tbl_formatting="MARKDOWN",
@@ -63,6 +107,13 @@ for rodent in rodent_list:
   print("#### NOW DOING " + rodent + " ####")
   df = pl.read_csv("../assets/tables/"+rodent+"_metadata_processed.tsv", separator="\t").sort(by='rodent.ds')
   df_summary=pl.read_csv("../assets/tables/"+rodent+"_summary_processed.tsv", separator="\t").sort(by='rodent.ds')
+
+  #relevant paths for the analysis
+  data_dir = "/project/4180000.36/awake/complete_output_"+rodent
+  bg_img = load_nii("../assets/template/"+rodent+"/template.nii.gz")
+  bg_img = "/project/4180000.36/awake/template/"+rodent+"/template.nii.gz"
+  dict_img = "../assets/template/"+rodent+"/dict_"+analysis+".nii.gz"
+  ica_img = "../assets/template/"+rodent+"/ica.nii.gz"
 
   print("summary of the data that we collected")
   print("we processed " + str(df_summary["rodent.ds"].count()) + " datasets") 
@@ -220,7 +271,9 @@ for rodent in rodent_list:
   if rodent=="mouse":
     analysis = "gsr3"
     dr_s1=2
+    dr_s1_cut=2.5
     dr_aca=9
+    dr_aca_cut=1.5
   else:
     analysis = "gsr3"
     dr_s1=5
@@ -422,13 +475,7 @@ for rodent in rodent_list:
   ax = sns.scatterplot(x=df["fd_max"], y=df["dice_aca"])
   ax.figure.savefig("../assets/plot/"+rodent+"_dice_aca_vs_fd_max.svg")
 
-  #finally, plot the dictionary components
-  from nilearn.image import iter_img
-  from nilearn.plotting import plot_stat_map, show
-  from nibabel import load as load_nii
-
-  bg_img = load_nii("../assets/template/"+rodent+"/template.nii.gz")
-  dict_img = load_nii("../assets/template/"+rodent+"/dict_"+analysis+".nii.gz")
+  print("plot the dictionary components, not used in the  analysis")
   for i, cur_img in enumerate(iter_img(dict_img)):
     plot_stat_map(
         cur_img,
@@ -438,9 +485,59 @@ for rodent in rodent_list:
         vmax=0.1,
         vmin=-0.1,
         colorbar=False,
+        black_bg=False,
         output_file=f"../assets/plot/dict/{rodent}_dict_{analysis}_IC{int(i)}.svg"
     )
+  
+  print("plotting the reference ica for dice analysis")
+  #plot reference ica used for dice analysis
+  plot_stat_map_with_threshold(index_img(ica_img,dr_s1), f"ICA S1",dr_s1_cut, f"../assets/plot/dice/{rodent}_s1_ref.svg")
+  plot_stat_map_with_threshold(index_img(ica_img,dr_aca), f"ICA ACA",dr_aca_cut, f"../assets/plot/dice/{rodent}_aca_ref.svg")
 
+
+  print("plotting the top, median and low dice images for s1")
+  df_sorted = df.select(["scan", "dice_s1"]).sort(by="dice_s1", descending=True).drop_nulls()
+  
+  print("outup top dice image for s1")
+  scan_to_plot = df_sorted[0]
+  i = get_dr_map(scan_to_plot["scan"][0], data_dir, analysis, dr_s1)
+  d = round(scan_to_plot["dice_s1"][0],2)
+  plot_stat_map_with_threshold(i, f"Dice top: {d}",dr_s1_cut, f"../assets/plot/dice/{rodent}_s1_top.svg")
+
+  print("output median dice image for s1")
+  scan_to_plot = df_sorted[len(df_sorted)//2]
+  i = get_dr_map(scan_to_plot["scan"][0], data_dir, analysis, dr_s1)
+  d = round(scan_to_plot["dice_s1"][0],2)
+  plot_stat_map_with_threshold(i, f"Dice median: {d}",dr_s1_cut, f"../assets/plot/dice/{rodent}_s1_med.svg")
+
+  print("output low dice image for s1")
+  scan_to_plot = df_sorted[len(df_sorted)-1]
+  i = get_dr_map(scan_to_plot["scan"][0], data_dir, analysis, dr_s1)
+  d = round(scan_to_plot["dice_s1"][0],2)
+  plot_stat_map_with_threshold(i, f"Dice low: {d}",dr_s1_cut, f"../assets/plot/dice/{rodent}_s1_low.svg")
+
+  print("plotting the top, median and low dice images for aca")
+  df_sorted = df.select(["scan", "dice_aca"]).sort(by="dice_aca", descending=True).drop_nulls()
+  
+  print("outup top dice image for aca")
+  scan_to_plot = df_sorted[0]
+  i = get_dr_map(scan_to_plot["scan"][0], data_dir, analysis, dr_s1)
+  d = round(scan_to_plot["dice_aca"][0],2)
+  plot_stat_map_with_threshold(i, f"Dice top: {d}",dr_aca_cut, f"../assets/plot/dice/{rodent}_aca_top.svg")
+
+  print("output median dice image for aca")
+  scan_to_plot = df_sorted[len(df_sorted)//2]
+  i = get_dr_map(scan_to_plot["scan"][0], data_dir, analysis, dr_aca)
+  d = round(scan_to_plot["dice_aca"][0],2)
+  plot_stat_map_with_threshold(i, f"Dice median: {d}",dr_aca_cut, f"../assets/plot/dice/{rodent}_aca_med.svg")
+
+  print("output low dice image for aca")
+  scan_to_plot = df_sorted[len(df_sorted)-1]
+  i = get_dr_map(scan_to_plot["scan"][0], data_dir, analysis, dr_aca)
+  d = round(scan_to_plot["dice_aca"][0],2)
+  plot_stat_map_with_threshold(i, f"Dice low: {d}",dr_aca_cut, f"../assets/plot/dice/{rodent}_aca_low.svg")
+
+ 
 
 ```
 
